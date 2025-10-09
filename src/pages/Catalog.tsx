@@ -212,7 +212,7 @@ const Catalog = () => {
                           </div>
                           
                           {/* Traits grid with icons */}
-                          <div className="grid grid-cols-2 gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner">
+                          <div className="grid grid-cols-1 gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner">
                             {cat.traits.map((trait, i) => <div key={i} className="flex items-center gap-2 text-sm font-semibold text-foreground/90 group/trait">
                                 <Sparkles className="w-4 h-4 text-primary group-hover/trait:animate-pulse drop-shadow-[0_0_4px_rgba(217,179,112,0.4)]" />
                                 <span className="group-hover/trait:text-primary transition-colors duration-300">{trait}</span>
