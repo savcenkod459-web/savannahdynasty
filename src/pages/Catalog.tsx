@@ -174,46 +174,77 @@ const Catalog = () => {
                 {filteredCats.map((cat, index) => <Link key={cat.id} to={`/catalog/${cat.id}`} className="group animate-scale-in" style={{
               animationDelay: `${index * 100}ms`
             }}>
-                    <div className="glass-card rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
-                      <div className="relative aspect-[3/4] overflow-hidden image-blur-edges">
-                        <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                          <Crown className="w-8 h-8 text-primary animate-pulse" />
-                        </div>
-                        
-                        {/* Tags */}
-                        <div className="absolute top-4 left-4 flex gap-2">
-                          <span className="px-3 py-1 bg-primary text-primary-foreground text-xs rounded-full font-medium">
-                            {cat.breed}
-                          </span>
-                        </div>
-                      </div>
+                    <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
+                      {/* Gradient border effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+                      <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
                       
-                      <div className="p-6 space-y-4">
-                        <div>
-                          <h3 className="text-2xl font-display font-bold mb-2 luxury-text-shadow">{cat.name}</h3>
-                          <p className="text-muted-foreground text-sm mb-3 font-light">{cat.description}</p>
-                          <div className="flex gap-4 text-sm text-muted-foreground font-light">
-                            <span>{cat.age}</span>
-                            <span>•</span>
-                            <span>{cat.gender}</span>
+                      {/* Content */}
+                      <div className="relative">
+                        <div className="relative aspect-[3/4] overflow-hidden">
+                          <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                          
+                          {/* Gradient overlay on hover */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          
+                          {/* Crown icon with glow */}
+                          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
+                            <div className="relative">
+                              <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
+                            </div>
                           </div>
+                          
+                          {/* Breed tag with glass effect */}
+                          <div className="absolute top-4 left-4 flex gap-2">
+                            <span className="px-4 py-1.5 bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs rounded-full font-bold uppercase tracking-wider shadow-lg backdrop-blur-sm border border-white/20">
+                              {cat.breed}
+                            </span>
+                          </div>
+                          
+                          {/* Bottom gradient fade */}
+                          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
                         </div>
                         
-                        <div className="grid grid-cols-4 gap-4">
-                          {cat.traits.map((trait, i) => <span key={i} className="text-muted-foreground text-xs font-medium">
-                              {trait}
-                            </span>)}
-                        </div>
-                        
-                        <div className="pt-4 border-t border-primary/20 flex items-center justify-between">
-                          <span className="font-display font-bold text-luxury-gradient text-5xl py-[5px]">
-                            {cat.price.toLocaleString("en-US")} €
-                          </span>
-                          <div className="flex items-center gap-2">
-                            <Star className="h-4 w-4 text-primary animate-pulse" />
-                            <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-2 transition-transform" />
+                        <div className="p-6 space-y-5">
+                          <div className="space-y-3">
+                            <h3 className="text-2xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left">
+                              {cat.name}
+                            </h3>
+                            <p className="text-muted-foreground text-sm leading-relaxed font-light">{cat.description}</p>
+                            <div className="flex gap-3 text-sm font-medium">
+                              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">{cat.age}</span>
+                              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full border border-accent/20">{cat.gender}</span>
+                            </div>
+                          </div>
+                          
+                          {/* Traits grid with icons */}
+                          <div className="grid grid-cols-2 gap-3 p-4 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-primary/10">
+                            {cat.traits.map((trait, i) => 
+                              <div key={i} className="flex items-center gap-2 text-xs font-medium text-foreground/80 group/trait">
+                                <Sparkles className="w-3 h-3 text-primary group-hover/trait:animate-pulse" />
+                                <span className="group-hover/trait:text-primary transition-colors">{trait}</span>
+                              </div>
+                            )}
+                          </div>
+                          
+                          {/* Price section with enhanced styling */}
+                          <div className="pt-4 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
+                            <div className="flex items-end justify-between">
+                              <div className="space-y-1">
+                                <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Цена</span>
+                                <div className="font-display font-black text-luxury-gradient text-5xl leading-none drop-shadow-[0_2px_8px_rgba(217,179,112,0.3)]">
+                                  {cat.price.toLocaleString("en-US")} €
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <div className="relative">
+                                  <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_6px_rgba(217,179,112,0.5)]" />
+                                </div>
+                                <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                  <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300" />
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
