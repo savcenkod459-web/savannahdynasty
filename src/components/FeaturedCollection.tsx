@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { ArrowRight, Crown, Sparkles, Loader2 } from "lucide-react";
+import { ArrowRight, Crown, Sparkles, Loader2, Star } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
@@ -74,46 +74,73 @@ const FeaturedCollection = () => {
             cats.map((cat, index) => <Link key={cat.id} to={`/catalog/${cat.id}`} className="group animate-scale-in" style={{
           animationDelay: `${index * 100}ms`
         }}>
-              <div className="glass-card rounded-3xl overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift hover-scale micro-interaction">
-                <div className="relative aspect-[3/4] overflow-hidden image-blur-edges">
-                  <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Иконка премиум качества */}
-                  <div className="absolute top-4 right-4 p-2 glass-effect rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
-                    <Crown className="w-5 h-5 text-primary" />
-                  </div>
-                </div>
+              <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
+                {/* Gradient border effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+                <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
                 
-                <div className="p-6 space-y-4">
-                  <div>
-                    <h3 className="text-2xl font-display font-bold mb-1 luxury-text-shadow">{cat.name}</h3>
-                    <p className="text-muted-foreground font-light flex items-center gap-2">
-                      <Sparkles className="w-3 h-3 text-primary" />
-                      {cat.breed}
-                    </p>
+                {/* Content */}
+                <div className="relative">
+                  <div className="relative aspect-[3/4] overflow-hidden">
+                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Crown icon with glow */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
+                      <div className="relative">
+                        <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
+                      </div>
+                    </div>
+                    
+                    {/* Bottom gradient fade */}
+                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
                   </div>
                   
-                  <div className="flex flex-wrap gap-2">
-                    {cat.traits.map((trait, i) => <span key={i} className="px-3 py-1.5 bg-gradient-to-r from-accent/90 to-primary/90 text-white text-xs rounded-full font-semibold tracking-wide micro-interaction hover:scale-105">
-                        {trait}
-                      </span>)}
-                  </div>
-                  
-                  <div className="pt-4 border-t border-primary/10 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Цена</p>
-                      <span className="font-display font-black text-luxury-gradient text-4xl">
-                        {cat.price}
-                      </span>
+                  <div className="p-6 space-y-5">
+                    <div className="space-y-3">
+                      <h3 className="text-2xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left">
+                        {cat.name}
+                      </h3>
+                      <p className="text-muted-foreground font-light flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-primary" />
+                        <span className="text-sm">{cat.breed}</span>
+                      </p>
                     </div>
-                    <div className="p-2 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-all duration-500">
-                      <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform" />
+                    
+                    {/* Traits grid with icons */}
+                    <div className="flex flex-wrap gap-2">
+                      {cat.traits.map((trait, i) => 
+                        <span key={i} className="px-3 py-1.5 bg-gradient-to-r from-primary/20 to-accent/20 text-foreground text-xs rounded-full border border-primary/20 font-medium micro-interaction hover:scale-105 transition-transform">
+                          {trait}
+                        </span>
+                      )}
                     </div>
-                  </div>
+                    
+                    {/* Price section with enhanced styling */}
+                    <div className="pt-4 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
+                      <div className="flex items-end justify-between">
+                        <div className="space-y-1">
+                          <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Цена</span>
+                          <div className="font-display font-black text-luxury-gradient text-4xl leading-none drop-shadow-[0_2px_8px_rgba(217,179,112,0.3)]">
+                            {cat.price}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="relative">
+                            <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_6px_rgba(217,179,112,0.5)]" />
+                          </div>
+                          <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                            <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </Link>)
+              </div>
+            </Link>)
           ) : null}
         </div>
 
