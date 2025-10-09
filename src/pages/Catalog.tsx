@@ -201,8 +201,8 @@ const Catalog = () => {
                           </div>
                         </div>
                         
-                        <div className="flex flex-wrap gap-2">
-                          {cat.traits.map((trait, i) => <span key={i} className="px-3 py-1 bg-gradient-to-r from-primary/20 to-accent/20 text-foreground text-xs rounded-full border border-primary/20 font-medium micro-interaction">
+                        <div className="flex flex-wrap gap-4">
+                          {cat.traits.map((trait, i) => <span key={i} className="px-3 py-1 bg-gradient-to-r from-primary/20 to-accent/20 text-foreground text-xs rounded-full border border-primary/20 font-medium micro-interaction" style={{ wordSpacing: '0.25rem' }}>
                               {trait}
                             </span>)}
                         </div>
