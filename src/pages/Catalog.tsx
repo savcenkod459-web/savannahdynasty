@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { ArrowRight, Filter, Crown, Sparkles, Diamond, Star, Loader2 } from "lucide-react";
+import { ArrowRight, Filter, Crown, Sparkles, Diamond, Star, Loader2, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
@@ -195,13 +195,13 @@ const Catalog = () => {
                         <div className="relative aspect-[3/4] overflow-hidden">
                           <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                           
-                          {/* Gradient overlay on hover */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          {/* Gradient overlay on hover - softer colors */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                           
                           {/* Crown icon with glow */}
                           <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
                             <div className="relative">
-                              <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
+                              <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                             </div>
                           </div>
                           
@@ -213,26 +213,32 @@ const Catalog = () => {
                           </div>
                           
                           {/* Bottom gradient fade */}
-                          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
                         </div>
                         
                         <div className="p-6 space-y-5 py-[30px]">
                           <div className="space-y-4">
-                            <h3 className="text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight">
+                            <h3 className="text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight drop-shadow-[0_0_20px_rgba(217,179,112,0.4)]">
                               {cat.name}
                             </h3>
-                            <p className="text-foreground/70 text-base leading-relaxed font-light tracking-wide drop-shadow-sm">{cat.description}</p>
+                            <p className="text-foreground/80 text-base leading-relaxed font-light tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)] group-hover:text-foreground transition-colors duration-300">{cat.description}</p>
                             <div className="flex gap-3 text-sm font-bold">
-                              <span className="px-4 py-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary rounded-full border border-primary/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">{cat.age}</span>
-                              <span className="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent/10 text-accent rounded-full border border-accent/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">{cat.gender}</span>
+                              <span className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary rounded-full border border-primary/30 backdrop-blur-sm shadow-sm hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 hover:scale-105">
+                                <Calendar className="w-4 h-4" />
+                                {cat.age}
+                              </span>
+                              <span className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent/20 to-accent/10 text-accent rounded-full border border-accent/30 backdrop-blur-sm shadow-sm hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 hover:scale-105">
+                                <Users className="w-4 h-4" />
+                                {cat.gender}
+                              </span>
                             </div>
                           </div>
                           
                           {/* Traits grid with icons */}
-                          <div className="grid grid-cols-4 gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner">
+                          <div className="grid grid-cols-4 gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner group-hover:shadow-[0_0_20px_rgba(217,179,112,0.2)] transition-shadow duration-300">
                             {cat.traits.map((trait, i) => <div key={i} className="flex items-center gap-2 text-sm font-semibold text-foreground/90 group/trait">
-                                <Sparkles className="w-4 h-4 text-primary group-hover/trait:animate-pulse drop-shadow-[0_0_4px_rgba(217,179,112,0.4)]" />
-                                <span className="group-hover/trait:text-primary transition-colors duration-300">{trait}</span>
+                                <Sparkles className="w-4 h-4 text-primary group-hover/trait:animate-pulse drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
+                                <span className="group-hover/trait:text-primary group-hover/trait:drop-shadow-[0_0_8px_rgba(217,179,112,0.4)] transition-all duration-300">{trait}</span>
                               </div>)}
                           </div>
                           
@@ -240,17 +246,17 @@ const Catalog = () => {
                           <div className="pt-4 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
                             <div className="flex items-end justify-between">
                               <div className="space-y-1">
-                                <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Цена</span>
-                                <div className="font-display font-black text-luxury-gradient text-5xl leading-none drop-shadow-[0_2px_8px_rgba(217,179,112,0.3)]">
+                                <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Цена</span>
+                                <div className="font-display font-black text-luxury-gradient text-5xl leading-none drop-shadow-[0_4px_16px_rgba(217,179,112,0.5)] group-hover:drop-shadow-[0_4px_24px_rgba(217,179,112,0.7)] transition-all duration-300">
                                   {cat.price.toLocaleString("en-US")} €
                                 </div>
                               </div>
                               <div className="flex items-center gap-3">
                                 <div className="relative">
-                                  <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_6px_rgba(217,179,112,0.5)]" />
+                                  <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                                 </div>
-                                <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                                  <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300" />
+                                <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300">
+                                  <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                                 </div>
                               </div>
                             </div>
