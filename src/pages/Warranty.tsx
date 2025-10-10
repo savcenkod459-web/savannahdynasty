@@ -168,17 +168,7 @@ const Warranty = () => {
                 </p>
               </div>
               
-              <div className="group p-8 glass-card rounded-3xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
-                    <DollarSign className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-display font-bold luxury-text-shadow">Замена или возврат средств</h3>
-                </div>
-                <p className="text-muted-foreground leading-relaxed font-light">
-                  Возможность получить замену кошки равной стоимости или полный возврат покупной цены
-                </p>
-              </div>
+              
             </div>
           </div>
         </section>
