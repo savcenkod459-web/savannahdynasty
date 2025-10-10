@@ -61,24 +61,7 @@ const Warranty = () => {
                 </div>
               </div>
               
-              <div className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction" style={{
-              animationDelay: "100ms"
-            }}>
-                <div className="mb-4 inline-flex p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
-                  <RefreshCw className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-500" />
-                </div>
-                <h3 className="text-xl font-display font-bold mb-2 luxury-text-shadow">7-дневная политика возврата</h3>
-                <p className="text-sm text-muted-foreground font-light">Полный возврат средств, если не полностью удовлетворены</p>
-                <div className="mt-4 flex items-center justify-center gap-1">
-                  <Star className="w-3 h-3 text-primary animate-pulse" />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
-                  animationDelay: '0.2s'
-                }} />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
-                  animationDelay: '0.4s'
-                }} />
-                </div>
-              </div>
+              
               
               <div className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction" style={{
               animationDelay: "200ms"
