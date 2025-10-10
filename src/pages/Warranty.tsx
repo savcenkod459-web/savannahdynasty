@@ -48,7 +48,7 @@ const Warranty = () => {
                 <div className="mb-4 inline-flex p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
                   <Clock className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <h3 className="text-xl font-display font-bold mb-2 luxury-text-shadow">1 год гарантии здоровья</h3>
+                <h3 className="text-xl font-display font-bold mb-2 luxury-text-shadow">1 месяц гарантии здоровья</h3>
                 <p className="text-sm text-muted-foreground font-light">Полное покрытие наследственных и врожденных заболеваний</p>
                 <div className="mt-4 flex items-center justify-center gap-1">
                   <Star className="w-3 h-3 text-primary animate-pulse" />
