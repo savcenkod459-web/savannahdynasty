@@ -135,7 +135,7 @@ const Contact = () => {
                         <Mail className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-bold mb-1 luxury-text-shadow">Напишите нам</h4>
+                        <h4 className="font-bold mb-1 luxury-text-shadow">Cвяжитесь с нами</h4>
                         <p className="text-muted-foreground font-light">
                           hello@luxurycats.com<br />
                           support@luxurycats.com
