@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Lock, Copy, Check, Crown, Sparkles, Shield, Star, Plane, FileText, Headphones, HeartPulse, Wallet, Coins, CircleDollarSign, Bitcoin, AlertCircle } from "lucide-react";
+import { Lock, Copy, Check, Crown, Sparkles, Shield, Star, Plane, FileText, Headphones, HeartPulse, Wallet, Coins, CircleDollarSign, Bitcoin, AlertCircle, Banknote } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useSearchParams } from "react-router-dom";
 const cryptoAddresses = [{
@@ -36,7 +36,7 @@ const cryptoAddresses = [{
 }];
 const Payment = () => {
   const [searchParams] = useSearchParams();
-  const [activeTab, setActiveTab] = useState<"paypal" | "crypto">("paypal");
+  const [activeTab, setActiveTab] = useState<"paypal" | "crypto" | "cash">("paypal");
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null);
   const {
     toast
@@ -47,6 +47,8 @@ const Payment = () => {
       setActiveTab("paypal");
     } else if (tab === "crypto") {
       setActiveTab("crypto");
+    } else if (tab === "cash") {
+      setActiveTab("cash");
     }
   }, [searchParams]);
   const copyToClipboard = (address: string) => {
@@ -126,6 +128,10 @@ const Payment = () => {
                   <Bitcoin className="h-5 w-5" />
                   Крипто
                 </button>
+                <button onClick={() => setActiveTab("cash")} className={`px-8 py-4 font-medium transition-all rounded-t-lg flex items-center gap-2 ${activeTab === "cash" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
+                  <Banknote className="h-5 w-5" />
+                  Наличные
+                </button>
               </div>
 
               {/* PayPal */}
@@ -167,6 +173,41 @@ const Payment = () => {
                       <p className="text-sm font-medium text-zinc-950">
                         <strong>Важно:</strong> После перевода криптовалюты, пожалуйста, свяжитесь с нами 
                         через чат поддержки и предоставьте хеш транзакции для подтверждения платежа.
+                      </p>
+                    </div>
+                  </div>
+                </div>}
+
+              {/* Cash */}
+              {activeTab === "cash" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Banknote className="w-8 h-8 text-primary" />
+                    <h3 className="text-3xl font-display font-bold luxury-text-shadow">Наличные</h3>
+                  </div>
+                  
+                  <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                    <p>
+                      Для международных покупателей мы предлагаем доставку котят лично в руки через профессионального курьера.
+                    </p>
+                    
+                    <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
+                      <Plane className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <p>
+                        Курьер сопровождает котёнка в салоне самолёта, контролирует весь путь и передаёт животное новому владельцу лично в аэропорту прибытия.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
+                      <Wallet className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <p>
+                        Оплата происходит при получении. Предоплата вносится заранее для бронирования котёнка.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
+                      <Shield className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <p>
+                        Такой способ гарантирует безопасность, спокойствие животного и комфортное сотрудничество между питомником и новыми владельцами.
                       </p>
                     </div>
                   </div>
