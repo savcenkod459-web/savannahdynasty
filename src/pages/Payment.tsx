@@ -221,7 +221,7 @@ const Payment = () => {
         <section className="py-20 border-t glass-effect">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
-              <div className="p-10 bg-card rounded-3xl shadow-soft">
+              <div className="p-10 rounded-3xl shadow-soft bg-stone-100">
                 <div className="flex items-center gap-3 mb-6">
                   <Crown className="w-8 h-8 text-primary" />
                   <h3 className="text-3xl font-display font-bold luxury-text-shadow">Бронирование</h3>
@@ -232,11 +232,7 @@ const Payment = () => {
                     Чтобы узнать детали - свяжитесь с нами
                   </p>
                   
-                  <Button 
-                    size="lg" 
-                    onClick={() => navigate('/contact')}
-                    className="whitespace-nowrap"
-                  >
+                  <Button size="lg" onClick={() => navigate('/contact')} className="whitespace-nowrap">
                     Связаться с нами
                   </Button>
                 </div>
