@@ -137,7 +137,6 @@ const Catalog = () => {
                   <SelectValue placeholder="Возраст" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Все возрасты</SelectItem>
                   <SelectItem value="Котёнок">Котёнок</SelectItem>
                   <SelectItem value="Взрослый">Взрослый</SelectItem>
                 </SelectContent>
@@ -148,7 +147,6 @@ const Catalog = () => {
                   <SelectValue placeholder="Пол" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Все</SelectItem>
                   <SelectItem value="Самец">Самец</SelectItem>
                   <SelectItem value="Самка">Самка</SelectItem>
                 </SelectContent>
