@@ -136,7 +136,7 @@ const Payment = () => {
               </div>
 
               {/* PayPal */}
-              {activeTab === "paypal" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in">
+              {activeTab === "paypal" && <div className="p-10 rounded-3xl shadow-soft animate-fade-in bg-stone-100">
                   <div className="flex items-center gap-3 mb-6">
                     <Wallet className="w-8 h-8 text-primary" />
                     <h3 className="text-3xl font-display font-bold luxury-text-shadow">PayPal</h3>
