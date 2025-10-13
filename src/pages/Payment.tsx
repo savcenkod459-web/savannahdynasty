@@ -153,7 +153,7 @@ const Payment = () => {
 
               {/* Crypto */}
               {activeTab === "crypto" && <div className="space-y-6 animate-fade-in">
-                  {cryptoAddresses.map((crypto, index) => <div key={index} className="p-6 bg-card rounded-3xl shadow-soft">
+                  {cryptoAddresses.map((crypto, index) => <div key={index} className="p-6 bg-card rounded-3xl shadow-soft ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl">
                           <crypto.icon className={`h-6 w-6 ${crypto.color}`} />
