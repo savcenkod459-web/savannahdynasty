@@ -218,7 +218,7 @@ const Payment = () => {
         </section>
 
         {/* Booking Section */}
-        <section className="py-20 border-t glass-effect">
+        <section id="booking" className="py-20 border-t glass-effect scroll-mt-24">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <div className="p-10 rounded-3xl shadow-soft bg-stone-100">

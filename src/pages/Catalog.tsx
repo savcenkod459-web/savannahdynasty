@@ -217,27 +217,34 @@ const Catalog = () => {
                           
                           {/* Price section with enhanced styling */}
                           <div className="pt-4 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
-                            <div className="flex items-end justify-between">
-                              <div className="space-y-1">
-                                <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Цена</span>
-                                <div className="font-display font-black text-luxury-gradient text-5xl leading-none drop-shadow-[0_4px_16px_rgba(217,179,112,0.5)] group-hover:drop-shadow-[0_4px_24px_rgba(217,179,112,0.7)] transition-all duration-300">
-                                  {cat.price.toLocaleString("en-US")} €
+                            <div className="space-y-4">
+                              <div className="flex items-end justify-between">
+                                <div className="space-y-1">
+                                  <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Цена</span>
+                                  <div className="font-display font-black text-luxury-gradient text-5xl leading-none drop-shadow-[0_4px_16px_rgba(217,179,112,0.5)] group-hover:drop-shadow-[0_4px_24px_rgba(217,179,112,0.7)] transition-all duration-300">
+                                    {cat.price.toLocaleString("en-US")} €
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                  <div className="relative">
+                                    <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
+                                  </div>
+                                  <div 
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      navigate('/contact');
+                                    }}
+                                    className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer"
+                                  >
+                                    <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
+                                  </div>
                                 </div>
                               </div>
-                              <div className="flex items-center gap-3">
-                                <div className="relative">
-                                  <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
-                                </div>
-                                <div 
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    navigate('/contact');
-                                  }}
-                                  className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer"
-                                >
-                                  <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
-                                </div>
-                              </div>
+                              <Link to="/payment#booking" onClick={(e) => e.stopPropagation()}>
+                                <Button size="sm" variant="outline" className="w-full">
+                                  Забронировать
+                                </Button>
+                              </Link>
                             </div>
                           </div>
                         </div>
