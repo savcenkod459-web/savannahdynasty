@@ -270,15 +270,7 @@ const Warranty = () => {
                 Наша команда готова помочь вам понять каждый аспект нашей гарантии здоровья.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <div className="group p-6 glass-card rounded-2xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 hover-lift">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
-                      <Phone className="w-5 h-5 text-primary" />
-                    </div>
-                    <p className="font-bold font-display luxury-text-shadow">Позвоните нам:</p>
-                  </div>
-                  <p className="text-primary font-semibold text-lg">+1 (555) 123-CATS</p>
-                </div>
+                
                 <div className="group p-6 glass-card rounded-2xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 hover-lift">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
@@ -286,7 +278,7 @@ const Warranty = () => {
                     </div>
                     <p className="font-bold font-display luxury-text-shadow">Напишите нам:</p>
                   </div>
-                  <p className="text-primary font-semibold text-lg">luxurycats@gmail.com</p>
+                  <p className="text-primary font-semibold text-lg">luxurycxts@gmail.com</p>
                 </div>
               </div>
             </div>
