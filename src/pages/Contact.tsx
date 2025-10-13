@@ -31,7 +31,6 @@ const Contact = () => {
       message: ""
     });
   };
-
   const copyEmail = () => {
     navigator.clipboard.writeText("luxurycxts@gmail.com");
     toast({
@@ -144,10 +143,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-bold mb-1 luxury-text-shadow">Cвяжитесь с нами</h4>
-                        <button 
-                          onClick={copyEmail}
-                          className="text-muted-foreground font-light hover:text-primary transition-colors cursor-pointer"
-                        >
+                        <button onClick={copyEmail} className="text-muted-foreground font-light hover:text-primary transition-colors cursor-pointer">
                           luxurycxts@gmail.com
                         </button>
                       </div>
@@ -185,10 +181,7 @@ const Contact = () => {
                       <span className="font-medium">@luxurycats</span>
                     </a>
                     
-                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-blue-500 text-white rounded-xl hover:opacity-90 transition-opacity">
-                      <Send className="h-5 w-5" />
-                      <span className="font-medium">Telegram</span>
-                    </a>
+                    
                     
                     <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl hover:opacity-90 transition-opacity">
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
