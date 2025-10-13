@@ -37,13 +37,11 @@ const Catalog = () => {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
-
   useEffect(() => {
     if (breedFromUrl !== 'all') {
       setSelectedBreed(breedFromUrl);
     }
   }, [breedFromUrl]);
-
   const openGallery = (cat: Cat) => {
     const allImages = [cat.image, ...(cat.additional_images || [])];
     setGalleryImages(allImages);
@@ -151,11 +149,7 @@ const Catalog = () => {
                   Нет кошек, соответствующих выбранным фильтрам
                 </p>
               </div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredCats.map((cat, index) => <div 
-                  key={cat.id}
-                  onClick={() => openGallery(cat)}
-                  className="group animate-scale-in cursor-pointer" 
-                  style={{
+                {filteredCats.map((cat, index) => <div key={cat.id} onClick={() => openGallery(cat)} className="group animate-scale-in cursor-pointer" style={{
               animationDelay: `${index * 100}ms`
             }}>
                     <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
@@ -216,7 +210,7 @@ const Catalog = () => {
                           </div>
                           
                     {/* Price section with enhanced styling */}
-                    <div className="pt-6 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
+                    <div className="pt-6 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent py-0">
                       <div className="space-y-4 pb-2">
                               <div className="flex items-end justify-between">
                                 <div className="space-y-1">
@@ -229,19 +223,16 @@ const Catalog = () => {
                                   <div className="relative">
                                     <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                                   </div>
-                                  <div 
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      navigate('/contact');
-                                    }}
-                                    className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer"
-                                  >
+                                  <div onClick={e => {
+                              e.stopPropagation();
+                              navigate('/contact');
+                            }} className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer">
                                     <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                                   </div>
                                 </div>
                         </div>
                       </div>
-                      <Link to="/payment#booking" onClick={(e) => e.stopPropagation()} className="block mt-8">
+                      <Link to="/payment#booking" onClick={e => e.stopPropagation()} className="block mt-8">
                         <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
                           Забронировать
                         </Button>
@@ -258,12 +249,7 @@ const Catalog = () => {
       
       <Footer />
       <ScrollToTop />
-      <CatGallery 
-        images={galleryImages}
-        isOpen={galleryOpen}
-        onClose={() => setGalleryOpen(false)}
-        initialIndex={galleryInitialIndex}
-      />
+      <CatGallery images={galleryImages} isOpen={galleryOpen} onClose={() => setGalleryOpen(false)} initialIndex={galleryInitialIndex} />
     </div>;
 };
 export default Catalog;
