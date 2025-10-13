@@ -34,8 +34,6 @@ const Catalog = () => {
   const [searchParams] = useSearchParams();
   const breedFromUrl = searchParams.get('breed') || 'all';
   const [selectedBreed, setSelectedBreed] = useState<string>(breedFromUrl);
-  const [selectedAge, setSelectedAge] = useState<string>("all");
-  const [selectedGender, setSelectedGender] = useState<string>("all");
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
@@ -77,8 +75,6 @@ const Catalog = () => {
   const allCats = cats || [];
   const filteredCats = allCats.filter(cat => {
     if (selectedBreed !== "all" && cat.breed !== selectedBreed) return false;
-    if (selectedAge !== "all" && cat.age !== selectedAge) return false;
-    if (selectedGender !== "all" && cat.gender !== selectedGender) return false;
     return true;
   });
   return <div className="min-h-screen">
@@ -132,30 +128,8 @@ const Catalog = () => {
                 </SelectContent>
               </Select>
 
-              <Select value={selectedAge} onValueChange={setSelectedAge}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Возраст" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Котёнок">Котёнок</SelectItem>
-                  <SelectItem value="Взрослый">Взрослый</SelectItem>
-                </SelectContent>
-              </Select>
-
-              <Select value={selectedGender} onValueChange={setSelectedGender}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Пол" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Самец">Самец</SelectItem>
-                  <SelectItem value="Самка">Самка</SelectItem>
-                </SelectContent>
-              </Select>
-
-              {(selectedBreed !== "all" || selectedAge !== "all" || selectedGender !== "all") && <Button variant="ghost" onClick={() => {
+              {selectedBreed !== "all" && <Button variant="ghost" onClick={() => {
               setSelectedBreed("all");
-              setSelectedAge("all");
-              setSelectedGender("all");
             }}>
                   Сбросить фильтры
                 </Button>}
