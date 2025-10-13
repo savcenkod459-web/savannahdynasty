@@ -136,7 +136,7 @@ const Payment = () => {
               </div>
 
               {/* PayPal */}
-              {activeTab === "paypal" && <div className="p-10 rounded-3xl shadow-soft animate-fade-in bg-stone-100 ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
+              {activeTab === "paypal" && <div className="p-10 rounded-3xl shadow-soft animate-fade-in ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300 bg-white">
                   <div className="flex items-center gap-3 mb-6">
                     <Wallet className="w-8 h-8 text-primary" />
                     <h3 className="text-3xl font-display font-bold luxury-text-shadow">PayPal</h3>
