@@ -169,8 +169,8 @@ const FeaturedCollection = () => {
                             </div>
                           </div>
                         </div>
-                        <Link to="/payment#booking" onClick={(e) => e.stopPropagation()}>
-                          <Button size="sm" variant="outline" className="w-full">
+                        <Link to="/payment#booking" onClick={(e) => e.stopPropagation()} className="mt-6">
+                          <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
                             Забронировать
                           </Button>
                         </Link>
