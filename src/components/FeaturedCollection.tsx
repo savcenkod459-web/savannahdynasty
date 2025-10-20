@@ -30,7 +30,6 @@ const FeaturedCollection = () => {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
-
   const openGallery = (image: string, additionalImages: string[]) => {
     const allImages = [image, ...(additionalImages || [])];
     setGalleryImages(allImages);
@@ -85,10 +84,7 @@ const FeaturedCollection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {isLoading ? <div className="col-span-full flex justify-center py-12">
               <Loader2 className="w-12 h-12 animate-spin text-primary" />
-            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div 
-              key={cat.id}
-              onClick={() => openGallery(cat.image, cat.additional_images)}
-              style={{
+            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} onClick={() => openGallery(cat.image, cat.additional_images)} style={{
           animationDelay: `${index * 100}ms`
         }} className="group animate-scale-in py-[30px] cursor-pointer">
               <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
@@ -106,9 +102,7 @@ const FeaturedCollection = () => {
                     
                     {/* Crown icon with LuxuryCats text */}
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 flex items-center gap-3">
-                      <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">
-                        LuxuryCats
-                      </span>
+                      <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">SavannahDynasty</span>
                       <div className="relative">
                         <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                       </div>
@@ -158,19 +152,16 @@ const FeaturedCollection = () => {
                             <div className="relative">
                               <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                             </div>
-                            <div 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                navigate('/contact');
-                              }}
-                              className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer"
-                            >
+                            <div onClick={e => {
+                          e.stopPropagation();
+                          navigate('/contact');
+                        }} className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer">
                               <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                             </div>
                           </div>
                         </div>
                       </div>
-                      <Link to="/payment#booking" onClick={(e) => e.stopPropagation()} className="block mt-8">
+                      <Link to="/payment#booking" onClick={e => e.stopPropagation()} className="block mt-8">
                         <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
                           Забронировать
                         </Button>
@@ -192,12 +183,7 @@ const FeaturedCollection = () => {
         </div>
       </div>
       
-      <CatGallery 
-        images={galleryImages}
-        isOpen={galleryOpen}
-        onClose={() => setGalleryOpen(false)}
-        initialIndex={galleryInitialIndex}
-      />
+      <CatGallery images={galleryImages} isOpen={galleryOpen} onClose={() => setGalleryOpen(false)} initialIndex={galleryInitialIndex} />
     </section>;
 };
 export default FeaturedCollection;
