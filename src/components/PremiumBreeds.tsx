@@ -16,9 +16,7 @@ const PremiumBreeds = () => {
             <Diamond className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold tracking-widest uppercase text-primary">ЭКСКЛЮЗИВНАЯ КОЛЛЕКЦИЯ</span>
           </div>
-          <h2 className="font-display font-black text-5xl md:text-6xl luxury-text-shadow">
-            Наши избранные породы
-          </h2>
+          <h2 className="font-display font-black text-5xl md:text-6xl luxury-text-shadow">Наша избранная порода</h2>
         </div>
         
         <div className="max-w-3xl mx-auto">
