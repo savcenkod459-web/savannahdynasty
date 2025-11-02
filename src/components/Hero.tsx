@@ -20,7 +20,7 @@ const Hero = () => {
                 <span className="tracking-widest uppercase text-neutral-950 font-extrabold text-sm">ЭЛИТНЫЙ ПИТОМНИК</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient leading-tight relative luxury-text-shadow">
-                Luxury Cats
+                SavannahDynasty
                 <div className="absolute -bottom-4 left-0 w-32 h-1.5 bg-gradient-to-r from-primary via-accent to-transparent rounded-full" />
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl font-light">

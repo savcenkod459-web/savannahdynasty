@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { VideoPlayer } from "./VideoPlayer";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 interface CatDetailModalProps {
   images: string[];
   video?: string;
@@ -36,16 +37,20 @@ export const CatDetailModal = ({
   };
   return <>
       <Dialog open={isOpen && !isImageFullscreen && !isVideoFullscreen} onOpenChange={onClose}>
-        <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 bg-background border-primary/20">
-          <div className="relative w-full h-[90vh] flex">
+        <DialogContent className="max-w-[90vw] md:max-w-[85vw] max-h-[90vh] p-0 bg-background border-primary/20">
+          <VisuallyHidden.Root>
+            <DialogTitle>Просмотр фото и видео</DialogTitle>
+            <DialogDescription>Галерея изображений и видео кота</DialogDescription>
+          </VisuallyHidden.Root>
+          <div className="relative w-full h-[90vh] flex flex-col md:flex-row">
             {/* Close button */}
             <Button variant="ghost" size="icon" className="absolute top-4 right-4 z-50 text-foreground hover:bg-primary/20 rounded-full" onClick={onClose}>
               <X className="h-6 w-6" />
             </Button>
 
             {/* Left panel - Images */}
-            <div className="w-1/2 h-full relative border-r border-primary/20">
-              <div className="h-full flex items-center justify-center p-4">
+            <div className="w-full md:w-1/2 h-[45vh] md:h-full relative md:border-r border-b md:border-b-0 border-primary/20">
+              <div className="h-full flex items-center justify-center p-4 md:p-6">
                 <div className="relative w-full h-full">
                   <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="w-full h-full object-contain cursor-pointer rounded-lg" onClick={handleImageClick} />
                   
@@ -67,8 +72,8 @@ export const CatDetailModal = ({
             </div>
 
             {/* Right panel - Video */}
-            <div className="w-1/2 h-full p-4 flex items-center justify-center bg-black/5">
-              {video ? <div className="w-full h-full">
+            <div className="w-full md:w-1/2 h-[45vh] md:h-full p-4 md:p-6 flex items-center justify-center bg-black/5">
+              {video ? <div className="w-full h-full flex items-center justify-center">
                   <VideoPlayer videoUrl={video} isOpen={true} onClose={() => {}} onToggleFullscreen={() => setIsVideoFullscreen(true)} />
                 </div> : <div className="text-center text-muted-foreground">
                   <p>Видео не загружено</p>
@@ -81,6 +86,10 @@ export const CatDetailModal = ({
       {/* Fullscreen Image Gallery */}
       <Dialog open={isImageFullscreen} onOpenChange={setIsImageFullscreen}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none" onKeyDown={handleKeyDown}>
+          <VisuallyHidden.Root>
+            <DialogTitle>Полноэкранный просмотр</DialogTitle>
+            <DialogDescription>Изображение в полноэкранном режиме</DialogDescription>
+          </VisuallyHidden.Root>
           <div className="relative w-full h-[95vh] flex items-center justify-center">
             <Button variant="ghost" size="icon" className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 rounded-full" onClick={() => setIsImageFullscreen(false)}>
               <X className="h-6 w-6" />

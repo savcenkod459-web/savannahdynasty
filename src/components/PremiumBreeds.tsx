@@ -3,10 +3,6 @@ const breeds = [{
   name: "Саванна F1",
   description: "Отличается экзотической внешностью, высоким интеллектом и энергичным темпераментом. Эти кошки — первые в поколении гибрида с африканским сервалом, сочетающие дикую грацию с преданностью домашнего питомца. Саванна F1 — выбор для тех, кто ищет не просто кошку, а настоящего компаньона с характером.",
   traits: ["Активная", "Умная", "Экзотическая", "Преданная"]
-}, {
-  name: "Саванна F2",
-  description: "Сочетает в себе экзотику дикой природы и более мягкий, дружелюбный характер. Кошки F2 унаследовали грациозность и интеллект, сохранив при этом легкость в общении с человеком. Это эффектный и умный питомец с сильной индивидуальностью.",
-  traits: ["Активная", "Умная", "Общительная", "Экзотическая"]
 }];
 const PremiumBreeds = () => {
   return <section className="py-20 bg-secondary/30 relative overflow-hidden">
@@ -25,7 +21,7 @@ const PremiumBreeds = () => {
           </h2>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {breeds.map((breed, index) => <div key={index} className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-scale-in hover-lift micro-interaction" style={{
           animationDelay: `${index * 200}ms`
         }}>
