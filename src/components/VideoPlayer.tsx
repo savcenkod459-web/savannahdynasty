@@ -28,6 +28,11 @@ export const VideoPlayer = ({
     const video = videoRef.current;
     if (!video) return;
 
+    // Reset state when switching to fullscreen
+    setCurrentTime(0);
+    setDuration(0);
+    setIsPlaying(false);
+
     const handleTimeUpdate = () => {
       if (video.duration && isFinite(video.duration) && video.currentTime <= video.duration) {
         setCurrentTime(video.currentTime);
@@ -53,11 +58,21 @@ export const VideoPlayer = ({
       }
     };
 
+    const handleLoadedData = () => {
+      if (video.duration && isFinite(video.duration)) {
+        setDuration(video.duration);
+      }
+    };
+
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('durationchange', handleDurationChange);
     video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('loadeddata', handleLoadedData);
 
+    // Force load video metadata
+    video.load();
+    
     // Force update duration when video is ready
     if (video.readyState >= 1 && video.duration && isFinite(video.duration)) {
       setDuration(video.duration);
@@ -68,8 +83,9 @@ export const VideoPlayer = ({
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('durationchange', handleDurationChange);
       video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('loadeddata', handleLoadedData);
     };
-  }, [videoUrl, isOpen]);
+  }, [videoUrl, isOpen, isFullscreen]);
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
