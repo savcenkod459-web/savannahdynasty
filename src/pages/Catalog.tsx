@@ -38,13 +38,11 @@ const Catalog = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImages, setModalImages] = useState<string[]>([]);
   const [modalVideo, setModalVideo] = useState<string | undefined>();
-  
   useEffect(() => {
     if (breedFromUrl !== 'all') {
       setSelectedBreed(breedFromUrl);
     }
   }, [breedFromUrl]);
-  
   const openCatDetail = (cat: Cat) => {
     const allImages = [cat.image, ...(cat.additional_images || [])];
     setModalImages(allImages);
@@ -110,33 +108,7 @@ const Catalog = () => {
         </section>
 
         {/* Filters */}
-        <section className="py-12 border-b glass-effect">
-          <div className="container mx-auto px-6">
-            <div className="flex items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-2 text-muted-foreground micro-interaction">
-                <Filter className="h-5 w-5 text-primary" />
-                <span className="font-bold">Фильтры:</span>
-              </div>
-              
-              <Select value={selectedBreed} onValueChange={setSelectedBreed}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Порода" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Все породы</SelectItem>
-                  <SelectItem value="Саванна F1">Саванна F1</SelectItem>
-                  <SelectItem value="Саванна F2">Саванна F2</SelectItem>
-                </SelectContent>
-              </Select>
-
-              {selectedBreed !== "all" && <Button variant="ghost" onClick={() => {
-              setSelectedBreed("all");
-            }}>
-                  Сбросить фильтры
-                </Button>}
-            </div>
-          </div>
-        </section>
+        
 
         {/* Catalog Grid */}
         <section className="py-20">
@@ -252,12 +224,7 @@ const Catalog = () => {
       
       <Footer />
       <ScrollToTop />
-      <CatDetailModal 
-        images={modalImages} 
-        video={modalVideo}
-        isOpen={modalOpen} 
-        onClose={() => setModalOpen(false)} 
-      />
+      <CatDetailModal images={modalImages} video={modalVideo} isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>;
 };
 export default Catalog;
