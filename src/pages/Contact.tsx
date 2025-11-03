@@ -179,7 +179,7 @@ const Contact = () => {
                       <span className="font-medium">@savannahdynasty</span>
                     </a>
                     
-                    <a href="https://t.me/SavannahDynasty" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-xl hover:opacity-90 transition-opacity">
+                    <a href="https://t.me/SavannahDynasty_bot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-xl hover:opacity-90 transition-opacity">
                       <Send className="h-5 w-5" />
                       <span className="font-medium">@SavannahDynasty_bot</span>
                     </a>

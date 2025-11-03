@@ -84,9 +84,9 @@ const FeaturedCollection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {isLoading ? <div className="col-span-full flex justify-center py-12">
               <Loader2 className="w-12 h-12 animate-spin text-primary" />
-            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} onClick={() => navigate('/catalog')} style={{
+            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} style={{
           animationDelay: `${index * 100}ms`
-        }} className="group animate-scale-in py-[30px] cursor-pointer">
+        }} className="group animate-scale-in py-[30px]">
               <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 micro-interaction" style={{ transform: 'translateZ(0)' }}>
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
@@ -98,11 +98,8 @@ const FeaturedCollection = () => {
                     <img 
                       src={cat.image} 
                       alt={cat.name} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openGallery(cat.image, cat.additional_images);
-                      }}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer" 
+                      onClick={() => openGallery(cat.image, cat.additional_images)}
                     />
                     
                     {/* Gradient overlay on hover - softer colors */}
@@ -120,7 +117,7 @@ const FeaturedCollection = () => {
                     <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
                   </div>
                   
-                  <div className="p-6 space-y-5 py-[30px]">
+                  <div className="p-6 space-y-5 py-[30px] cursor-pointer" onClick={() => navigate('/catalog')}>
                     <div className="space-y-4">
                       <h3 className="text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight drop-shadow-[0_0_20px_rgba(217,179,112,0.4)]">
                         {cat.name}

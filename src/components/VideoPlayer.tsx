@@ -29,7 +29,7 @@ export const VideoPlayer = ({
     if (!video) return;
 
     const handleTimeUpdate = () => {
-      if (video.currentTime <= video.duration) {
+      if (video.duration && isFinite(video.duration) && video.currentTime <= video.duration) {
         setCurrentTime(video.currentTime);
       }
     };
@@ -37,6 +37,7 @@ export const VideoPlayer = ({
     const handleLoadedMetadata = () => {
       if (video.duration && isFinite(video.duration)) {
         setDuration(video.duration);
+        setCurrentTime(0);
       }
     };
 
@@ -46,10 +47,18 @@ export const VideoPlayer = ({
       }
     };
 
+    const handleCanPlay = () => {
+      if (video.duration && isFinite(video.duration)) {
+        setDuration(video.duration);
+      }
+    };
+
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('durationchange', handleDurationChange);
+    video.addEventListener('canplay', handleCanPlay);
 
+    // Force update duration when video is ready
     if (video.readyState >= 1 && video.duration && isFinite(video.duration)) {
       setDuration(video.duration);
     }
@@ -58,8 +67,9 @@ export const VideoPlayer = ({
       video.removeEventListener('timeupdate', handleTimeUpdate);
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('durationchange', handleDurationChange);
+      video.removeEventListener('canplay', handleCanPlay);
     };
-  }, []);
+  }, [videoUrl, isOpen]);
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
