@@ -87,7 +87,7 @@ const FeaturedCollection = () => {
             </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} style={{
           animationDelay: `${index * 100}ms`
         }} className="group animate-scale-in py-[30px]">
-              <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 micro-interaction" style={{ transform: 'translateZ(0)' }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
                 <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
@@ -117,8 +117,8 @@ const FeaturedCollection = () => {
                     <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
                   </div>
                   
-                  <div className="p-6 space-y-5 py-[30px] cursor-pointer" onClick={() => navigate('/catalog')}>
-                    <div className="space-y-4">
+                  <div className="p-6 space-y-5 py-[30px]">
+                    <div className="space-y-4 cursor-pointer" onClick={() => navigate('/catalog')}>
                       <h3 className="text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight drop-shadow-[0_0_20px_rgba(217,179,112,0.4)]">
                         {cat.name}
                       </h3>
@@ -136,7 +136,7 @@ const FeaturedCollection = () => {
                     </div>
                     
                     {/* Traits grid with icons */}
-                    <div className="flex flex-col gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner group-hover:shadow-[0_0_20px_rgba(217,179,112,0.2)] transition-shadow duration-300">
+                    <div className="flex flex-col gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner group-hover:shadow-[0_0_20px_rgba(217,179,112,0.2)] transition-shadow duration-300 cursor-pointer" onClick={() => navigate('/catalog')}>
                       {cat.traits.map((trait, i) => <div key={i} className="flex items-center gap-2 text-sm font-semibold text-foreground/90 group/trait">
                           <Sparkles className="w-4 h-4 text-primary group-hover/trait:animate-pulse drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                           <span className="group-hover/trait:text-primary group-hover/trait:drop-shadow-[0_0_8px_rgba(217,179,112,0.4)] transition-all duration-300">{trait}</span>
@@ -145,7 +145,7 @@ const FeaturedCollection = () => {
                     
                     {/* Price section with enhanced styling */}
                     <div className="pt-6 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
-                      <div className="space-y-4 pb-2">
+                      <div className="space-y-4 pb-2 cursor-pointer" onClick={() => navigate('/catalog')}>
                         <div className="flex items-end justify-between">
                           <div className="space-y-1">
                             <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Цена</span>

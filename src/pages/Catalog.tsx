@@ -124,10 +124,10 @@ const Catalog = () => {
                   Нет кошек, соответствующих выбранным фильтрам
                 </p>
               </div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredCats.map((cat, index) => <div key={cat.id} onClick={() => openCatDetail(cat)} className="group animate-scale-in cursor-pointer" style={{
+                 {filteredCats.map((cat, index) => <div key={cat.id} onClick={() => openCatDetail(cat)} className="group animate-scale-in cursor-pointer" style={{
               animationDelay: `${index * 100}ms`
             }}>
-                    <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 micro-interaction" style={{ transform: 'translateZ(0)' }}>
+                    <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
                       {/* Gradient border effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
                       <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
