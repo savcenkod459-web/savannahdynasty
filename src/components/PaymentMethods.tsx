@@ -1,11 +1,6 @@
 import { DollarSign, Lock, Landmark, ShieldCheck, EyeOff, Bitcoin, Banknote } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 const paymentMethods = [{
-  icon: DollarSign,
-  title: "PayPal",
-  subtitle: "Быстрая и безопасная оплата",
-  features: ["Защита покупателя", "Без данных карты", "Глобальный доступ"]
-}, {
   icon: Bitcoin,
   title: "Криптовалюта",
   subtitle: "USDT, TON, SOL, ETH",
@@ -54,13 +49,11 @@ const PaymentMethods = () => {
         </div>
 
         {/* Payment Methods */}
-        <div className="grid md:grid-cols-3 gap-12 mb-20 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 mb-20 max-w-4xl mx-auto">
           {paymentMethods.map((method, index) => <div key={index} onClick={() => {
             if (index === 0) {
-              navigate("/payment?tab=paypal");
-            } else if (index === 1) {
               navigate("/payment?tab=crypto");
-            } else if (index === 2) {
+            } else if (index === 1) {
               navigate("/payment?tab=cash");
             }
           }} className={`p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift hover-scale animate-scale-in micro-interaction cursor-pointer`} style={{

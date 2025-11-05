@@ -37,16 +37,14 @@ const cryptoAddresses = [{
 const Payment = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<"paypal" | "crypto" | "cash">("paypal");
+  const [activeTab, setActiveTab] = useState<"crypto" | "cash">("crypto");
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null);
   const {
     toast
   } = useToast();
   useEffect(() => {
     const tab = searchParams.get("tab");
-    if (tab === "paypal") {
-      setActiveTab("paypal");
-    } else if (tab === "crypto") {
+    if (tab === "crypto") {
       setActiveTab("crypto");
     } else if (tab === "cash") {
       setActiveTab("cash");
@@ -121,10 +119,6 @@ const Payment = () => {
             <div className="max-w-4xl mx-auto">
               {/* Tabs */}
               <div className="flex gap-2 md:gap-4 mb-8 border-b justify-center">
-                <button onClick={() => setActiveTab("paypal")} className={`px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all rounded-t-lg flex items-center gap-1 md:gap-2 ${activeTab === "paypal" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
-                  <Wallet className="h-4 w-4 md:h-5 md:w-5" />
-                  PayPal
-                </button>
                 <button onClick={() => setActiveTab("crypto")} className={`px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all rounded-t-lg flex items-center gap-1 md:gap-2 ${activeTab === "crypto" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
                   <Bitcoin className="h-4 w-4 md:h-5 md:w-5" />
                   Крипто
@@ -134,22 +128,6 @@ const Payment = () => {
                   Наличные
                 </button>
               </div>
-
-              {/* PayPal */}
-              {activeTab === "paypal" && <div className="p-10 rounded-3xl shadow-soft animate-fade-in ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300 bg-white dark:bg-white">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Wallet className="w-8 h-8 text-primary" />
-                    <h3 className="text-3xl font-display font-bold luxury-text-shadow">PayPal</h3>
-                  </div>
-                  <p className="text-muted-foreground mb-8 text-lg">
-                    Быстрая и безопасная оплата через PayPal
-                  </p>
-                  
-                  <Button className="w-full bg-[#0070ba] hover:bg-[#005ea6]" size="lg">
-                    <Wallet className="w-5 h-5 mr-2" />
-                    Оплатить через PayPal
-                  </Button>
-                </div>}
 
               {/* Crypto */}
               {activeTab === "crypto" && <div className="space-y-6 animate-fade-in">

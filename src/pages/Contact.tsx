@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, Instagram, Send, Crown, Sparkles, MessageCircle, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,18 +19,40 @@ const Contact = () => {
   const {
     toast
   } = useToast();
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Сообщение отправлено",
-      description: "Мы свяжемся с вами в ближайшее время!"
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: ""
-    });
+    
+    try {
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || null,
+          message: formData.message
+        }]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Сообщение отправлено",
+        description: "Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время."
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить сообщение. Пожалуйста, попробуйте позже.",
+        variant: "destructive"
+      });
+    }
   };
   const copyEmail = () => {
     navigator.clipboard.writeText("luxurycxts@gmail.com");
