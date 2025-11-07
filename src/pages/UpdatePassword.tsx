@@ -16,6 +16,7 @@ const UpdatePassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -25,6 +26,44 @@ const UpdatePassword = () => {
       setEmail(emailParam);
     }
   }, [searchParams]);
+
+  const handleResendCode = async () => {
+    if (!email) {
+      toast({
+        variant: "destructive",
+        title: "Ошибка",
+        description: "Введите email адрес"
+      });
+      return;
+    }
+
+    setResendLoading(true);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke("send-reset-code", {
+        body: { email }
+      });
+      
+      if (error) throw error;
+      
+      if (data?.error) {
+        throw new Error(data.error);
+      }
+      
+      toast({
+        title: "Код отправлен повторно",
+        description: "Проверьте почту для получения нового кода"
+      });
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Ошибка",
+        description: error.message
+      });
+    } finally {
+      setResendLoading(false);
+    }
+  };
 
   const handleUpdatePassword = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -197,14 +236,26 @@ const UpdatePassword = () => {
                 {loading ? "Обновление..." : "Изменить пароль"}
               </Button>
               
-              <Button
-                type="button"
-                variant="ghost"
-                className="w-full text-sm hover:bg-secondary/50 transition-all duration-300"
-                onClick={() => navigate("/reset-password")}
-              >
-                Запросить новую ссылку
-              </Button>
+              <div className="flex gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="flex-1 text-sm hover:bg-secondary/50 transition-all duration-300"
+                  onClick={handleResendCode}
+                  disabled={resendLoading || !email}
+                >
+                  {resendLoading ? "Отправка..." : "Отправить код повторно"}
+                </Button>
+                
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="flex-1 text-sm hover:bg-secondary/50 transition-all duration-300"
+                  onClick={() => navigate("/reset-password")}
+                >
+                  Назад
+                </Button>
+              </div>
             </form>
           </CardContent>
         </Card>

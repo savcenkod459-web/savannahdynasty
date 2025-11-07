@@ -81,7 +81,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email with code
     const emailResponse = await resend.emails.send({
-      from: "Savannah Cats <onboarding@resend.dev>",
+      from: "Savannah Cats <lukmilashka10@gmail.com>",
       to: [email],
       subject: "Код для сброса пароля",
       html: `
