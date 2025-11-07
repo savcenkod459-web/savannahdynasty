@@ -21,24 +21,20 @@ const Contact = () => {
   } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([{
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone || null,
-          message: formData.message
-        }]);
-
+      const {
+        error
+      } = await supabase.from('contact_messages').insert([{
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        message: formData.message
+      }]);
       if (error) throw error;
-
       toast({
         title: "Сообщение отправлено",
         description: "Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время."
       });
-
       setFormData({
         name: "",
         email: "",
@@ -176,8 +172,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-bold mb-1 luxury-text-shadow">Часы работы</h4>
-                        <p className="text-muted-foreground font-light">
-                          Пн - Пт: 9:00 - 18:00<br />
+                        <p className="text-muted-foreground font-light">​UTC 8:30-23:00<br />
                           Сб: 10:00 - 16:00<br />
                           Вс: По записи
                         </p>
