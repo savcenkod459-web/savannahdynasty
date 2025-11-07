@@ -20,23 +20,22 @@ const ResetPassword = () => {
     setLoading(true);
     
     try {
-      const origin = window.location.origin;
-      const redirectUrl = origin.includes("localhost") 
-        ? `${origin}/update-password` 
-        : origin.replace(/^http:/, "https:") + "/update-password";
-      
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: redirectUrl
+      const { data, error } = await supabase.functions.invoke("send-reset-code", {
+        body: { email }
       });
       
       if (error) throw error;
       
+      if (data?.error) {
+        throw new Error(data.error);
+      }
+      
       toast({
-        title: "Письмо отправлено",
-        description: "Проверьте почту и перейдите по ссылке для сброса пароля"
+        title: "Код отправлен",
+        description: "Проверьте почту и введите код для сброса пароля"
       });
       
-      setTimeout(() => navigate("/auth"), 2000);
+      setTimeout(() => navigate(`/update-password?email=${encodeURIComponent(email)}`), 1500);
     } catch (error: any) {
       toast({
         variant: "destructive",

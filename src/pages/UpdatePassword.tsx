@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +10,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const UpdatePassword = () => {
+  const [searchParams] = useSearchParams();
+  const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,30 +20,24 @@ const UpdatePassword = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check if this is a valid password recovery session
-    const checkRecoverySession = async () => {
-      const hashParams = new URLSearchParams(window.location.hash.substring(1));
-      const searchParams = new URLSearchParams(window.location.search);
-      
-      const type = hashParams.get('type') || searchParams.get('type');
-      const token = hashParams.get('access_token') || searchParams.get('access_token');
-      
-      if (type !== 'recovery' && !token) {
-        toast({
-          variant: "destructive",
-          title: "Недействительная ссылка",
-          description: "Пожалуйста, запросите новую ссылку для сброса пароля"
-        });
-        navigate("/reset-password");
-      }
-    };
-
-    checkRecoverySession();
-  }, [navigate, toast]);
+    const emailParam = searchParams.get("email");
+    if (emailParam) {
+      setEmail(emailParam);
+    }
+  }, [searchParams]);
 
   const handleUpdatePassword = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!email || !code) {
+      toast({
+        variant: "destructive",
+        title: "Ошибка",
+        description: "Введите email и код подтверждения"
+      });
+      return;
+    }
+
     if (newPassword !== confirmPassword) {
       toast({
         variant: "destructive",
@@ -62,30 +59,24 @@ const UpdatePassword = () => {
     setLoading(true);
     
     try {
-      const { error } = await supabase.auth.updateUser({
-        password: newPassword
+      const { data, error } = await supabase.functions.invoke("verify-reset-code", {
+        body: { 
+          email,
+          code,
+          newPassword 
+        }
       });
       
-      if (error) {
-        if (error.message.includes('invalid token') || error.message.includes('signature')) {
-          toast({
-            variant: "destructive",
-            title: "Ссылка устарела",
-            description: "Ссылка для восстановления пароля истекла. Пожалуйста, запросите новую ссылку."
-          });
-          navigate("/reset-password");
-        } else {
-          throw error;
-        }
-        return;
+      if (error) throw error;
+      
+      if (data?.error) {
+        throw new Error(data.error);
       }
       
       toast({
-        title: "Пароль обновлен",
-        description: "Ваш пароль успешно изменен. Теперь вы можете войти с новым паролем."
+        title: "Пароль успешно изменен",
+        description: "Теперь вы можете войти с новым паролем"
       });
-      
-      window.location.hash = '';
       
       setTimeout(() => {
         navigate("/auth");
@@ -122,15 +113,50 @@ const UpdatePassword = () => {
             </div>
             
             <CardTitle className="text-3xl font-display font-black text-center text-luxury-gradient luxury-text-shadow">
-              Новый пароль
+              Подтверждение сброса
             </CardTitle>
             <CardDescription className="text-center text-foreground/70 text-base font-medium">
-              Введите новый пароль для вашего аккаунта
+              Введите код из письма и новый пароль
             </CardDescription>
           </CardHeader>
           
           <CardContent className="px-8 pb-10">
             <form onSubmit={handleUpdatePassword} className="space-y-6">
+              <div className="space-y-3">
+                <Label htmlFor="email" className="text-sm font-semibold text-foreground/80">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="h-12 px-4 glass-card border-2 border-primary/20 focus:border-primary/50 transition-all duration-300"
+                  placeholder="your@email.com"
+                  autoFocus
+                />
+              </div>
+
+              <div className="space-y-3">
+                <Label htmlFor="code" className="text-sm font-semibold text-foreground/80">
+                  Код подтверждения
+                </Label>
+                <Input
+                  id="code"
+                  type="text"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  required
+                  maxLength={6}
+                  className="h-12 px-4 glass-card border-2 border-primary/20 focus:border-primary/50 transition-all duration-300 text-center text-2xl tracking-widest"
+                  placeholder="000000"
+                />
+                <p className="text-xs text-muted-foreground text-center">
+                  Введите 6-значный код из письма
+                </p>
+              </div>
+              
               <div className="space-y-3">
                 <Label htmlFor="new-password" className="text-sm font-semibold text-foreground/80">
                   Новый пароль
@@ -144,7 +170,6 @@ const UpdatePassword = () => {
                   minLength={8}
                   className="h-12 px-4 glass-card border-2 border-primary/20 focus:border-primary/50 transition-all duration-300"
                   placeholder="Введите новый пароль"
-                  autoFocus
                 />
               </div>
               
