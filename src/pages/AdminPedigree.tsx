@@ -7,10 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Upload, Loader2, Plus, Trash2, X, Edit } from "lucide-react";
+import { Upload, Loader2, Plus, Trash2, X, Edit, Maximize2 } from "lucide-react";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -49,6 +50,9 @@ const AdminPedigree = () => {
   const [uploadingImages, setUploadingImages] = useState(false);
   const [parentImages, setParentImages] = useState<string[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const checkAdminStatus = async () => {
@@ -238,6 +242,20 @@ const AdminPedigree = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const openGallery = (images: string[], index: number = 0) => {
+    setGalleryImages(images);
+    setCurrentImageIndex(index);
+    setGalleryOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen">
@@ -360,13 +378,28 @@ const AdminPedigree = () => {
                           <img
                             src={img}
                             alt={`Parent ${idx + 1}`}
-                            className="w-full aspect-square object-cover rounded-lg"
+                            className="w-full aspect-square object-cover rounded-lg cursor-pointer"
+                            onClick={() => openGallery(parentImages, idx)}
                           />
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="absolute top-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              openGallery(parentImages, idx);
+                            }}
+                          >
+                            <Maximize2 className="w-4 h-4" />
+                          </Button>
                           <Button
                             variant="destructive"
                             size="icon"
                             className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                            onClick={() => removeImage(idx)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              removeImage(idx);
+                            }}
                           >
                             <X className="w-4 h-4" />
                           </Button>
@@ -454,14 +487,27 @@ const AdminPedigree = () => {
                           </div>
                         </div>
                         {pedigree.parent_images && pedigree.parent_images.length > 0 && (
-                          <div className="grid grid-cols-4 gap-2 mt-2">
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2">
                             {pedigree.parent_images.map((img, idx) => (
-                              <img
-                                key={idx}
-                                src={img}
-                                alt={`${pedigree.parent_name} ${idx + 1}`}
-                                className="w-full aspect-square object-cover rounded"
-                              />
+                              <div key={idx} className="relative group">
+                                <img
+                                  src={img}
+                                  alt={`${pedigree.parent_name} ${idx + 1}`}
+                                  className="w-full aspect-square object-cover rounded cursor-pointer hover:opacity-80 transition-opacity"
+                                  onClick={() => openGallery(pedigree.parent_images, idx)}
+                                />
+                                <Button
+                                  variant="outline"
+                                  size="icon"
+                                  className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity h-8 w-8"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    openGallery(pedigree.parent_images, idx);
+                                  }}
+                                >
+                                  <Maximize2 className="w-3 h-3" />
+                                </Button>
+                              </div>
                             ))}
                           </div>
                         )}
@@ -476,6 +522,41 @@ const AdminPedigree = () => {
       </main>
 
       <Footer />
+
+      {/* Fullscreen Gallery */}
+      <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] w-full h-full p-0 bg-black/95">
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background"
+              onClick={prevImage}
+            >
+              <X className="w-4 h-4 rotate-90" />
+            </Button>
+            
+            <img
+              src={galleryImages[currentImageIndex]}
+              alt={`Gallery ${currentImageIndex + 1}`}
+              className="max-w-full max-h-full object-contain"
+            />
+            
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background"
+              onClick={nextImage}
+            >
+              <X className="w-4 h-4 -rotate-90" />
+            </Button>
+
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-background/80 px-4 py-2 rounded-full text-sm">
+              {currentImageIndex + 1} / {galleryImages.length}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

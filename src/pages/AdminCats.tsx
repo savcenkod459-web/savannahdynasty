@@ -436,9 +436,72 @@ const AdminCats = () => {
         <div className="container mx-auto px-6">
           <div className="mb-12">
             <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow mb-4">
-              Управление котами
+              Админ-панель
             </h1>
             <p className="text-muted-foreground">
+              Управляйте всем контентом сайта
+            </p>
+          </div>
+
+          {/* Admin Navigation Cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <Card 
+              className="glass-card border-primary/20 cursor-pointer hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all"
+              onClick={() => navigate("/admin/cats")}
+            >
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <ImageIcon className="w-5 h-5" />
+                  Управление котами
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Загружайте изображения и управляйте каталогом котов
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card 
+              className="glass-card border-primary/20 cursor-pointer hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all"
+              onClick={() => navigate("/admin/pedigree")}
+            >
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Plus className="w-5 h-5" />
+                  Управление родословной
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Добавляйте и редактируйте информацию о родителях котов
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card 
+              className="glass-card border-primary/20 cursor-pointer hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all"
+              onClick={() => navigate("/admin/images")}
+            >
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <ImageIcon className="w-5 h-5" />
+                  Управление изображениями
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Добавляйте изображения для всех страниц сайта
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mb-8">
+            <h2 className="font-display font-bold text-2xl text-luxury-gradient mb-2">
+              Управление котами
+            </h2>
+            <p className="text-muted-foreground text-sm">
               Загружайте изображения и управляйте каталогом котов
             </p>
           </div>

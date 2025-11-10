@@ -368,12 +368,12 @@ const AdminImages = () => {
                   {images.map((image) => (
                     <div
                       key={image.id}
-                      className="p-4 border border-primary/20 rounded-lg flex gap-4"
+                      className="p-4 border border-primary/20 rounded-lg flex flex-col sm:flex-row gap-4"
                     >
                       <img
                         src={image.image_url}
                         alt={image.alt_text || ""}
-                        className="w-32 h-32 object-cover rounded-lg"
+                        className="w-full sm:w-32 h-32 object-cover rounded-lg"
                       />
                       <div className="flex-1 space-y-2">
                         <p className="font-bold">
@@ -389,7 +389,7 @@ const AdminImages = () => {
                           Порядок: {image.display_order}
                         </p>
                       </div>
-                      <div className="flex flex-col gap-2">
+                      <div className="flex sm:flex-col gap-2">
                         <Button
                           variant="outline"
                           size="icon"
