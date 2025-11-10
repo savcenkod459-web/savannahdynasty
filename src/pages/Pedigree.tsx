@@ -132,7 +132,7 @@ const Pedigree = () => {
               {fathers.length > 0 && (
                 <div>
                   <h2 className="text-3xl font-display font-bold text-primary mb-6 text-center">
-                    Отец
+                    Самец
                   </h2>
                   <div className="space-y-6">
                     {fathers.map((parent) => (
@@ -217,7 +217,7 @@ const Pedigree = () => {
               {mothers.length > 0 && (
                 <div>
                   <h2 className="text-3xl font-display font-bold text-primary mb-6 text-center">
-                    Мать
+                    Самка
                   </h2>
                   <div className="space-y-6">
                     {mothers.map((parent) => (
