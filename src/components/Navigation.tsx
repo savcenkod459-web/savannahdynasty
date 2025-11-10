@@ -127,7 +127,7 @@ const Navigation = () => {
             <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-gold hover:shadow-glow transition-all duration-500 group-hover:rotate-12">
               <Crown className="w-5 h-5 md:w-6 md:h-6 text-luxury-black" />
             </div>
-            <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow">SavannahDynasty</h1>
+            <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow py-[5px]">SavannahDynasty</h1>
           </Link>
 
           {/* Desktop Navigation */}
