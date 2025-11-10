@@ -2,7 +2,28 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { ArrowRight, Crown } from "lucide-react";
 import heroImage from "@/assets/hero-savannah.jpg";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 const Hero = () => {
+  const { data: heroImages } = useQuery({
+    queryKey: ["site-images", "home", "hero"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("site_images")
+        .select("*")
+        .eq("page", "home")
+        .eq("section", "hero")
+        .order("display_order", { ascending: true })
+        .limit(1)
+        .maybeSingle();
+
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  const displayImage = heroImages?.image_url || heroImage;
+
   return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
@@ -49,7 +70,7 @@ const Hero = () => {
           <div className="relative animate-scale-in">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl animate-gold-pulse" />
             <div className="relative rounded-3xl overflow-hidden shadow-deep hover:shadow-glow transition-all duration-700 hover:scale-[1.02] image-blur-edges">
-              <img src={heroImage} alt="Элитная кошка Саванна F1" className="w-full h-[600px] object-cover" />
+              <img src={displayImage} alt={heroImages?.alt_text || "Элитная кошка Саванна F1"} className="w-full h-[600px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
               
               {/* Gold accent overlay */}

@@ -5,8 +5,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Loader2, Crown } from "lucide-react";
+import { ArrowLeft, Loader2, Crown, Maximize2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useState } from "react";
 
 type PedigreeEntry = {
   id: string;
@@ -26,6 +28,23 @@ type Cat = {
 const Pedigree = () => {
   const { catId } = useParams();
   const navigate = useNavigate();
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openGallery = (images: string[], index: number) => {
+    setGalleryImages(images);
+    setCurrentImageIndex(index);
+    setGalleryOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
 
   const { data: cat, isLoading: catLoading } = useQuery({
     queryKey: ["cat", catId],
@@ -97,9 +116,6 @@ const Pedigree = () => {
             <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow">
               {cat?.name}
             </h1>
-            <p className="text-xl text-muted-foreground mt-4">
-              {cat?.breed}
-            </p>
           </div>
 
           {(!pedigree || pedigree.length === 0) ? (
@@ -109,13 +125,14 @@ const Pedigree = () => {
               </p>
             </div>
           ) : (
-            <div className="space-y-16">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Отец */}
               {fathers.length > 0 && (
                 <div>
-                  <h2 className="text-3xl font-display font-bold text-primary mb-8 text-center">
+                  <h2 className="text-3xl font-display font-bold text-primary mb-6">
                     Отец
                   </h2>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="space-y-6">
                     {fathers.map((parent) => (
                       <Card
                         key={parent.id}
@@ -124,8 +141,14 @@ const Pedigree = () => {
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <CardContent className="p-0 relative">
                           {parent.parent_images && parent.parent_images.length > 0 && (
-                            <div className="aspect-[3/4] overflow-hidden relative">
+                            <div 
+                              className="aspect-[3/4] overflow-hidden relative cursor-pointer"
+                              onClick={() => openGallery(parent.parent_images, 0)}
+                            >
                               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+                              <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <Maximize2 className="w-12 h-12 text-white drop-shadow-lg" />
+                              </div>
                               <img
                                 src={parent.parent_images[0]}
                                 alt={parent.parent_name}
@@ -151,13 +174,19 @@ const Pedigree = () => {
                             {parent.parent_images && parent.parent_images.length > 1 && (
                               <div className="grid grid-cols-3 gap-2 pt-4">
                                 {parent.parent_images.slice(1, 4).map((img, idx) => (
-                                  <div key={idx} className="relative group/img overflow-hidden rounded-lg">
+                                  <div 
+                                    key={idx} 
+                                    className="relative group/img overflow-hidden rounded-lg cursor-pointer"
+                                    onClick={() => openGallery(parent.parent_images, idx + 1)}
+                                  >
                                     <img
                                       src={img}
                                       alt={`${parent.parent_name} ${idx + 2}`}
                                       className="aspect-square object-cover transition-transform duration-500 group-hover/img:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                      <Maximize2 className="w-6 h-6 text-white drop-shadow-lg" />
+                                    </div>
                                   </div>
                                 ))}
                               </div>
@@ -170,12 +199,13 @@ const Pedigree = () => {
                 </div>
               )}
 
+              {/* Мать */}
               {mothers.length > 0 && (
                 <div>
-                  <h2 className="text-3xl font-display font-bold text-primary mb-8 text-center">
+                  <h2 className="text-3xl font-display font-bold text-primary mb-6">
                     Мать
                   </h2>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="space-y-6">
                     {mothers.map((parent) => (
                       <Card
                         key={parent.id}
@@ -184,8 +214,14 @@ const Pedigree = () => {
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <CardContent className="p-0 relative">
                           {parent.parent_images && parent.parent_images.length > 0 && (
-                            <div className="aspect-[3/4] overflow-hidden relative">
+                            <div 
+                              className="aspect-[3/4] overflow-hidden relative cursor-pointer"
+                              onClick={() => openGallery(parent.parent_images, 0)}
+                            >
                               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+                              <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <Maximize2 className="w-12 h-12 text-white drop-shadow-lg" />
+                              </div>
                               <img
                                 src={parent.parent_images[0]}
                                 alt={parent.parent_name}
@@ -211,13 +247,19 @@ const Pedigree = () => {
                             {parent.parent_images && parent.parent_images.length > 1 && (
                               <div className="grid grid-cols-3 gap-2 pt-4">
                                 {parent.parent_images.slice(1, 4).map((img, idx) => (
-                                  <div key={idx} className="relative group/img overflow-hidden rounded-lg">
+                                  <div 
+                                    key={idx} 
+                                    className="relative group/img overflow-hidden rounded-lg cursor-pointer"
+                                    onClick={() => openGallery(parent.parent_images, idx + 1)}
+                                  >
                                     <img
                                       src={img}
                                       alt={`${parent.parent_name} ${idx + 2}`}
                                       className="aspect-square object-cover transition-transform duration-500 group-hover/img:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                      <Maximize2 className="w-6 h-6 text-white drop-shadow-lg" />
+                                    </div>
                                   </div>
                                 ))}
                               </div>
@@ -236,6 +278,42 @@ const Pedigree = () => {
 
       <Footer />
       <ScrollToTop />
+
+      {/* Fullscreen Gallery */}
+      <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-primary/20">
+          <div className="relative w-full h-[95vh] flex items-center justify-center">
+            <img
+              src={galleryImages[currentImageIndex]}
+              alt={`Изображение ${currentImageIndex + 1}`}
+              className="max-w-full max-h-full object-contain"
+            />
+            {galleryImages.length > 1 && (
+              <>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
+                  onClick={prevImage}
+                >
+                  <ChevronLeft className="w-8 h-8" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
+                  onClick={nextImage}
+                >
+                  <ChevronRight className="w-8 h-8" />
+                </Button>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 px-4 py-2 rounded-full text-white">
+                  {currentImageIndex + 1} / {galleryImages.length}
+                </div>
+              </>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

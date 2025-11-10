@@ -6,8 +6,30 @@ import { useEffect } from "react";
 import { CheckCircle2, Crown, Sparkles, Diamond, Star, Award, HeartPulse, Users, Trophy, Headset, Apple, Home, PawPrint, Brain, Gem, Cat, Baby, AlertCircle, Wind, Drumstick, Snowflake, Activity, Heart, Scale, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import breedingImage from "@/assets/breeding-facility.jpg";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 const About = () => {
   const location = useLocation();
+
+  const { data: breedingImages } = useQuery({
+    queryKey: ["site-images", "about", "breeding"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("site_images")
+        .select("*")
+        .eq("page", "about")
+        .eq("section", "breeding")
+        .order("display_order", { ascending: true })
+        .limit(1)
+        .maybeSingle();
+
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  const displayBreedingImage = breedingImages?.image_url || breedingImage;
+
   useEffect(() => {
     if (location.hash) {
       const element = document.querySelector(location.hash);
@@ -82,7 +104,7 @@ const About = () => {
                 </p>
               </div>
               <div className="rounded-3xl overflow-hidden shadow-glow animate-scale-in hover-lift micro-interaction image-blur-edges">
-                <img src={breedingImage} alt="Breeding Facility" className="w-full h-[400px] object-cover hover-scale" />
+                <img src={displayBreedingImage} alt={breedingImages?.alt_text || "Breeding Facility"} className="w-full h-[400px] object-cover hover-scale" />
               </div>
             </div>
           </div>
