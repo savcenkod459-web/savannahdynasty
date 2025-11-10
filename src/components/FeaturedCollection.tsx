@@ -168,11 +168,18 @@ const FeaturedCollection = () => {
                           </div>
                         </div>
                       </div>
-                      <Link to="/payment#booking" onClick={e => e.stopPropagation()} className="block mt-8">
-                        <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
-                          Забронировать
-                        </Button>
-                      </Link>
+                      <div className="flex gap-2 mt-8">
+                        <Link to={`/pedigree/${cat.id}`} onClick={e => e.stopPropagation()} className="flex-1">
+                          <Button variant="outline" size="sm" className="w-full border-primary/30 hover:bg-primary/10 transition-all duration-300">
+                            Родословная
+                          </Button>
+                        </Link>
+                        <Link to="/payment#booking" onClick={e => e.stopPropagation()} className="flex-1">
+                          <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
+                            Забронировать
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>

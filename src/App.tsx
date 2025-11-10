@@ -12,6 +12,10 @@ import Payment from "./pages/Payment";
 import Warranty from "./pages/Warranty";
 import Contact from "./pages/Contact";
 import AdminCats from "./pages/AdminCats";
+import AdminPedigree from "./pages/AdminPedigree";
+import AdminImages from "./pages/AdminImages";
+import Pedigree from "./pages/Pedigree";
+import Profile from "./pages/Profile";
 import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
 import UpdatePassword from "./pages/UpdatePassword";
@@ -39,7 +43,11 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/update-password" element={<UpdatePassword />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/pedigree/:catId" element={<Pedigree />} />
           <Route path="/admin/cats" element={<AdminCats />} />
+          <Route path="/admin/pedigree" element={<AdminPedigree />} />
+          <Route path="/admin/images" element={<AdminImages />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
