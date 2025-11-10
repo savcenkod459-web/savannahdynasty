@@ -123,7 +123,7 @@ const Contact = () => {
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
               {/* Contact Form */}
-              <ScrollAnimationWrapper animation="slide-right" delay={100}>
+              <ScrollAnimationWrapper animation="fade" delay={100}>
                 <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant hover:shadow-[0_0_30px_rgba(217,179,112,0.3)] transition-all duration-500 group">
                   <div className="flex items-center gap-3 mb-8">
                     <Send className="w-6 w-6 text-primary" />
@@ -185,7 +185,7 @@ const Contact = () => {
               </ScrollAnimationWrapper>
 
               {/* Contact Info */}
-              <ScrollAnimationWrapper animation="slide-left" delay={200}>
+              <ScrollAnimationWrapper animation="fade" delay={200}>
                 <div className="space-y-8">
                   <div>
                     <div className="flex items-center gap-3 mb-8">

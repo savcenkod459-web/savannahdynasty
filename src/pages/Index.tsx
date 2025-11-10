@@ -17,25 +17,25 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
-        <ScrollAnimationWrapper animation="slide-up" delay={100}>
+        <ScrollAnimationWrapper animation="fade" delay={100}>
           <WhyChooseUs />
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper animation="fade" parallax parallaxSpeed={0.3} delay={200}>
+        <ScrollAnimationWrapper animation="fade" delay={150}>
           <PremiumBreeds />
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper animation="slide-up" delay={100}>
+        <ScrollAnimationWrapper animation="fade" delay={100}>
           <FeaturedCollection />
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper animation="fade" parallax parallaxSpeed={0.2} delay={150}>
+        <ScrollAnimationWrapper animation="fade" delay={150}>
           <RaritySection />
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper animation="slide-up" delay={100}>
+        <ScrollAnimationWrapper animation="fade" delay={100}>
           <PricingSection />
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper animation="fade" delay={150}>
           <PaymentMethods />
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper animation="scale" delay={100}>
+        <ScrollAnimationWrapper animation="fade" delay={100}>
           <FinalCTA />
         </ScrollAnimationWrapper>
       </main>

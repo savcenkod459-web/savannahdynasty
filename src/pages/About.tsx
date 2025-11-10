@@ -81,7 +81,8 @@ const About = () => {
         </section>
 
         {/* Breeding Standards */}
-        <section className="py-20 relative overflow-hidden">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20 relative overflow-hidden">
           <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
           <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
           animationDelay: '3s'
@@ -110,9 +111,11 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Health & Wellness */}
-        <section className="py-20 bg-secondary/30 relative overflow-hidden">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section className="py-20 bg-secondary/30 relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
             <Star className="absolute top-1/4 left-1/4 w-24 h-24 text-primary animate-pulse" />
             <Sparkles className="absolute bottom-1/4 right-1/4 w-20 h-20 text-accent animate-pulse" style={{
@@ -140,9 +143,11 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Socialization */}
-        <section className="py-20">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto space-y-12">
               <div className="animate-fade-in">
@@ -171,9 +176,11 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Featured Breeds */}
-        <section id="featured-breeds" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section id="featured-breeds" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
           <div className="absolute top-10 right-10 opacity-5">
             <Crown className="w-40 h-40 text-primary animate-float" />
           </div>
@@ -207,9 +214,11 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Редкость и Уникальность */}
-        <section id="rarity" className="py-20 relative overflow-hidden scroll-mt-24">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section id="rarity" className="py-20 relative overflow-hidden scroll-mt-24">
           <div className="absolute top-20 left-10 opacity-5">
             <Diamond className="w-40 h-40 text-primary animate-float" />
           </div>
@@ -316,9 +325,11 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Информация о цене */}
-        <section id="pricing" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section id="pricing" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
           <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
           <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
           animationDelay: '3s'
@@ -685,9 +696,11 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Взрослые коты */}
-        <section id="adult-cats" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section id="adult-cats" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
           <div className="absolute top-20 left-10 opacity-5">
             <Cat className="w-32 h-32 text-primary animate-float" />
           </div>
@@ -757,9 +770,11 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Котята */}
-        <section id="kittens" className="py-20 scroll-mt-24">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section id="kittens" className="py-20 scroll-mt-24">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto animate-fade-in">
               <h2 className="font-display font-black text-4xl md:text-5xl mb-6 luxury-text-shadow flex items-center gap-4">
@@ -830,9 +845,11 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Lifetime Support */}
-        <section className="py-20 bg-secondary/30">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <h2 className="font-display font-black text-4xl flex items-center justify-center gap-4">
@@ -843,6 +860,7 @@ const About = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
       </main>
       
       <Footer />

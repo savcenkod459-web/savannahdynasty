@@ -1,11 +1,9 @@
 import { ReactNode } from 'react';
-import { useScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface ScrollAnimationWrapperProps {
   children: ReactNode;
   animation?: 'fade' | 'slide-up' | 'slide-left' | 'slide-right' | 'scale' | 'none';
-  parallax?: boolean;
-  parallaxSpeed?: number;
   className?: string;
   delay?: number;
 }
@@ -13,17 +11,13 @@ interface ScrollAnimationWrapperProps {
 const ScrollAnimationWrapper = ({ 
   children, 
   animation = 'fade', 
-  parallax = false,
-  parallaxSpeed = 0.5,
   className = '',
   delay = 0
 }: ScrollAnimationWrapperProps) => {
-  const { elementRef: scrollRef, isVisible } = useScrollAnimation({ 
+  const { elementRef, isVisible } = useScrollAnimation({ 
     threshold: 0.1, 
     triggerOnce: true 
   });
-  
-  const { elementRef: parallaxRef, offsetY } = useParallax(parallaxSpeed);
 
   const getAnimationClass = () => {
     if (!isVisible || animation === 'none') return 'opacity-0';
@@ -44,19 +38,11 @@ const ScrollAnimationWrapper = ({
     }
   };
 
-  const combinedRef = (node: HTMLDivElement) => {
-    scrollRef.current = node;
-    if (parallax) {
-      parallaxRef.current = node;
-    }
-  };
-
   return (
     <div 
-      ref={combinedRef}
+      ref={elementRef}
       className={`transition-all duration-1000 ${getAnimationClass()} ${className}`}
       style={{
-        transform: parallax ? `translateY(${offsetY}px)` : undefined,
         transitionDelay: `${delay}ms`
       }}
     >
