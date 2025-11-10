@@ -14,6 +14,50 @@ export type Database = {
   }
   public: {
     Tables: {
+      cat_pedigrees: {
+        Row: {
+          cat_id: string
+          created_at: string | null
+          id: string
+          parent_breed: string
+          parent_description: string | null
+          parent_images: string[] | null
+          parent_name: string
+          parent_type: string
+          updated_at: string | null
+        }
+        Insert: {
+          cat_id: string
+          created_at?: string | null
+          id?: string
+          parent_breed: string
+          parent_description?: string | null
+          parent_images?: string[] | null
+          parent_name: string
+          parent_type: string
+          updated_at?: string | null
+        }
+        Update: {
+          cat_id?: string
+          created_at?: string | null
+          id?: string
+          parent_breed?: string
+          parent_description?: string | null
+          parent_images?: string[] | null
+          parent_name?: string
+          parent_type?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cat_pedigrees_cat_id_fkey"
+            columns: ["cat_id"]
+            isOneToOne: false
+            referencedRelation: "cats"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       cats: {
         Row: {
           additional_images: string[] | null
@@ -121,21 +165,69 @@ export type Database = {
       }
       profiles: {
         Row: {
+          avatar_url: string | null
+          bio: string | null
           created_at: string | null
           email: string | null
+          first_name: string | null
           id: string
+          last_name: string | null
+          phone: string | null
           updated_at: string | null
         }
         Insert: {
+          avatar_url?: string | null
+          bio?: string | null
           created_at?: string | null
           email?: string | null
+          first_name?: string | null
           id: string
+          last_name?: string | null
+          phone?: string | null
           updated_at?: string | null
         }
         Update: {
+          avatar_url?: string | null
+          bio?: string | null
           created_at?: string | null
           email?: string | null
+          first_name?: string | null
           id?: string
+          last_name?: string | null
+          phone?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      site_images: {
+        Row: {
+          alt_text: string | null
+          created_at: string | null
+          display_order: number | null
+          id: string
+          image_url: string
+          page: string
+          section: string
+          updated_at: string | null
+        }
+        Insert: {
+          alt_text?: string | null
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          image_url: string
+          page: string
+          section: string
+          updated_at?: string | null
+        }
+        Update: {
+          alt_text?: string | null
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          image_url?: string
+          page?: string
+          section?: string
           updated_at?: string | null
         }
         Relationships: []

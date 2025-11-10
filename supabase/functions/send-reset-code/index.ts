@@ -79,21 +79,44 @@ const handler = async (req: Request): Promise<Response> => {
       throw insertError;
     }
 
-    // Send email with code
+    // Send email with the reset code
     const emailResponse = await resend.emails.send({
-      from: "Savannah Cats <lukmilashka10@gmail.com>",
+      from: "SavannahDynasty <onboarding@resend.dev>",
       to: [email],
-      subject: "Код для сброса пароля",
+      subject: "Код сброса пароля - SavannahDynasty",
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h1 style="color: #333; text-align: center;">Сброс пароля</h1>
-          <p style="font-size: 16px; color: #555;">Вы запросили сброс пароля для вашего аккаунта.</p>
-          <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center;">
-            <p style="margin: 0 0 10px 0; color: #777; font-size: 14px;">Ваш код для сброса пароля:</p>
-            <h2 style="margin: 0; color: #333; font-size: 32px; letter-spacing: 4px;">${code}</h2>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
+          <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h1 style="color: #D9B370; text-align: center; margin-bottom: 20px;">🐾 SavannahDynasty</h1>
+            <h2 style="color: #333; text-align: center; margin-bottom: 30px;">Код сброса пароля</h2>
+            
+            <p style="color: #666; font-size: 16px; line-height: 1.5; margin-bottom: 20px;">
+              Здравствуйте!
+            </p>
+            
+            <p style="color: #666; font-size: 16px; line-height: 1.5; margin-bottom: 30px;">
+              Вы запросили сброс пароля для вашей учетной записи. Используйте код ниже для подтверждения:
+            </p>
+            
+            <div style="background: linear-gradient(135deg, #FFF8E7 0%, #FFE4B5 100%); border: 3px solid #D9B370; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0; box-shadow: 0 4px 15px rgba(217, 179, 112, 0.2);">
+              <div style="color: #8B7355; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">Ваш код подтверждения</div>
+              <div style="font-size: 36px; font-weight: bold; color: #D9B370; letter-spacing: 10px; font-family: 'Courier New', monospace; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+                ${code}
+              </div>
+            </div>
+            
+            <p style="color: #666; font-size: 14px; line-height: 1.5; margin-top: 30px;">
+              ⏱️ Этот код действителен в течение <strong>15 минут</strong>.
+            </p>
+            
+            <p style="color: #999; font-size: 12px; line-height: 1.5; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+              Если вы не запрашивали сброс пароля, просто проигнорируйте это письмо. Ваш аккаунт в безопасности.
+            </p>
+            
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+              <p style="color: #D9B370; font-size: 12px; margin: 0;">SavannahDynasty - Элитные кошки</p>
+            </div>
           </div>
-          <p style="font-size: 14px; color: #777;">Код действителен в течение 15 минут.</p>
-          <p style="font-size: 14px; color: #777;">Если вы не запрашивали сброс пароля, просто проигнорируйте это письмо.</p>
         </div>
       `,
     });

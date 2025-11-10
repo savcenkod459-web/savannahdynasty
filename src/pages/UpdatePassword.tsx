@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Clock } from "lucide-react";
 
 const UpdatePassword = () => {
   const [searchParams] = useSearchParams();
@@ -17,6 +18,7 @@ const UpdatePassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [resendLoading, setResendLoading] = useState(false);
+  const [resendTimer, setResendTimer] = useState(0);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -27,7 +29,19 @@ const UpdatePassword = () => {
     }
   }, [searchParams]);
 
+  // Timer countdown
+  useEffect(() => {
+    if (resendTimer > 0) {
+      const interval = setInterval(() => {
+        setResendTimer((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [resendTimer]);
+
   const handleResendCode = async () => {
+    if (resendTimer > 0) return;
+    
     if (!email) {
       toast({
         variant: "destructive",
@@ -50,6 +64,7 @@ const UpdatePassword = () => {
         throw new Error(data.error);
       }
       
+      setResendTimer(60); // 1 minute timer
       toast({
         title: "Код отправлен повторно",
         description: "Проверьте почту для получения нового кода"
@@ -242,9 +257,18 @@ const UpdatePassword = () => {
                   variant="outline"
                   className="flex-1 text-sm hover:bg-secondary/50 transition-all duration-300"
                   onClick={handleResendCode}
-                  disabled={resendLoading || !email}
+                  disabled={resendLoading || !email || resendTimer > 0}
                 >
-                  {resendLoading ? "Отправка..." : "Отправить код повторно"}
+                  {resendTimer > 0 ? (
+                    <span className="flex items-center gap-2">
+                      <Clock className="h-4 w-4" />
+                      Подождите {resendTimer}с
+                    </span>
+                  ) : resendLoading ? (
+                    "Отправка..."
+                  ) : (
+                    "Отправить код повторно"
+                  )}
                 </Button>
                 
                 <Button
