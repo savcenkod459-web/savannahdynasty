@@ -98,18 +98,18 @@ const Pedigree = () => {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-6">
           <Button
-            variant="ghost"
+            variant="ghost-gold"
             onClick={() => navigate(-1)}
-            className="mb-8 hover:bg-primary/10"
+            className="mb-8"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Назад
           </Button>
 
           <div className="mb-12 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4">
-              <Crown className="w-4 h-4 text-primary" />
-              <span className="text-sm font-bold tracking-widest uppercase text-primary">
+            <div className="inline-flex items-center gap-3 px-6 py-3 glass-card rounded-full mb-6 group hover:shadow-[0_0_40px_rgba(217,179,112,0.6)] transition-all duration-500 cursor-default hover:scale-105">
+              <Crown className="w-6 h-6 text-primary animate-pulse" />
+              <span className="text-xl font-bold tracking-widest uppercase text-primary luxury-text-shadow">
                 Родословная
               </span>
             </div>

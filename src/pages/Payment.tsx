@@ -209,7 +209,7 @@ const Payment = () => {
                     Чтобы узнать детали - свяжитесь с нами
                   </p>
                   
-                  <Button size="lg" onClick={() => navigate('/contact')} className="whitespace-nowrap">
+                  <Button size="lg" onClick={() => navigate('/contact')} className="whitespace-nowrap hover:shadow-[0_0_40px_rgba(217,179,112,0.6)] transition-all duration-500">
                     Связаться с нами
                   </Button>
                 </div>

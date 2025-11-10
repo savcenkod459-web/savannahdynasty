@@ -209,7 +209,7 @@ const Catalog = () => {
                       </div>
                       <div className="flex gap-2 mt-8">
                         <Link to={`/pedigree/${cat.id}`} onClick={e => e.stopPropagation()} className="flex-1">
-                          <Button variant="outline" size="sm" className="w-full border-primary/30 hover:bg-primary/10 transition-all duration-300 py-[20px]">
+                          <Button variant="ghost-gold" size="sm" className="w-full py-[20px]">
                             Родословная
                           </Button>
                         </Link>

@@ -8,10 +8,10 @@ const Warranty = () => {
     toast
   } = useToast();
   const copyEmail = () => {
-    navigator.clipboard.writeText("luxurycxts@gmail.com");
+    navigator.clipboard.writeText("savannahdynasty@gmail.com");
     toast({
       title: "Email скопирован!",
-      description: "luxurycxts@gmail.com скопирован в буфер обмена"
+      description: "savannahdynasty@gmail.com скопирован в буфер обмена"
     });
   };
   return <div className="min-h-screen">

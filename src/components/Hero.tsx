@@ -59,7 +59,7 @@ const Hero = () => {
                 </Button>
               </Link>
               <Link to="/about">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto px-10 py-7 rounded-2xl border-2 border-primary/30 hover:bg-primary/5 hover:border-primary transition-all duration-500 gold-border text-lg micro-interaction font-semibold">
+                <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-10 py-7 rounded-2xl text-lg micro-interaction font-semibold">
                   Узнать больше
                 </Button>
               </Link>
@@ -67,11 +67,19 @@ const Hero = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative animate-scale-in">
+          <div className="relative animate-scale-in group/hero">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl animate-gold-pulse" />
             <div className="relative rounded-3xl overflow-hidden shadow-deep hover:shadow-glow transition-all duration-700 hover:scale-[1.02] image-blur-edges">
               <img src={displayImage} alt={heroImages?.alt_text || "Элитная кошка Саванна F1"} className="w-full h-[600px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
+              
+              {/* Logo with Crown - appears on hover */}
+              <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-500 transform group-hover/hero:scale-110 flex items-center gap-3">
+                <div className="relative">
+                  <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
+                </div>
+                <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">SavannahDynasty</span>
+              </div>
               
               {/* Gold accent overlay */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/30 to-transparent rounded-bl-full" />

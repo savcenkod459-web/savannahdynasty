@@ -170,7 +170,7 @@ const FeaturedCollection = () => {
                       </div>
                       <div className="flex gap-2 mt-8">
                         <Link to={`/pedigree/${cat.id}`} onClick={e => e.stopPropagation()} className="flex-1">
-                          <Button variant="outline" size="sm" className="w-full border-primary/30 hover:bg-primary/10 transition-all duration-300">
+                          <Button variant="ghost-gold" size="sm" className="w-full">
                             Родословная
                           </Button>
                         </Link>
@@ -189,7 +189,7 @@ const FeaturedCollection = () => {
 
         <div className="text-center">
           <Link to="/catalog">
-            <Button size="lg" variant="outline" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-2xl border-2 hover:bg-secondary transition-all duration-400">
+            <Button size="lg" variant="ghost-gold" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-2xl">
               Посмотреть всю коллекцию
               <ArrowRight className="ml-2 h-4 md:h-5 w-4 md:w-5" />
             </Button>
