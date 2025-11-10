@@ -181,13 +181,26 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="lg:hidden micro-interaction hover:shadow-gold" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="lg:hidden micro-interaction hover:shadow-gold relative group" 
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <div className="relative">
+              {isOpen ? (
+                <X className="h-6 w-6 text-primary transition-all duration-300 group-hover:rotate-90" />
+              ) : (
+                <Menu className="h-6 w-6 transition-all duration-300 group-hover:scale-110" />
+              )}
+              <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
           </Button>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && <div className="lg:hidden mt-4 animate-fade-in glass-card rounded-2xl">
+        {isOpen && (
+          <div className="lg:hidden mt-4 animate-slide-down glass-card rounded-2xl border-2 border-primary/20 shadow-glow">
             <ScrollArea className="h-[calc(100vh-140px)] px-4 py-4">
               <div className="space-y-2 pb-4">
                 {navItems.map(item => {
@@ -232,7 +245,8 @@ const Navigation = () => {
                   </Button>}
               </div>
             </ScrollArea>
-          </div>}
+          </div>
+        )}
       </div>
     </nav>;
 };

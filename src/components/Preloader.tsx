@@ -28,20 +28,38 @@ const Preloader = () => {
   if (!isVisible) return null;
 
   return (
-    <div 
-      className="fixed inset-0 z-[99999] flex items-center justify-center bg-background transition-opacity duration-1000"
-      style={{ 
-        opacity: isVisible ? 1 : 0, 
-        pointerEvents: isVisible ? 'auto' : 'none',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: '100vw',
-        height: '100dvh',
-        overflow: 'hidden'
-      }}>
+    <>
+      {/* Full screen background overlay */}
+      <div 
+        className="fixed inset-0 z-[99998] bg-background"
+        style={{ 
+          opacity: isVisible ? 1 : 0,
+          pointerEvents: isVisible ? 'auto' : 'none',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100vw',
+          height: '100vh',
+        }}
+      />
+      
+      {/* Preloader content */}
+      <div 
+        className="fixed inset-0 z-[99999] flex items-center justify-center bg-background transition-opacity duration-1000"
+        style={{ 
+          opacity: isVisible ? 1 : 0, 
+          pointerEvents: isVisible ? 'auto' : 'none',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100vw',
+          height: '100dvh',
+          overflow: 'hidden'
+        }}>
       <div className="relative">
         {/* Animated circles */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -69,6 +87,7 @@ const Preloader = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
