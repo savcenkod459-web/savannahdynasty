@@ -11,26 +11,22 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 const About = () => {
   const location = useLocation();
-
-  const { data: breedingImages } = useQuery({
+  const {
+    data: breedingImages
+  } = useQuery({
     queryKey: ["site-images", "about", "breeding"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("site_images")
-        .select("*")
-        .eq("page", "about")
-        .eq("section", "breeding")
-        .order("display_order", { ascending: true })
-        .limit(1)
-        .maybeSingle();
-
+      const {
+        data,
+        error
+      } = await supabase.from("site_images").select("*").eq("page", "about").eq("section", "breeding").order("display_order", {
+        ascending: true
+      }).limit(1).maybeSingle();
       if (error) throw error;
       return data;
-    },
+    }
   });
-
   const displayBreedingImage = breedingImages?.image_url || breedingImage;
-
   useEffect(() => {
     if (location.hash) {
       const element = document.querySelector(location.hash);
@@ -85,8 +81,8 @@ const About = () => {
           <section className="py-20 relative overflow-hidden">
           <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
           <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
-          animationDelay: '3s'
-        }} />
+            animationDelay: '3s'
+          }} />
           
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -119,8 +115,8 @@ const About = () => {
           <div className="absolute inset-0 opacity-5">
             <Star className="absolute top-1/4 left-1/4 w-24 h-24 text-primary animate-pulse" />
             <Sparkles className="absolute bottom-1/4 right-1/4 w-20 h-20 text-accent animate-pulse" style={{
-            animationDelay: '1.5s'
-          }} />
+              animationDelay: '1.5s'
+            }} />
           </div>
           
           <div className="container mx-auto px-6 relative z-10">
@@ -134,8 +130,8 @@ const About = () => {
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 {healthChecks.map((check, index) => <div key={index} className="flex items-start gap-3 p-4 glass-card rounded-2xl animate-fade-in hover-lift micro-interaction" style={{
-                animationDelay: `${index * 100}ms`
-              }}>
+                  animationDelay: `${index * 100}ms`
+                }}>
                     <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5 animate-pulse" />
                     <span className="text-lg font-light">{check}</span>
                   </div>)}
@@ -197,8 +193,8 @@ const About = () => {
             </div>
             <div className="max-w-3xl mx-auto">
               {breeds.map((breed, index) => <div key={index} className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-scale-in hover-lift micro-interaction" style={{
-              animationDelay: `${index * 200}ms`
-            }}>
+                animationDelay: `${index * 200}ms`
+              }}>
                   <h3 className="font-display font-black text-3xl mb-4 luxury-text-shadow">{breed.name}</h3>
                   <p className="text-muted-foreground leading-relaxed mb-6 font-light text-lg">{breed.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -224,8 +220,8 @@ const About = () => {
           </div>
           <div className="absolute bottom-20 right-10 opacity-5">
             <Gem className="w-48 h-48 text-accent animate-float" style={{
-            animationDelay: '2s'
-          }} />
+              animationDelay: '2s'
+            }} />
           </div>
           
           <div className="container mx-auto px-6 relative z-10">
@@ -258,8 +254,8 @@ const About = () => {
 
                 <div className="grid md:grid-cols-2 gap-6 mt-12">
                   <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction" style={{
-                  animationDelay: '100ms'
-                }}>
+                    animationDelay: '100ms'
+                  }}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="p-3 bg-primary/10 rounded-full">
                         <Diamond className="w-8 h-8 text-primary" />
@@ -274,8 +270,8 @@ const About = () => {
                   </div>
 
                   <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction" style={{
-                  animationDelay: '200ms'
-                }}>
+                    animationDelay: '200ms'
+                  }}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="p-3 bg-primary/10 rounded-full">
                         <Crown className="w-8 h-8 text-primary" />
@@ -290,8 +286,8 @@ const About = () => {
                   </div>
 
                   <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction" style={{
-                  animationDelay: '300ms'
-                }}>
+                    animationDelay: '300ms'
+                  }}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="p-3 bg-primary/10 rounded-full">
                         <PawPrint className="w-8 h-8 text-primary" />
@@ -306,8 +302,8 @@ const About = () => {
                   </div>
 
                   <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction" style={{
-                  animationDelay: '400ms'
-                }}>
+                    animationDelay: '400ms'
+                  }}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="p-3 bg-primary/10 rounded-full">
                         <Gem className="w-8 h-8 text-primary" />
@@ -332,8 +328,8 @@ const About = () => {
           <section id="pricing" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
           <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
           <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
-          animationDelay: '3s'
-        }} />
+            animationDelay: '3s'
+          }} />
           
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-5xl mx-auto">
@@ -450,7 +446,7 @@ const About = () => {
                       <Cat className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                       <div>
                         <h4 className="font-bold mb-2 text-foreground">Пол</h4>
-                        <p className="text-muted-foreground font-light text-sm">Кошки (особенно F1 и F2) ценятся дороже котов</p>
+                        <p className="text-muted-foreground font-light text-sm">Коты (особенно F1 и F2) ценятся дороже кошек</p>
                       </div>
                     </div>
                   </div>
