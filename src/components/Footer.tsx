@@ -150,7 +150,7 @@ const Footer = () => {
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
           </div>
-          <p className="text-sm text-muted-foreground font-light">© 2025 SavannahDynasty. Все права защищены.{currentYear} LuxuryCats. Все права защищены.
+          <p className="text-sm text-muted-foreground font-light">© 2025 SavannahDynasty. Все права защищены.
           </p>
         </div>
       </div>
