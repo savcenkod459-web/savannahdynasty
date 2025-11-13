@@ -11,6 +11,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { User, Mail, Phone, Upload, Crown } from "lucide-react";
+import { ChangePasswordDialog } from "@/components/ChangePasswordDialog";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -256,6 +257,10 @@ const Profile = () => {
                     >
                       {loading ? "Сохранение..." : "Сохранить изменения"}
                     </Button>
+                    
+                    <div className="pt-4 border-t">
+                      <ChangePasswordDialog />
+                    </div>
                   </form>
                 </CardContent>
               </Card>

@@ -8,12 +8,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { EmailVerificationDialog } from "@/components/EmailVerificationDialog";
 
 const Auth = () => {
   const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showVerification, setShowVerification] = useState(false);
+  const [pendingEmail, setPendingEmail] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
   
@@ -108,11 +111,9 @@ const Auth = () => {
           return;
         }
         
-        toast({
-          title: "Регистрация успешна!",
-          description: "Теперь вы можете войти в систему"
-        });
-        setAuthMode("signin");
+        // Показываем диалог подтверждения email
+        setPendingEmail(email);
+        setShowVerification(true);
       }
     } catch (error: any) {
       toast({
@@ -220,6 +221,19 @@ const Auth = () => {
           </CardContent>
         </Card>
       </main>
+      
+      <EmailVerificationDialog
+        email={pendingEmail}
+        open={showVerification}
+        onOpenChange={setShowVerification}
+        onVerified={() => {
+          toast({
+            title: "Email подтвержден",
+            description: "Теперь вы можете войти в систему"
+          });
+          setAuthMode("signin");
+        }}
+      />
       
       <Footer />
     </div>
