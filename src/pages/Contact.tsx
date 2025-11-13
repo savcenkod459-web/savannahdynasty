@@ -11,6 +11,14 @@ import { Mail, Clock, Instagram, Send, Crown, Sparkles, MessageCircle, Star } fr
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { User } from "@supabase/supabase-js";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import SimpleCaptcha from "@/components/SimpleCaptcha";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +28,9 @@ const Contact = () => {
     message: ""
   });
   const [user, setUser] = useState<User | null>(null);
+  const [showCaptcha, setShowCaptcha] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [pendingSubmit, setPendingSubmit] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -48,6 +59,27 @@ const Contact = () => {
       });
       return;
     }
+
+    // Показываем капчу
+    setPendingSubmit(true);
+    setShowCaptcha(true);
+    setCaptchaVerified(false);
+  };
+
+  const handleCaptchaVerify = (isValid: boolean) => {
+    setCaptchaVerified(isValid);
+  };
+
+  const handleCaptchaSubmit = async () => {
+    if (!captchaVerified) {
+      toast({
+        title: "Неверная капча",
+        description: "Пожалуйста, введите правильный код с картинки",
+        variant: "destructive"
+      });
+      return;
+    }
+
     try {
       const { error } = await supabase.from('contact_messages').insert([{
         name: formData.name,
@@ -69,6 +101,10 @@ const Contact = () => {
         phone: "",
         message: ""
       });
+      
+      setShowCaptcha(false);
+      setPendingSubmit(false);
+      setCaptchaVerified(false);
     } catch (error) {
       console.error('Error submitting contact form:', error);
       toast({
@@ -274,6 +310,41 @@ const Contact = () => {
       
       <Footer />
       <ScrollToTop />
+
+      {/* Капча диалог */}
+      <Dialog open={showCaptcha} onOpenChange={setShowCaptcha}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Подтверждение безопасности</DialogTitle>
+            <DialogDescription>
+              Пожалуйста, введите код с картинки для подтверждения, что вы не робот
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-6">
+            <SimpleCaptcha onVerify={handleCaptchaVerify} />
+            <div className="flex gap-3">
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setShowCaptcha(false);
+                  setPendingSubmit(false);
+                  setCaptchaVerified(false);
+                }}
+                className="flex-1"
+              >
+                Отмена
+              </Button>
+              <Button
+                onClick={handleCaptchaSubmit}
+                disabled={!captchaVerified}
+                className="flex-1"
+              >
+                Отправить
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
