@@ -51,25 +51,36 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!user) {
-      toast({
-        title: "Требуется авторизация",
-        description: "Войдите в аккаунт или зарегистрируйтесь, чтоб отправить сообщение",
-        variant: "destructive"
-      });
-      return;
-    }
-
     // Проверяем rate limiting
-    // @ts-ignore - custom RPC function
-    const { data: canSend } = await supabase.rpc('check_message_rate_limit', {
-      user_email: formData.email
-    });
+    try {
+      // @ts-ignore - custom RPC function
+      const { data: canSend, error: rateLimitError } = await supabase.rpc('check_message_rate_limit', {
+        user_email: formData.email
+      });
 
-    if (canSend === false) {
+      if (rateLimitError) {
+        console.error('Rate limit check error:', rateLimitError);
+        toast({
+          title: "Ошибка проверки",
+          description: "Не удалось проверить лимит сообщений. Попробуйте позже.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (canSend === false) {
+        toast({
+          title: "Слишком много сообщений",
+          description: "Вы можете отправить максимум 3 сообщения в час. Пожалуйста, попробуйте позже.",
+          variant: "destructive"
+        });
+        return;
+      }
+    } catch (error) {
+      console.error('Rate limit check exception:', error);
       toast({
-        title: "Слишком много сообщений",
-        description: "Вы можете отправить максимум 3 сообщения в час. Пожалуйста, попробуйте позже.",
+        title: "Ошибка",
+        description: "Произошла ошибка при проверке. Попробуйте позже.",
         variant: "destructive"
       });
       return;
