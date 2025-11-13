@@ -24,17 +24,49 @@ const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
     return code;
   };
 
+  const hslToRgba = (hsl: string, alpha: number = 1): string => {
+    // Парсим HSL значение (формат: "0 0% 96%" или "217.2 91.2% 59.8%")
+    const parts = hsl.match(/[\d.]+/g);
+    if (!parts || parts.length < 3) return `rgba(217, 179, 112, ${alpha})`; // Fallback
+    
+    const h = parseFloat(parts[0]) / 360;
+    const s = parseFloat(parts[1]) / 100;
+    const l = parseFloat(parts[2]) / 100;
+    
+    let r, g, b;
+    
+    if (s === 0) {
+      r = g = b = l;
+    } else {
+      const hue2rgb = (p: number, q: number, t: number) => {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1/6) return p + (q - p) * 6 * t;
+        if (t < 1/2) return q;
+        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+      };
+      
+      const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      const p = 2 * l - q;
+      r = hue2rgb(p, q, h + 1/3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1/3);
+    }
+    
+    return `rgba(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)}, ${alpha})`;
+  };
+
   const getComputedColor = (cssVar: string): string => {
     const style = getComputedStyle(document.documentElement);
     const hslValue = style.getPropertyValue(cssVar).trim();
     
     if (hslValue) {
-      // Преобразуем HSL в формат, который canvas понимает
-      return `hsl(${hslValue})`;
+      return hslToRgba(hslValue, 1);
     }
     
     // Fallback цвета
-    return cssVar === '--primary' ? '#D9B370' : '#1A1F2C';
+    return cssVar === '--primary' ? 'rgba(217, 179, 112, 1)' : 'rgba(26, 31, 44, 1)';
   };
 
   const drawCaptcha = (code: string) => {
@@ -45,24 +77,24 @@ const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
     if (!ctx) return;
 
     // Получаем реальные значения цветов
-    const primaryColor = getComputedColor('--primary');
-    const secondaryColor = getComputedColor('--secondary');
-    const foregroundColor = getComputedColor('--foreground');
+    const style = getComputedStyle(document.documentElement);
+    const primaryHsl = style.getPropertyValue('--primary').trim();
+    const secondaryHsl = style.getPropertyValue('--secondary').trim();
+    const foregroundHsl = style.getPropertyValue('--foreground').trim();
 
     // Очистка canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Фон с градиентом
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    gradient.addColorStop(0, secondaryColor);
-    gradient.addColorStop(1, `${secondaryColor}80`); // добавляем прозрачность
+    gradient.addColorStop(0, hslToRgba(secondaryHsl, 1));
+    gradient.addColorStop(1, hslToRgba(secondaryHsl, 0.5));
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Добавляем шум
     for (let i = 0; i < 100; i++) {
-      const opacity = (Math.random() * 0.3).toFixed(2);
-      ctx.fillStyle = `${primaryColor}${Math.floor(parseFloat(opacity) * 255).toString(16).padStart(2, '0')}`;
+      ctx.fillStyle = hslToRgba(primaryHsl, Math.random() * 0.3);
       ctx.fillRect(
         Math.random() * canvas.width,
         Math.random() * canvas.height,
@@ -73,7 +105,7 @@ const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
 
     // Рисуем линии помехи
     for (let i = 0; i < 3; i++) {
-      ctx.strokeStyle = `${primaryColor}4D`; // 30% прозрачность
+      ctx.strokeStyle = hslToRgba(primaryHsl, 0.3);
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
@@ -95,15 +127,15 @@ const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
       ctx.rotate(angle);
       
       // Тень для текста
-      ctx.shadowColor = `${primaryColor}80`;
+      ctx.shadowColor = hslToRgba(primaryHsl, 0.5);
       ctx.shadowBlur = 4;
       ctx.shadowOffsetX = 2;
       ctx.shadowOffsetY = 2;
       
       // Градиент для текста
       const textGradient = ctx.createLinearGradient(0, -20, 0, 20);
-      textGradient.addColorStop(0, primaryColor);
-      textGradient.addColorStop(1, foregroundColor);
+      textGradient.addColorStop(0, hslToRgba(primaryHsl, 1));
+      textGradient.addColorStop(1, hslToRgba(foregroundHsl, 1));
       ctx.fillStyle = textGradient;
       
       ctx.fillText(code[i], 0, 0);
