@@ -217,18 +217,28 @@ const Navigation = () => {
             )}
 
             {user ? (
-              <div className="flex items-center gap-2">
-                <Button onClick={() => navigate("/profile")} variant="ghost" size="sm" className="micro-interaction">
-                  <User className="h-4 w-4 mr-2" />
-                  Профиль
+              <div className="flex items-center gap-1">
+                <Button 
+                  onClick={() => navigate("/profile")} 
+                  variant="ghost" 
+                  size="icon" 
+                  className="micro-interaction h-8 w-8"
+                  title="Профиль"
+                >
+                  <User className="h-4 w-4" />
                 </Button>
-                <Button onClick={handleLogout} variant="ghost" size="sm" className="micro-interaction">
-                  <LogOut className="h-4 w-4 mr-2" />
+                <Button 
+                  onClick={handleLogout} 
+                  variant="ghost" 
+                  size="sm" 
+                  className="micro-interaction text-[0.75rem]"
+                >
+                  <LogOut className="h-4 w-4 mr-1" />
                   Выйти
                 </Button>
               </div>
             ) : (
-              <Button onClick={() => navigate("/auth")} variant="ghost" size="sm" className="micro-interaction">
+              <Button onClick={() => navigate("/auth")} variant="ghost" size="sm" className="micro-interaction text-[0.75rem]">
                 Войти
               </Button>
             )}
@@ -311,15 +321,40 @@ const Navigation = () => {
                   </div>
                 )}
 
-                {user ? <Button onClick={handleLogout} variant="ghost" className="w-full justify-start micro-interaction">
-                    <LogOut className="h-4 w-4 mr-2" />
-                    Выйти
-                  </Button> : <Button onClick={() => {
-              navigate("/auth");
-              setIsOpen(false);
-            }} variant="ghost" className="w-full justify-start micro-interaction">
+                {user ? (
+                  <>
+                    <Button 
+                      onClick={() => {
+                        navigate("/profile");
+                        setIsOpen(false);
+                      }} 
+                      variant="ghost" 
+                      className="w-full justify-start micro-interaction"
+                    >
+                      <User className="h-4 w-4 mr-2" />
+                      Профиль
+                    </Button>
+                    <Button 
+                      onClick={handleLogout} 
+                      variant="ghost" 
+                      className="w-full justify-start micro-interaction"
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Выйти
+                    </Button>
+                  </>
+                ) : (
+                  <Button 
+                    onClick={() => {
+                      navigate("/auth");
+                      setIsOpen(false);
+                    }} 
+                    variant="ghost" 
+                    className="w-full justify-start micro-interaction"
+                  >
                     Войти
-                  </Button>}
+                  </Button>
+                )}
               </div>
             </ScrollArea>
           </div>

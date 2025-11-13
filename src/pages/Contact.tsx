@@ -59,9 +59,9 @@ const Contact = () => {
         variant: "destructive",
         action: (
           <Button 
-            variant="outline" 
             size="sm" 
             onClick={() => window.location.href = '/auth'}
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
           >
             Войти
           </Button>

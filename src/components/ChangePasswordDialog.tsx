@@ -25,15 +25,17 @@ export const ChangePasswordDialog = () => {
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Проверяем что новые пароли совпадают
     if (newPassword !== confirmPassword) {
       toast({
         title: "Ошибка",
-        description: "Новые пароли не совпадают",
+        description: "Вы неправильно подтвердили новый пароль, пожалуйста повторите попытку",
         variant: "destructive"
       });
       return;
     }
 
+    // Проверяем минимальную длину
     if (newPassword.length < 8) {
       toast({
         title: "Ошибка",
@@ -45,10 +47,13 @@ export const ChangePasswordDialog = () => {
 
     setLoading(true);
     try {
-      // Сначала проверяем текущий пароль, пытаясь авторизоваться с ним
+      // Получаем текущего пользователя
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user?.email) throw new Error("Пользователь не найден");
+      if (!user?.email) {
+        throw new Error("Пользователь не найден");
+      }
 
+      // Проверяем текущий пароль, пытаясь авторизоваться
       const { error: signInError } = await supabase.auth.signInWithPassword({
         email: user.email,
         password: currentPassword
@@ -57,32 +62,36 @@ export const ChangePasswordDialog = () => {
       if (signInError) {
         toast({
           title: "Ошибка",
-          description: "Неверный текущий пароль",
+          description: "Вы неправильно ввели свой текущий пароль, пожалуйста повторите попытку",
           variant: "destructive"
         });
+        setLoading(false);
         return;
       }
 
-      // Меняем пароль
-      const { error } = await supabase.auth.updateUser({
+      // Если текущий пароль верен, меняем на новый
+      const { error: updateError } = await supabase.auth.updateUser({
         password: newPassword
       });
 
-      if (error) throw error;
+      if (updateError) {
+        throw updateError;
+      }
 
       toast({
         title: "Успешно",
-        description: "Пароль успешно изменен"
+        description: "Пароль успешно изменен. Используйте новый пароль при следующем входе."
       });
 
-      setOpen(false);
+      // Очищаем форму и закрываем диалог
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
+      setOpen(false);
     } catch (error: any) {
       toast({
         title: "Ошибка",
-        description: error.message,
+        description: error.message || "Произошла ошибка при изменении пароля",
         variant: "destructive"
       });
     } finally {
