@@ -56,7 +56,16 @@ const Contact = () => {
       toast({
         title: "Требуется авторизация",
         description: "Войдите в аккаунт или зарегистрируйтесь, чтобы отправить сообщение",
-        variant: "destructive"
+        variant: "destructive",
+        action: (
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={() => window.location.href = '/auth'}
+          >
+            Войти
+          </Button>
+        )
       });
       return;
     }
