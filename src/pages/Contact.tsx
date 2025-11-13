@@ -346,16 +346,16 @@ const Contact = () => {
 
       {/* Капча диалог */}
       <Dialog open={showCaptcha} onOpenChange={setShowCaptcha}>
-        <DialogContent className="sm:max-w-[95vw] md:max-w-md max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Подтверждение безопасности</DialogTitle>
-            <DialogDescription>
-              Пожалуйста, введите код с картинки для подтверждения, что вы не робот
+        <DialogContent className="w-[calc(100vw-2rem)] max-w-[420px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
+          <DialogHeader className="space-y-2">
+            <DialogTitle className="text-lg sm:text-xl">Подтверждение безопасности</DialogTitle>
+            <DialogDescription className="text-xs sm:text-sm">
+              Введите код с картинки
             </DialogDescription>
           </DialogHeader>
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 py-2">
             <SimpleCaptcha onVerify={handleCaptchaVerify} />
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               <Button
                 variant="outline"
                 onClick={() => {
@@ -363,14 +363,14 @@ const Contact = () => {
                   setPendingSubmit(false);
                   setCaptchaVerified(false);
                 }}
-                className="flex-1"
+                className="flex-1 text-sm"
               >
                 Отмена
               </Button>
               <Button
                 onClick={handleCaptchaSubmit}
                 disabled={!captchaVerified}
-                className="flex-1"
+                className="flex-1 text-sm"
               >
                 Отправить
               </Button>
