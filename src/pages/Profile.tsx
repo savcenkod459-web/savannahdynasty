@@ -7,32 +7,33 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Mail } from "lucide-react";
 import { ChangePasswordDialog } from "@/components/ChangePasswordDialog";
-
 const Profile = () => {
   const navigate = useNavigate();
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [email, setEmail] = useState("");
-
   useEffect(() => {
     checkUser();
   }, []);
-
   const checkUser = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    
+    const {
+      data: {
+        session
+      }
+    } = await supabase.auth.getSession();
     if (!session) {
       navigate("/auth");
       return;
     }
-
     setEmail(session.user.email || "");
   };
-
-  return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
+  return <div className="min-h-screen flex flex-col relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{
+        animationDelay: '1s'
+      }} />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 to-accent/5 rounded-full blur-3xl" />
       </div>
 
@@ -41,7 +42,7 @@ const Profile = () => {
       <main className="flex-1 py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto space-y-8 animate-fade-in">
           <div className="text-center space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-display font-black text-luxury-gradient luxury-text-shadow">
+            <h1 className="text-4xl sm:text-5xl font-display font-black text-luxury-gradient luxury-text-shadow py-[5px]">
               Профиль
             </h1>
             <p className="text-lg text-foreground/70">
@@ -77,8 +78,6 @@ const Profile = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Profile;
