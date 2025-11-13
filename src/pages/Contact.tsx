@@ -51,6 +51,16 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Проверяем авторизацию
+    if (!user) {
+      toast({
+        title: "Требуется авторизация",
+        description: "Войдите в аккаунт или зарегистрируйтесь, чтобы отправить сообщение",
+        variant: "destructive"
+      });
+      return;
+    }
+
     // Проверяем rate limiting
     try {
       // @ts-ignore - custom RPC function
