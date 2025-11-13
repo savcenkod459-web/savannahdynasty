@@ -107,31 +107,28 @@ const Contact = () => {
     }
 
     try {
-      const { data, error } = await supabase.from('contact_messages').insert([{
+      const { error } = await supabase.from('contact_messages').insert([{
         name: formData.name,
         email: formData.email,
         phone: formData.phone || null,
         message: formData.message
-      }]).select().single();
+      }]);
       
       if (error) throw error;
       
       // Отправляем email-уведомление администратору
-      if (data) {
-        try {
-          await supabase.functions.invoke('send-contact-notification', {
-            body: {
-              name: formData.name,
-              email: formData.email,
-              phone: formData.phone,
-              message: formData.message,
-              messageId: data.id
-            }
-          });
-        } catch (emailError) {
-          console.error('Failed to send email notification:', emailError);
-          // Не показываем ошибку пользователю, так как сообщение уже сохранено
-        }
+      try {
+        await supabase.functions.invoke('send-contact-notification', {
+          body: {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message
+          }
+        });
+      } catch (emailError) {
+        console.error('Failed to send email notification:', emailError);
+        // Не показываем ошибку пользователю, так как сообщение уже сохранено
       }
 
       toast({
