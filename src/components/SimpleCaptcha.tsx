@@ -166,35 +166,35 @@ const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col sm:flex-row items-center gap-4">
-        <div className="w-full sm:w-auto overflow-hidden">
+      <div className="flex flex-col items-center gap-3 w-full">
+        <div className="w-full flex items-center justify-center gap-2">
           <canvas
             ref={canvasRef}
             width={300}
             height={80}
-            className="border-2 border-primary/20 rounded-lg bg-secondary/30 max-w-full h-auto"
-            style={{ width: '100%', maxWidth: '300px', height: 'auto', aspectRatio: '300/80' }}
+            className="border-2 border-primary/20 rounded-lg bg-secondary/30 w-full max-w-[280px] sm:max-w-[300px]"
+            style={{ height: 'auto', aspectRatio: '300/80' }}
           />
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            onClick={handleRefresh}
+            className="shrink-0 h-10 w-10"
+          >
+            <RefreshCw className="w-4 h-4" />
+          </Button>
         </div>
-        <Button
-          type="button"
-          variant="outline"
-          size="icon"
-          onClick={handleRefresh}
-          className="shrink-0"
-        >
-          <RefreshCw className="w-4 h-4" />
-        </Button>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="captcha-input">Введите код с картинки</Label>
+        <Label htmlFor="captcha-input" className="text-sm">Введите код с картинки</Label>
         <Input
           id="captcha-input"
           value={userInput}
           onChange={(e) => handleInputChange(e.target.value)}
-          placeholder="Введите 6 символов"
+          placeholder="6 символов"
           maxLength={6}
-          className="text-lg tracking-widest"
+          className="text-base sm:text-lg tracking-widest text-center"
         />
       </div>
     </div>
