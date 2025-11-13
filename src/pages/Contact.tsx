@@ -61,11 +61,12 @@ const Contact = () => {
     }
 
     // Проверяем rate limiting
+    // @ts-ignore - custom RPC function
     const { data: canSend } = await supabase.rpc('check_message_rate_limit', {
       user_email: formData.email
     });
 
-    if (!canSend) {
+    if (canSend === false) {
       toast({
         title: "Слишком много сообщений",
         description: "Вы можете отправить максимум 3 сообщения в час. Пожалуйста, попробуйте позже.",
@@ -95,15 +96,33 @@ const Contact = () => {
     }
 
     try {
-      const { error } = await supabase.from('contact_messages').insert([{
+      const { data, error } = await supabase.from('contact_messages').insert([{
         name: formData.name,
         email: formData.email,
         phone: formData.phone || null,
         message: formData.message
-      }]);
+      }]).select().single();
       
       if (error) throw error;
       
+      // Отправляем email-уведомление администратору
+      if (data) {
+        try {
+          await supabase.functions.invoke('send-contact-notification', {
+            body: {
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              message: formData.message,
+              messageId: data.id
+            }
+          });
+        } catch (emailError) {
+          console.error('Failed to send email notification:', emailError);
+          // Не показываем ошибку пользователю, так как сообщение уже сохранено
+        }
+      }
+
       toast({
         title: "Сообщение отправлено",
         description: "Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время."
