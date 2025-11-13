@@ -346,7 +346,7 @@ const Contact = () => {
 
       {/* Капча диалог */}
       <Dialog open={showCaptcha} onOpenChange={setShowCaptcha}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-[95vw] md:max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Подтверждение безопасности</DialogTitle>
             <DialogDescription>

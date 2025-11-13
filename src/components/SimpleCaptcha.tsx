@@ -166,13 +166,16 @@ const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-4">
-        <canvas
-          ref={canvasRef}
-          width={300}
-          height={80}
-          className="border-2 border-primary/20 rounded-lg bg-secondary/30"
-        />
+      <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="w-full sm:w-auto overflow-hidden">
+          <canvas
+            ref={canvasRef}
+            width={300}
+            height={80}
+            className="border-2 border-primary/20 rounded-lg bg-secondary/30 max-w-full h-auto"
+            style={{ width: '100%', maxWidth: '300px', height: 'auto', aspectRatio: '300/80' }}
+          />
+        </div>
         <Button
           type="button"
           variant="outline"

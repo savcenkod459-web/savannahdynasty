@@ -46,6 +46,32 @@ const AdminMessages = () => {
     return () => subscription.unsubscribe();
   }, [navigate]);
 
+  // Realtime обновления для новых сообщений
+  useEffect(() => {
+    if (!isAdmin) return;
+
+    const channel = supabase
+      .channel('contact-messages-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'contact_messages'
+        },
+        (payload) => {
+          console.log('Realtime update:', payload);
+          // Перезагружаем сообщения при любом изменении
+          fetchMessages();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [isAdmin]);
+
   const checkAdminAndFetchMessages = async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
@@ -114,6 +140,11 @@ const AdminMessages = () => {
       filtered = filtered.filter(msg => !msg.read);
     } else if (tab === "read") {
       filtered = filtered.filter(msg => msg.read);
+    } else if (tab === "recent") {
+      // Недавние - за последние 24 часа
+      const oneDayAgo = new Date();
+      oneDayAgo.setHours(oneDayAgo.getHours() - 24);
+      filtered = filtered.filter(msg => new Date(msg.created_at) >= oneDayAgo);
     }
 
     // Поиск
@@ -243,9 +274,16 @@ const AdminMessages = () => {
             {/* Вкладки и статистика */}
             <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
               <div className="flex items-center justify-between">
-                <TabsList>
+                <TabsList className="grid grid-cols-2 sm:grid-cols-4 w-full sm:w-auto">
                   <TabsTrigger value="all">
                     Все ({messages.length})
+                  </TabsTrigger>
+                  <TabsTrigger value="recent">
+                    Недавние ({messages.filter(m => {
+                      const oneDayAgo = new Date();
+                      oneDayAgo.setHours(oneDayAgo.getHours() - 24);
+                      return new Date(m.created_at) >= oneDayAgo;
+                    }).length})
                   </TabsTrigger>
                   <TabsTrigger value="unread">
                     Непрочитанные ({messages.filter(m => !m.read).length})
