@@ -60,6 +60,20 @@ const Contact = () => {
       return;
     }
 
+    // Проверяем rate limiting
+    const { data: canSend } = await supabase.rpc('check_message_rate_limit', {
+      user_email: formData.email
+    });
+
+    if (!canSend) {
+      toast({
+        title: "Слишком много сообщений",
+        description: "Вы можете отправить максимум 3 сообщения в час. Пожалуйста, попробуйте позже.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     // Показываем капчу
     setPendingSubmit(true);
     setShowCaptcha(true);
