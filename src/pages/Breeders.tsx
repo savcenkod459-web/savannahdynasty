@@ -4,10 +4,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { Award, Shield, Trophy, MapPin, Crown, Sparkles, Diamond, Star, Lightbulb, ShieldCheck, MessageCircle } from "lucide-react";
 const features = [{
-  icon: Award,
-  title: "Сертифицированное превосходство",
-  description: "Все заводчики имеют признанные сертификаты и членство в профессиональных ассоциациях заводчиков"
-}, {
   icon: Shield,
   title: "Этичные практики",
   description: "Приверженность гуманным методам разведения с упором на благополучие и здоровье кошек"

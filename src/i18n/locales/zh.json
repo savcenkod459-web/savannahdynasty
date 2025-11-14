@@ -1,0 +1,261 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "catalog": "目录",
+    "breeders": "繁育者",
+    "guide": "指南",
+    "warranty": "保修",
+    "pedigree": "血统",
+    "payment": "支付",
+    "contact": "联系",
+    "profile": "个人资料",
+    "login": "登录",
+    "logout": "登出",
+    "admin": "管理"
+  },
+  "hero": {
+    "badge": "高级猫舍",
+    "title": "皇家热带草原猫",
+    "subtitle": "发现纯种热带草原猫的异国优雅。伦理繁育、卓越品质、终生支持。",
+    "cta": "查看可用幼猫",
+    "learn": "了解更多"
+  },
+  "whyChoose": {
+    "title": "为什么选择 SavannahDynasty",
+    "quality": {
+      "title": "卓越品质",
+      "description": "我们所有的热带草原猫都来自冠军血统，拥有完整记录的血统书"
+    },
+    "health": {
+      "title": "健康保证",
+      "description": "对我们所有的猫进行全面的健康筛查和终生遗传保证"
+    },
+    "support": {
+      "title": "终生支持",
+      "description": "在您的热带草原猫的一生中提供专家指导和支持"
+    }
+  },
+  "breeds": {
+    "title": "我们的高级品种",
+    "subtitle": "探索我们卓越的热带草原猫收藏",
+    "f1": {
+      "name": "热带草原猫 F1",
+      "description": "最接近野生。50% 薮猫，令人难以置信的体型和异国外观。"
+    },
+    "f2": {
+      "name": "热带草原猫 F2",
+      "description": "野性美和驯化气质的完美平衡。令人印象深刻的外观。"
+    },
+    "kitten": {
+      "name": "热带草原幼猫",
+      "description": "来自冠军血统的可爱幼猫。早期社会化和护理。"
+    }
+  },
+  "rarity": {
+    "title": "是什么让热带草原猫稀有",
+    "exotic": {
+      "title": "异国血统",
+      "description": "非洲薮猫和家猫的混血，创造出真正独特的品种"
+    },
+    "limited": {
+      "title": "有限世代",
+      "description": "由于复杂的繁育要求，F1-F3 世代极为罕见"
+    },
+    "unique": {
+      "title": "独特特征",
+      "description": "卓越的智力、犬类般的忠诚和惊人的外观"
+    }
+  },
+  "pricing": {
+    "title": "优雅投资",
+    "subtitle": "我们卓越的热带草原猫的透明定价",
+    "f5": {
+      "title": "热带草原猫 F5",
+      "price": "起价 ¥10,000",
+      "features": ["友好的气质", "很棒的伴侣", "更实惠", "美丽的外观"],
+      "cta": "了解更多"
+    },
+    "f3f4": {
+      "title": "热带草原猫 F3-F4",
+      "price": "起价 ¥30,000",
+      "badge": "热门选择",
+      "features": ["醒目的斑纹", "大体型", "活泼的性格", "高级品质"],
+      "cta": "查看可用"
+    },
+    "f1f2": {
+      "title": "热带草原猫 F1-F2",
+      "price": "起价 ¥70,000",
+      "features": ["最稀有的世代", "令人印象深刻的体型", "异国外观", "冠军血统"],
+      "cta": "预约咨询"
+    }
+  },
+  "payment": {
+    "title": "支付方式",
+    "subtitle": "安全便捷的支付选项",
+    "secure": {
+      "title": "安全交易",
+      "description": "所有付款均通过安全加密通道处理"
+    },
+    "flexible": {
+      "title": "灵活选项",
+      "description": "多种支付方式供您选择"
+    },
+    "protected": {
+      "title": "买家保护",
+      "description": "您的购买受我们全面保修的保护"
+    }
+  },
+  "cta": {
+    "title": "准备好见您的热带草原猫了吗？",
+    "subtitle": "开始拥有世界上最异国情调的猫科动物品种之一的旅程",
+    "button": "联系我们"
+  },
+  "footer": {
+    "tagline": "发现来自 SavannahDynasty 的热带草原猫的优雅和智慧。伦理繁育，卓越品质。",
+    "quickLinks": "快速链接",
+    "legal": "法律",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "rights": "版权所有。"
+  },
+  "breeders": {
+    "badge": "专业人士",
+    "title": "我们经验丰富的繁育者",
+    "subtitle": "认识我们卓越猫咪背后的充满激情的专业人士。我们的认证繁育者网络代表着数十年的猫科遗传学和护理经验。",
+    "philosophy": {
+      "title": "我们的繁育理念",
+      "description": "我们只与将健康、气质和品种标准置于首位的伦理繁育者合作。我们网络中的每位繁育者都经过彻底审查，以确保遵守我们的高质量和伦理标准。"
+    },
+    "features": {
+      "ethical": {
+        "title": "伦理实践",
+        "description": "致力于人道繁育方法，重点关注猫的福利和健康"
+      },
+      "champion": {
+        "title": "冠军血统",
+        "description": "专注于来自获奖展示线的猫，拥有记录在案的血统书"
+      },
+      "local": {
+        "title": "本地专业知识",
+        "description": "战略性定位的繁育者，提供便捷访问和持续支持"
+      }
+    },
+    "standards": {
+      "title": "我们的质量标准",
+      "health": {
+        "title": "健康检测",
+        "description": "所有繁育猫的强制性遗传检测和健康筛查"
+      },
+      "documentation": {
+        "title": "完整文档",
+        "description": "每只猫的血统、疫苗接种和健康史的详细记录"
+      },
+      "environment": {
+        "title": "高级环境",
+        "description": "为最佳猫福利设计的宽敞、清洁的设施"
+      },
+      "socialization": {
+        "title": "早期社会化",
+        "description": "幼猫在家庭环境中养育，注重气质和适应性"
+      }
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "有问题吗？我们随时为您提供帮助",
+    "form": {
+      "name": "姓名",
+      "namePlaceholder": "您的全名",
+      "email": "电子邮件",
+      "emailPlaceholder": "your@email.com",
+      "phone": "电话",
+      "phonePlaceholder": "+86 138 0000 0000",
+      "message": "消息",
+      "messagePlaceholder": "我们能帮您什么？",
+      "submit": "发送消息",
+      "sending": "发送中...",
+      "success": "消息发送成功！",
+      "error": "发送消息失败",
+      "loginPrompt": "请登录以发送消息",
+      "loginButton": "登录"
+    },
+    "info": {
+      "title": "联系信息",
+      "email": "电子邮件",
+      "phone": "电话",
+      "address": "地址"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "欢迎回来",
+      "subtitle": "登录到您的账户"
+    },
+    "signup": {
+      "title": "创建账户",
+      "subtitle": "注册以开始"
+    },
+    "email": "电子邮件",
+    "password": "密码",
+    "signinButton": "登录",
+    "signupButton": "注册",
+    "loading": "加载中...",
+    "noAccount": "没有账户？",
+    "hasAccount": "已有账户？",
+    "register": "注册",
+    "signin": "登录",
+    "forgotPassword": "忘记密码？",
+    "verification": {
+      "title": "验证电子邮件",
+      "subtitle": "输入发送至的6位数字代码",
+      "codePlaceholder": "000000",
+      "verify": "验证",
+      "resend": "重新发送代码",
+      "resendIn": "重新发送于",
+      "success": "电子邮件验证成功！",
+      "error": "无效或过期的代码",
+      "codeSent": "代码已发送到您的电子邮件"
+    }
+  },
+  "profile": {
+    "title": "个人资料",
+    "subtitle": "账户管理",
+    "accountInfo": "账户信息",
+    "email": "电子邮件",
+    "emailNote": "电子邮件无法更改",
+    "changePassword": "更改密码",
+    "password": {
+      "title": "更改密码",
+      "current": "当前密码",
+      "new": "新密码",
+      "confirm": "确认新密码",
+      "save": "保存密码",
+      "cancel": "取消",
+      "success": "密码更改成功",
+      "errorCurrent": "当前密码不正确",
+      "errorMatch": "新密码不匹配",
+      "errorGeneral": "更改密码失败"
+    }
+  },
+  "catalog": {
+    "title": "可用幼猫",
+    "subtitle": "找到您的完美伴侣",
+    "filters": {
+      "all": "全部",
+      "male": "公猫",
+      "female": "母猫"
+    },
+    "details": {
+      "age": "年龄",
+      "gender": "性别",
+      "breed": "品种",
+      "male": "公",
+      "female": "母",
+      "traits": "特征",
+      "price": "价格",
+      "contact": "联系",
+      "gallery": "画廊"
+    }
+  }
+}

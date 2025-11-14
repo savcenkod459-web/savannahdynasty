@@ -1,0 +1,261 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "catalog": "Katalog",
+    "breeders": "Züchter",
+    "guide": "Leitfaden",
+    "warranty": "Garantie",
+    "pedigree": "Stammbaum",
+    "payment": "Zahlung",
+    "contact": "Kontakt",
+    "profile": "Profil",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "admin": "Admin"
+  },
+  "hero": {
+    "badge": "Premium-Zucht",
+    "title": "Königliche Savannah-Katzen",
+    "subtitle": "Entdecken Sie die exotische Eleganz reinrassiger Savannah-Katzen. Ethische Zucht, außergewöhnliche Qualität, lebenslange Unterstützung.",
+    "cta": "Verfügbare Kätzchen Ansehen",
+    "learn": "Mehr Erfahren"
+  },
+  "whyChoose": {
+    "title": "Warum SavannahDynasty Wählen",
+    "quality": {
+      "title": "Überlegene Qualität",
+      "description": "Alle unsere Savannah-Katzen stammen aus Champion-Blutlinien mit vollständig dokumentierten Stammbäumen"
+    },
+    "health": {
+      "title": "Gesundheitsgarantie",
+      "description": "Umfassende Gesundheitsuntersuchung und lebenslange genetische Garantie für alle unsere Katzen"
+    },
+    "support": {
+      "title": "Lebenslange Unterstützung",
+      "description": "Expertenhilfe und Unterstützung während des gesamten Lebens Ihrer Savannah-Katze"
+    }
+  },
+  "breeds": {
+    "title": "Unsere Premium-Rassen",
+    "subtitle": "Erkunden Sie unsere außergewöhnliche Sammlung von Savannah-Katzen",
+    "f1": {
+      "name": "Savannah F1",
+      "description": "Am nächsten zur Wildnis. 50% Serval, unglaubliche Größe und exotisches Aussehen."
+    },
+    "f2": {
+      "name": "Savannah F2",
+      "description": "Perfekte Balance aus wilder Schönheit und domestiziertem Temperament. Beeindruckendes Aussehen."
+    },
+    "kitten": {
+      "name": "Savannah-Kätzchen",
+      "description": "Bezaubernde Kätzchen aus Champion-Linien. Frühe Sozialisierung und Pflege."
+    }
+  },
+  "rarity": {
+    "title": "Was Savannah-Katzen Selten Macht",
+    "exotic": {
+      "title": "Exotisches Erbe",
+      "description": "Hybrid aus afrikanischem Serval und Hauskatze, der eine wirklich einzigartige Rasse schafft"
+    },
+    "limited": {
+      "title": "Begrenzte Generationen",
+      "description": "F1-F3-Generationen sind aufgrund komplexer Zuchtanforderungen äußerst selten"
+    },
+    "unique": {
+      "title": "Einzigartige Eigenschaften",
+      "description": "Außergewöhnliche Intelligenz, hundeähnliche Treue und atemberaubendes Aussehen"
+    }
+  },
+  "pricing": {
+    "title": "Investition in Eleganz",
+    "subtitle": "Transparente Preise für unsere außergewöhnlichen Savannah-Katzen",
+    "f5": {
+      "title": "Savannah F5",
+      "price": "ab 1.500 $",
+      "features": ["Freundliches Temperament", "Großartige Begleiter", "Erschwinglicher", "Schönes Aussehen"],
+      "cta": "Mehr Erfahren"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "price": "ab 4.000 $",
+      "badge": "Beliebte Wahl",
+      "features": ["Auffällige Markierungen", "Große Größe", "Verspieltes Wesen", "Premium-Qualität"],
+      "cta": "Verfügbare Ansehen"
+    },
+    "f1f2": {
+      "title": "Savannah F1-F2",
+      "price": "ab 10.000 $",
+      "features": ["Seltenste Generationen", "Beeindruckende Größe", "Exotisches Aussehen", "Champion-Blutlinien"],
+      "cta": "Beratung Buchen"
+    }
+  },
+  "payment": {
+    "title": "Zahlungsmethoden",
+    "subtitle": "Sichere und bequeme Zahlungsoptionen",
+    "secure": {
+      "title": "Sichere Transaktionen",
+      "description": "Alle Zahlungen werden über sichere verschlüsselte Kanäle verarbeitet"
+    },
+    "flexible": {
+      "title": "Flexible Optionen",
+      "description": "Mehrere Zahlungsmethoden für Ihre Bequemlichkeit"
+    },
+    "protected": {
+      "title": "Käuferschutz",
+      "description": "Ihr Kauf ist durch unsere umfassende Garantie geschützt"
+    }
+  },
+  "cta": {
+    "title": "Bereit, Ihre Savannah-Katze zu Treffen?",
+    "subtitle": "Beginnen Sie Ihre Reise zum Besitz einer der exotischsten Katzenrassen der Welt",
+    "button": "Kontaktieren Sie Uns"
+  },
+  "footer": {
+    "tagline": "Entdecken Sie die Anmut und Intelligenz von Savannah-Katzen von SavannahDynasty. Ethische Zucht, außergewöhnliche Qualität.",
+    "quickLinks": "Schnelllinks",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "breeders": {
+    "badge": "Profis",
+    "title": "Unsere Erfahrenen Züchter",
+    "subtitle": "Lernen Sie die leidenschaftlichen Profis hinter unseren außergewöhnlichen Katzen kennen. Unser Netzwerk zertifizierter Züchter repräsentiert Jahrzehnte Erfahrung in Katzengenetik und -pflege.",
+    "philosophy": {
+      "title": "Unsere Zuchtphilosophie",
+      "description": "Wir arbeiten ausschließlich mit ethischen Züchtern zusammen, die Gesundheit, Temperament und Rassestandards über alles stellen. Jeder Züchter in unserem Netzwerk wurde sorgfältig auf die Einhaltung unserer hohen Qualitäts- und Ethikstandards überprüft."
+    },
+    "features": {
+      "ethical": {
+        "title": "Ethische Praktiken",
+        "description": "Verpflichtung zu humanen Zuchtmethoden mit Schwerpunkt auf Wohlbefinden und Gesundheit der Katzen"
+      },
+      "champion": {
+        "title": "Champion-Linien",
+        "description": "Spezialisierung auf Katzen aus preisgekrönten Ausstellungslinien mit dokumentierten Stammbäumen"
+      },
+      "local": {
+        "title": "Lokale Expertise",
+        "description": "Strategisch positionierte Züchter für einfachen Zugang und kontinuierliche Unterstützung"
+      }
+    },
+    "standards": {
+      "title": "Unsere Qualitätsstandards",
+      "health": {
+        "title": "Gesundheitstests",
+        "description": "Obligatorische Gentests und Gesundheitsscreenings aller Zuchttiere"
+      },
+      "documentation": {
+        "title": "Vollständige Dokumentation",
+        "description": "Detaillierte Aufzeichnungen über Stammbaum, Impfungen und Gesundheitsgeschichte jeder Katze"
+      },
+      "environment": {
+        "title": "Premium-Umgebung",
+        "description": "Geräumige, saubere Einrichtungen für optimales Katzenwohlbefinden"
+      },
+      "socialization": {
+        "title": "Frühe Sozialisierung",
+        "description": "Kätzchen werden in häuslicher Umgebung mit Fokus auf Temperament und Anpassungsfähigkeit aufgezogen"
+      }
+    }
+  },
+  "contact": {
+    "title": "Kontaktieren Sie Uns",
+    "subtitle": "Haben Sie Fragen? Wir sind hier, um zu helfen",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Ihr vollständiger Name",
+      "email": "E-Mail",
+      "emailPlaceholder": "ihre@email.de",
+      "phone": "Telefon",
+      "phonePlaceholder": "+49 30 12345678",
+      "message": "Nachricht",
+      "messagePlaceholder": "Wie können wir Ihnen helfen?",
+      "submit": "Nachricht Senden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet!",
+      "error": "Nachricht konnte nicht gesendet werden",
+      "loginPrompt": "Bitte melden Sie sich an, um eine Nachricht zu senden",
+      "loginButton": "Anmelden"
+    },
+    "info": {
+      "title": "Kontaktinformationen",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "address": "Adresse"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Willkommen Zurück",
+      "subtitle": "Melden Sie sich bei Ihrem Konto an"
+    },
+    "signup": {
+      "title": "Konto Erstellen",
+      "subtitle": "Registrieren Sie sich, um zu beginnen"
+    },
+    "email": "E-Mail",
+    "password": "Passwort",
+    "signinButton": "Anmelden",
+    "signupButton": "Registrieren",
+    "loading": "Wird geladen...",
+    "noAccount": "Kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "register": "Registrieren",
+    "signin": "Anmelden",
+    "forgotPassword": "Passwort vergessen?",
+    "verification": {
+      "title": "E-Mail Verifizieren",
+      "subtitle": "Geben Sie den 6-stelligen Code ein, der an gesendet wurde",
+      "codePlaceholder": "000000",
+      "verify": "Verifizieren",
+      "resend": "Code Erneut Senden",
+      "resendIn": "Erneut senden in",
+      "success": "E-Mail erfolgreich verifiziert!",
+      "error": "Ungültiger oder abgelaufener Code",
+      "codeSent": "Code an Ihre E-Mail gesendet"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "subtitle": "Kontoverwaltung",
+    "accountInfo": "Kontoinformationen",
+    "email": "E-Mail",
+    "emailNote": "E-Mail kann nicht geändert werden",
+    "changePassword": "Passwort Ändern",
+    "password": {
+      "title": "Passwort Ändern",
+      "current": "Aktuelles Passwort",
+      "new": "Neues Passwort",
+      "confirm": "Neues Passwort Bestätigen",
+      "save": "Passwort Speichern",
+      "cancel": "Abbrechen",
+      "success": "Passwort erfolgreich geändert",
+      "errorCurrent": "Falsches aktuelles Passwort",
+      "errorMatch": "Neue Passwörter stimmen nicht überein",
+      "errorGeneral": "Passwort konnte nicht geändert werden"
+    }
+  },
+  "catalog": {
+    "title": "Verfügbare Kätzchen",
+    "subtitle": "Finden Sie Ihren perfekten Begleiter",
+    "filters": {
+      "all": "Alle",
+      "male": "Männlich",
+      "female": "Weiblich"
+    },
+    "details": {
+      "age": "Alter",
+      "gender": "Geschlecht",
+      "breed": "Rasse",
+      "male": "Männlich",
+      "female": "Weiblich",
+      "traits": "Eigenschaften",
+      "price": "Preis",
+      "contact": "Kontakt",
+      "gallery": "Galerie"
+    }
+  }
+}

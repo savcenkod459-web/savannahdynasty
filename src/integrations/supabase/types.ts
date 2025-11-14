@@ -258,6 +258,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_message_rate_limit: {
+        Args: { user_email: string }
+        Returns: boolean
+      }
       cleanup_expired_reset_codes: { Args: never; Returns: undefined }
       has_role: {
         Args: {
