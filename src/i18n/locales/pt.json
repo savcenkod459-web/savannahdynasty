@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Início",
+    "catalog": "Catálogo",
+    "about": "Sobre",
+    "breeders": "Criadores",
+    "pedigree": "Pedigree",
+    "guide": "Guia",
+    "warranty": "Garantia",
+    "contact": "Contato",
+    "profile": "Perfil",
+    "login": "Entrar",
+    "logout": "Sair"
+  },
+  "breeders": {
+    "title": "Nossos criadores especialistas",
+    "subtitle": "Conheça os profissionais apaixonados por trás de nossos gatos excepcionais. Nossa rede de criadores certificados representa décadas de experiência em genética e cuidados felinos.",
+    "professionals": "Profissionais",
+    "philosophyTitle": "Nossa filosofia de criação",
+    "philosophyText": "Fazemos parceria exclusivamente com criadores éticos que priorizam saúde, temperamento e padrões de raça acima de tudo. Cada criador em nossa rede foi cuidadosamente examinado por seu compromisso com a excelência e adesão aos mais altos padrões de bem-estar animal.",
+    "features": {
+      "ethical": {
+        "title": "Práticas éticas",
+        "description": "Compromisso com métodos humanitários de criação com foco no bem-estar e saúde dos gatos"
+      },
+      "champion": {
+        "title": "Linhagens campeãs",
+        "description": "Especialização em gatos de linhagens premiadas em exposições com pedigrees documentados"
+      },
+      "local": {
+        "title": "Expertise local",
+        "description": "Criadores estrategicamente localizados garantindo fácil acesso e suporte contínuo"
+      }
+    },
+    "qualityTitle": "Padrões de qualidade",
+    "qualityIntro": "Nossos criadores mantêm os mais altos padrões de excelência",
+    "standards": {
+      "health": {
+        "title": "Testes de saúde",
+        "description": "Triagem genética e de saúde abrangente para todos os gatos de reprodução"
+      },
+      "environment": {
+        "title": "Ambiente acolhedor",
+        "description": "Instalações espaçosas e limpas projetadas para conforto e socialização dos gatos"
+      },
+      "support": {
+        "title": "Suporte vitalício",
+        "description": "Orientação e suporte contínuos durante toda a vida do seu gato"
+      },
+      "transparency": {
+        "title": "Transparência total",
+        "description": "Documentação completa e comunicação aberta sobre práticas de criação"
+      }
+    },
+    "ctaTitle": "Pronto para conhecer seu companheiro perfeito?",
+    "ctaText": "Entre em contato conosco hoje para saber mais sobre nossos gatos disponíveis e agendar uma visita com um de nossos criadores especialistas.",
+    "ctaButton": "Entre em contato"
+  },
+  "profile": {
+    "title": "Perfil",
+    "email": "E-mail",
+    "emailNote": "O e-mail não pode ser alterado",
+    "changePassword": "Alterar senha"
+  },
+  "auth": {
+    "login": "Entrar",
+    "register": "Registrar",
+    "email": "E-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirmar senha",
+    "noAccount": "Não tem conta?",
+    "hasAccount": "Já tem conta?",
+    "loginButton": "Entrar",
+    "registerButton": "Registrar"
+  },
+  "changePassword": {
+    "title": "Alterar senha",
+    "currentPassword": "Senha atual",
+    "newPassword": "Nova senha",
+    "confirmNewPassword": "Confirmar nova senha",
+    "save": "Salvar alterações",
+    "cancel": "Cancelar",
+    "success": "Senha alterada com sucesso",
+    "errorCurrent": "Senha atual incorreta. Por favor, tente novamente.",
+    "errorMismatch": "As novas senhas não coincidem. Por favor, tente novamente."
+  },
+  "contact": {
+    "loginRequired": "Por favor, faça login para enviar uma mensagem",
+    "loginButton": "Entrar"
+  },
+  "selectLanguage": "Selecionar idioma",
+  "multilingualCountry": "Detectamos que você está em um país com múltiplos idiomas. Por favor, selecione seu idioma preferido."
+}

@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "about": "About",
+    "breeders": "Breeders",
+    "pedigree": "Pedigree",
+    "guide": "Guide",
+    "warranty": "Warranty",
+    "contact": "Contact",
+    "profile": "Profile",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "breeders": {
+    "title": "Our Expert Breeders",
+    "subtitle": "Meet the passionate professionals behind our exceptional cats. Our network of certified breeders represents decades of experience in feline genetics and care.",
+    "professionals": "Professionals",
+    "philosophyTitle": "Our Breeding Philosophy",
+    "philosophyText": "We partner exclusively with ethical breeders who prioritize health, temperament, and breed standards above all else. Each breeder in our network has been carefully vetted for their commitment to excellence and adherence to the highest standards of animal welfare.",
+    "features": {
+      "ethical": {
+        "title": "Ethical Practices",
+        "description": "Commitment to humane breeding methods with a focus on cat welfare and health"
+      },
+      "champion": {
+        "title": "Champion Lines",
+        "description": "Specialization in cats from award-winning show lines with documented pedigrees"
+      },
+      "local": {
+        "title": "Local Expertise",
+        "description": "Strategically located breeders ensuring easy access and ongoing support"
+      }
+    },
+    "qualityTitle": "Quality Standards",
+    "qualityIntro": "Our breeders maintain the highest standards of excellence",
+    "standards": {
+      "health": {
+        "title": "Health Testing",
+        "description": "Comprehensive genetic and health screening for all breeding cats"
+      },
+      "environment": {
+        "title": "Nurturing Environment",
+        "description": "Spacious, clean facilities designed for cat comfort and socialization"
+      },
+      "support": {
+        "title": "Lifetime Support",
+        "description": "Ongoing guidance and support throughout your cat's life"
+      },
+      "transparency": {
+        "title": "Full Transparency",
+        "description": "Complete documentation and open communication about breeding practices"
+      }
+    },
+    "ctaTitle": "Ready to Meet Your Perfect Companion?",
+    "ctaText": "Contact us today to learn more about our available cats and schedule a visit with one of our expert breeders.",
+    "ctaButton": "Get In Touch"
+  },
+  "profile": {
+    "title": "Profile",
+    "email": "Email",
+    "emailNote": "Email cannot be changed",
+    "changePassword": "Change Password"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "loginButton": "Login",
+    "registerButton": "Register"
+  },
+  "changePassword": {
+    "title": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "success": "Password successfully changed",
+    "errorCurrent": "Incorrect current password. Please try again.",
+    "errorMismatch": "New passwords don't match. Please try again."
+  },
+  "contact": {
+    "loginRequired": "Please login to send a message",
+    "loginButton": "Login"
+  },
+  "selectLanguage": "Select Language",
+  "multilingualCountry": "We detected that you are in a country with multiple languages. Please select your preferred language."
+}

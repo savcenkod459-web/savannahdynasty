@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "首页",
+    "catalog": "目录",
+    "about": "关于我们",
+    "breeders": "繁育者",
+    "pedigree": "血统",
+    "guide": "指南",
+    "warranty": "保修",
+    "contact": "联系我们",
+    "profile": "个人资料",
+    "login": "登录",
+    "logout": "登出"
+  },
+  "breeders": {
+    "title": "我们的专业繁育者",
+    "subtitle": "认识我们杰出猫咪背后的专业人士。我们的认证繁育者网络代表着数十年在猫科遗传学和护理方面的经验。",
+    "professionals": "专业人士",
+    "philosophyTitle": "我们的繁育理念",
+    "philosophyText": "我们只与注重健康、性情和品种标准的道德繁育者合作。我们网络中的每位繁育者都经过严格审查，确保他们致力于卓越并遵守最高的动物福利标准。",
+    "features": {
+      "ethical": {
+        "title": "道德实践",
+        "description": "致力于人道的繁育方法，注重猫咪的福利和健康"
+      },
+      "champion": {
+        "title": "冠军血统",
+        "description": "专注于获奖展示血统的猫咪，拥有完整的血统证明"
+      },
+      "local": {
+        "title": "本地专业知识",
+        "description": "战略性分布的繁育者，确保便捷访问和持续支持"
+      }
+    },
+    "qualityTitle": "质量标准",
+    "qualityIntro": "我们的繁育者保持最高的卓越标准",
+    "standards": {
+      "health": {
+        "title": "健康测试",
+        "description": "对所有繁育猫进行全面的遗传和健康筛查"
+      },
+      "environment": {
+        "title": "培育环境",
+        "description": "为猫咪舒适和社交而设计的宽敞清洁设施"
+      },
+      "support": {
+        "title": "终身支持",
+        "description": "在您的猫咪一生中提供持续的指导和支持"
+      },
+      "transparency": {
+        "title": "完全透明",
+        "description": "完整的文档记录和关于繁育实践的开放沟通"
+      }
+    },
+    "ctaTitle": "准备好迎接您的完美伴侣了吗？",
+    "ctaText": "立即联系我们，了解更多关于我们现有猫咪的信息，并安排与我们的专业繁育者见面。",
+    "ctaButton": "联系我们"
+  },
+  "profile": {
+    "title": "个人资料",
+    "email": "电子邮箱",
+    "emailNote": "电子邮箱无法更改",
+    "changePassword": "更改密码"
+  },
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "email": "电子邮箱",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "noAccount": "没有账户？",
+    "hasAccount": "已有账户？",
+    "loginButton": "登录",
+    "registerButton": "注册"
+  },
+  "changePassword": {
+    "title": "更改密码",
+    "currentPassword": "当前密码",
+    "newPassword": "新密码",
+    "confirmNewPassword": "确认新密码",
+    "save": "保存更改",
+    "cancel": "取消",
+    "success": "密码修改成功",
+    "errorCurrent": "当前密码不正确。请重试。",
+    "errorMismatch": "新密码不匹配。请重试。"
+  },
+  "contact": {
+    "loginRequired": "请登录以发送消息",
+    "loginButton": "登录"
+  },
+  "selectLanguage": "选择语言",
+  "multilingualCountry": "我们检测到您所在的国家使用多种语言。请选择您的首选语言。"
+}

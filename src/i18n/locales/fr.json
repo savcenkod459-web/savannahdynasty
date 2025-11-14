@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "about": "À propos",
+    "breeders": "Éleveurs",
+    "pedigree": "Pedigree",
+    "guide": "Guide",
+    "warranty": "Garantie",
+    "contact": "Contact",
+    "profile": "Profil",
+    "login": "Connexion",
+    "logout": "Déconnexion"
+  },
+  "breeders": {
+    "title": "Nos éleveurs experts",
+    "subtitle": "Rencontrez les professionnels passionnés derrière nos chats exceptionnels. Notre réseau d'éleveurs certifiés représente des décennies d'expérience en génétique féline et en soins.",
+    "professionals": "Professionnels",
+    "philosophyTitle": "Notre philosophie d'élevage",
+    "philosophyText": "Nous nous associons exclusivement avec des éleveurs éthiques qui privilégient la santé, le tempérament et les standards de race avant tout. Chaque éleveur de notre réseau a été soigneusement contrôlé pour son engagement envers l'excellence et le respect des plus hauts standards de bien-être animal.",
+    "features": {
+      "ethical": {
+        "title": "Pratiques éthiques",
+        "description": "Engagement envers des méthodes d'élevage humaines avec un accent sur le bien-être et la santé des chats"
+      },
+      "champion": {
+        "title": "Lignées de champions",
+        "description": "Spécialisation dans les chats issus de lignées d'exposition primées avec pedigrees documentés"
+      },
+      "local": {
+        "title": "Expertise locale",
+        "description": "Éleveurs stratégiquement situés assurant un accès facile et un soutien continu"
+      }
+    },
+    "qualityTitle": "Standards de qualité",
+    "qualityIntro": "Nos éleveurs maintiennent les plus hauts standards d'excellence",
+    "standards": {
+      "health": {
+        "title": "Tests de santé",
+        "description": "Dépistage génétique et sanitaire complet pour tous les chats reproducteurs"
+      },
+      "environment": {
+        "title": "Environnement nourrissant",
+        "description": "Installations spacieuses et propres conçues pour le confort et la socialisation des chats"
+      },
+      "support": {
+        "title": "Soutien à vie",
+        "description": "Conseils et soutien continus tout au long de la vie de votre chat"
+      },
+      "transparency": {
+        "title": "Transparence totale",
+        "description": "Documentation complète et communication ouverte sur les pratiques d'élevage"
+      }
+    },
+    "ctaTitle": "Prêt à rencontrer votre compagnon idéal ?",
+    "ctaText": "Contactez-nous aujourd'hui pour en savoir plus sur nos chats disponibles et planifier une visite chez l'un de nos éleveurs experts.",
+    "ctaButton": "Nous contacter"
+  },
+  "profile": {
+    "title": "Profil",
+    "email": "Email",
+    "emailNote": "L'email ne peut pas être modifié",
+    "changePassword": "Changer le mot de passe"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "Inscription",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "noAccount": "Pas de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "loginButton": "Se connecter",
+    "registerButton": "S'inscrire"
+  },
+  "changePassword": {
+    "title": "Changer le mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmNewPassword": "Confirmer le nouveau mot de passe",
+    "save": "Enregistrer les modifications",
+    "cancel": "Annuler",
+    "success": "Mot de passe modifié avec succès",
+    "errorCurrent": "Mot de passe actuel incorrect. Veuillez réessayer.",
+    "errorMismatch": "Les nouveaux mots de passe ne correspondent pas. Veuillez réessayer."
+  },
+  "contact": {
+    "loginRequired": "Veuillez vous connecter pour envoyer un message",
+    "loginButton": "Se connecter"
+  },
+  "selectLanguage": "Sélectionner la langue",
+  "multilingualCountry": "Nous avons détecté que vous êtes dans un pays avec plusieurs langues. Veuillez sélectionner votre langue préférée."
+}

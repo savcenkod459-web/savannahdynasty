@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "catalog": "Katalog",
+    "about": "Über uns",
+    "breeders": "Züchter",
+    "pedigree": "Stammbaum",
+    "guide": "Anleitung",
+    "warranty": "Garantie",
+    "contact": "Kontakt",
+    "profile": "Profil",
+    "login": "Anmelden",
+    "logout": "Abmelden"
+  },
+  "breeders": {
+    "title": "Unsere erfahrenen Züchter",
+    "subtitle": "Lernen Sie die leidenschaftlichen Profis hinter unseren außergewöhnlichen Katzen kennen. Unser Netzwerk zertifizierter Züchter repräsentiert Jahrzehnte an Erfahrung in Katzengenetik und -pflege.",
+    "professionals": "Profis",
+    "philosophyTitle": "Unsere Zuchtphilosophie",
+    "philosophyText": "Wir arbeiten ausschließlich mit ethischen Züchtern zusammen, die Gesundheit, Temperament und Rassestandards über alles stellen. Jeder Züchter in unserem Netzwerk wurde sorgfältig auf sein Engagement für Exzellenz und die Einhaltung höchster Tierschutzstandards geprüft.",
+    "features": {
+      "ethical": {
+        "title": "Ethische Praktiken",
+        "description": "Engagement für humane Zuchtmethoden mit Fokus auf Wohlbefinden und Gesundheit der Katzen"
+      },
+      "champion": {
+        "title": "Champion-Linien",
+        "description": "Spezialisierung auf Katzen aus preisgekrönten Ausstellungslinien mit dokumentierten Stammbäumen"
+      },
+      "local": {
+        "title": "Lokale Expertise",
+        "description": "Strategisch gelegene Züchter für einfachen Zugang und kontinuierliche Unterstützung"
+      }
+    },
+    "qualityTitle": "Qualitätsstandards",
+    "qualityIntro": "Unsere Züchter halten die höchsten Exzellenzstandards ein",
+    "standards": {
+      "health": {
+        "title": "Gesundheitstests",
+        "description": "Umfassende genetische und gesundheitliche Untersuchung aller Zuchtkatzen"
+      },
+      "environment": {
+        "title": "Fördernde Umgebung",
+        "description": "Geräumige, saubere Einrichtungen für Komfort und Sozialisierung der Katzen"
+      },
+      "support": {
+        "title": "Lebenslange Unterstützung",
+        "description": "Laufende Beratung und Unterstützung während des gesamten Lebens Ihrer Katze"
+      },
+      "transparency": {
+        "title": "Vollständige Transparenz",
+        "description": "Vollständige Dokumentation und offene Kommunikation über Zuchtpraktiken"
+      }
+    },
+    "ctaTitle": "Bereit, Ihren perfekten Begleiter zu treffen?",
+    "ctaText": "Kontaktieren Sie uns heute, um mehr über unsere verfügbaren Katzen zu erfahren und einen Besuch bei einem unserer erfahrenen Züchter zu vereinbaren.",
+    "ctaButton": "Kontakt aufnehmen"
+  },
+  "profile": {
+    "title": "Profil",
+    "email": "E-Mail",
+    "emailNote": "E-Mail kann nicht geändert werden",
+    "changePassword": "Passwort ändern"
+  },
+  "auth": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "noAccount": "Kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "loginButton": "Anmelden",
+    "registerButton": "Registrieren"
+  },
+  "changePassword": {
+    "title": "Passwort ändern",
+    "currentPassword": "Aktuelles Passwort",
+    "newPassword": "Neues Passwort",
+    "confirmNewPassword": "Neues Passwort bestätigen",
+    "save": "Änderungen speichern",
+    "cancel": "Abbrechen",
+    "success": "Passwort erfolgreich geändert",
+    "errorCurrent": "Aktuelles Passwort ist falsch. Bitte versuchen Sie es erneut.",
+    "errorMismatch": "Neue Passwörter stimmen nicht überein. Bitte versuchen Sie es erneut."
+  },
+  "contact": {
+    "loginRequired": "Bitte melden Sie sich an, um eine Nachricht zu senden",
+    "loginButton": "Anmelden"
+  },
+  "selectLanguage": "Sprache auswählen",
+  "multilingualCountry": "Wir haben festgestellt, dass Sie sich in einem Land mit mehreren Sprachen befinden. Bitte wählen Sie Ihre bevorzugte Sprache."
+}
