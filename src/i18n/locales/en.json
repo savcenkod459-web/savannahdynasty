@@ -19,7 +19,8 @@
     "title": "Royal Savannah Cats",
     "subtitle": "Discover the exotic elegance of purebred Savannah cats. Ethical breeding, exceptional quality, lifetime support.",
     "cta": "View Available Kittens",
-    "learn": "Learn More"
+    "learn": "Learn More",
+    "premiumClass": "Premium Class"
   },
   "whyChoose": {
     "title": "Why Choose SavannahDynasty",
@@ -34,14 +35,24 @@
     "support": {
       "title": "Lifetime Support",
       "description": "Expert guidance and support throughout your Savannah cat's lifetime"
+    },
+    "certified": {
+      "title": "Certified Excellence",
+      "description": "All breeders have recognized certifications and membership in professional breeding associations"
     }
   },
   "breeds": {
-    "title": "Our Premium Breeds",
-    "subtitle": "Explore our exceptional collection of Savannah cats",
+    "title": "Our Featured Breed",
+    "subtitle": "Discover the Elegance of Savannah F1",
     "f1": {
       "name": "Savannah F1",
-      "description": "Closest to the wild. 50% serval, incredible size and exotic appearance."
+      "description": "Distinguished by exotic appearance, high intelligence and energetic temperament. These cats are first generation hybrids with African serval, combining wild grace with the devotion of a domestic pet. Savannah F1 is the choice for those seeking not just a cat, but a true companion with character."
+    },
+    "traits": {
+      "active": "Active",
+      "intelligent": "Intelligent",
+      "exotic": "Exotic",
+      "loyal": "Loyal"
     },
     "f2": {
       "name": "Savannah F2",

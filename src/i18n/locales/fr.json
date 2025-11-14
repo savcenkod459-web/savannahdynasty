@@ -19,7 +19,8 @@
     "title": "Chats Savannah Royaux",
     "subtitle": "Découvrez l'élégance exotique des chats Savannah de race pure. Élevage éthique, qualité exceptionnelle, support à vie.",
     "cta": "Voir les Chatons Disponibles",
-    "learn": "En Savoir Plus"
+    "learn": "En Savoir Plus",
+    "premiumClass": "Classe Premium"
   },
   "whyChoose": {
     "title": "Pourquoi Choisir SavannahDynasty",
@@ -34,14 +35,24 @@
     "support": {
       "title": "Support à Vie",
       "description": "Conseils d'experts et assistance tout au long de la vie de votre chat Savannah"
+    },
+    "certified": {
+      "title": "Excellence Certifiée",
+      "description": "Tous les éleveurs possèdent des certifications reconnues et une adhésion aux associations professionnelles d'élevage"
     }
   },
   "breeds": {
-    "title": "Nos Races Premium",
-    "subtitle": "Explorez notre collection exceptionnelle de chats Savannah",
+    "title": "Notre Race Vedette",
+    "subtitle": "Découvrez l'Élégance du Savannah F1",
     "f1": {
       "name": "Savannah F1",
-      "description": "Le plus proche de la nature. 50% serval, taille incroyable et apparence exotique."
+      "description": "Se distingue par son apparence exotique, sa grande intelligence et son tempérament énergique. Ces chats sont des hybrides de première génération avec le serval africain, combinant la grâce sauvage avec la dévotion d'un animal domestique. Le Savannah F1 est le choix pour ceux qui cherchent pas seulement un chat, mais un véritable compagnon avec du caractère."
+    },
+    "traits": {
+      "active": "Active",
+      "intelligent": "Intelligente",
+      "exotic": "Exotique",
+      "loyal": "Loyale"
     },
     "f2": {
       "name": "Savannah F2",

@@ -19,7 +19,8 @@
     "title": "Königliche Savannah-Katzen",
     "subtitle": "Entdecken Sie die exotische Eleganz reinrassiger Savannah-Katzen. Ethische Zucht, außergewöhnliche Qualität, lebenslange Unterstützung.",
     "cta": "Verfügbare Kätzchen Ansehen",
-    "learn": "Mehr Erfahren"
+    "learn": "Mehr Erfahren",
+    "premiumClass": "Premium-Klasse"
   },
   "whyChoose": {
     "title": "Warum SavannahDynasty Wählen",
@@ -34,14 +35,24 @@
     "support": {
       "title": "Lebenslange Unterstützung",
       "description": "Expertenhilfe und Unterstützung während des gesamten Lebens Ihrer Savannah-Katze"
+    },
+    "certified": {
+      "title": "Zertifizierte Exzellenz",
+      "description": "Alle Züchter besitzen anerkannte Zertifikate und Mitgliedschaft in professionellen Zuchtverbänden"
     }
   },
   "breeds": {
-    "title": "Unsere Premium-Rassen",
-    "subtitle": "Erkunden Sie unsere außergewöhnliche Sammlung von Savannah-Katzen",
+    "title": "Unsere Ausgewählte Rasse",
+    "subtitle": "Entdecken Sie die Eleganz der Savannah F1",
     "f1": {
       "name": "Savannah F1",
-      "description": "Am nächsten zur Wildnis. 50% Serval, unglaubliche Größe und exotisches Aussehen."
+      "description": "Ausgezeichnet durch exotisches Aussehen, hohe Intelligenz und energisches Temperament. Diese Katzen sind Hybride der ersten Generation mit dem afrikanischen Serval und vereinen wilde Anmut mit der Hingabe eines Haustieres. Savannah F1 ist die Wahl für diejenigen, die nicht nur eine Katze suchen, sondern einen echten Begleiter mit Charakter."
+    },
+    "traits": {
+      "active": "Aktiv",
+      "intelligent": "Intelligent",
+      "exotic": "Exotisch",
+      "loyal": "Treu"
     },
     "f2": {
       "name": "Savannah F2",

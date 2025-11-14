@@ -19,7 +19,8 @@
     "title": "Gatos Savannah Reales",
     "subtitle": "Descubre la elegancia exótica de los gatos Savannah de raza pura. Cría ética, calidad excepcional, soporte de por vida.",
     "cta": "Ver Gatitos Disponibles",
-    "learn": "Saber Más"
+    "learn": "Saber Más",
+    "premiumClass": "Clase Premium"
   },
   "whyChoose": {
     "title": "Por Qué Elegir SavannahDynasty",
@@ -34,14 +35,24 @@
     "support": {
       "title": "Soporte de Por Vida",
       "description": "Orientación experta y apoyo durante toda la vida de su gato Savannah"
+    },
+    "certified": {
+      "title": "Excelencia Certificada",
+      "description": "Todos los criadores tienen certificaciones reconocidas y membresía en asociaciones profesionales de cría"
     }
   },
   "breeds": {
-    "title": "Nuestras Razas Premium",
-    "subtitle": "Explora nuestra excepcional colección de gatos Savannah",
+    "title": "Nuestra Raza Destacada",
+    "subtitle": "Descubre la Elegancia del Savannah F1",
     "f1": {
       "name": "Savannah F1",
-      "description": "Lo más cercano a lo salvaje. 50% serval, tamaño increíble y apariencia exótica."
+      "description": "Se distingue por su apariencia exótica, alta inteligencia y temperamento enérgico. Estos gatos son híbridos de primera generación con el serval africano, combinando la gracia salvaje con la devoción de una mascota doméstica. Savannah F1 es la elección para quienes buscan no solo un gato, sino un verdadero compañero con carácter."
+    },
+    "traits": {
+      "active": "Activa",
+      "intelligent": "Inteligente",
+      "exotic": "Exótica",
+      "loyal": "Leal"
     },
     "f2": {
       "name": "Savannah F2",

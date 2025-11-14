@@ -7,7 +7,7 @@ const PremiumBreeds = () => {
   const breeds = [{
     name: t('breeds.f1.name'),
     description: t('breeds.f1.description'),
-    traits: ["Активная", "Умная", "Экзотическая", "Преданная"]
+    traits: [t('breeds.traits.active'), t('breeds.traits.intelligent'), t('breeds.traits.exotic'), t('breeds.traits.loyal')]
   }];
   return <section className="py-20 bg-secondary/30 relative overflow-hidden">
       <div className="absolute top-10 right-10 opacity-5">
