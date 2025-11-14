@@ -12,6 +12,36 @@
     "login": "Connexion",
     "logout": "Déconnexion"
   },
+  "hero": {
+    "badge": "ÉLEVAGE D'ÉLITE",
+    "title": "SavannahDynasty",
+    "description": "Découvrez votre compagnon félin idéal dans notre collection exclusive de chats de luxe avec pedigree. Chaque chat est soigneusement sélectionné pour son lignage exceptionnel, sa santé et son tempérament.",
+    "viewCats": "Voir nos chats",
+    "learnMore": "En savoir plus"
+  },
+  "footer": {
+    "brand": "SavannahDynasty",
+    "eliteCats": "Chats de race Savannah d'élite de classe premium",
+    "worldwide": "Livraison dans de nombreux pays du monde",
+    "since": "DEPUIS 2025",
+    "navigation": "Navigation",
+    "aboutCats": "À propos des chats",
+    "catalog": "Catalogue",
+    "breeders": "Éleveurs",
+    "careGuide": "Guide de soins",
+    "warranty": "Garantie",
+    "resources": "Ressources",
+    "pedigree": "Pedigree",
+    "paymentMethods": "Moyens de paiement",
+    "contacts": "Contacts",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "Email",
+    "copyEmail": "Copier l'email",
+    "emailCopied": "Email copié!",
+    "emailCopiedDesc": "savannahdynasty@gmail.com copié dans le presse-papiers",
+    "rights": "Tous droits réservés"
+  },
   "breeders": {
     "title": "Nos éleveurs experts",
     "subtitle": "Rencontrez les professionnels passionnés derrière nos chats exceptionnels. Notre réseau d'éleveurs certifiés représente des décennies d'expérience en génétique féline et en soins.",

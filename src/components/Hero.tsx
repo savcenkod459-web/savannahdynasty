@@ -4,7 +4,9 @@ import { ArrowRight, Crown } from "lucide-react";
 import heroImage from "@/assets/hero-cat-new.png";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { useTranslation } from "react-i18next";
 const Hero = () => {
+  const { t } = useTranslation();
   const { data: heroImages } = useQuery({
     queryKey: ["site-images", "home", "hero"],
     queryFn: async () => {
@@ -38,29 +40,27 @@ const Hero = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20 hover-shine micro-interaction bg-slate-200 mx-0 px-[15px] py-[10px] my-[20px]">
                 <Crown className="w-4 h-4 text-primary animate-gold-pulse" />
-                <span className="tracking-widest uppercase text-neutral-950 font-extrabold text-sm">ЭЛИТНЫЙ ПИТОМНИК</span>
+                <span className="tracking-widest uppercase text-neutral-950 font-extrabold text-sm">{t('hero.badge')}</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient leading-tight relative luxury-text-shadow text-3xl sm:text-4xl md:text-5xl lg:text-6xl py-[10px]">
-                SavannahDynasty
+                {t('hero.title')}
                 <div className="absolute -bottom-4 left-0 w-32 h-1.5 bg-gradient-to-r from-primary via-accent to-transparent rounded-full" />
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl font-light">
-                Откройте для себя своего идеального кошачьего друга из нашей эксклюзивной 
-                коллекции породистых элитных кошек. Каждая кошка тщательно отобрана по 
-                исключительной родословной, здоровью и темпераменту.
+                {t('hero.description')}
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/catalog">
                 <Button size="lg" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
-                  <span className="relative z-10 font-semibold">Посмотреть наших котов</span>
+                  <span className="relative z-10 font-semibold">{t('hero.viewCats')}</span>
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform relative z-10" />
                 </Button>
               </Link>
               <Link to="/about">
                 <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-10 py-7 rounded-2xl text-lg micro-interaction font-semibold">
-                  Узнать больше
+                  {t('hero.learnMore')}
                 </Button>
               </Link>
             </div>

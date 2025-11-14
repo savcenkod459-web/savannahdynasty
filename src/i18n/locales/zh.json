@@ -12,6 +12,36 @@
     "login": "登录",
     "logout": "登出"
   },
+  "hero": {
+    "badge": "精英猫舍",
+    "title": "SavannahDynasty",
+    "description": "从我们独家的纯种豪华猫系列中发现您完美的猫科伴侣。每只猫都经过精心挑选，拥有卓越的血统、健康和性情。",
+    "viewCats": "查看我们的猫",
+    "learnMore": "了解更多"
+  },
+  "footer": {
+    "brand": "SavannahDynasty",
+    "eliteCats": "精英萨凡纳品种猫，尊贵级",
+    "worldwide": "全球多国配送",
+    "since": "始于2025年",
+    "navigation": "导航",
+    "aboutCats": "关于猫",
+    "catalog": "目录",
+    "breeders": "繁育者",
+    "careGuide": "护理指南",
+    "warranty": "保修",
+    "resources": "资源",
+    "pedigree": "血统",
+    "paymentMethods": "支付方式",
+    "contacts": "联系方式",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "电子邮件",
+    "copyEmail": "复制邮箱",
+    "emailCopied": "邮箱已复制！",
+    "emailCopiedDesc": "savannahdynasty@gmail.com 已复制到剪贴板",
+    "rights": "版权所有"
+  },
   "breeders": {
     "title": "我们的专业繁育者",
     "subtitle": "认识我们杰出猫咪背后的专业人士。我们的认证繁育者网络代表着数十年在猫科遗传学和护理方面的经验。",

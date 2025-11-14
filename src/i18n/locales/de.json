@@ -12,6 +12,36 @@
     "login": "Anmelden",
     "logout": "Abmelden"
   },
+  "hero": {
+    "badge": "ELITE ZUCHT",
+    "title": "SavannahDynasty",
+    "description": "Entdecken Sie Ihren perfekten Katzenbegleiter aus unserer exklusiven Kollektion von luxuriösen Rassekatzen. Jede Katze wird sorgfältig nach außergewöhnlicher Abstammung, Gesundheit und Temperament ausgewählt.",
+    "viewCats": "Unsere Katzen ansehen",
+    "learnMore": "Mehr erfahren"
+  },
+  "footer": {
+    "brand": "SavannahDynasty",
+    "eliteCats": "Elite Savannah Rassekatzen der Premium-Klasse",
+    "worldwide": "Lieferung in viele Länder weltweit",
+    "since": "SEIT 2025",
+    "navigation": "Navigation",
+    "aboutCats": "Über Katzen",
+    "catalog": "Katalog",
+    "breeders": "Züchter",
+    "careGuide": "Pflegeanleitung",
+    "warranty": "Garantie",
+    "resources": "Ressourcen",
+    "pedigree": "Stammbaum",
+    "paymentMethods": "Zahlungsmethoden",
+    "contacts": "Kontakte",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "E-Mail",
+    "copyEmail": "E-Mail kopieren",
+    "emailCopied": "E-Mail kopiert!",
+    "emailCopiedDesc": "savannahdynasty@gmail.com in die Zwischenablage kopiert",
+    "rights": "Alle Rechte vorbehalten"
+  },
   "breeders": {
     "title": "Unsere erfahrenen Züchter",
     "subtitle": "Lernen Sie die leidenschaftlichen Profis hinter unseren außergewöhnlichen Katzen kennen. Unser Netzwerk zertifizierter Züchter repräsentiert Jahrzehnte an Erfahrung in Katzengenetik und -pflege.",
