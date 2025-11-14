@@ -2,29 +2,25 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
-import { useTranslation } from "react-i18next";
-import { Shield, Trophy, MapPin, Crown, Sparkles, Star, Lightbulb, ShieldCheck, MessageCircle, Diamond } from "lucide-react";
+import { Award, Shield, Trophy, MapPin, Crown, Sparkles, Diamond, Star, Lightbulb, ShieldCheck, MessageCircle } from "lucide-react";
+const features = [{
+  icon: Award,
+  title: "Сертифицированное превосходство",
+  description: "Все заводчики имеют признанные сертификаты и членство в профессиональных ассоциациях заводчиков"
+}, {
+  icon: Shield,
+  title: "Этичные практики",
+  description: "Приверженность гуманным методам разведения с упором на благополучие и здоровье кошек"
+}, {
+  icon: Trophy,
+  title: "Чемпионские линии",
+  description: "Специализация на кошках из призовых выставочных линий с документированными родословными"
+}, {
+  icon: MapPin,
+  title: "Местная экспертиза",
+  description: "Стратегически расположенные заводчики, обеспечивающие легкий доступ и постоянную поддержку"
+}];
 const Breeders = () => {
-  const { t } = useTranslation();
-  
-  const features = [
-    {
-      icon: Shield,
-      title: t('breeders.features.ethical.title'),
-      description: t('breeders.features.ethical.description')
-    },
-    {
-      icon: Trophy,
-      title: t('breeders.features.champion.title'),
-      description: t('breeders.features.champion.description')
-    },
-    {
-      icon: MapPin,
-      title: t('breeders.features.local.title'),
-      description: t('breeders.features.local.description')
-    }
-  ];
-  
   return <div className="min-h-screen">
       <Navigation />
       
@@ -43,14 +39,15 @@ const Breeders = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
-                <Crown className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('breeders.professionals')}</span>
+                <Award className="w-4 h-4 text-primary" />
+                <span className="text-sm font-bold tracking-widest uppercase text-primary">Профессионалы</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow">
-                {t('breeders.title')}
+                Наши опытные заводчики
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                {t('breeders.subtitle')}
+                Познакомьтесь с увлеченными профессионалами, стоящими за нашими исключительными кошками. 
+                Наша сеть сертифицированных заводчиков представляет десятилетия опыта в области генетики и ухода за кошками.
               </p>
             </div>
           </div>

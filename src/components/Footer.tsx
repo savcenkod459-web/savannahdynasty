@@ -1,27 +1,25 @@
 import { Link } from "react-router-dom";
 import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useTranslation } from "react-i18next";
-
 const Footer = () => {
-  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
-  const { toast } = useToast();
-  
+  const {
+    toast
+  } = useToast();
   const copyEmail = () => {
     navigator.clipboard.writeText("savannahdynasty@gmail.com");
     toast({
-      title: t('footer.emailCopied'),
-      description: t('footer.emailCopiedDesc')
+      title: "Email скопирован!",
+      description: "savannahdynasty@gmail.com скопирован в буфер обмена"
     });
   };
-
-  return (
-    <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">
+  return <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 opacity-5">
         <Crown className="absolute top-10 right-20 w-24 h-24 text-primary animate-float" />
-        <Sparkles className="absolute bottom-10 left-20 w-16 h-16 text-accent animate-float" style={{ animationDelay: '2s' }} />
+        <Sparkles className="absolute bottom-10 left-20 w-16 h-16 text-accent animate-float" style={{
+        animationDelay: '2s'
+      }} />
       </div>
       
       <div className="container mx-auto px-6 py-16 relative z-10">
@@ -38,7 +36,7 @@ const Footer = () => {
               <div className="flex items-start gap-3 p-3 glass-card rounded-lg border border-primary/20 shadow-glow">
                 <Crown className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-foreground/90 leading-relaxed font-light">
-                  {t('footer.eliteCats')}
+                  Элитные кошки породы Саванна премиум класса
                 </p>
               </div>
               <div className="flex items-start gap-3 p-3 glass-card rounded-lg border border-accent/20 shadow-glow">
@@ -46,13 +44,13 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <p className="text-sm text-foreground/90 leading-relaxed font-light">
-                  {t('footer.worldwide')}
+                  Доставка по многим странам мира
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-2 pt-2">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-xs text-primary font-semibold tracking-wider uppercase">{t('footer.since')}</span>
+              <span className="text-xs text-primary font-semibold tracking-wider uppercase">С 2025 ГОДА</span>
             </div>
           </div>
 
@@ -60,37 +58,31 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Menu className="w-5 h-5 text-primary" />
-              {t('footer.navigation')}
+              Навигация
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/about" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Info className="w-4 h-4 flex-shrink-0" />
-                  {t('footer.aboutCats')}
+                  О кошках
                 </Link>
               </li>
               <li>
                 <Link to="/catalog" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <LayoutGrid className="w-4 h-4 flex-shrink-0" />
-                  {t('footer.catalog')}
+                  Каталог
                 </Link>
               </li>
               <li>
                 <Link to="/breeders" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Users className="w-4 h-4 flex-shrink-0" />
-                  {t('footer.breeders')}
+                  Заводчики
                 </Link>
               </li>
               <li>
                 <Link to="/guide" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <BookOpen className="w-4 h-4 flex-shrink-0" />
-                  {t('footer.careGuide')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/warranty" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
-                  <Shield className="w-4 h-4 flex-shrink-0" />
-                  {t('footer.warranty')}
+                  Инструкция
                 </Link>
               </li>
             </ul>
@@ -100,19 +92,25 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Headphones className="w-5 h-5 text-primary" />
-              {t('footer.resources')}
+              Поддержка
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/payment" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <CreditCard className="w-4 h-4 flex-shrink-0" />
-                  {t('footer.paymentMethods')}
+                  Оплата
+                </Link>
+              </li>
+              <li>
+                <Link to="/warranty" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
+                  <Shield className="w-4 h-4 flex-shrink-0" />
+                  Гарантия
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  {t('footer.contacts')}
+                  Контакты
                 </Link>
               </li>
             </ul>
@@ -122,11 +120,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Mail className="w-5 h-5 text-primary" />
-              {t('footer.contacts')}
+              Контакты
             </h4>
             <div className="space-y-4 py-0">
               <p className="text-sm text-muted-foreground font-light">
-                {t('footer.email')}: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal">savannahdynasty@gmail.com</button>
+                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal">savannahdynasty@gmail.com</button>
               </p>
               
               <div className="flex gap-4 pt-2">
@@ -149,16 +147,13 @@ const Footer = () => {
         <div className="pt-8 border-t border-primary/10 text-center space-y-4">
           <div className="flex items-center justify-center gap-2">
             <div className="h-px w-20 bg-gradient-to-r from-transparent to-primary/50" />
-            <Crown className="w-5 h-5 text-primary animate-pulse" />
+            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
           </div>
-          <p className="text-sm text-muted-foreground font-light">
-            © {currentYear} SavannahDynasty. {t('footer.rights')}
+          <p className="text-sm text-muted-foreground font-light">© 2025 SavannahDynasty. Все права защищены.
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
