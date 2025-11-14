@@ -35,14 +35,14 @@ const LanguageSelector = () => {
         <Button 
           variant="ghost" 
           size="sm"
-          className="gap-2 hover:bg-primary/10"
+          className="gap-1.5 hover:bg-primary/10 text-sm px-2.5 py-1.5 h-auto"
         >
-          <Globe className="w-4 h-4" />
-          <span className="hidden sm:inline">{currentLanguage.flag} {currentLanguage.name}</span>
+          <Globe className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline text-sm">{currentLanguage.flag}</span>
           <span className="sm:hidden">{currentLanguage.flag}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="end" className="w-44">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}

@@ -138,7 +138,7 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-primary/10">
       <div className="container mx-auto px-6 py-5">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center space-x-2 group micro-interaction ml-1">
             <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-gold hover:shadow-glow transition-all duration-500 group-hover:rotate-12">
               <Crown className="w-5 h-5 md:w-6 md:h-6 text-luxury-black" />
@@ -147,7 +147,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 -ml-4">
+          <div className="hidden lg:flex items-center space-x-1 flex-1 justify-end mr-4">
             {navItems.map(item => {
             if (item.hasSubmenu) {
               return <Popover key={item.path} open={aboutPopoverOpen} onOpenChange={setAboutPopoverOpen}>

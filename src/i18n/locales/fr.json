@@ -15,8 +15,8 @@
     "admin": "Admin"
   },
   "hero": {
-    "badge": "Chatterie Premium",
-    "title": "Chats Savannah Royaux",
+    "badge": "Élevage Premium",
+    "title": "SavannahDynasty Cats",
     "subtitle": "Découvrez l'élégance exotique des chats Savannah de race pure. Élevage éthique, qualité exceptionnelle, support à vie.",
     "cta": "Voir les Chatons Disponibles",
     "learn": "En Savoir Plus",
@@ -24,9 +24,10 @@
   },
   "whyChoose": {
     "title": "Pourquoi Choisir SavannahDynasty",
+    "badge": "Haute Qualité",
     "quality": {
       "title": "Qualité Supérieure",
-      "description": "Tous nos chats Savannah proviennent de lignées de champions avec des pedigrees entièrement documentés"
+      "description": "Tous nos chats Savannah proviennent de lignées championnes avec des pedigrees entièrement documentés"
     },
     "health": {
       "title": "Garantie Santé",
@@ -34,11 +35,7 @@
     },
     "support": {
       "title": "Support à Vie",
-      "description": "Conseils d'experts et assistance tout au long de la vie de votre chat Savannah"
-    },
-    "certified": {
-      "title": "Excellence Certifiée",
-      "description": "Tous les éleveurs possèdent des certifications reconnues et une adhésion aux associations professionnelles d'élevage"
+      "description": "Conseils d'experts et support tout au long de la vie de votre chat Savannah"
     }
   },
   "breeds": {

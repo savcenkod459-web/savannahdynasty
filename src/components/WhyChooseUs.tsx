@@ -16,10 +16,6 @@ const WhyChooseUs = () => {
     icon: Heart,
     title: t('whyChoose.support.title'),
     description: t('whyChoose.support.description')
-  }, {
-    icon: Headphones,
-    title: t('whyChoose.certified.title'),
-    description: t('whyChoose.certified.description')
   }];
   return <section className="py-32 bg-secondary/30 relative overflow-hidden">
       {/* Декоративные элементы люкса */}
@@ -36,13 +32,13 @@ const WhyChooseUs = () => {
         <div className="text-center space-y-6 mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('whyChoose.title')}</span>
+            <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('whyChoose.badge')}</span>
           </div>
           <h2 className="font-display text-luxury-gradient font-black luxury-text-shadow py-[10px] text-3xl md:text-4xl lg:text-5xl xl:text-6xl">{t('whyChoose.title')}</h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">{t('hero.subtitle')}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => <div key={index} className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift animate-scale-in hover-scale micro-interaction" style={{
           animationDelay: `${index * 100}ms`
         }}>

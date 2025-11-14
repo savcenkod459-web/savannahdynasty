@@ -16,7 +16,7 @@
   },
   "hero": {
     "badge": "Criadero Premium",
-    "title": "Gatos Savannah Reales",
+    "title": "SavannahDynasty Cats",
     "subtitle": "Descubre la elegancia exótica de los gatos Savannah de raza pura. Cría ética, calidad excepcional, soporte de por vida.",
     "cta": "Ver Gatitos Disponibles",
     "learn": "Saber Más",
@@ -24,6 +24,7 @@
   },
   "whyChoose": {
     "title": "Por Qué Elegir SavannahDynasty",
+    "badge": "Alta Calidad",
     "quality": {
       "title": "Calidad Superior",
       "description": "Todos nuestros gatos Savannah provienen de líneas de campeones con pedigríes completamente documentados"
@@ -35,10 +36,6 @@
     "support": {
       "title": "Soporte de Por Vida",
       "description": "Orientación experta y apoyo durante toda la vida de su gato Savannah"
-    },
-    "certified": {
-      "title": "Excelencia Certificada",
-      "description": "Todos los criadores tienen certificaciones reconocidas y membresía en asociaciones profesionales de cría"
     }
   },
   "breeds": {
