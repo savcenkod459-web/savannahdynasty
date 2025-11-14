@@ -16,7 +16,7 @@
   },
   "hero": {
     "badge": "Premium-Zucht",
-    "title": "Königliche Savannah-Katzen",
+    "title": "SavannahDynasty Cats",
     "subtitle": "Entdecken Sie die exotische Eleganz reinrassiger Savannah-Katzen. Ethische Zucht, außergewöhnliche Qualität, lebenslange Unterstützung.",
     "cta": "Verfügbare Kätzchen Ansehen",
     "learn": "Mehr Erfahren",
@@ -24,21 +24,18 @@
   },
   "whyChoose": {
     "title": "Warum SavannahDynasty Wählen",
+    "badge": "Hohe Qualität",
     "quality": {
       "title": "Überlegene Qualität",
-      "description": "Alle unsere Savannah-Katzen stammen aus Champion-Blutlinien mit vollständig dokumentierten Stammbäumen"
+      "description": "Alle unsere Savannah-Katzen stammen von Champion-Linien mit vollständig dokumentierten Stammbäumen"
     },
     "health": {
       "title": "Gesundheitsgarantie",
-      "description": "Umfassende Gesundheitsuntersuchung und lebenslange genetische Garantie für alle unsere Katzen"
+      "description": "Umfassende Gesundheitsprüfung und lebenslange genetische Garantie für alle unsere Katzen"
     },
     "support": {
       "title": "Lebenslange Unterstützung",
-      "description": "Expertenhilfe und Unterstützung während des gesamten Lebens Ihrer Savannah-Katze"
-    },
-    "certified": {
-      "title": "Zertifizierte Exzellenz",
-      "description": "Alle Züchter besitzen anerkannte Zertifikate und Mitgliedschaft in professionellen Zuchtverbänden"
+      "description": "Fachkundige Beratung und Unterstützung während der gesamten Lebensdauer Ihrer Savannah-Katze"
     }
   },
   "breeds": {

@@ -16,29 +16,26 @@
   },
   "hero": {
     "badge": "高级猫舍",
-    "title": "皇家热带草原猫",
-    "subtitle": "发现纯种热带草原猫的异国优雅。伦理繁育、卓越品质、终生支持。",
-    "cta": "查看可用幼猫",
+    "title": "SavannahDynasty Cats",
+    "subtitle": "发现纯种萨凡纳猫的异国优雅。道德繁殖，卓越品质，终身支持。",
+    "cta": "查看可用小猫",
     "learn": "了解更多",
     "premiumClass": "高级类别"
   },
   "whyChoose": {
     "title": "为什么选择 SavannahDynasty",
+    "badge": "高品质",
     "quality": {
       "title": "卓越品质",
-      "description": "我们所有的热带草原猫都来自冠军血统，拥有完整记录的血统书"
+      "description": "我们所有的萨凡纳猫都来自冠军血统，拥有完整记录的血统书"
     },
     "health": {
       "title": "健康保证",
-      "description": "对我们所有的猫进行全面的健康筛查和终生遗传保证"
+      "description": "对我们所有的猫进行全面的健康筛查和终身遗传保证"
     },
     "support": {
-      "title": "终生支持",
-      "description": "在您的热带草原猫的一生中提供专家指导和支持"
-    },
-    "certified": {
-      "title": "认证卓越",
-      "description": "所有繁育者都拥有认可的证书和专业繁育协会的会员资格"
+      "title": "终身支持",
+      "description": "在您的萨凡纳猫一生中提供专家指导和支持"
     }
   },
   "breeds": {

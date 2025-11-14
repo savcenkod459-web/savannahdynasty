@@ -16,7 +16,7 @@
   },
   "hero": {
     "badge": "Premium Cattery",
-    "title": "Royal Savannah Cats",
+    "title": "SavannahDynasty Cats",
     "subtitle": "Discover the exotic elegance of purebred Savannah cats. Ethical breeding, exceptional quality, lifetime support.",
     "cta": "View Available Kittens",
     "learn": "Learn More",
@@ -24,6 +24,7 @@
   },
   "whyChoose": {
     "title": "Why Choose SavannahDynasty",
+    "badge": "High Quality",
     "quality": {
       "title": "Superior Quality",
       "description": "All our Savannah cats come from champion bloodlines with fully documented pedigrees"
@@ -35,10 +36,6 @@
     "support": {
       "title": "Lifetime Support",
       "description": "Expert guidance and support throughout your Savannah cat's lifetime"
-    },
-    "certified": {
-      "title": "Certified Excellence",
-      "description": "All breeders have recognized certifications and membership in professional breeding associations"
     }
   },
   "breeds": {
