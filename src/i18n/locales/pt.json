@@ -12,6 +12,36 @@
     "login": "Entrar",
     "logout": "Sair"
   },
+  "hero": {
+    "badge": "GATIL DE ELITE",
+    "title": "SavannahDynasty",
+    "description": "Descubra seu companheiro felino perfeito em nossa coleção exclusiva de gatos de luxo com pedigree. Cada gato é cuidadosamente selecionado por sua linhagem excepcional, saúde e temperamento.",
+    "viewCats": "Ver nossos gatos",
+    "learnMore": "Saiba mais"
+  },
+  "footer": {
+    "brand": "SavannahDynasty",
+    "eliteCats": "Gatos de raça Savannah de elite classe premium",
+    "worldwide": "Entrega em muitos países do mundo",
+    "since": "DESDE 2025",
+    "navigation": "Navegação",
+    "aboutCats": "Sobre os gatos",
+    "catalog": "Catálogo",
+    "breeders": "Criadores",
+    "careGuide": "Guia de cuidados",
+    "warranty": "Garantia",
+    "resources": "Recursos",
+    "pedigree": "Pedigree",
+    "paymentMethods": "Métodos de pagamento",
+    "contacts": "Contatos",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "Email",
+    "copyEmail": "Copiar email",
+    "emailCopied": "Email copiado!",
+    "emailCopiedDesc": "savannahdynasty@gmail.com copiado para a área de transferência",
+    "rights": "Todos os direitos reservados"
+  },
   "breeders": {
     "title": "Nossos criadores especialistas",
     "subtitle": "Conheça os profissionais apaixonados por trás de nossos gatos excepcionais. Nossa rede de criadores certificados representa décadas de experiência em genética e cuidados felinos.",

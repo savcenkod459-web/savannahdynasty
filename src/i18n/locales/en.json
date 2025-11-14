@@ -12,6 +12,36 @@
     "login": "Login",
     "logout": "Logout"
   },
+  "hero": {
+    "badge": "ELITE CATTERY",
+    "title": "SavannahDynasty",
+    "description": "Discover your perfect feline companion from our exclusive collection of pedigreed luxury cats. Each cat is carefully selected for exceptional lineage, health, and temperament.",
+    "viewCats": "View Our Cats",
+    "learnMore": "Learn More"
+  },
+  "footer": {
+    "brand": "SavannahDynasty",
+    "eliteCats": "Elite Savannah breed cats of premium class",
+    "worldwide": "Worldwide delivery to many countries",
+    "since": "SINCE 2025",
+    "navigation": "Navigation",
+    "aboutCats": "About Cats",
+    "catalog": "Catalog",
+    "breeders": "Breeders",
+    "careGuide": "Care Guide",
+    "warranty": "Warranty",
+    "resources": "Resources",
+    "pedigree": "Pedigree",
+    "paymentMethods": "Payment Methods",
+    "contacts": "Contacts",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "Email",
+    "copyEmail": "Copy email",
+    "emailCopied": "Email copied!",
+    "emailCopiedDesc": "savannahdynasty@gmail.com copied to clipboard",
+    "rights": "All rights reserved"
+  },
   "breeders": {
     "title": "Our Expert Breeders",
     "subtitle": "Meet the passionate professionals behind our exceptional cats. Our network of certified breeders represents decades of experience in feline genetics and care.",
