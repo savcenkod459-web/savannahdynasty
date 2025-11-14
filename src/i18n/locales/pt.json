@@ -1,0 +1,261 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "catalog": "Catálogo",
+    "breeders": "Criadores",
+    "guide": "Guia",
+    "warranty": "Garantia",
+    "pedigree": "Pedigree",
+    "payment": "Pagamento",
+    "contact": "Contato",
+    "profile": "Perfil",
+    "login": "Entrar",
+    "logout": "Sair",
+    "admin": "Admin"
+  },
+  "hero": {
+    "badge": "Gatil Premium",
+    "title": "Gatos Savannah Reais",
+    "subtitle": "Descubra a elegância exótica dos gatos Savannah de raça pura. Criação ética, qualidade excepcional, suporte vitalício.",
+    "cta": "Ver Gatinhos Disponíveis",
+    "learn": "Saiba Mais"
+  },
+  "whyChoose": {
+    "title": "Por Que Escolher SavannahDynasty",
+    "quality": {
+      "title": "Qualidade Superior",
+      "description": "Todos os nossos gatos Savannah vêm de linhagens campeãs com pedigrees totalmente documentados"
+    },
+    "health": {
+      "title": "Garantia de Saúde",
+      "description": "Triagem de saúde abrangente e garantia genética vitalícia em todos os nossos gatos"
+    },
+    "support": {
+      "title": "Suporte Vitalício",
+      "description": "Orientação especializada e suporte durante toda a vida do seu gato Savannah"
+    }
+  },
+  "breeds": {
+    "title": "Nossas Raças Premium",
+    "subtitle": "Explore nossa coleção excepcional de gatos Savannah",
+    "f1": {
+      "name": "Savannah F1",
+      "description": "Mais próximo do selvagem. 50% serval, tamanho incrível e aparência exótica."
+    },
+    "f2": {
+      "name": "Savannah F2",
+      "description": "Equilíbrio perfeito entre beleza selvagem e temperamento domesticado. Aparência impressionante."
+    },
+    "kitten": {
+      "name": "Gatinhos Savannah",
+      "description": "Adoráveis gatinhos de linhagens campeãs. Socialização e cuidado precoce."
+    }
+  },
+  "rarity": {
+    "title": "O Que Torna os Gatos Savannah Raros",
+    "exotic": {
+      "title": "Herança Exótica",
+      "description": "Híbrido de serval africano e gato doméstico, criando uma raça verdadeiramente única"
+    },
+    "limited": {
+      "title": "Gerações Limitadas",
+      "description": "Gerações F1-F3 são extremamente raras devido a requisitos complexos de criação"
+    },
+    "unique": {
+      "title": "Características Únicas",
+      "description": "Inteligência excepcional, lealdade canina e aparência deslumbrante"
+    }
+  },
+  "pricing": {
+    "title": "Investimento em Elegância",
+    "subtitle": "Preços transparentes para nossos gatos Savannah excepcionais",
+    "f5": {
+      "title": "Savannah F5",
+      "price": "a partir de R$ 7.500",
+      "features": ["Temperamento amigável", "Ótimos companheiros", "Mais acessível", "Bela aparência"],
+      "cta": "Saiba Mais"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "price": "a partir de R$ 20.000",
+      "badge": "Escolha Popular",
+      "features": ["Marcas marcantes", "Grande porte", "Natureza brincalhona", "Qualidade premium"],
+      "cta": "Ver Disponíveis"
+    },
+    "f1f2": {
+      "title": "Savannah F1-F2",
+      "price": "a partir de R$ 50.000",
+      "features": ["Gerações mais raras", "Tamanho impressionante", "Aparência exótica", "Linhagens campeãs"],
+      "cta": "Agendar Consulta"
+    }
+  },
+  "payment": {
+    "title": "Métodos de Pagamento",
+    "subtitle": "Opções de pagamento seguras e convenientes",
+    "secure": {
+      "title": "Transações Seguras",
+      "description": "Todos os pagamentos processados através de canais criptografados seguros"
+    },
+    "flexible": {
+      "title": "Opções Flexíveis",
+      "description": "Múltiplos métodos de pagamento para sua conveniência"
+    },
+    "protected": {
+      "title": "Proteção ao Comprador",
+      "description": "Sua compra está protegida por nossa garantia abrangente"
+    }
+  },
+  "cta": {
+    "title": "Pronto para Conhecer seu Gato Savannah?",
+    "subtitle": "Comece sua jornada para possuir uma das raças felinas mais exóticas do mundo",
+    "button": "Entre em Contato"
+  },
+  "footer": {
+    "tagline": "Descubra a graça e inteligência dos gatos Savannah da SavannahDynasty. Criação ética, qualidade excepcional.",
+    "quickLinks": "Links Rápidos",
+    "legal": "Legal",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "rights": "Todos os direitos reservados."
+  },
+  "breeders": {
+    "badge": "Profissionais",
+    "title": "Nossos Criadores Experientes",
+    "subtitle": "Conheça os profissionais apaixonados por trás de nossos gatos excepcionais. Nossa rede de criadores certificados representa décadas de experiência em genética e cuidados felinos.",
+    "philosophy": {
+      "title": "Nossa Filosofia de Criação",
+      "description": "Fazemos parceria exclusivamente com criadores éticos que priorizam saúde, temperamento e padrões da raça acima de tudo. Cada criador em nossa rede foi minuciosamente examinado para aderência aos nossos altos padrões de qualidade e ética."
+    },
+    "features": {
+      "ethical": {
+        "title": "Práticas Éticas",
+        "description": "Compromisso com métodos de criação humanos com ênfase no bem-estar e saúde dos gatos"
+      },
+      "champion": {
+        "title": "Linhagens Campeãs",
+        "description": "Especialização em gatos de linhagens de exposição premiadas com pedigrees documentados"
+      },
+      "local": {
+        "title": "Expertise Local",
+        "description": "Criadores estrategicamente localizados fornecendo fácil acesso e suporte contínuo"
+      }
+    },
+    "standards": {
+      "title": "Nossos Padrões de Qualidade",
+      "health": {
+        "title": "Testes de Saúde",
+        "description": "Testes genéticos obrigatórios e triagem de saúde de todos os gatos reprodutores"
+      },
+      "documentation": {
+        "title": "Documentação Completa",
+        "description": "Registros detalhados de pedigree, vacinações e histórico de saúde para cada gato"
+      },
+      "environment": {
+        "title": "Ambiente Premium",
+        "description": "Instalações espaçosas e limpas projetadas para o bem-estar ideal dos gatos"
+      },
+      "socialization": {
+        "title": "Socialização Precoce",
+        "description": "Gatinhos criados em ambiente doméstico com foco em temperamento e adaptabilidade"
+      }
+    }
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Tem perguntas? Estamos aqui para ajudar",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Seu nome completo",
+      "email": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "phone": "Telefone",
+      "phonePlaceholder": "+55 11 98765-4321",
+      "message": "Mensagem",
+      "messagePlaceholder": "Como podemos ajudá-lo?",
+      "submit": "Enviar Mensagem",
+      "sending": "Enviando...",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Falha ao enviar mensagem",
+      "loginPrompt": "Por favor, faça login para enviar uma mensagem",
+      "loginButton": "Entrar"
+    },
+    "info": {
+      "title": "Informações de Contato",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "address": "Endereço"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Bem-vindo de Volta",
+      "subtitle": "Entre na sua conta"
+    },
+    "signup": {
+      "title": "Criar Conta",
+      "subtitle": "Registre-se para começar"
+    },
+    "email": "E-mail",
+    "password": "Senha",
+    "signinButton": "Entrar",
+    "signupButton": "Registrar",
+    "loading": "Carregando...",
+    "noAccount": "Não tem conta?",
+    "hasAccount": "Já tem conta?",
+    "register": "Registre-se",
+    "signin": "Entre",
+    "forgotPassword": "Esqueceu a senha?",
+    "verification": {
+      "title": "Verificar E-mail",
+      "subtitle": "Digite o código de 6 dígitos enviado para",
+      "codePlaceholder": "000000",
+      "verify": "Verificar",
+      "resend": "Reenviar Código",
+      "resendIn": "Reenviar em",
+      "success": "E-mail verificado com sucesso!",
+      "error": "Código inválido ou expirado",
+      "codeSent": "Código enviado para seu e-mail"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "subtitle": "Gerenciamento de Conta",
+    "accountInfo": "Informações da Conta",
+    "email": "E-mail",
+    "emailNote": "O e-mail não pode ser alterado",
+    "changePassword": "Alterar Senha",
+    "password": {
+      "title": "Alterar Senha",
+      "current": "Senha Atual",
+      "new": "Nova Senha",
+      "confirm": "Confirmar Nova Senha",
+      "save": "Salvar Senha",
+      "cancel": "Cancelar",
+      "success": "Senha alterada com sucesso",
+      "errorCurrent": "Senha atual incorreta",
+      "errorMatch": "As novas senhas não coincidem",
+      "errorGeneral": "Falha ao alterar senha"
+    }
+  },
+  "catalog": {
+    "title": "Gatinhos Disponíveis",
+    "subtitle": "Encontre seu companheiro perfeito",
+    "filters": {
+      "all": "Todos",
+      "male": "Machos",
+      "female": "Fêmeas"
+    },
+    "details": {
+      "age": "Idade",
+      "gender": "Gênero",
+      "breed": "Raça",
+      "male": "Macho",
+      "female": "Fêmea",
+      "traits": "Características",
+      "price": "Preço",
+      "contact": "Contato",
+      "gallery": "Galeria"
+    }
+  }
+}

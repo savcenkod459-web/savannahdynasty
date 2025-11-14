@@ -1,0 +1,261 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "catalog": "Catalogue",
+    "breeders": "Éleveurs",
+    "guide": "Guide",
+    "warranty": "Garantie",
+    "pedigree": "Pedigree",
+    "payment": "Paiement",
+    "contact": "Contact",
+    "profile": "Profil",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "admin": "Admin"
+  },
+  "hero": {
+    "badge": "Chatterie Premium",
+    "title": "Chats Savannah Royaux",
+    "subtitle": "Découvrez l'élégance exotique des chats Savannah de race pure. Élevage éthique, qualité exceptionnelle, support à vie.",
+    "cta": "Voir les Chatons Disponibles",
+    "learn": "En Savoir Plus"
+  },
+  "whyChoose": {
+    "title": "Pourquoi Choisir SavannahDynasty",
+    "quality": {
+      "title": "Qualité Supérieure",
+      "description": "Tous nos chats Savannah proviennent de lignées de champions avec des pedigrees entièrement documentés"
+    },
+    "health": {
+      "title": "Garantie Santé",
+      "description": "Dépistage de santé complet et garantie génétique à vie sur tous nos chats"
+    },
+    "support": {
+      "title": "Support à Vie",
+      "description": "Conseils d'experts et assistance tout au long de la vie de votre chat Savannah"
+    }
+  },
+  "breeds": {
+    "title": "Nos Races Premium",
+    "subtitle": "Explorez notre collection exceptionnelle de chats Savannah",
+    "f1": {
+      "name": "Savannah F1",
+      "description": "Le plus proche de la nature. 50% serval, taille incroyable et apparence exotique."
+    },
+    "f2": {
+      "name": "Savannah F2",
+      "description": "Équilibre parfait entre beauté sauvage et tempérament domestique. Apparence impressionnante."
+    },
+    "kitten": {
+      "name": "Chatons Savannah",
+      "description": "Adorables chatons de lignées de champions. Socialisation et soins précoces."
+    }
+  },
+  "rarity": {
+    "title": "Ce qui Rend les Chats Savannah Rares",
+    "exotic": {
+      "title": "Héritage Exotique",
+      "description": "Hybride de serval africain et de chat domestique, créant une race vraiment unique"
+    },
+    "limited": {
+      "title": "Générations Limitées",
+      "description": "Les générations F1-F3 sont extrêmement rares en raison d'exigences d'élevage complexes"
+    },
+    "unique": {
+      "title": "Caractéristiques Uniques",
+      "description": "Intelligence exceptionnelle, loyauté canine et apparence époustouflante"
+    }
+  },
+  "pricing": {
+    "title": "Investissement dans l'Élégance",
+    "subtitle": "Prix transparent pour nos chats Savannah exceptionnels",
+    "f5": {
+      "title": "Savannah F5",
+      "price": "à partir de 1 500 $",
+      "features": ["Tempérament amical", "Excellents compagnons", "Plus abordable", "Belle apparence"],
+      "cta": "En Savoir Plus"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "price": "à partir de 4 000 $",
+      "badge": "Choix Populaire",
+      "features": ["Marquages frappants", "Grande taille", "Nature joueuse", "Qualité premium"],
+      "cta": "Voir Disponibles"
+    },
+    "f1f2": {
+      "title": "Savannah F1-F2",
+      "price": "à partir de 10 000 $",
+      "features": ["Générations les plus rares", "Taille impressionnante", "Apparence exotique", "Lignées de champions"],
+      "cta": "Réserver Consultation"
+    }
+  },
+  "payment": {
+    "title": "Méthodes de Paiement",
+    "subtitle": "Options de paiement sécurisées et pratiques",
+    "secure": {
+      "title": "Transactions Sécurisées",
+      "description": "Tous les paiements sont traités via des canaux cryptés sécurisés"
+    },
+    "flexible": {
+      "title": "Options Flexibles",
+      "description": "Plusieurs méthodes de paiement pour votre commodité"
+    },
+    "protected": {
+      "title": "Protection de l'Acheteur",
+      "description": "Votre achat est protégé par notre garantie complète"
+    }
+  },
+  "cta": {
+    "title": "Prêt à Rencontrer Votre Chat Savannah?",
+    "subtitle": "Commencez votre voyage vers la possession d'une des races félines les plus exotiques au monde",
+    "button": "Contactez-Nous"
+  },
+  "footer": {
+    "tagline": "Découvrez la grâce et l'intelligence des chats Savannah de SavannahDynasty. Élevage éthique, qualité exceptionnelle.",
+    "quickLinks": "Liens Rapides",
+    "legal": "Légal",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "rights": "Tous droits réservés."
+  },
+  "breeders": {
+    "badge": "Professionnels",
+    "title": "Nos Éleveurs Expérimentés",
+    "subtitle": "Rencontrez les professionnels passionnés derrière nos chats exceptionnels. Notre réseau d'éleveurs certifiés représente des décennies d'expérience en génétique féline et soins.",
+    "philosophy": {
+      "title": "Notre Philosophie d'Élevage",
+      "description": "Nous nous associons exclusivement avec des éleveurs éthiques qui priorisent la santé, le tempérament et les standards de race avant tout. Chaque éleveur de notre réseau a été soigneusement vérifié pour le respect de nos normes élevées de qualité et d'éthique."
+    },
+    "features": {
+      "ethical": {
+        "title": "Pratiques Éthiques",
+        "description": "Engagement envers des méthodes d'élevage humaines avec accent sur le bien-être et la santé des chats"
+      },
+      "champion": {
+        "title": "Lignées de Champions",
+        "description": "Spécialisation dans les chats de lignées d'exposition primées avec pedigrees documentés"
+      },
+      "local": {
+        "title": "Expertise Locale",
+        "description": "Éleveurs situés stratégiquement offrant un accès facile et un support continu"
+      }
+    },
+    "standards": {
+      "title": "Nos Standards de Qualité",
+      "health": {
+        "title": "Tests de Santé",
+        "description": "Tests génétiques obligatoires et dépistage de santé de tous les chats reproducteurs"
+      },
+      "documentation": {
+        "title": "Documentation Complète",
+        "description": "Registres détaillés de pedigree, vaccinations et historique de santé pour chaque chat"
+      },
+      "environment": {
+        "title": "Environnement Premium",
+        "description": "Installations spacieuses et propres conçues pour le bien-être optimal des chats"
+      },
+      "socialization": {
+        "title": "Socialisation Précoce",
+        "description": "Chatons élevés en environnement domestique avec focus sur le tempérament et l'adaptabilité"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Des questions? Nous sommes là pour aider",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom complet",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+33 6 12 34 56 78",
+      "message": "Message",
+      "messagePlaceholder": "Comment pouvons-nous vous aider?",
+      "submit": "Envoyer le Message",
+      "sending": "Envoi...",
+      "success": "Message envoyé avec succès!",
+      "error": "Échec de l'envoi du message",
+      "loginPrompt": "Veuillez vous connecter pour envoyer un message",
+      "loginButton": "Connexion"
+    },
+    "info": {
+      "title": "Informations de Contact",
+      "email": "Email",
+      "phone": "Téléphone",
+      "address": "Adresse"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Bon Retour",
+      "subtitle": "Connectez-vous à votre compte"
+    },
+    "signup": {
+      "title": "Créer un Compte",
+      "subtitle": "Inscrivez-vous pour commencer"
+    },
+    "email": "Email",
+    "password": "Mot de Passe",
+    "signinButton": "Se Connecter",
+    "signupButton": "S'Inscrire",
+    "loading": "Chargement...",
+    "noAccount": "Pas de compte?",
+    "hasAccount": "Vous avez déjà un compte?",
+    "register": "Inscrivez-vous",
+    "signin": "Connectez-vous",
+    "forgotPassword": "Mot de passe oublié?",
+    "verification": {
+      "title": "Vérifier l'Email",
+      "subtitle": "Entrez le code à 6 chiffres envoyé à",
+      "codePlaceholder": "000000",
+      "verify": "Vérifier",
+      "resend": "Renvoyer le Code",
+      "resendIn": "Renvoyer dans",
+      "success": "Email vérifié avec succès!",
+      "error": "Code invalide ou expiré",
+      "codeSent": "Code envoyé à votre email"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "subtitle": "Gestion du Compte",
+    "accountInfo": "Informations du Compte",
+    "email": "Email",
+    "emailNote": "L'email ne peut pas être modifié",
+    "changePassword": "Changer le Mot de Passe",
+    "password": {
+      "title": "Changer le Mot de Passe",
+      "current": "Mot de Passe Actuel",
+      "new": "Nouveau Mot de Passe",
+      "confirm": "Confirmer le Nouveau Mot de Passe",
+      "save": "Enregistrer le Mot de Passe",
+      "cancel": "Annuler",
+      "success": "Mot de passe changé avec succès",
+      "errorCurrent": "Mot de passe actuel incorrect",
+      "errorMatch": "Les nouveaux mots de passe ne correspondent pas",
+      "errorGeneral": "Échec du changement de mot de passe"
+    }
+  },
+  "catalog": {
+    "title": "Chatons Disponibles",
+    "subtitle": "Trouvez votre compagnon idéal",
+    "filters": {
+      "all": "Tous",
+      "male": "Mâles",
+      "female": "Femelles"
+    },
+    "details": {
+      "age": "Âge",
+      "gender": "Sexe",
+      "breed": "Race",
+      "male": "Mâle",
+      "female": "Femelle",
+      "traits": "Traits",
+      "price": "Prix",
+      "contact": "Contact",
+      "gallery": "Galerie"
+    }
+  }
+}

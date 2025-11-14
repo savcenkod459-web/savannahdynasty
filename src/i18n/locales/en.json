@@ -1,0 +1,261 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "catalog": "Catalog",
+    "breeders": "Breeders",
+    "guide": "Guide",
+    "warranty": "Warranty",
+    "pedigree": "Pedigree",
+    "payment": "Payment",
+    "contact": "Contact",
+    "profile": "Profile",
+    "login": "Login",
+    "logout": "Logout",
+    "admin": "Admin"
+  },
+  "hero": {
+    "badge": "Premium Cattery",
+    "title": "Royal Savannah Cats",
+    "subtitle": "Discover the exotic elegance of purebred Savannah cats. Ethical breeding, exceptional quality, lifetime support.",
+    "cta": "View Available Kittens",
+    "learn": "Learn More"
+  },
+  "whyChoose": {
+    "title": "Why Choose SavannahDynasty",
+    "quality": {
+      "title": "Superior Quality",
+      "description": "All our Savannah cats come from champion bloodlines with fully documented pedigrees"
+    },
+    "health": {
+      "title": "Health Guarantee",
+      "description": "Comprehensive health screening and lifetime genetic guarantee on all our cats"
+    },
+    "support": {
+      "title": "Lifetime Support",
+      "description": "Expert guidance and support throughout your Savannah cat's lifetime"
+    }
+  },
+  "breeds": {
+    "title": "Our Premium Breeds",
+    "subtitle": "Explore our exceptional collection of Savannah cats",
+    "f1": {
+      "name": "Savannah F1",
+      "description": "Closest to the wild. 50% serval, incredible size and exotic appearance."
+    },
+    "f2": {
+      "name": "Savannah F2",
+      "description": "Perfect balance of wild beauty and domesticated temperament. Impressive appearance."
+    },
+    "kitten": {
+      "name": "Savannah Kittens",
+      "description": "Adorable kittens from champion lines. Early socialization and care."
+    }
+  },
+  "rarity": {
+    "title": "What Makes Savannah Cats Rare",
+    "exotic": {
+      "title": "Exotic Heritage",
+      "description": "Hybrid of African serval and domestic cat, creating a truly unique breed"
+    },
+    "limited": {
+      "title": "Limited Generations",
+      "description": "F1-F3 generations are extremely rare due to complex breeding requirements"
+    },
+    "unique": {
+      "title": "Unique Characteristics",
+      "description": "Exceptional intelligence, dog-like loyalty, and stunning appearance"
+    }
+  },
+  "pricing": {
+    "title": "Investment in Elegance",
+    "subtitle": "Transparent pricing for our exceptional Savannah cats",
+    "f5": {
+      "title": "Savannah F5",
+      "price": "from $1,500",
+      "features": ["Friendly temperament", "Great companions", "More affordable", "Beautiful appearance"],
+      "cta": "Learn More"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "price": "from $4,000",
+      "badge": "Popular Choice",
+      "features": ["Striking markings", "Large size", "Playful nature", "Premium quality"],
+      "cta": "View Available"
+    },
+    "f1f2": {
+      "title": "Savannah F1-F2",
+      "price": "from $10,000",
+      "features": ["Rarest generations", "Impressive size", "Exotic appearance", "Champion bloodlines"],
+      "cta": "Book Consultation"
+    }
+  },
+  "payment": {
+    "title": "Payment Methods",
+    "subtitle": "Secure and convenient payment options",
+    "secure": {
+      "title": "Secure Transactions",
+      "description": "All payments processed through secure encrypted channels"
+    },
+    "flexible": {
+      "title": "Flexible Options",
+      "description": "Multiple payment methods for your convenience"
+    },
+    "protected": {
+      "title": "Buyer Protection",
+      "description": "Your purchase is protected by our comprehensive warranty"
+    }
+  },
+  "cta": {
+    "title": "Ready to Meet Your Savannah Cat?",
+    "subtitle": "Start your journey to owning one of the world's most exotic feline breeds",
+    "button": "Contact Us"
+  },
+  "footer": {
+    "tagline": "Discover the grace and intelligence of Savannah cats from SavannahDynasty. Ethical breeding, exceptional quality.",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved."
+  },
+  "breeders": {
+    "badge": "Professionals",
+    "title": "Our Experienced Breeders",
+    "subtitle": "Meet the passionate professionals behind our exceptional cats. Our network of certified breeders represents decades of experience in feline genetics and care.",
+    "philosophy": {
+      "title": "Our Breeding Philosophy",
+      "description": "We partner exclusively with ethical breeders who prioritize health, temperament, and breed standards above all. Each breeder in our network has been thoroughly vetted for adherence to our high standards of quality and ethics."
+    },
+    "features": {
+      "ethical": {
+        "title": "Ethical Practices",
+        "description": "Commitment to humane breeding methods with emphasis on cat welfare and health"
+      },
+      "champion": {
+        "title": "Champion Lines",
+        "description": "Specialization in cats from award-winning show lines with documented pedigrees"
+      },
+      "local": {
+        "title": "Local Expertise",
+        "description": "Strategically located breeders providing easy access and ongoing support"
+      }
+    },
+    "standards": {
+      "title": "Our Quality Standards",
+      "health": {
+        "title": "Health Testing",
+        "description": "Mandatory genetic testing and health screening of all breeding cats"
+      },
+      "documentation": {
+        "title": "Complete Documentation",
+        "description": "Detailed records of pedigree, vaccinations, and health history for each cat"
+      },
+      "environment": {
+        "title": "Premium Environment",
+        "description": "Spacious, clean facilities designed for optimal cat wellbeing"
+      },
+      "socialization": {
+        "title": "Early Socialization",
+        "description": "Kittens raised in home environment with focus on temperament and adaptability"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions? We're here to help",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (555) 123-4567",
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message",
+      "loginPrompt": "Please login to send a message",
+      "loginButton": "Login"
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your account"
+    },
+    "signup": {
+      "title": "Create Account",
+      "subtitle": "Register to get started"
+    },
+    "email": "Email",
+    "password": "Password",
+    "signinButton": "Sign In",
+    "signupButton": "Sign Up",
+    "loading": "Loading...",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "register": "Register",
+    "signin": "Sign In",
+    "forgotPassword": "Forgot password?",
+    "verification": {
+      "title": "Verify Email",
+      "subtitle": "Enter the 6-digit code sent to",
+      "codePlaceholder": "000000",
+      "verify": "Verify",
+      "resend": "Resend Code",
+      "resendIn": "Resend in",
+      "success": "Email verified successfully!",
+      "error": "Invalid or expired code",
+      "codeSent": "Code sent to your email"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "subtitle": "Account Management",
+    "accountInfo": "Account Information",
+    "email": "Email",
+    "emailNote": "Email cannot be changed",
+    "changePassword": "Change Password",
+    "password": {
+      "title": "Change Password",
+      "current": "Current Password",
+      "new": "New Password",
+      "confirm": "Confirm New Password",
+      "save": "Save Password",
+      "cancel": "Cancel",
+      "success": "Password changed successfully",
+      "errorCurrent": "Incorrect current password",
+      "errorMatch": "New passwords do not match",
+      "errorGeneral": "Failed to change password"
+    }
+  },
+  "catalog": {
+    "title": "Available Kittens",
+    "subtitle": "Find your perfect companion",
+    "filters": {
+      "all": "All",
+      "male": "Males",
+      "female": "Females"
+    },
+    "details": {
+      "age": "Age",
+      "gender": "Gender",
+      "breed": "Breed",
+      "male": "Male",
+      "female": "Female",
+      "traits": "Traits",
+      "price": "Price",
+      "contact": "Contact",
+      "gallery": "Gallery"
+    }
+  }
+}
