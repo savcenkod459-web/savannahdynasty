@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Crown, ChevronDown, Star, Diamond, DollarSign, AlertCircle, Cat, Baby, Award, LogOut, Settings, Image, FileText, MessageSquare, User } from "lucide-react";
+import { Menu, X, Crown, ChevronDown, Star, Diamond, DollarSign, AlertCircle, Cat, Baby, Award, LogOut, Settings, Image, FileText, MessageSquare, User, Languages } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -126,7 +126,8 @@ const Navigation = () => {
     { name: "Управление кошками", path: "/admin/cats", icon: Cat },
     { name: "Управление родословными", path: "/admin/pedigree", icon: FileText },
     { name: "Управление изображениями", path: "/admin/images", icon: Image },
-    { name: "Управление сообщениями", path: "/admin/messages", icon: MessageSquare }
+    { name: "Управление сообщениями", path: "/admin/messages", icon: MessageSquare },
+    { name: "Управление переводами", path: "/admin/translations", icon: Languages }
   ];
 
   const handleAdminClick = (path: string) => {
