@@ -85,13 +85,11 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
 
           // Убираем проверку на ширину и высоту - rect может быть странным для многострочного текста
           if (rect) {
-            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            
-            const posX = rect.left + scrollX;
-            const posY = rect.bottom + scrollY + 10;
+            // Fixed элементы позиционируются относительно viewport, поэтому НЕ добавляем scroll
+            const posX = Math.max(10, Math.min(rect.left, window.innerWidth - 400));
+            const posY = rect.bottom + 10;
 
-            console.log('[Translation] ✅ Opening menu at:', { x: posX, y: posY });
+            console.log('[Translation] ✅ Opening menu at:', { x: posX, y: posY }, 'rect:', rect);
             
             setSelectedText(text);
             setMenuPosition({ x: posX, y: posY });
