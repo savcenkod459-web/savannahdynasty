@@ -347,5 +347,236 @@
     "successDescription": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe",
     "resendSuccessTitle": "Code renvoyé",
     "resendSuccessDescription": "Vérifiez votre e-mail pour le nouveau code"
+  },
+  "warranty": {
+    "badge": "Protection Premium",
+    "title": "Garantie Santé",
+    "subtitle": "Votre tranquillité d'esprit est notre priorité. Nous soutenons chaque chat d'élite avec des garanties de santé complètes et un soutien à vie.",
+    "mainGuarantees": "Garantie Santé Complète",
+    "oneMonth": {
+      "title": "1 Mois de Garantie Santé",
+      "description": "Couverture complète des maladies héréditaires et congénitales"
+    },
+    "lifeSupport": {
+      "title": "Soutien à Vie",
+      "description": "Consultation et assistance continues d'éleveurs expérimentés"
+    },
+    "consultation": {
+      "title": "Consultation Vétérinaire Gratuite",
+      "description": "Recommandations professionnelles sur les questions de santé et de nutrition"
+    },
+    "healthCertificate": "Certificat de Santé",
+    "healthCertificateDesc": "Chaque chat est livré avec un certificat médical complet",
+    "healthIncluded": "Ce qui est inclus:",
+    "healthCheck1": "Examen vétérinaire complet",
+    "healthCheck2": "Vaccinations actuelles",
+    "healthCheck3": "Tests génétiques",
+    "healthCheck4": "Contrôle des parasites",
+    "healthCheck5": "Garantie d'absence de problèmes de santé",
+    "termsTitle": "Conditions de Garantie",
+    "termsItem1": "Examen médical complet dans les 48 heures suivant l'achat",
+    "termsItem2": "Soins vétérinaires complets pendant la période de garantie",
+    "termsItem3": "Remplacement ou remboursement si des problèmes héréditaires sont détectés",
+    "termsItem4": "Protection contre les défauts génétiques et les maladies congénitales",
+    "termsItem5": "Accès à vie aux conseils de nos experts",
+    "supportTitle": "Notre Soutien",
+    "supportItem1": "Consultation santé d'urgence 24/7",
+    "supportItem2": "Assistance continue en nutrition et soins",
+    "supportItem3": "Aide comportementale et formation",
+    "supportItem4": "Communauté de propriétaires de chats d'élite",
+    "protectionTitle": "Protection d'Investissement",
+    "protectionDesc": "Votre investissement dans un chat d'élite est protégé par nos garanties complètes. Nous soutenons la santé et le bien-être de nos chats tout au long de leur vie.",
+    "protectionFeature1": "Certification Santé",
+    "protectionFeature1Desc": "Documentation médicale complète et certification",
+    "protectionFeature2": "Protection d'Investissement",
+    "protectionFeature2Desc": "Protection financière contre les problèmes de santé",
+    "protectionFeature3": "Orientation Experte",
+    "protectionFeature3Desc": "Consultation continue des éleveurs et vétérinaires",
+    "contactTitle": "Des questions?",
+    "contactDesc": "Contactez-nous pour plus d'informations sur nos garanties",
+    "emailCopied": "E-mail copié!",
+    "emailCopiedDesc": "savannahdynastyofficial@gmail.com copié dans le presse-papiers"
+  },
+  "featuredCollection": {
+    "badge": "Exclusif",
+    "title": "Notre Collection de Luxe",
+    "subtitle": "Découvrez l'élégance et la beauté de nos chats d'élite soigneusement sélectionnés",
+    "viewAll": "Voir la Collection Complète",
+    "viewDetails": "Voir les Détails",
+    "available": "Disponible",
+    "reserved": "Réservé",
+    "gallery": "Galerie"
+  },
+  "paymentMethods": {
+    "title": "Méthodes de Paiement Sécurisées",
+    "subtitle": "Choisissez votre méthode de paiement préférée pour acheter un chat d'élite",
+    "badge": "Paiements Sécurisés",
+    "crypto": {
+      "title": "Cryptomonnaie",
+      "subtitle": "USDT, TON, SOL, ETH",
+      "feature1": "Paiement anonyme",
+      "feature2": "Frais bas",
+      "feature3": "Monnaie mondiale"
+    },
+    "cash": {
+      "title": "Espèces",
+      "subtitle": "Livraison par coursier",
+      "feature1": "Paiement à la livraison",
+      "feature2": "Transfert personnel",
+      "feature3": "Livraison internationale"
+    },
+    "securityTitle": "Sécurité de Votre Paiement",
+    "bankLevel": {
+      "title": "Sécurité de niveau bancaire",
+      "description": "Le cryptage SSL 256 bits protège toutes les transactions"
+    },
+    "dataProtection": {
+      "title": "Protection des Données",
+      "description": "Les données de carte ne sont jamais stockées sur nos serveurs"
+    },
+    "privacy": {
+      "title": "Confidentialité",
+      "description": "Vos données personnelles sont protégées en toute sécurité et ne sont jamais partagées avec des tiers"
+    }
+  },
+  "pricingSection": {
+    "badge": "TARIFICATION",
+    "title": "Informations sur les Prix",
+    "subtitle": "En ce qui concerne la race Savannah, le prix n'est pas qu'un nombre. C'est un reflet de l'exclusivité, de l'origine et de l'unicité de chaque chat.",
+    "generationTitle": "⚜️ La génération compte",
+    "f1": {
+      "title": "Savannah F1",
+      "description": "Première génération, descendant du croisement direct de serval et de chat domestique. Niveau maximum de sauvagerie et de similitude avec le serval.",
+      "price": "🐾 Prix: de 10 000 à 25 000 EUR",
+      "priceNote": "Atteint parfois 35 000+ EUR pour les chats de couleur rare",
+      "note": "F1 est statut, collection et exclusivité vivante"
+    },
+    "f2": {
+      "title": "Savannah F2",
+      "description": "Deuxième génération. La part de serval est plus petite, mais l'apparence exotique est toujours prononcée.",
+      "price": "💎 Prix: de 6 000 à 15 000 EUR",
+      "note": "Prix plus abordable tout en maintenant une apparence impressionnante"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "description": "Troisième et quatrième générations. Plus dociles, mais conservent l'apparence exotique.",
+      "price": "✨ Prix: de 2 000 à 6 000 EUR",
+      "note": "Excellent équilibre entre apparence et caractère pour la garde à domicile"
+    },
+    "f5plus": {
+      "title": "Savannah F5+",
+      "description": "Générations éloignées. Plus proches en caractère du chat domestique, mais conservent une partie de l'apparence exotique.",
+      "price": "🌟 Prix: de 1 500 à 3 000 EUR",
+      "note": "Option plus abordable tout en maintenant la beauté de la race"
+    },
+    "factorsTitle": "💰 Facteurs affectant le prix",
+    "factor1": {
+      "title": "Couleur et motif",
+      "description": "Les couleurs rares (neige, argent, mélanistique) sont nettement plus chères que les couleurs tachetées standard"
+    },
+    "factor2": {
+      "title": "Taille et constitution",
+      "description": "Plus le Savannah est grand et plus ses traits sauvages sont prononcés (grandes oreilles, longues pattes), plus le prix est élevé"
+    },
+    "factor3": {
+      "title": "Sexe",
+      "description": "Les femelles F1-F3 sont généralement plus chères car elles peuvent se reproduire, tandis que les mâles sont souvent stériles"
+    },
+    "factor4": {
+      "title": "Pedigree et élevage",
+      "description": "Les chatons de parents titrés et d'élevages célèbres coûtent nettement plus cher"
+    },
+    "factor5": {
+      "title": "Âge",
+      "description": "Les chatons sont plus chers que les chats adultes. Demande la plus élevée pour les chatons âgés de 3 à 6 mois"
+    },
+    "valueTitle": "✨ Ce n'est pas seulement un achat - c'est un investissement",
+    "valueDesc": "Savannah n'est pas un animal de compagnie. C'est émotion, unicité et statut vivant. Le prix reflète l'exclusivité, la rareté et les coûts d'élevage. Acquérir un Savannah est un investissement dans un compagnon qui restera avec vous pour toujours comme partie de votre histoire."
+  },
+  "raritySection": {
+    "badge": "EXCLUSIVITÉ",
+    "title": "Rareté et Unicité",
+    "subtitle": "Savannah - le diamant le plus rare du monde des chats",
+    "intro": "Savannah n'est pas qu'un chat. C'est une incarnation de la grâce sauvage, de l'intelligence et du vrai statut. Ces chats sont le résultat du croisement unique de serval africain et de chat domestique, et chaque Savannah est une œuvre d'art vivante, née par la nature et la précision génétique.",
+    "rarity": {
+      "title": "💫 Rareté digne des collectionneurs",
+      "description": "Savannah est l'une des races les plus rares et les plus chères au monde. En raison du processus d'élevage complexe et des normes de qualité strictes, un nombre très limité de chatons naît par an. Chaque représentant de cette race est littéralement un spécimen unique, et être parmi les propriétaires de Savannah est un privilège accessible à peu de gens."
+    },
+    "beauty": {
+      "title": "🌟 Beauté sauvage dans chaque mouvement",
+      "description": "Savannah a l'air comme s'il venait de sortir de la savane africaine. Grand, musclé, avec un pelage tacheté et des yeux incroyablement expressifs. Sa grâce et sa manière de bouger fascinent - c'est une véritable élégance prédatrice enfermée dans le corps d'un animal domestique."
+    },
+    "intelligence": {
+      "title": "🧠 Intelligence au-delà de toute attente",
+      "description": "Savannah est l'une des races de chats les plus intelligentes. Il apprend facilement les commandes, s'habitue à la laisse et peut même jouer à rapporter. Ces chats aiment l'eau, peuvent ouvrir les portes et les tiroirs, et leur curiosité et leur ingéniosité dépassent presque toute race domestique."
+    },
+    "character": {
+      "title": "💎 Caractère unique",
+      "description": "Savannah n'est pas un chat indépendant typique. Il est extrêmement social, loyal et attaché à son propriétaire comme un chien. Ces chats sont actifs, joueurs et nécessitent une attention constante. Avec Savannah, la vie devient plus dynamique et plus lumineuse."
+    },
+    "status": {
+      "title": "👑 Symbole de statut",
+      "description": "Savannah n'est pas qu'un animal de compagnie, c'est un symbole de succès. Cette race n'est disponible que pour ceux qui sont prêts à investir dans un animal unique. Posséder un Savannah souligne le goût, le statut et l'amour de l'inhabituel."
+    },
+    "companion": {
+      "title": "🌍 Compagnon pour la vie",
+      "description": "Savannah n'est pas qu'un chat qui vivra à côté. C'est un véritable ami qui vous accueillera, jouera, communiquera et ravira chaque jour. Le lien avec Savannah est unique - c'est une relation au niveau du partenariat et de la vraie amitié."
+    }
+  },
+  "admin": {
+    "cats": {
+      "title": "Gestion des Chats",
+      "addNew": "Ajouter un Nouveau Chat",
+      "name": "Nom",
+      "breed": "Race",
+      "age": "Âge",
+      "gender": "Sexe",
+      "price": "Prix (EUR)",
+      "description": "Description",
+      "traits": "Traits",
+      "traitsPlaceholder": "Intelligent, Joueur, Fidèle",
+      "mainImage": "Image Principale",
+      "additionalImages": "Images Supplémentaires",
+      "video": "Vidéo (URL)",
+      "uploadImage": "Télécharger l'Image",
+      "uploading": "Téléchargement...",
+      "create": "Créer le Chat",
+      "creating": "Création...",
+      "save": "Enregistrer les Modifications",
+      "saving": "Enregistrement...",
+      "delete": "Supprimer",
+      "deletePedigree": "Supprimer le Pedigree",
+      "confirmDelete": "Êtes-vous sûr?",
+      "male": "Mâle",
+      "female": "Femelle",
+      "kitten": "Chaton",
+      "young": "Jeune",
+      "adult": "Adulte",
+      "accessDenied": "Accès refusé. Vous n'avez pas de droits d'administrateur",
+      "created": "Chat créé avec succès",
+      "updated": "Chat mis à jour avec succès",
+      "deleted": "Chat supprimé avec succès",
+      "imageUploaded": "Image téléchargée avec succès",
+      "pedigreeDeleted": "Pedigree supprimé"
+    },
+    "messages": {
+      "title": "Messages des Clients",
+      "all": "Tous",
+      "unread": "Non lus",
+      "read": "Lus",
+      "search": "Rechercher des messages...",
+      "from": "De:",
+      "markRead": "Marquer comme lu",
+      "markUnread": "Marquer comme non lu",
+      "delete": "Supprimer",
+      "noMessages": "Pas encore de messages",
+      "noUnread": "Pas de messages non lus",
+      "noRead": "Pas de messages lus",
+      "accessDenied": "Accès refusé",
+      "accessDeniedDesc": "Vous n'avez pas de droits d'administrateur",
+      "updated": "Message mis à jour",
+      "deleted": "Message supprimé",
+      "error": "Erreur"
+    }
   }
 }

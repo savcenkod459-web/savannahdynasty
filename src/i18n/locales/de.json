@@ -347,5 +347,236 @@
     "successDescription": "Sie können sich jetzt mit Ihrem neuen Passwort anmelden",
     "resendSuccessTitle": "Code erneut gesendet",
     "resendSuccessDescription": "Überprüfen Sie Ihre E-Mail für den neuen Code"
+  },
+  "warranty": {
+    "badge": "Premium-Schutz",
+    "title": "Gesundheitsgarantie",
+    "subtitle": "Ihre Sicherheit ist unsere Priorität. Wir unterstützen jede Elite-Katze mit umfassenden Gesundheitsgarantien und lebenslanger Unterstützung.",
+    "mainGuarantees": "Umfassende Gesundheitsgarantie",
+    "oneMonth": {
+      "title": "1 Monat Gesundheitsgarantie",
+      "description": "Vollständige Abdeckung erblicher und angeborener Krankheiten"
+    },
+    "lifeSupport": {
+      "title": "Lebenslange Unterstützung",
+      "description": "Laufende Beratung und Unterstützung von erfahrenen Züchtern"
+    },
+    "consultation": {
+      "title": "Kostenlose Tierarztberatung",
+      "description": "Professionelle Empfehlungen zu Gesundheits- und Ernährungsfragen"
+    },
+    "healthCertificate": "Gesundheitszertifikat",
+    "healthCertificateDesc": "Jede Katze wird mit einem umfassenden medizinischen Zertifikat geliefert",
+    "healthIncluded": "Was enthalten ist:",
+    "healthCheck1": "Vollständige tierärztliche Untersuchung",
+    "healthCheck2": "Aktuelle Impfungen",
+    "healthCheck3": "Gentests",
+    "healthCheck4": "Parasitenkontrolle",
+    "healthCheck5": "Garantie ohne Gesundheitsprobleme",
+    "termsTitle": "Garantiebedingungen",
+    "termsItem1": "Vollständige medizinische Untersuchung innerhalb von 48 Stunden nach dem Kauf",
+    "termsItem2": "Umfassende tierärztliche Versorgung während der Garantiezeit",
+    "termsItem3": "Ersatz oder Rückerstattung bei Feststellung erblicher Probleme",
+    "termsItem4": "Schutz vor genetischen Defekten und angeborenen Krankheiten",
+    "termsItem5": "Lebenslanger Zugang zu den Ratschlägen unserer Experten",
+    "supportTitle": "Unsere Unterstützung",
+    "supportItem1": "24/7 Notfall-Gesundheitsberatung",
+    "supportItem2": "Laufende Ernährungs- und Pflegeunterstützung",
+    "supportItem3": "Verhaltens- und Trainingshilfe",
+    "supportItem4": "Elite-Katzenbesitzer-Gemeinschaft",
+    "protectionTitle": "Investitionsschutz",
+    "protectionDesc": "Ihre Investition in eine Elite-Katze ist durch unsere umfassenden Garantien geschützt. Wir unterstützen die Gesundheit und das Wohlbefinden unserer Katzen während ihres gesamten Lebens.",
+    "protectionFeature1": "Gesundheitszertifizierung",
+    "protectionFeature1Desc": "Vollständige medizinische Dokumentation und Zertifizierung",
+    "protectionFeature2": "Investitionsschutz",
+    "protectionFeature2Desc": "Finanzieller Schutz vor Gesundheitsproblemen",
+    "protectionFeature3": "Expertenberatung",
+    "protectionFeature3Desc": "Laufende Beratung von Züchtern und Tierärzten",
+    "contactTitle": "Haben Sie Fragen?",
+    "contactDesc": "Kontaktieren Sie uns für weitere Informationen über unsere Garantien",
+    "emailCopied": "E-Mail kopiert!",
+    "emailCopiedDesc": "savannahdynastyofficial@gmail.com in die Zwischenablage kopiert"
+  },
+  "featuredCollection": {
+    "badge": "Exklusiv",
+    "title": "Unsere Luxuskollektion",
+    "subtitle": "Erleben Sie die Eleganz und Schönheit unserer sorgfältig ausgewählten Elite-Katzen",
+    "viewAll": "Vollständige Kollektion ansehen",
+    "viewDetails": "Details ansehen",
+    "available": "Verfügbar",
+    "reserved": "Reserviert",
+    "gallery": "Galerie"
+  },
+  "paymentMethods": {
+    "title": "Sichere Zahlungsmethoden",
+    "subtitle": "Wählen Sie Ihre bevorzugte Zahlungsmethode zum Kauf einer Elite-Katze",
+    "badge": "Sichere Zahlungen",
+    "crypto": {
+      "title": "Kryptowährung",
+      "subtitle": "USDT, TON, SOL, ETH",
+      "feature1": "Anonyme Zahlung",
+      "feature2": "Niedrige Gebühren",
+      "feature3": "Globale Währung"
+    },
+    "cash": {
+      "title": "Bargeld",
+      "subtitle": "Kurierdienst",
+      "feature1": "Zahlung bei Lieferung",
+      "feature2": "Persönliche Übergabe",
+      "feature3": "Internationale Lieferung"
+    },
+    "securityTitle": "Ihre Zahlungssicherheit",
+    "bankLevel": {
+      "title": "Banksicherheit",
+      "description": "256-Bit-SSL-Verschlüsselung schützt alle Transaktionen"
+    },
+    "dataProtection": {
+      "title": "Datenschutz",
+      "description": "Kartendaten werden niemals auf unseren Servern gespeichert"
+    },
+    "privacy": {
+      "title": "Privatsphäre",
+      "description": "Ihre persönlichen Daten sind sicher geschützt und werden niemals an Dritte weitergegeben"
+    }
+  },
+  "pricingSection": {
+    "badge": "PREISGESTALTUNG",
+    "title": "Preisinformationen",
+    "subtitle": "Bei der Savannah-Rasse ist der Preis nicht nur eine Zahl. Es ist ein Spiegelbild der Exklusivität, Herkunft und Einzigartigkeit jeder Katze.",
+    "generationTitle": "⚜️ Generation zählt",
+    "f1": {
+      "title": "Savannah F1",
+      "description": "Erste Generation, Nachkomme der direkten Kreuzung von Serval und Hauskatze. Maximales Maß an Wildheit und Ähnlichkeit mit dem Serval.",
+      "price": "🐾 Preis: von 10.000 bis 25.000 EUR",
+      "priceNote": "Erreicht manchmal 35.000+ EUR für seltene Farbkatzen",
+      "note": "F1 ist Status, Sammlerwert und lebende Exklusivität"
+    },
+    "f2": {
+      "title": "Savannah F2",
+      "description": "Zweite Generation. Serval-Anteil ist kleiner, aber exotisches Aussehen ist immer noch ausgeprägt.",
+      "price": "💎 Preis: von 6.000 bis 15.000 EUR",
+      "note": "Erschwinglicherer Preis bei Beibehaltung des beeindruckenden Aussehens"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "description": "Dritte und vierte Generation. Zahmer, aber behalten exotisches Aussehen.",
+      "price": "✨ Preis: von 2.000 bis 6.000 EUR",
+      "note": "Großartiges Gleichgewicht zwischen Aussehen und Charakter für häusliche Haltung"
+    },
+    "f5plus": {
+      "title": "Savannah F5+",
+      "description": "Entfernte Generationen. Näher im Charakter zur Hauskatze, behalten aber Teil des exotischen Aussehens.",
+      "price": "🌟 Preis: von 1.500 bis 3.000 EUR",
+      "note": "Erschwinglichere Option unter Beibehaltung der Rasseschönheit"
+    },
+    "factorsTitle": "💰 Faktoren, die den Preis beeinflussen",
+    "factor1": {
+      "title": "Farbe und Muster",
+      "description": "Seltene Farben (Schnee, Silber, melanistisch) sind deutlich teurer als standardmäßige gefleckte Farben"
+    },
+    "factor2": {
+      "title": "Größe und Körperbau",
+      "description": "Je größer die Savannah und je ausgeprägter ihre wilden Merkmale (große Ohren, lange Beine), desto höher der Preis"
+    },
+    "factor3": {
+      "title": "Geschlecht",
+      "description": "Weibliche F1-F3 sind normalerweise teurer, da sie sich fortpflanzen können, während Männchen oft steril sind"
+    },
+    "factor4": {
+      "title": "Stammbaum und Zucht",
+      "description": "Kätzchen von betitelten Eltern und bekannten Zuchten kosten deutlich mehr"
+    },
+    "factor5": {
+      "title": "Alter",
+      "description": "Kätzchen sind teurer als erwachsene Katzen. Höchste Nachfrage nach Kätzchen im Alter von 3-6 Monaten"
+    },
+    "valueTitle": "✨ Es ist nicht nur ein Kauf - es ist eine Investition",
+    "valueDesc": "Savannah ist kein Haustier. Es ist Emotion, Einzigartigkeit und lebender Status. Der Preis spiegelt Exklusivität, Seltenheit und Zuchtkosten wider. Der Erwerb einer Savannah ist eine Investition in einen Begleiter, der für immer als Teil Ihrer Geschichte bei Ihnen bleiben wird."
+  },
+  "raritySection": {
+    "badge": "EXKLUSIVITÄT",
+    "title": "Seltenheit und Einzigartigkeit",
+    "subtitle": "Savannah - der seltenste Diamant in der Katzenwelt",
+    "intro": "Savannah ist nicht nur eine Katze. Es ist eine Verkörperung wilder Anmut, Intelligenz und wahren Status. Diese Katzen sind das Ergebnis der einzigartigen Kreuzung von afrikanischem Serval und Hauskatze, und jede Savannah ist ein lebendiges Kunstwerk, geboren aus Natur und genetischer Präzision.",
+    "rarity": {
+      "title": "💫 Seltenheit, würdig für Sammler",
+      "description": "Savannah ist eine der seltensten und teuersten Rassen der Welt. Aufgrund des komplexen Zuchtprozesses und strenger Qualitätsstandards wird eine sehr begrenzte Anzahl von Kätzchen pro Jahr geboren. Jeder Vertreter dieser Rasse ist buchstäblich ein Einzelstück, und zu den Savannah-Besitzern zu gehören, ist ein Privileg, das nur wenigen zugänglich ist."
+    },
+    "beauty": {
+      "title": "🌟 Wilde Schönheit in jeder Bewegung",
+      "description": "Savannah sieht aus, als wäre sie gerade aus der afrikanischen Savanne gekommen. Groß, muskulös, mit geflecktem Fell und unglaublich ausdrucksstarken Augen. Ihre Anmut und Bewegungsweise faszinieren - das ist echte räuberische Eleganz, eingeschlossen im Körper eines Haustiers."
+    },
+    "intelligence": {
+      "title": "🧠 Intelligenz über alle Erwartungen hinaus",
+      "description": "Savannah ist eine der intelligentesten Katzenrassen. Sie lernt leicht Befehle, gewöhnt sich an die Leine und kann sogar apportieren. Diese Katzen lieben Wasser, können Türen und Schubladen öffnen, und ihre Neugier und ihr Einfallsreichtum übertreffen fast jede Hausrasse."
+    },
+    "character": {
+      "title": "💎 Einzigartiger Charakter",
+      "description": "Savannah ist keine typische unabhängige Katze. Sie ist äußerst sozial, loyal und an ihren Besitzer gebunden wie ein Hund. Diese Katzen sind aktiv, verspielt und erfordern ständige Aufmerksamkeit. Mit Savannah wird das Leben dynamischer und heller."
+    },
+    "status": {
+      "title": "👑 Statussymbol",
+      "description": "Savannah ist nicht nur ein Haustier, es ist ein Symbol des Erfolgs. Diese Rasse ist nur für diejenigen verfügbar, die bereit sind, in ein einzigartiges Tier zu investieren. Der Besitz einer Savannah betont Geschmack, Status und Liebe zum Ungewöhnlichen."
+    },
+    "companion": {
+      "title": "🌍 Begleiter fürs Leben",
+      "description": "Savannah ist nicht nur eine Katze, die nebenan leben wird. Es ist ein wahrer Freund, der Sie begrüßen, spielen, kommunizieren und jeden Tag erfreuen wird. Die Bindung mit Savannah ist einzigartig - es ist eine Beziehung auf der Ebene der Partnerschaft und wahren Freundschaft."
+    }
+  },
+  "admin": {
+    "cats": {
+      "title": "Katzenverwaltung",
+      "addNew": "Neue Katze hinzufügen",
+      "name": "Name",
+      "breed": "Rasse",
+      "age": "Alter",
+      "gender": "Geschlecht",
+      "price": "Preis (EUR)",
+      "description": "Beschreibung",
+      "traits": "Eigenschaften",
+      "traitsPlaceholder": "Intelligent, Verspielt, Treu",
+      "mainImage": "Hauptbild",
+      "additionalImages": "Zusätzliche Bilder",
+      "video": "Video (URL)",
+      "uploadImage": "Bild hochladen",
+      "uploading": "Wird hochgeladen...",
+      "create": "Katze erstellen",
+      "creating": "Wird erstellt...",
+      "save": "Änderungen speichern",
+      "saving": "Wird gespeichert...",
+      "delete": "Löschen",
+      "deletePedigree": "Stammbaum löschen",
+      "confirmDelete": "Sind Sie sicher?",
+      "male": "Männlich",
+      "female": "Weiblich",
+      "kitten": "Kätzchen",
+      "young": "Jung",
+      "adult": "Erwachsen",
+      "accessDenied": "Zugriff verweigert. Sie haben keine Administratorrechte",
+      "created": "Katze erfolgreich erstellt",
+      "updated": "Katze erfolgreich aktualisiert",
+      "deleted": "Katze erfolgreich gelöscht",
+      "imageUploaded": "Bild erfolgreich hochgeladen",
+      "pedigreeDeleted": "Stammbaum gelöscht"
+    },
+    "messages": {
+      "title": "Kundennachrichten",
+      "all": "Alle",
+      "unread": "Ungelesen",
+      "read": "Gelesen",
+      "search": "Nachrichten suchen...",
+      "from": "Von:",
+      "markRead": "Als gelesen markieren",
+      "markUnread": "Als ungelesen markieren",
+      "delete": "Löschen",
+      "noMessages": "Noch keine Nachrichten",
+      "noUnread": "Keine ungelesenen Nachrichten",
+      "noRead": "Keine gelesenen Nachrichten",
+      "accessDenied": "Zugriff verweigert",
+      "accessDeniedDesc": "Sie haben keine Administratorrechte",
+      "updated": "Nachricht aktualisiert",
+      "deleted": "Nachricht gelöscht",
+      "error": "Fehler"
+    }
   }
 }
