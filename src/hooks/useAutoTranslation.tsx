@@ -11,23 +11,72 @@ export const useAutoTranslation = () => {
   
   useEffect(() => {
     let translationMap: TranslationMap = {};
+    let normalizedMap: Map<string, string> = new Map(); // нормализованный текст -> ключ перевода
+    
+    // Функция для нормализации текста (убираем переносы строк, лишние пробелы)
+    const normalizeText = (text: string): string => {
+      return text
+        .replace(/\n/g, ' ')        // заменяем переносы строк на пробелы
+        .replace(/\s+/g, ' ')       // заменяем множественные пробелы на один
+        .trim()                      // убираем пробелы в начале и конце
+        .toLowerCase();              // приводим к нижнему регистру для сравнения
+    };
     
     // Функция для обработки текстовых узлов
     const processTextNode = (node: Text, currentLang: string) => {
       const text = node.textContent?.trim();
-      if (!text) return;
+      if (!text || text.length < 3) return; // игнорируем очень короткие тексты
 
-      // Проверяем, есть ли этот текст в карте переводов
+      const normalizedText = normalizeText(text);
+      
+      // Сначала проверяем точное совпадение по оригинальному тексту
       if (translationMap[text]) {
         const translationKey = translationMap[text];
-        
-        // Получаем переведенный текст из i18next
         const translatedText = i18n.t(translationKey);
         
-        // Если перевод найден и отличается от ключа, заменяем
         if (translatedText && translatedText !== translationKey) {
-          console.log('✅ Заменяем:', text.substring(0, 50), '→', translatedText.substring(0, 50));
+          console.log('✅ Точное совпадение:', text.substring(0, 50), '→', translatedText.substring(0, 50));
           node.textContent = translatedText;
+          return;
+        }
+      }
+      
+      // Затем проверяем по нормализованному тексту
+      if (normalizedMap.has(normalizedText)) {
+        const translationKey = normalizedMap.get(normalizedText)!;
+        const translatedText = i18n.t(translationKey);
+        
+        if (translatedText && translatedText !== translationKey) {
+          console.log('✅ Нормализованное совпадение:', text.substring(0, 50), '→', translatedText.substring(0, 50));
+          node.textContent = translatedText;
+          return;
+        }
+      }
+      
+      // Проверяем, не является ли текущий текст частью большого многострочного текста из БД
+      for (const [originalText, key] of Object.entries(translationMap)) {
+        // Если оригинальный текст содержит переносы строк
+        if (originalText.includes('\n')) {
+          const originalLines = originalText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+          const normalizedLines = originalLines.map(line => normalizeText(line));
+          
+          // Проверяем, совпадает ли текущий текст с одной из строк
+          const lineIndex = normalizedLines.indexOf(normalizedText);
+          if (lineIndex !== -1) {
+            // Получаем полный переведенный текст
+            const fullTranslation = i18n.t(key);
+            if (fullTranslation && fullTranslation !== key) {
+              // Разбиваем переведенный текст на строки
+              const translatedLines = fullTranslation.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+              
+              // Берём соответствующую строку из перевода
+              if (translatedLines[lineIndex]) {
+                console.log('✅ Многострочное совпадение:', text.substring(0, 30), '→', translatedLines[lineIndex].substring(0, 30));
+                node.textContent = translatedLines[lineIndex];
+                return;
+              }
+            }
+          }
         }
       }
     };
@@ -55,13 +104,21 @@ export const useAutoTranslation = () => {
         }
 
         if (ruTranslations) {
-          // Создаем карту: оригинальный текст -> ключ перевода
+          // Создаем карты: оригинальный текст -> ключ перевода
           translationMap = {};
+          normalizedMap = new Map();
+          
           ruTranslations.forEach((t) => {
-            translationMap[t.translation_value.trim()] = t.translation_key;
+            const originalText = t.translation_value.trim();
+            translationMap[originalText] = t.translation_key;
+            
+            // Также добавляем нормализованную версию
+            const normalized = normalizeText(originalText);
+            normalizedMap.set(normalized, t.translation_key);
           });
           
           console.log('📋 Карта переводов загружена:', Object.keys(translationMap).length, 'записей');
+          console.log('📋 Нормализованная карта:', normalizedMap.size, 'записей');
           
           // Запускаем замену текста сразу после загрузки
           replaceTextInDOM();
