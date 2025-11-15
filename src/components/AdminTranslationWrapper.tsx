@@ -31,7 +31,7 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
     let isSelecting = false;
     let startX = 0;
     let startY = 0;
-    let selectionTimeout: NodeJS.Timeout | null = null;
+    let checkTimeout: NodeJS.Timeout | null = null;
 
     const handleMouseDown = (e: MouseEvent) => {
       startX = e.clientX;
@@ -57,55 +57,85 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
       }
     };
 
-    const checkSelection = () => {
+    const checkAndShowMenu = () => {
+      console.log('[Translation] Checking selection...');
+      
+      // Проверяем, не внутри ли меню
       if (menuRef.current && document.activeElement && menuRef.current.contains(document.activeElement)) {
+        console.log('[Translation] Inside menu, skipping');
         return;
       }
 
       const selection = window.getSelection();
       const text = selection?.toString().trim();
+      
+      console.log('[Translation] Selection text:', text?.substring(0, 100));
 
       if (text && text.length > 0) {
         try {
           const range = selection?.getRangeAt(0);
           const rect = range?.getBoundingClientRect();
 
-          if (rect && rect.width > 0 && rect.height > 0) {
+          console.log('[Translation] Rect:', {
+            width: rect?.width,
+            height: rect?.height,
+            top: rect?.top,
+            left: rect?.left
+          });
+
+          // Убираем проверку на ширину и высоту - rect может быть странным для многострочного текста
+          if (rect) {
             const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
             const scrollY = window.pageYOffset || document.documentElement.scrollTop;
             
+            const posX = rect.left + scrollX;
+            const posY = rect.bottom + scrollY + 10;
+
+            console.log('[Translation] ✅ Opening menu at:', { x: posX, y: posY });
+            
             setSelectedText(text);
-            setMenuPosition({
-              x: rect.left + scrollX,
-              y: rect.bottom + scrollY + 10
-            });
+            setMenuPosition({ x: posX, y: posY });
             setShowMenu(true);
+          } else {
+            console.log('[Translation] ❌ No rect available');
           }
         } catch (e) {
-          console.log('Selection error:', e);
+          console.error('[Translation] ❌ Error:', e);
         }
+      } else {
+        console.log('[Translation] No text selected');
       }
-    };
-
-    const handleSelectionChange = () => {
-      if (selectionTimeout) {
-        clearTimeout(selectionTimeout);
-      }
-      
-      selectionTimeout = setTimeout(() => {
-        checkSelection();
-      }, 100);
     };
 
     const handleMouseUp = (e: MouseEvent) => {
       if (menuRef.current && menuRef.current.contains(e.target as Node)) {
+        console.log('[Translation] Mouse up inside menu');
         return;
       }
 
-      setTimeout(() => {
-        checkSelection();
+      console.log('[Translation] Mouse up detected');
+      
+      if (checkTimeout) {
+        clearTimeout(checkTimeout);
+      }
+
+      // Увеличиваем задержку для надежности
+      checkTimeout = setTimeout(() => {
+        checkAndShowMenu();
         isSelecting = false;
-      }, 50);
+      }, 200);
+    };
+
+    const handleSelectionChange = () => {
+      console.log('[Translation] Selection change event');
+      
+      if (checkTimeout) {
+        clearTimeout(checkTimeout);
+      }
+      
+      checkTimeout = setTimeout(() => {
+        checkAndShowMenu();
+      }, 200);
     };
 
     const handleClickOutside = (e: MouseEvent) => {
@@ -118,6 +148,8 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
       }
     };
 
+    console.log('[Translation] ✅ Event listeners installed for admin');
+
     document.addEventListener('mousedown', handleMouseDown, true);
     document.addEventListener('mousemove', handleMouseMove, true);
     document.addEventListener('click', handleClick, true);
@@ -126,8 +158,9 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      if (selectionTimeout) {
-        clearTimeout(selectionTimeout);
+      console.log('[Translation] Removing event listeners');
+      if (checkTimeout) {
+        clearTimeout(checkTimeout);
       }
       document.removeEventListener('mousedown', handleMouseDown, true);
       document.removeEventListener('mousemove', handleMouseMove, true);
