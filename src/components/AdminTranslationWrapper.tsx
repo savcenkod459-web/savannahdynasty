@@ -86,10 +86,26 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
           // Убираем проверку на ширину и высоту - rect может быть странным для многострочного текста
           if (rect) {
             // Fixed элементы позиционируются относительно viewport, поэтому НЕ добавляем scroll
-            const posX = Math.max(10, Math.min(rect.left, window.innerWidth - 400));
-            const posY = rect.bottom + 10;
+            const menuHeight = 400; // Примерная высота меню
+            const menuWidth = 400;
+            
+            // Позиционируем по X с учетом границ экрана
+            const posX = Math.max(10, Math.min(rect.left, window.innerWidth - menuWidth - 10));
+            
+            // Проверяем, поместится ли меню снизу от выделенного текста
+            let posY: number;
+            const spaceBelow = window.innerHeight - rect.bottom;
+            const spaceAbove = rect.top;
+            
+            if (spaceBelow >= menuHeight || spaceBelow > spaceAbove) {
+              // Показываем снизу, если есть место или места снизу больше чем сверху
+              posY = Math.min(rect.bottom + 10, window.innerHeight - menuHeight - 10);
+            } else {
+              // Показываем сверху
+              posY = Math.max(10, rect.top - menuHeight - 10);
+            }
 
-            console.log('[Translation] ✅ Opening menu at:', { x: posX, y: posY }, 'rect:', rect);
+            console.log('[Translation] ✅ Opening menu at:', { x: posX, y: posY }, 'rect:', rect, 'viewport:', { width: window.innerWidth, height: window.innerHeight });
             
             setSelectedText(text);
             setMenuPosition({ x: posX, y: posY });
