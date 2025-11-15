@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
             <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('whyChoose.badge')}</span>
           </div>
           <h2 className="font-display text-luxury-gradient font-black luxury-text-shadow py-[10px] text-3xl md:text-4xl lg:text-5xl xl:text-6xl">{t('whyChoose.title')}</h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">{t('hero.subtitle')}</p>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">{t('whyChoose.subtitle')}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

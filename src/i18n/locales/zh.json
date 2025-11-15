@@ -15,9 +15,9 @@
     "admin": "管理"
   },
   "hero": {
-    "badge": "高级猫舍",
-    "title": "SavannahDynasty Cats",
-    "subtitle": "从我们的纯种精英猫独家收藏中发现您理想的猫科伴侣。每只猫都经过精心挑选，拥有卓越的血统、健康和性情。",
+    "badge": "精英猫舍",
+    "title": "SavannahDynasty",
+    "subtitle": "我们提供最高标准的精英萨凡纳猫，具有无与伦比的质量和护理",
     "cta": "查看可用小猫",
     "learn": "了解更多",
     "premiumClass": "高级类别"
@@ -25,6 +25,7 @@
   "whyChoose": {
     "title": "为什么选择 SavannahDynasty",
     "badge": "高品质",
+    "subtitle": "从我们的纯种精英猫独家收藏中发现您理想的猫科伴侣。每只猫都经过精心挑选，拥有卓越的血统、健康和性情。",
     "quality": {
       "title": "卓越品质",
       "description": "我们所有的萨凡纳猫都来自冠军血统，拥有完整记录的血统书"

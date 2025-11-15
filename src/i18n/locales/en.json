@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Elite Cattery",
     "title": "SavannahDynasty",
-    "subtitle": "Discover your ideal feline companion from our exclusive collection of pedigreed elite cats. Each cat is carefully selected for exceptional pedigree, health and temperament.",
+    "subtitle": "We provide the highest standard of elite Savannah breed cats with unparalleled quality and care",
     "cta": "View Our Kittens",
     "learn": "Learn More",
     "premiumClass": "Premium Class"
@@ -25,6 +25,7 @@
   "whyChoose": {
     "title": "Why Choose SavannahDynasty?",
     "badge": "Premium Quality",
+    "subtitle": "Discover your ideal feline companion from our exclusive collection of pedigreed elite cats. Each cat is carefully selected for exceptional pedigree, health and temperament.",
     "quality": {
       "title": "Superior Quality",
       "description": "All our Savannah cats come from champion bloodlines with fully documented pedigrees"
