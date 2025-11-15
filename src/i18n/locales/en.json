@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Elite Cattery",
     "title": "SavannahDynasty",
-    "subtitle": "We provide the highest standard of elite Savannah cats with unparalleled quality and care",
+    "subtitle": "Discover your ideal feline companion from our exclusive collection of pedigreed elite cats. Each cat is carefully selected for exceptional pedigree, health and temperament.",
     "cta": "View Our Kittens",
     "learn": "Learn More",
     "premiumClass": "Premium Class"
@@ -310,9 +310,47 @@
   },
   "pedigree": {
     "title": "Pedigree",
+    "back": "Back",
     "backToCatalog": "Back to Catalog",
     "father": "Father",
     "mother": "Mother",
     "noData": "Pedigree information not available"
+  },
+  "captcha": {
+    "label": "Enter the code from the image",
+    "placeholder": "Enter code",
+    "refresh": "Refresh"
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "subtitle": "Enter your email to receive a password reset link",
+    "emailLabel": "Email",
+    "sendButton": "Send Reset Link",
+    "backToLogin": "Back to Login",
+    "codeSent": "Code sent",
+    "codeDescription": "Check your email and enter the code to reset your password",
+    "error": "Error"
+  },
+  "updatePassword": {
+    "title": "Update Password",
+    "subtitle": "Enter confirmation code and new password",
+    "emailLabel": "Email",
+    "codeLabel": "Confirmation Code",
+    "codePlaceholder": "Enter 6-digit code",
+    "newPasswordLabel": "New Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "updateButton": "Update Password",
+    "resendCode": "Resend Code",
+    "resendIn": "Resend in",
+    "backToLogin": "Back to Login",
+    "error": "Error",
+    "errorEmail": "Enter email address",
+    "errorCode": "Enter email and confirmation code",
+    "errorMatch": "Passwords do not match",
+    "errorLength": "Password must be at least 8 characters",
+    "successTitle": "Password successfully changed",
+    "successDescription": "You can now login with your new password",
+    "resendSuccessTitle": "Code resent",
+    "resendSuccessDescription": "Check your email for the new code"
   }
 }

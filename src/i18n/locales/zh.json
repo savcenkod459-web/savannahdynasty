@@ -17,7 +17,7 @@
   "hero": {
     "badge": "高级猫舍",
     "title": "SavannahDynasty Cats",
-    "subtitle": "我们提供最高标准的精英热带草原猫，质量和护理无与伦比",
+    "subtitle": "从我们的纯种精英猫独家收藏中发现您理想的猫科伴侣。每只猫都经过精心挑选，拥有卓越的血统、健康和性情。",
     "cta": "查看可用小猫",
     "learn": "了解更多",
     "premiumClass": "高级类别"
@@ -304,9 +304,47 @@
   },
   "pedigree": {
     "title": "血统",
+    "back": "返回",
     "backToCatalog": "返回目录",
     "father": "父亲",
     "mother": "母亲",
     "noData": "血统信息不可用"
+  },
+  "captcha": {
+    "label": "输入图像中的验证码",
+    "placeholder": "输入验证码",
+    "refresh": "刷新"
+  },
+  "resetPassword": {
+    "title": "重置密码",
+    "subtitle": "输入您的电子邮件以接收密码重置链接",
+    "emailLabel": "电子邮件",
+    "sendButton": "发送重置链接",
+    "backToLogin": "返回登录",
+    "codeSent": "验证码已发送",
+    "codeDescription": "检查您的电子邮件并输入验证码以重置密码",
+    "error": "错误"
+  },
+  "updatePassword": {
+    "title": "更新密码",
+    "subtitle": "输入确认码和新密码",
+    "emailLabel": "电子邮件",
+    "codeLabel": "确认码",
+    "codePlaceholder": "输入6位数验证码",
+    "newPasswordLabel": "新密码",
+    "confirmPasswordLabel": "确认密码",
+    "updateButton": "更新密码",
+    "resendCode": "重新发送验证码",
+    "resendIn": "重新发送时间",
+    "backToLogin": "返回登录",
+    "error": "错误",
+    "errorEmail": "输入电子邮件地址",
+    "errorCode": "输入电子邮件和确认码",
+    "errorMatch": "密码不匹配",
+    "errorLength": "密码必须至少8个字符",
+    "successTitle": "密码更改成功",
+    "successDescription": "您现在可以使用新密码登录",
+    "resendSuccessTitle": "验证码已重新发送",
+    "resendSuccessDescription": "检查您的电子邮件以获取新验证码"
   }
 }
