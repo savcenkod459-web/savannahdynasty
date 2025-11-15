@@ -130,6 +130,7 @@
     "delivery": "Delivery to many countries worldwide",
     "since": "SINCE 2025",
     "quickLinks": "Quick Links",
+    "support": "Support",
     "contacts": "Contacts",
     "legal": "Legal",
     "privacy": "Privacy Policy",
@@ -256,8 +257,9 @@
     }
   },
   "catalog": {
-    "title": "Available Kittens",
-    "subtitle": "Find your perfect companion",
+    "badge": "Exclusive Collection",
+    "title": "Our Luxury Cats",
+    "subtitle": "Discover your perfect feline friend from our exclusive collection",
     "filters": {
       "all": "All",
       "male": "Males",
@@ -481,9 +483,11 @@
     "generationTitle": "⚜️ Generation matters",
     "f1": {
       "title": "Savannah F1",
-      "description": "First generation, descendant of direct crossing of serval and domestic cat. Maximum level of wildness and similarity to serval.",
+      "description": "First generation, direct cross between a Serval and domestic cat. Maximum wildness and similarity to Serval.",
       "price": "🐾 Price: from 10,000 to 25,000 EUR",
       "priceNote": "Sometimes reaches 35,000+ EUR for rare color cats",
+      "note": "F1 — it's status, collectibility and living exclusivity",
+      "button": "View our Savannah F1 cats"
       "note": "F1 is status, collectibility and living exclusivity"
     },
     "f2": {

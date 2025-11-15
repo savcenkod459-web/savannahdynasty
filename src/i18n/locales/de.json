@@ -125,6 +125,7 @@
     "delivery": "Lieferung in viele Länder weltweit",
     "since": "SEIT 2025",
     "quickLinks": "Schnelllinks",
+    "support": "Unterstützung",
     "contacts": "Kontakte",
     "legal": "Rechtliches",
     "privacy": "Datenschutz",
@@ -251,8 +252,9 @@
     }
   },
   "catalog": {
-    "title": "Verfügbare Kätzchen",
-    "subtitle": "Finden Sie Ihren perfekten Begleiter",
+    "badge": "Exklusive Sammlung",
+    "title": "Unsere Luxuskatzen",
+    "subtitle": "Entdecken Sie Ihren perfekten Katzenfreund aus unserer exklusiven Sammlung",
     "filters": {
       "all": "Alle",
       "male": "Männlich",
@@ -449,9 +451,11 @@
     "generationTitle": "⚜️ Generation zählt",
     "f1": {
       "title": "Savannah F1",
-      "description": "Erste Generation, Nachkomme der direkten Kreuzung von Serval und Hauskatze. Maximales Maß an Wildheit und Ähnlichkeit mit dem Serval.",
+      "description": "Erste Generation, direkte Kreuzung zwischen Serval und Hauskatze. Maximale Wildheit und Ähnlichkeit mit Serval.",
       "price": "🐾 Preis: von 10.000 bis 25.000 EUR",
-      "priceNote": "Erreicht manchmal 35.000+ EUR für seltene Farbkatzen",
+      "priceNote": "Erreicht manchmal 35.000+ EUR für Katzen seltener Farbe",
+      "note": "F1 — das ist Status, Sammlerwert und lebende Exklusivität",
+      "button": "Unsere Savannah F1 Katzen ansehen"
       "note": "F1 ist Status, Sammlerwert und lebende Exklusivität"
     },
     "f2": {

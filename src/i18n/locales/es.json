@@ -130,6 +130,7 @@
     "delivery": "Entrega a muchos países del mundo",
     "since": "DESDE 2025",
     "quickLinks": "Enlaces Rápidos",
+    "support": "Soporte",
     "contacts": "Contactos",
     "legal": "Legal",
     "privacy": "Política de Privacidad",
@@ -256,8 +257,9 @@
     }
   },
   "catalog": {
-    "title": "Gatitos Disponibles",
-    "subtitle": "Encuentra tu compañero perfecto",
+    "badge": "Colección Exclusiva",
+    "title": "Nuestros Gatos de Lujo",
+    "subtitle": "Descubre tu amigo felino perfecto de nuestra colección exclusiva",
     "filters": {
       "all": "Todos",
       "male": "Machos",
@@ -481,9 +483,11 @@
     "generationTitle": "⚜️ La generación importa",
     "f1": {
       "title": "Savannah F1",
-      "description": "Primera generación, descendiente del cruce directo de serval y gato doméstico. Máximo nivel de salvajismo y similitud con el serval.",
+      "description": "Primera generación, cruce directo entre Serval y gato doméstico. Máximo nivel de salvajismo y similitud con el Serval.",
       "price": "🐾 Precio: de 10.000 a 25.000 EUR",
       "priceNote": "A veces alcanza 35.000+ EUR para gatos de color raro",
+      "note": "F1 — es estatus, coleccionabilidad y exclusividad viva",
+      "button": "Ver nuestros gatos Savannah F1"
       "note": "F1 es estatus, coleccionabilidad y exclusividad viva"
     },
     "f2": {

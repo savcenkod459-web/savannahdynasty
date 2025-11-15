@@ -125,6 +125,7 @@
     "delivery": "Livraison dans de nombreux pays du monde",
     "since": "DEPUIS 2025",
     "quickLinks": "Liens Rapides",
+    "support": "Support",
     "contacts": "Contacts",
     "legal": "Légal",
     "privacy": "Politique de Confidentialité",
@@ -251,8 +252,9 @@
     }
   },
   "catalog": {
-    "title": "Chatons Disponibles",
-    "subtitle": "Trouvez votre compagnon idéal",
+    "badge": "Collection Exclusive",
+    "title": "Nos Chats de Luxe",
+    "subtitle": "Découvrez votre ami félin parfait dans notre collection exclusive",
     "filters": {
       "all": "Tous",
       "male": "Mâles",
@@ -476,9 +478,11 @@
     "generationTitle": "⚜️ La génération compte",
     "f1": {
       "title": "Savannah F1",
-      "description": "Première génération, descendant du croisement direct de serval et de chat domestique. Niveau maximum de sauvagerie et de similitude avec le serval.",
-      "price": "🐾 Prix: de 10 000 à 25 000 EUR",
+      "description": "Première génération, croisement direct entre un Serval et un chat domestique. Maximum de sauvagerie et de similitude avec le Serval.",
+      "price": "🐾 Prix : de 10 000 à 25 000 EUR",
       "priceNote": "Atteint parfois 35 000+ EUR pour les chats de couleur rare",
+      "note": "F1 — c'est le statut, la collection et l'exclusivité vivante",
+      "button": "Voir nos chats Savannah F1"
       "note": "F1 est statut, collection et exclusivité vivante"
     },
     "f2": {
