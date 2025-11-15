@@ -251,45 +251,6 @@
       "errorGeneral": "Échec du changement de mot de passe"
     }
   },
-  "catalog": {
-    "badge": "Collection Exclusive",
-    "title": "Nos Chats de Luxe",
-    "subtitle": "Découvrez votre ami félin parfait dans notre collection exclusive",
-    "filters": {
-      "all": "Tous",
-      "male": "Mâles",
-      "female": "Femelles"
-    },
-    "details": {
-      "age": "Âge",
-      "gender": "Sexe",
-      "breed": "Race",
-      "male": "Mâle",
-      "female": "Femelle",
-      "traits": "Traits",
-      "price": "Prix",
-      "contact": "Contact",
-      "gallery": "Galerie"
-    }
-  },
-  "about": {
-    "badge": "Races d'Élite",
-    "title": "À Propos de Nos Chats de Luxe",
-    "subtitle": "Découvrez le monde des compagnons félins premium. Nos chats représentent le plus haut standard de race, combinant beauté exotique et tempérament exceptionnel.",
-    "mission": {
-      "title": "Notre Mission",
-      "subtitle": "Excellence dans Chaque Détail"
-    },
-    "healthTitle": "Protocole de Santé",
-    "healthChecks": {
-      "check1": "Examen vétérinaire complet",
-      "check2": "Tests génétiques pour les maladies spécifiques à la race",
-      "check3": "Protocoles de vaccination",
-      "check4": "Prévention des parasites",
-      "check5": "Documentation de certification de santé"
-    },
-    "facilitiesTitle": "Nos Installations d'Élevage"
-  },
   "guide": {
     "badge": "Conseils d'Experts",
     "title": "Guide de Soins Savannah",

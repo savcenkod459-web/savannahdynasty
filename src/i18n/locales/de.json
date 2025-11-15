@@ -251,45 +251,6 @@
       "errorGeneral": "Passwort konnte nicht geändert werden"
     }
   },
-  "catalog": {
-    "badge": "Exklusive Sammlung",
-    "title": "Unsere Luxuskatzen",
-    "subtitle": "Entdecken Sie Ihren perfekten Katzenfreund aus unserer exklusiven Sammlung",
-    "filters": {
-      "all": "Alle",
-      "male": "Männlich",
-      "female": "Weiblich"
-    },
-    "details": {
-      "age": "Alter",
-      "gender": "Geschlecht",
-      "breed": "Rasse",
-      "male": "Männlich",
-      "female": "Weiblich",
-      "traits": "Eigenschaften",
-      "price": "Preis",
-      "contact": "Kontakt",
-      "gallery": "Galerie"
-    }
-  },
-  "about": {
-    "badge": "Elite-Rassen",
-    "title": "Über Unsere Luxuskatzen",
-    "subtitle": "Entdecken Sie die Welt der Premium-Katzenbegleiter. Unsere Katzen repräsentieren den höchsten Rassestandard und kombinieren exotische Schönheit mit außergewöhnlichem Temperament.",
-    "mission": {
-      "title": "Unsere Mission",
-      "subtitle": "Exzellenz in Jedem Detail"
-    },
-    "healthTitle": "Gesundheitsprotokoll",
-    "healthChecks": {
-      "check1": "Vollständige tierärztliche Untersuchung",
-      "check2": "Genetische Tests für rassenspezifische Krankheiten",
-      "check3": "Impfprotokolle",
-      "check4": "Parasitenprävention",
-      "check5": "Gesundheitszertifizierungsdokumentation"
-    },
-    "facilitiesTitle": "Unsere Zuchtstätten"
-  },
   "guide": {
     "badge": "Expertenrat",
     "title": "Savannah-Pflegeanleitung",

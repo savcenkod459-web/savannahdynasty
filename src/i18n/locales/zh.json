@@ -251,45 +251,6 @@
       "errorGeneral": "更改密码失败"
     }
   },
-  "catalog": {
-    "badge": "独家系列",
-    "title": "我们的奢华猫咪",
-    "subtitle": "从我们的独家系列中发现您完美的猫咪朋友",
-    "filters": {
-      "all": "全部",
-      "male": "公猫",
-      "female": "母猫"
-    },
-    "details": {
-      "age": "年龄",
-      "gender": "性别",
-      "breed": "品种",
-      "male": "公",
-      "female": "母",
-      "traits": "特征",
-      "price": "价格",
-      "contact": "联系",
-      "gallery": "画廊"
-    }
-  },
-  "about": {
-    "badge": "精英品种",
-    "title": "关于我们的豪华猫",
-    "subtitle": "探索高端猫科伴侣的世界。我们的猫代表最高的品种标准，将异国之美与卓越气质完美结合。",
-    "mission": {
-      "title": "我们的使命",
-      "subtitle": "每个细节都追求卓越"
-    },
-    "healthTitle": "健康协议",
-    "healthChecks": {
-      "check1": "全面兽医检查",
-      "check2": "品种特定疾病的基因检测",
-      "check3": "疫苗接种协议",
-      "check4": "寄生虫预防",
-      "check5": "健康认证文件"
-    },
-    "facilitiesTitle": "我们的繁育设施"
-  },
   "guide": {
     "badge": "专家建议",
     "title": "热带草原猫护理指南",

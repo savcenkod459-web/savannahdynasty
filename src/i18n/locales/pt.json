@@ -256,45 +256,6 @@
       "errorGeneral": "Falha ao alterar senha"
     }
   },
-  "catalog": {
-    "badge": "Coleção Exclusiva",
-    "title": "Nossos Gatos de Luxo",
-    "subtitle": "Descubra seu amigo felino perfeito em nossa coleção exclusiva",
-    "filters": {
-      "all": "Todos",
-      "male": "Machos",
-      "female": "Fêmeas"
-    },
-    "details": {
-      "age": "Idade",
-      "gender": "Gênero",
-      "breed": "Raça",
-      "male": "Macho",
-      "female": "Fêmea",
-      "traits": "Características",
-      "price": "Preço",
-      "contact": "Contato",
-      "gallery": "Galeria"
-    }
-  },
-  "about": {
-    "badge": "Raças de Elite",
-    "title": "Sobre Nossos Gatos de Luxo",
-    "subtitle": "Descubra o mundo dos companheiros felinos premium. Nossos gatos representam o mais alto padrão de raça, combinando beleza exótica com temperamento excepcional.",
-    "mission": {
-      "title": "Nossa Missão",
-      "subtitle": "Excelência em Cada Detalhe"
-    },
-    "healthTitle": "Protocolo de Saúde",
-    "healthChecks": {
-      "check1": "Exame veterinário completo",
-      "check2": "Testes genéticos para doenças específicas da raça",
-      "check3": "Protocolos de vacinação",
-      "check4": "Prevenção de parasitas",
-      "check5": "Documentação de certificação de saúde"
-    },
-    "facilitiesTitle": "Nossas Instalações de Criação"
-  },
   "guide": {
     "badge": "Conselhos de Especialistas",
     "title": "Guia de Cuidados Savannah",

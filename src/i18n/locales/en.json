@@ -256,45 +256,6 @@
       "errorGeneral": "Failed to change password"
     }
   },
-  "catalog": {
-    "badge": "Exclusive Collection",
-    "title": "Our Luxury Cats",
-    "subtitle": "Discover your perfect feline friend from our exclusive collection",
-    "filters": {
-      "all": "All",
-      "male": "Males",
-      "female": "Females"
-    },
-    "details": {
-      "age": "Age",
-      "gender": "Gender",
-      "breed": "Breed",
-      "male": "Male",
-      "female": "Female",
-      "traits": "Traits",
-      "price": "Price",
-      "contact": "Contact",
-      "gallery": "Gallery"
-    }
-  },
-  "about": {
-    "badge": "Elite Breeds",
-    "title": "About Our Luxury Cats",
-    "subtitle": "Discover the world of premium feline companions. Our cats represent the highest breed standard, combining exotic beauty with exceptional temperament.",
-    "mission": {
-      "title": "Our Mission",
-      "subtitle": "Excellence in Every Detail"
-    },
-    "healthTitle": "Health Protocol",
-    "healthChecks": {
-      "check1": "Complete veterinary examination",
-      "check2": "Genetic testing for breed-specific diseases",
-      "check3": "Vaccination protocols",
-      "check4": "Parasite prevention",
-      "check5": "Health certification documentation"
-    },
-    "facilitiesTitle": "Our Breeding Facilities"
-  },
   "guide": {
     "badge": "Expert Advice",
     "title": "Savannah Care Guide",
