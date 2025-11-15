@@ -411,7 +411,34 @@
     "viewDetails": "View Details",
     "available": "Available",
     "reserved": "Reserved",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "cat1": {
+      "description": "Stunning boy with a bright spotted pattern and proud serval posture. Sociable, confident, and devoted — a true king among cats, radiating energy and luxury",
+      "trait1": "Prestigious",
+      "trait2": "Devoted",
+      "trait3": "Confident",
+      "trait4": "Dynamic"
+    },
+    "cat2": {
+      "description": "Elegant girl with a soft sheen to her coat and serval character. Observant, persistent, and extraordinarily intelligent — the embodiment of natural brilliance and harmony",
+      "trait1": "Brilliant",
+      "trait2": "Observant",
+      "trait3": "Intelligent",
+      "trait4": "Spirited"
+    },
+    "cat3": {
+      "description": "Rare boy combining the refined wildness of a serval and domestic character, with magnificent coloring and expressive gaze, making him a true treasure",
+      "trait1": "Magnificent",
+      "trait2": "Kind",
+      "trait3": "Affectionate",
+      "trait4": "Devoted"
+    },
+    "kitten": "Kitten",
+    "boy": "Boy",
+    "girl": "Girl",
+    "price": "Price",
+    "pedigree": "Pedigree",
+    "reserve": "Reserve"
   },
   "paymentMethods": {
     "title": "Secure Payment Methods",

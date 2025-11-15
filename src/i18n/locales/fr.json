@@ -405,7 +405,34 @@
     "viewDetails": "Voir les Détails",
     "available": "Disponible",
     "reserved": "Réservé",
-    "gallery": "Galerie"
+    "gallery": "Galerie",
+    "cat1": {
+      "description": "Élégant mâle avec un motif tacheté éclatant et une posture fière de serval. Sociable, confiant et dévoué — un véritable roi parmi les chats, rayonnant d'énergie et de luxe",
+      "trait1": "Prestigieux",
+      "trait2": "Dévoué",
+      "trait3": "Confiant",
+      "trait4": "Dynamique"
+    },
+    "cat2": {
+      "description": "Élégante femelle avec un éclat doux dans son pelage et un caractère de serval. Observatrice, persistante et extraordinairement intelligente — l'incarnation de la brillance naturelle et de l'harmonie",
+      "trait1": "Brillante",
+      "trait2": "Observatrice",
+      "trait3": "Intelligente",
+      "trait4": "Indomptable"
+    },
+    "cat3": {
+      "description": "Mâle rare combinant la sauvagerie raffinée d'un serval et un caractère domestique, avec une coloration magnifique et un regard expressif, ce qui en fait un véritable trésor",
+      "trait1": "Magnifique",
+      "trait2": "Gentil",
+      "trait3": "Affectueux",
+      "trait4": "Dévoué"
+    },
+    "kitten": "Chaton",
+    "boy": "Mâle",
+    "girl": "Femelle",
+    "price": "Prix",
+    "pedigree": "Pedigree",
+    "reserve": "Réserver"
   },
   "paymentMethods": {
     "title": "Méthodes de Paiement Sécurisées",

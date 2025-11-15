@@ -405,7 +405,34 @@
     "viewDetails": "查看详情",
     "available": "可用",
     "reserved": "已预订",
-    "gallery": "画廊"
+    "gallery": "画廊",
+    "cat1": {
+      "description": "华丽的男孩，拥有明亮的斑点图案和骄傲的薮猫姿态。友好、自信且忠诚——猫中真正的国王，散发着能量和奢华",
+      "trait1": "尊贵",
+      "trait2": "忠诚",
+      "trait3": "自信",
+      "trait4": "活力"
+    },
+    "cat2": {
+      "description": "优雅的女孩，毛皮柔软光泽，具有薮猫性格。观察力强、坚持不懈且异常聪明——自然光辉与和谐的化身",
+      "trait1": "光彩照人",
+      "trait2": "善于观察",
+      "trait3": "聪明",
+      "trait4": "不屈不挠"
+    },
+    "cat3": {
+      "description": "稀有男孩，融合了薮猫的精致野性和家养性格，拥有华丽的毛色和富有表现力的目光，使他成为真正的珍宝",
+      "trait1": "华丽",
+      "trait2": "善良",
+      "trait3": "亲切",
+      "trait4": "忠诚"
+    },
+    "kitten": "小猫",
+    "boy": "男孩",
+    "girl": "女孩",
+    "price": "价格",
+    "pedigree": "血统",
+    "reserve": "预订"
   },
   "paymentMethods": {
     "title": "安全支付方式",

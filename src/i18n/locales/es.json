@@ -411,7 +411,34 @@
     "viewDetails": "Ver Detalles",
     "available": "Disponible",
     "reserved": "Reservado",
-    "gallery": "Galería"
+    "gallery": "Galería",
+    "cat1": {
+      "description": "Elegante macho con un patrón moteado brillante y orgullosa postura de serval. Sociable, seguro y devoto — un verdadero rey entre los gatos, irradiando energía y lujo",
+      "trait1": "Prestigioso",
+      "trait2": "Devoto",
+      "trait3": "Seguro",
+      "trait4": "Dinámico"
+    },
+    "cat2": {
+      "description": "Elegante hembra con brillo suave en su pelaje y carácter de serval. Observadora, persistente y extraordinariamente inteligente — la encarnación del brillo natural y la armonía",
+      "trait1": "Brillante",
+      "trait2": "Observadora",
+      "trait3": "Inteligente",
+      "trait4": "Intrépida"
+    },
+    "cat3": {
+      "description": "Raro macho que combina la refinada salvajismo del serval y el carácter doméstico, con magnífica coloración y mirada expresiva, que lo convierte en un verdadero tesoro",
+      "trait1": "Magnífico",
+      "trait2": "Amable",
+      "trait3": "Cariñoso",
+      "trait4": "Devoto"
+    },
+    "kitten": "Gatito",
+    "boy": "Macho",
+    "girl": "Hembra",
+    "price": "Precio",
+    "pedigree": "Pedigrí",
+    "reserve": "Reservar"
   },
   "paymentMethods": {
     "title": "Métodos de Pago Seguros",
