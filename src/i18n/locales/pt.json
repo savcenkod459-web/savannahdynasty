@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Gatil de Elite",
     "title": "SavannahDynasty",
-    "subtitle": "Fornecemos o mais alto padrão de gatos Savannah de elite com qualidade e cuidado incomparáveis",
+    "subtitle": "Descubra seu companheiro felino ideal de nossa coleção exclusiva de gatos de elite com pedigree. Cada gato é cuidadosamente selecionado por seu pedigree excepcional, saúde e temperamento.",
     "cta": "Ver Nossos Gatinhos",
     "learn": "Saiba Mais",
     "premiumClass": "Classe Premium"
@@ -310,9 +310,47 @@
   },
   "pedigree": {
     "title": "Pedigree",
+    "back": "Voltar",
     "backToCatalog": "Voltar ao Catálogo",
     "father": "Pai",
     "mother": "Mãe",
     "noData": "Informações de pedigree não disponíveis"
+  },
+  "captcha": {
+    "label": "Digite o código da imagem",
+    "placeholder": "Digite o código",
+    "refresh": "Atualizar"
+  },
+  "resetPassword": {
+    "title": "Redefinir Senha",
+    "subtitle": "Digite seu e-mail para receber um link de redefinição de senha",
+    "emailLabel": "E-mail",
+    "sendButton": "Enviar link de redefinição",
+    "backToLogin": "Voltar para o login",
+    "codeSent": "Código enviado",
+    "codeDescription": "Verifique seu e-mail e digite o código para redefinir sua senha",
+    "error": "Erro"
+  },
+  "updatePassword": {
+    "title": "Atualizar Senha",
+    "subtitle": "Digite o código de confirmação e a nova senha",
+    "emailLabel": "E-mail",
+    "codeLabel": "Código de Confirmação",
+    "codePlaceholder": "Digite o código de 6 dígitos",
+    "newPasswordLabel": "Nova Senha",
+    "confirmPasswordLabel": "Confirmar Senha",
+    "updateButton": "Atualizar Senha",
+    "resendCode": "Reenviar Código",
+    "resendIn": "Reenviar em",
+    "backToLogin": "Voltar para o login",
+    "error": "Erro",
+    "errorEmail": "Digite o endereço de e-mail",
+    "errorCode": "Digite o e-mail e o código de confirmação",
+    "errorMatch": "As senhas não coincidem",
+    "errorLength": "A senha deve ter pelo menos 8 caracteres",
+    "successTitle": "Senha alterada com sucesso",
+    "successDescription": "Agora você pode fazer login com sua nova senha",
+    "resendSuccessTitle": "Código reenviado",
+    "resendSuccessDescription": "Verifique seu e-mail para o novo código"
   }
 }

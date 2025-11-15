@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Criadero de Élite",
     "title": "SavannahDynasty",
-    "subtitle": "Proporcionamos el más alto estándar de gatos Savannah de élite con calidad y cuidado inigualables",
+    "subtitle": "Descubra su compañero felino ideal de nuestra exclusiva colección de gatos de élite con pedigrí. Cada gato es cuidadosamente seleccionado por su excepcional pedigrí, salud y temperamento.",
     "cta": "Ver Nuestros Gatitos",
     "learn": "Saber Más",
     "premiumClass": "Clase Premium"
@@ -310,9 +310,47 @@
   },
   "pedigree": {
     "title": "Pedigrí",
+    "back": "Volver",
     "backToCatalog": "Volver al Catálogo",
     "father": "Padre",
     "mother": "Madre",
     "noData": "Información de pedigrí no disponible"
+  },
+  "captcha": {
+    "label": "Ingrese el código de la imagen",
+    "placeholder": "Ingrese el código",
+    "refresh": "Actualizar"
+  },
+  "resetPassword": {
+    "title": "Restablecer Contraseña",
+    "subtitle": "Ingrese su correo electrónico para recibir un enlace de restablecimiento de contraseña",
+    "emailLabel": "Correo electrónico",
+    "sendButton": "Enviar enlace de restablecimiento",
+    "backToLogin": "Volver al inicio de sesión",
+    "codeSent": "Código enviado",
+    "codeDescription": "Revise su correo electrónico e ingrese el código para restablecer su contraseña",
+    "error": "Error"
+  },
+  "updatePassword": {
+    "title": "Actualizar Contraseña",
+    "subtitle": "Ingrese el código de confirmación y la nueva contraseña",
+    "emailLabel": "Correo electrónico",
+    "codeLabel": "Código de Confirmación",
+    "codePlaceholder": "Ingrese el código de 6 dígitos",
+    "newPasswordLabel": "Nueva Contraseña",
+    "confirmPasswordLabel": "Confirmar Contraseña",
+    "updateButton": "Actualizar Contraseña",
+    "resendCode": "Reenviar Código",
+    "resendIn": "Reenviar en",
+    "backToLogin": "Volver al inicio de sesión",
+    "error": "Error",
+    "errorEmail": "Ingrese la dirección de correo electrónico",
+    "errorCode": "Ingrese el correo electrónico y el código de confirmación",
+    "errorMatch": "Las contraseñas no coinciden",
+    "errorLength": "La contraseña debe tener al menos 8 caracteres",
+    "successTitle": "Contraseña cambiada exitosamente",
+    "successDescription": "Ahora puede iniciar sesión con su nueva contraseña",
+    "resendSuccessTitle": "Código reenviado",
+    "resendSuccessDescription": "Revise su correo electrónico para obtener el nuevo código"
   }
 }

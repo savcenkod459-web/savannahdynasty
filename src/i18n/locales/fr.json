@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Élevage Premium",
     "title": "SavannahDynasty Cats",
-    "subtitle": "Nous offrons le plus haut standard de chats Savannah d'élite avec une qualité et un soin inégalés",
+    "subtitle": "Découvrez votre compagnon félin idéal dans notre collection exclusive de chats d'élite avec pedigree. Chaque chat est soigneusement sélectionné pour son pedigree exceptionnel, sa santé et son tempérament.",
     "cta": "Voir les Chatons Disponibles",
     "learn": "En Savoir Plus",
     "premiumClass": "Classe Premium"
@@ -304,9 +304,47 @@
   },
   "pedigree": {
     "title": "Pedigree",
+    "back": "Retour",
     "backToCatalog": "Retour au Catalogue",
     "father": "Père",
     "mother": "Mère",
     "noData": "Informations de pedigree non disponibles"
+  },
+  "captcha": {
+    "label": "Entrez le code de l'image",
+    "placeholder": "Entrez le code",
+    "refresh": "Actualiser"
+  },
+  "resetPassword": {
+    "title": "Réinitialiser le mot de passe",
+    "subtitle": "Entrez votre e-mail pour recevoir un lien de réinitialisation du mot de passe",
+    "emailLabel": "E-mail",
+    "sendButton": "Envoyer le lien de réinitialisation",
+    "backToLogin": "Retour à la connexion",
+    "codeSent": "Code envoyé",
+    "codeDescription": "Vérifiez votre e-mail et entrez le code pour réinitialiser votre mot de passe",
+    "error": "Erreur"
+  },
+  "updatePassword": {
+    "title": "Mettre à jour le mot de passe",
+    "subtitle": "Entrez le code de confirmation et le nouveau mot de passe",
+    "emailLabel": "E-mail",
+    "codeLabel": "Code de Confirmation",
+    "codePlaceholder": "Entrez le code à 6 chiffres",
+    "newPasswordLabel": "Nouveau mot de passe",
+    "confirmPasswordLabel": "Confirmer le mot de passe",
+    "updateButton": "Mettre à jour le mot de passe",
+    "resendCode": "Renvoyer le code",
+    "resendIn": "Renvoyer dans",
+    "backToLogin": "Retour à la connexion",
+    "error": "Erreur",
+    "errorEmail": "Entrez l'adresse e-mail",
+    "errorCode": "Entrez l'e-mail et le code de confirmation",
+    "errorMatch": "Les mots de passe ne correspondent pas",
+    "errorLength": "Le mot de passe doit contenir au moins 8 caractères",
+    "successTitle": "Mot de passe changé avec succès",
+    "successDescription": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe",
+    "resendSuccessTitle": "Code renvoyé",
+    "resendSuccessDescription": "Vérifiez votre e-mail pour le nouveau code"
   }
 }
