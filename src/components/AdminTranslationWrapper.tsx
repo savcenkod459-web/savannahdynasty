@@ -28,10 +28,37 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
   useEffect(() => {
     if (!isAdmin) return;
 
+    let isSelecting = false;
+    let mouseDownTarget: EventTarget | null = null;
+
+    const handleMouseDown = (e: MouseEvent) => {
+      mouseDownTarget = e.target;
+      isSelecting = false;
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      // Если мышь движется с нажатой кнопкой, это выделение текста
+      if (e.buttons === 1) {
+        isSelecting = true;
+      }
+    };
+
+    const handleClick = (e: MouseEvent) => {
+      // Если был процесс выделения, отменяем клик по ссылкам/кнопкам
+      if (isSelecting) {
+        const selection = window.getSelection();
+        const text = selection?.toString().trim();
+        if (text && text.length > 0) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }
+    };
+
     const handleTextSelection = (e: MouseEvent) => {
       // Проверяем, был ли клик внутри меню перевода
       if (menuRef.current && menuRef.current.contains(e.target as Node)) {
-        return; // Игнорируем клики внутри меню
+        return;
       }
 
       const selection = window.getSelection();
@@ -50,18 +77,26 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
           setShowMenu(true);
         }
       } else if (!menuRef.current?.contains(e.target as Node)) {
-        // Закрываем меню только если клик был вне меню
         setShowMenu(false);
       }
+
+      // Сбрасываем флаг выделения
+      isSelecting = false;
     };
 
-    // Добавляем слушатель на mouseup для отслеживания выделения
-    document.addEventListener('mouseup', handleTextSelection);
+    // Добавляем все слушатели
+    document.addEventListener('mousedown', handleMouseDown, true);
+    document.addEventListener('mousemove', handleMouseMove, true);
+    document.addEventListener('click', handleClick, true);
+    document.addEventListener('mouseup', handleTextSelection, true);
 
     return () => {
-      document.removeEventListener('mouseup', handleTextSelection);
+      document.removeEventListener('mousedown', handleMouseDown, true);
+      document.removeEventListener('mousemove', handleMouseMove, true);
+      document.removeEventListener('click', handleClick, true);
+      document.removeEventListener('mouseup', handleTextSelection, true);
     };
-  }, [isAdmin, showMenu]);
+  }, [isAdmin]);
 
   const handleCloseMenu = () => {
     setShowMenu(false);

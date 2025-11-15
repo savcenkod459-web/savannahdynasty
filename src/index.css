@@ -200,15 +200,20 @@ All colors MUST be HSL.
     -ms-user-select: text !important;
   }
   
-  /* Но отключаем на интерактивных элементах для корректной работы */
-  .admin-text-selection-enabled button,
-  .admin-text-selection-enabled input,
-  .admin-text-selection-enabled textarea,
+  /* Отключаем на полях ввода для корректной работы */
+  .admin-text-selection-enabled input:not([readonly]),
+  .admin-text-selection-enabled textarea:not([readonly]),
   .admin-text-selection-enabled select {
     user-select: auto !important;
     -webkit-user-select: auto !important;
     -moz-user-select: auto !important;
     -ms-user-select: auto !important;
+  }
+  
+  /* Отключаем pointer-events на ссылках и кнопках во время выделения */
+  .admin-text-selection-enabled a,
+  .admin-text-selection-enabled button {
+    pointer-events: auto !important;
   }
 }
 
