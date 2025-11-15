@@ -16,6 +16,7 @@ import AdminCats from "./pages/AdminCats";
 import AdminPedigree from "./pages/AdminPedigree";
 import AdminImages from "./pages/AdminImages";
 import AdminMessages from "./pages/AdminMessages";
+import AdminTranslations from "./pages/AdminTranslations";
 import Pedigree from "./pages/Pedigree";
 import Profile from "./pages/Profile";
 import Auth from "./pages/Auth";
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/admin/pedigree" element={<AdminPedigree />} />
           <Route path="/admin/images" element={<AdminImages />} />
           <Route path="/admin/messages" element={<AdminMessages />} />
+          <Route path="/admin/translations" element={<AdminTranslations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
