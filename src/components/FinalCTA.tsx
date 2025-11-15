@@ -22,7 +22,7 @@ const FinalCTA = () => {
           <div className="relative z-10 text-center space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full mb-4 micro-interaction border border-white/30">
               <Crown className="w-4 h-4 text-white" />
-              <span className="text-sm font-bold tracking-widest uppercase text-white">{t('hero.badge')}</span>
+              <span className="text-sm font-bold tracking-widest uppercase text-white">{t('cta.badge')}</span>
             </div>
             
             <h2 className="font-display leading-tight luxury-text-shadow text-stone-950 text-center text-5xl mx-0 my-0 px-0 py-[10px] font-bold">

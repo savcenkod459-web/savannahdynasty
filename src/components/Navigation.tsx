@@ -147,7 +147,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1 flex-1 justify-end mr-4">
+          <div className="hidden lg:flex items-center gap-4 flex-1 justify-end mr-6">
             {navItems.map(item => {
             if (item.hasSubmenu) {
               return <Popover key={item.path} open={aboutPopoverOpen} onOpenChange={setAboutPopoverOpen}>

@@ -15,16 +15,16 @@
     "admin": "Admin"
   },
   "hero": {
-    "badge": "Gatil Premium",
-    "title": "SavannahDynasty Cats",
-    "subtitle": "Descubra a elegância exótica dos gatos Savannah de raça pura. Criação ética, qualidade excepcional, suporte vitalício.",
-    "cta": "Ver Gatinhos Disponíveis",
+    "badge": "Gatil de Elite",
+    "title": "SavannahDynasty",
+    "subtitle": "Descubra seu companheiro felino perfeito de nossa coleção exclusiva de gatos de raça pura de elite. Cada gato é cuidadosamente selecionado por pedigree excepcional, saúde e temperamento.",
+    "cta": "Ver Nossos Gatinhos",
     "learn": "Saiba Mais",
     "premiumClass": "Classe Premium"
   },
   "whyChoose": {
-    "title": "Por Que Escolher SavannahDynasty",
-    "badge": "Alta Qualidade",
+    "title": "Por Que Escolher SavannahDynasty?",
+    "badge": "Qualidade Premium",
     "quality": {
       "title": "Qualidade Superior",
       "description": "Todos os nossos gatos Savannah vêm de linhagens campeãs com pedigrees totalmente documentados"
@@ -33,14 +33,18 @@
       "title": "Garantia de Saúde",
       "description": "Triagem de saúde abrangente e garantia genética vitalícia em todos os nossos gatos"
     },
+    "care": {
+      "title": "Cuidado Amoroso",
+      "description": "Cada gato é criado com amor excepcional e socialização em condições luxuosas"
+    },
     "support": {
-      "title": "Suporte Vitalício",
-      "description": "Orientação especializada e suporte durante toda a vida do seu gato Savannah"
+      "title": "Suporte Especializado",
+      "description": "Suporte 24/7 de nossa equipe de especialistas em cuidados com gatos"
     }
   },
   "breeds": {
-    "title": "Nossa Raça Destaque",
-    "subtitle": "Descubra a Elegância do Savannah F1",
+    "title": "COLEÇÃO EXCLUSIVA",
+    "subtitle": "Nossa Raça Destaque",
     "f1": {
       "name": "Savannah F1",
       "description": "Distingue-se pela aparência exótica, alta inteligência e temperamento enérgico. Estes gatos são híbridos de primeira geração com o serval africano, combinando graça selvagem com a devoção de um animal de estimação doméstico. Savannah F1 é a escolha para quem procura não apenas um gato, mas um verdadeiro companheiro com caráter."
@@ -115,13 +119,15 @@
     }
   },
   "cta": {
-    "title": "Pronto para Conhecer seu Gato Savannah?",
-    "subtitle": "Comece sua jornada para possuir uma das raças felinas mais exóticas do mundo",
-    "button": "Entre em Contato"
+    "badge": "Oferta Exclusiva",
+    "title": "Pronto para Encontrar seu Par Perfeito?",
+    "subtitle": "Comece sua jornada conosco hoje. Nossa equipe especializada está pronta para ajudá-lo a encontrar o companheiro felino perfeito que trará alegria à sua vida.",
+    "button": "Ver Gatinhos"
   },
   "footer": {
     "tagline": "Descubra a graça e inteligência dos gatos Savannah da SavannahDynasty. Criação ética, qualidade excepcional.",
-    "quickLinks": "Links Rápidos",
+    "navigation": "Navegação",
+    "support": "Suporte",
     "legal": "Legal",
     "privacy": "Política de Privacidade",
     "terms": "Termos de Serviço",

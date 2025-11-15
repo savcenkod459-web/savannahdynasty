@@ -14,6 +14,10 @@ const WhyChooseUs = () => {
     description: t('whyChoose.health.description')
   }, {
     icon: Heart,
+    title: t('whyChoose.care.title'),
+    description: t('whyChoose.care.description')
+  }, {
+    icon: Headphones,
     title: t('whyChoose.support.title'),
     description: t('whyChoose.support.description')
   }];
@@ -38,7 +42,7 @@ const WhyChooseUs = () => {
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">{t('hero.subtitle')}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => <div key={index} className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift animate-scale-in hover-scale micro-interaction" style={{
           animationDelay: `${index * 100}ms`
         }}>

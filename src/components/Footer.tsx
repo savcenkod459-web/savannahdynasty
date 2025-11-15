@@ -58,7 +58,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Menu className="w-5 h-5 text-primary" />
-              {t('footer.quickLinks')}
+              {t('footer.navigation')}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -92,7 +92,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Headphones className="w-5 h-5 text-primary" />
-              {t('footer.quickLinks')}
+              {t('footer.support')}
             </h4>
             <ul className="space-y-3">
               <li>

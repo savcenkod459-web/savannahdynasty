@@ -42,12 +42,12 @@ const LanguageSelector = () => {
           <span className="sm:hidden">{currentLanguage.flag}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-44">
+      <DropdownMenuContent align="end" className="w-44 bg-background/95 backdrop-blur-lg border-primary/20">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => changeLanguage(language.code)}
-            className={`cursor-pointer gap-2 ${
+            className={`cursor-pointer gap-2 hover:bg-primary/10 focus:bg-primary/10 text-foreground hover:text-foreground focus:text-foreground ${
               i18n.language === language.code ? 'bg-primary/10 font-semibold' : ''
             }`}
           >

@@ -15,16 +15,16 @@
     "admin": "Admin"
   },
   "hero": {
-    "badge": "Premium Cattery",
-    "title": "SavannahDynasty Cats",
-    "subtitle": "Discover the exotic elegance of purebred Savannah cats. Ethical breeding, exceptional quality, lifetime support.",
-    "cta": "View Available Kittens",
+    "badge": "Elite Cattery",
+    "title": "SavannahDynasty",
+    "subtitle": "Discover your perfect feline companion from our exclusive collection of purebred elite cats. Each cat is carefully selected for exceptional pedigree, health, and temperament.",
+    "cta": "View Our Kittens",
     "learn": "Learn More",
     "premiumClass": "Premium Class"
   },
   "whyChoose": {
-    "title": "Why Choose SavannahDynasty",
-    "badge": "High Quality",
+    "title": "Why Choose SavannahDynasty?",
+    "badge": "Premium Quality",
     "quality": {
       "title": "Superior Quality",
       "description": "All our Savannah cats come from champion bloodlines with fully documented pedigrees"
@@ -33,14 +33,18 @@
       "title": "Health Guarantee",
       "description": "Comprehensive health screening and lifetime genetic guarantee on all our cats"
     },
+    "care": {
+      "title": "Loving Care",
+      "description": "Each cat is raised with exceptional love and socialization in luxurious conditions"
+    },
     "support": {
-      "title": "Lifetime Support",
-      "description": "Expert guidance and support throughout your Savannah cat's lifetime"
+      "title": "Expert Support",
+      "description": "24/7 support from our team of cat care specialists"
     }
   },
   "breeds": {
-    "title": "Our Featured Breed",
-    "subtitle": "Discover the Elegance of Savannah F1",
+    "title": "EXCLUSIVE COLLECTION",
+    "subtitle": "Our Featured Breed",
     "f1": {
       "name": "Savannah F1",
       "description": "Distinguished by exotic appearance, high intelligence and energetic temperament. These cats are first generation hybrids with African serval, combining wild grace with the devotion of a domestic pet. Savannah F1 is the choice for those seeking not just a cat, but a true companion with character."
@@ -115,13 +119,15 @@
     }
   },
   "cta": {
-    "title": "Ready to Meet Your Savannah Cat?",
-    "subtitle": "Start your journey to owning one of the world's most exotic feline breeds",
-    "button": "Contact Us"
+    "badge": "Exclusive Offer",
+    "title": "Ready to Find Your Perfect Match?",
+    "subtitle": "Start your journey with us today. Our expert team is ready to help you find the perfect feline companion that will bring joy to your life.",
+    "button": "View Kittens"
   },
   "footer": {
     "tagline": "Discover the grace and intelligence of Savannah cats from SavannahDynasty. Ethical breeding, exceptional quality.",
-    "quickLinks": "Quick Links",
+    "navigation": "Navigation",
+    "support": "Support",
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
