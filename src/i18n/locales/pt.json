@@ -354,13 +354,235 @@
     "resendSuccessTitle": "Código reenviado",
     "resendSuccessDescription": "Verifique seu e-mail para o novo código"
   },
-  "warranty": {},
-  "featuredCollection": {},
-  "paymentMethods": {},
-  "pricingSection": {},
-  "raritySection": {},
+  "warranty": {
+    "badge": "Proteção Premium",
+    "title": "Garantia de Saúde",
+    "subtitle": "Sua tranquilidade é nossa prioridade. Apoiamos cada gato de elite com garantias de saúde abrangentes e suporte vitalício.",
+    "mainGuarantees": "Garantia de Saúde Abrangente",
+    "oneMonth": {
+      "title": "1 Mês de Garantia de Saúde",
+      "description": "Cobertura completa de doenças hereditárias e congênitas"
+    },
+    "lifeSupport": {
+      "title": "Suporte Vitalício",
+      "description": "Consulta e assistência contínua de criadores experientes"
+    },
+    "consultation": {
+      "title": "Consulta Veterinária Gratuita",
+      "description": "Recomendações profissionais sobre questões de saúde e nutrição"
+    },
+    "healthCertificate": "Certificado de Saúde",
+    "healthCertificateDesc": "Cada gato vem com um certificado médico abrangente",
+    "healthIncluded": "O que está incluído:",
+    "healthCheck1": "Exame veterinário completo",
+    "healthCheck2": "Vacinações atuais",
+    "healthCheck3": "Testes genéticos",
+    "healthCheck4": "Verificação de parasitas",
+    "healthCheck5": "Garantia de ausência de problemas de saúde",
+    "termsTitle": "Termos da Garantia",
+    "termsItem1": "Exame médico completo dentro de 48 horas após a compra",
+    "termsItem2": "Cuidados veterinários abrangentes durante o período de garantia",
+    "termsItem3": "Substituição ou reembolso se problemas hereditários forem detectados",
+    "termsItem4": "Proteção contra defeitos genéticos e doenças congênitas",
+    "termsItem5": "Acesso vitalício aos conselhos de nossos especialistas",
+    "supportTitle": "Nosso Suporte",
+    "supportItem1": "Consulta de saúde de emergência 24/7",
+    "supportItem2": "Assistência contínua de nutrição e cuidados",
+    "supportItem3": "Ajuda comportamental e de treinamento",
+    "supportItem4": "Comunidade de proprietários de gatos de elite",
+    "protectionTitle": "Proteção de Investimento",
+    "protectionDesc": "Seu investimento em um gato de elite está protegido por nossas garantias abrangentes. Apoiamos a saúde e o bem-estar de nossos gatos durante toda a vida.",
+    "protectionFeature1": "Certificação de Saúde",
+    "protectionFeature1Desc": "Documentação médica completa e certificação",
+    "protectionFeature2": "Proteção de Investimento",
+    "protectionFeature2Desc": "Proteção financeira contra problemas de saúde",
+    "protectionFeature3": "Orientação Especializada",
+    "protectionFeature3Desc": "Consulta contínua de criadores e veterinários",
+    "contactTitle": "Tem perguntas?",
+    "contactDesc": "Entre em contato conosco para mais informações sobre nossas garantias",
+    "emailCopied": "E-mail copiado!",
+    "emailCopiedDesc": "savannahdynastyofficial@gmail.com copiado para a área de transferência"
+  },
+  "featuredCollection": {
+    "badge": "Exclusivo",
+    "title": "Nossa Coleção de Luxo",
+    "subtitle": "Experimente a elegância e beleza de nossos gatos de elite cuidadosamente selecionados",
+    "viewAll": "Ver Coleção Completa",
+    "viewDetails": "Ver Detalhes",
+    "available": "Disponível",
+    "reserved": "Reservado",
+    "gallery": "Galeria"
+  },
+  "paymentMethods": {
+    "title": "Métodos de Pagamento Seguros",
+    "subtitle": "Escolha seu método de pagamento preferido para comprar um gato de elite",
+    "badge": "Pagamentos Seguros",
+    "crypto": {
+      "title": "Criptomoeda",
+      "subtitle": "USDT, TON, SOL, ETH",
+      "feature1": "Pagamento anônimo",
+      "feature2": "Taxas baixas",
+      "feature3": "Moeda global"
+    },
+    "cash": {
+      "title": "Dinheiro",
+      "subtitle": "Entrega por correio",
+      "feature1": "Pagamento na entrega",
+      "feature2": "Transferência pessoal",
+      "feature3": "Entrega internacional"
+    },
+    "securityTitle": "Segurança do Seu Pagamento",
+    "bankLevel": {
+      "title": "Segurança de nível bancário",
+      "description": "Criptografia SSL de 256 bits protege todas as transações"
+    },
+    "dataProtection": {
+      "title": "Proteção de Dados",
+      "description": "Os dados do cartão nunca são armazenados em nossos servidores"
+    },
+    "privacy": {
+      "title": "Privacidade",
+      "description": "Seus dados pessoais são protegidos com segurança e nunca compartilhados com terceiros"
+    }
+  },
+  "pricingSection": {
+    "badge": "PREÇOS",
+    "title": "Informações sobre Preços",
+    "subtitle": "Quando se trata da raça Savannah, o preço não é apenas um número. É um reflexo da exclusividade, origem e singularidade de cada gato.",
+    "generationTitle": "⚜️ A geração importa",
+    "f1": {
+      "title": "Savannah F1",
+      "description": "Primeira geração, descendente do cruzamento direto de serval e gato doméstico. Nível máximo de selvageria e semelhança com o serval.",
+      "price": "🐾 Preço: de 10.000 a 25.000 EUR",
+      "priceNote": "Às vezes chega a 35.000+ EUR para gatos de cor rara",
+      "note": "F1 é status, colecionabilidade e exclusividade viva"
+    },
+    "f2": {
+      "title": "Savannah F2",
+      "description": "Segunda geração. A porção de serval é menor, mas a aparência exótica ainda é pronunciada.",
+      "price": "💎 Preço: de 6.000 a 15.000 EUR",
+      "note": "Preço mais acessível mantendo aparência impressionante"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "description": "Terceira e quarta gerações. Mais dóceis, mas mantêm aparência exótica.",
+      "price": "✨ Preço: de 2.000 a 6.000 EUR",
+      "note": "Ótimo equilíbrio entre aparência e caráter para manutenção doméstica"
+    },
+    "f5plus": {
+      "title": "Savannah F5+",
+      "description": "Gerações distantes. Mais próximos em caráter ao gato doméstico, mas mantêm parte da aparência exótica.",
+      "price": "🌟 Preço: de 1.500 a 3.000 EUR",
+      "note": "Opção mais acessível mantendo a beleza da raça"
+    },
+    "factorsTitle": "💰 Fatores que afetam o preço",
+    "factor1": {
+      "title": "Cor e padrão",
+      "description": "Cores raras (neve, prata, melanístico) são significativamente mais caras que cores manchadas padrão"
+    },
+    "factor2": {
+      "title": "Tamanho e constituição",
+      "description": "Quanto maior o Savannah e mais pronunciadas suas características selvagens (orelhas grandes, pernas longas), maior o preço"
+    },
+    "factor3": {
+      "title": "Gênero",
+      "description": "Fêmeas F1-F3 geralmente são mais caras pois podem reproduzir, enquanto machos são frequentemente estéreis"
+    },
+    "factor4": {
+      "title": "Pedigree e gatil",
+      "description": "Filhotes de pais titulados e gatéis famosos custam significativamente mais"
+    },
+    "factor5": {
+      "title": "Idade",
+      "description": "Filhotes são mais caros que gatos adultos. Maior demanda por filhotes de 3-6 meses de idade"
+    },
+    "valueTitle": "✨ Não é apenas uma compra - é um investimento",
+    "valueDesc": "Savannah não é um animal de estimação. É emoção, singularidade e status vivo. O preço reflete exclusividade, raridade e custos de criação. Adquirir um Savannah é um investimento em um companheiro que permanecerá com você para sempre como parte de sua história."
+  },
+  "raritySection": {
+    "badge": "EXCLUSIVIDADE",
+    "title": "Raridade e Singularidade",
+    "subtitle": "Savannah - o diamante mais raro no mundo dos gatos",
+    "intro": "Savannah não é apenas um gato. É uma encarnação da graça selvagem, inteligência e verdadeiro status. Estes gatos são o resultado do cruzamento único de serval africano e gato doméstico, e cada Savannah é uma obra de arte viva, nascida pela natureza e precisão genética.",
+    "rarity": {
+      "title": "💫 Raridade digna de colecionadores",
+      "description": "Savannah é uma das raças mais raras e caras do mundo. Devido ao complexo processo de criação e padrões de qualidade rigorosos, nasce um número muito limitado de filhotes por ano. Cada representante desta raça é literalmente um espécime único, e estar entre os proprietários de Savannah é um privilégio disponível para poucos."
+    },
+    "beauty": {
+      "title": "🌟 Beleza selvagem em cada movimento",
+      "description": "Savannah parece como se tivesse acabado de sair da savana africana. Grande, musculoso, com pelagem manchada e olhos incrivelmente expressivos. Sua graça e maneira de movimento fascinam - esta é uma verdadeira elegância predatória encerrada no corpo de um animal doméstico."
+    },
+    "intelligence": {
+      "title": "🧠 Inteligência além de qualquer expectativa",
+      "description": "Savannah é uma das raças de gatos mais inteligentes. Aprende comandos facilmente, acostuma-se à trela e pode até jogar buscar. Estes gatos amam água, podem abrir portas e gavetas, e sua curiosidade e engenhosidade superam quase qualquer raça doméstica."
+    },
+    "character": {
+      "title": "💎 Caráter único",
+      "description": "Savannah não é um gato independente típico. É extremamente social, leal e apegado ao dono como um cão. Estes gatos são ativos, brincalhões e requerem atenção constante. Com Savannah, a vida se torna mais dinâmica e brilhante."
+    },
+    "status": {
+      "title": "👑 Símbolo de status",
+      "description": "Savannah não é apenas um animal de estimação, é um símbolo de sucesso. Esta raça está disponível apenas para aqueles que estão dispostos a investir em um animal único. Possuir um Savannah enfatiza gosto, status e amor pelo incomum."
+    },
+    "companion": {
+      "title": "🌍 Companheiro para toda a vida",
+      "description": "Savannah não é apenas um gato que viverá por perto. É um verdadeiro amigo que irá recebê-lo, brincar, comunicar e alegrar todos os dias. A ligação com Savannah é única - é uma relação ao nível de parceria e verdadeira amizade."
+    }
+  },
   "admin": {
-    "cats": {},
-    "messages": {}
+    "cats": {
+      "title": "Gerenciamento de Gatos",
+      "addNew": "Adicionar Novo Gato",
+      "name": "Nome",
+      "breed": "Raça",
+      "age": "Idade",
+      "gender": "Gênero",
+      "price": "Preço (EUR)",
+      "description": "Descrição",
+      "traits": "Características",
+      "traitsPlaceholder": "Inteligente, Brincalhão, Leal",
+      "mainImage": "Imagem Principal",
+      "additionalImages": "Imagens Adicionais",
+      "video": "Vídeo (URL)",
+      "uploadImage": "Carregar Imagem",
+      "uploading": "Carregando...",
+      "create": "Criar Gato",
+      "creating": "Criando...",
+      "save": "Salvar Alterações",
+      "saving": "Salvando...",
+      "delete": "Excluir",
+      "deletePedigree": "Excluir Pedigree",
+      "confirmDelete": "Tem certeza?",
+      "male": "Macho",
+      "female": "Fêmea",
+      "kitten": "Filhote",
+      "young": "Jovem",
+      "adult": "Adulto",
+      "accessDenied": "Acesso negado. Você não tem direitos de administrador",
+      "created": "Gato criado com sucesso",
+      "updated": "Gato atualizado com sucesso",
+      "deleted": "Gato excluído com sucesso",
+      "imageUploaded": "Imagem carregada com sucesso",
+      "pedigreeDeleted": "Pedigree excluído"
+    },
+    "messages": {
+      "title": "Mensagens de Clientes",
+      "all": "Todos",
+      "unread": "Não lidos",
+      "read": "Lidos",
+      "search": "Pesquisar mensagens...",
+      "from": "De:",
+      "markRead": "Marcar como lido",
+      "markUnread": "Marcar como não lido",
+      "delete": "Excluir",
+      "noMessages": "Ainda não há mensagens",
+      "noUnread": "Não há mensagens não lidas",
+      "noRead": "Não há mensagens lidas",
+      "accessDenied": "Acesso negado",
+      "accessDeniedDesc": "Você não tem direitos de administrador",
+      "updated": "Mensagem atualizada",
+      "deleted": "Mensagem excluída",
+      "error": "Erro"
+    }
   }
 }
