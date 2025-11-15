@@ -13,6 +13,18 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
+  // Добавляем CSS класс к body для разрешения выделения текста админу
+  useEffect(() => {
+    if (isAdmin) {
+      document.body.classList.add('admin-text-selection-enabled');
+    } else {
+      document.body.classList.remove('admin-text-selection-enabled');
+    }
+    return () => {
+      document.body.classList.remove('admin-text-selection-enabled');
+    };
+  }, [isAdmin]);
+
   useEffect(() => {
     if (!isAdmin) return;
 

@@ -191,6 +191,25 @@ All colors MUST be HSL.
   .luxury-text-shadow {
     text-shadow: 0 2px 20px hsl(43 96% 56% / 0.15);
   }
+  
+  /* Разрешаем выделение текста для админов везде */
+  .admin-text-selection-enabled * {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+  }
+  
+  /* Но отключаем на интерактивных элементах для корректной работы */
+  .admin-text-selection-enabled button,
+  .admin-text-selection-enabled input,
+  .admin-text-selection-enabled textarea,
+  .admin-text-selection-enabled select {
+    user-select: auto !important;
+    -webkit-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+  }
 }
 
 @layer base {
