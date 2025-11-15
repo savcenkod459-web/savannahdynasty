@@ -108,10 +108,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <button onClick={copyEmail} className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction w-full">
+                <Link to="/contact" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  savannahdynastyofficial@gmail.com
-                </button>
+                  {t('nav.contact')}
+                </Link>
               </li>
             </ul>
           </div>
@@ -124,7 +124,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-4 py-0">
               <p className="text-sm text-muted-foreground font-light">
-                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal">savannahdynasty@gmail.com</button>
+                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal">savannahdynastyofficial@gmail.com</button>
               </p>
               
               <div className="flex gap-4 pt-2">

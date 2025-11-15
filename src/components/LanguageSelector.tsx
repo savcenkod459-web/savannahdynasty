@@ -35,7 +35,7 @@ const LanguageSelector = () => {
         <Button 
           variant="ghost" 
           size="sm"
-          className="gap-1.5 hover:bg-primary/10 text-sm px-2.5 py-1.5 h-auto"
+          className="gap-1.5 hover:bg-primary/10 text-foreground hover:text-foreground text-sm px-2.5 py-1.5 h-auto"
         >
           <Globe className="w-3.5 h-3.5" />
           <span className="hidden sm:inline text-sm">{currentLanguage.flag}</span>
