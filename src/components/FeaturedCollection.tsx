@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { CatGallery } from "@/components/CatGallery";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
@@ -27,6 +28,7 @@ const imageMap: Record<string, string> = {
 };
 const FeaturedCollection = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
@@ -71,13 +73,13 @@ const FeaturedCollection = () => {
         <div className="text-center space-y-6 mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
             <Crown className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold tracking-widest uppercase text-primary">Эксклюзив</span>
+            <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('featuredCollection.badge')}</span>
           </div>
           <h2 className="font-display font-black text-luxury-gradient luxury-text-shadow py-[10px]">
-            Наша роскошная коллекция
+            {t('featuredCollection.title')}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
-            Испытайте элегантность и красоту наших тщательно отобранных элитных кошек
+            {t('featuredCollection.subtitle')}
           </p>
         </div>
 

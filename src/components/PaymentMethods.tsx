@@ -1,34 +1,36 @@
 import { Bitcoin, Banknote, Landmark, ShieldCheck, EyeOff, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-const paymentMethods = [{
-  icon: Bitcoin,
-  title: "Криптовалюта",
-  subtitle: "USDT, TON, SOL, ETH",
-  features: ["Анонимная оплата", "Низкие комиссии", "Мировая валюта"]
-}, {
-  icon: Banknote,
-  title: "Наличные",
-  subtitle: "Курьерская доставка",
-  features: ["Оплата при получении", "Личная передача", "Международная доставка"]
-}];
-
-const securityFeatures = [{
-  icon: Landmark,
-  title: "Банковский уровень безопасности",
-  description: "256-битное SSL шифрование защищает все транзакции"
-}, {
-  icon: ShieldCheck,
-  title: "Защита данных",
-  description: "Данные карт никогда не сохраняются на наших серверах"
-}, {
-  icon: EyeOff,
-  title: "Конфиденциальность",
-  description: "Ваши личные данные надежно защищены и никогда не передаются третьим лицам"
-}];
+import { useTranslation } from "react-i18next";
 
 const PaymentMethods = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const paymentMethods = [{
+    icon: Bitcoin,
+    title: t('paymentMethods.crypto.title'),
+    subtitle: t('paymentMethods.crypto.subtitle'),
+    features: [t('paymentMethods.crypto.feature1'), t('paymentMethods.crypto.feature2'), t('paymentMethods.crypto.feature3')]
+  }, {
+    icon: Banknote,
+    title: t('paymentMethods.cash.title'),
+    subtitle: t('paymentMethods.cash.subtitle'),
+    features: [t('paymentMethods.cash.feature1'), t('paymentMethods.cash.feature2'), t('paymentMethods.cash.feature3')]
+  }];
+
+  const securityFeatures = [{
+    icon: Landmark,
+    title: t('paymentMethods.bankLevel.title'),
+    description: t('paymentMethods.bankLevel.description')
+  }, {
+    icon: ShieldCheck,
+    title: t('paymentMethods.dataProtection.title'),
+    description: t('paymentMethods.dataProtection.description')
+  }, {
+    icon: EyeOff,
+    title: t('paymentMethods.privacy.title'),
+    description: t('paymentMethods.privacy.description')
+  }];
 
   return <section className="py-32 bg-secondary/30 relative overflow-hidden">
       {/* Декоративный фон безопасности */}
@@ -41,13 +43,13 @@ const PaymentMethods = () => {
         <div className="text-center space-y-6 mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
             <Lock className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold tracking-widest uppercase text-primary">Защищённые платежи</span>
+            <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('paymentMethods.badge')}</span>
           </div>
           <h2 className="font-display font-black text-luxury-gradient luxury-text-shadow">
-            Безопасные способы оплаты
+            {t('paymentMethods.title')}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
-            Выберите предпочтительный способ оплаты для покупки элитной кошки
+            {t('paymentMethods.subtitle')}
           </p>
         </div>
 
@@ -77,8 +79,12 @@ const PaymentMethods = () => {
         </div>
 
         {/* Security Features */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {securityFeatures.map((feature, index) => <div key={index} className="text-center p-8 glass-card rounded-2xl animate-fade-in micro-interaction hover:scale-105 transition-all duration-500" style={{
+        <div className="space-y-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-display font-black mb-4 luxury-text-shadow">{t('paymentMethods.securityTitle')}</h3>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {securityFeatures.map((feature, index) => <div key={index} className="text-center p-8 glass-card rounded-2xl animate-fade-in micro-interaction hover:scale-105 transition-all duration-500" style={{
           animationDelay: `${(index + 2) * 100}ms`
         }}>
               <div className="inline-flex p-3 bg-primary/10 rounded-full mb-4">
@@ -87,6 +93,7 @@ const PaymentMethods = () => {
               <h4 className="mb-3 text-xl font-display font-bold luxury-text-shadow">{feature.title}</h4>
               <p className="text-muted-foreground text-sm font-light leading-relaxed">{feature.description}</p>
             </div>)}
+          </div>
         </div>
       </div>
     </section>;
