@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { CatDetailModal } from "@/components/CatDetailModal";
+import { useTranslation } from "react-i18next";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
@@ -32,6 +33,7 @@ const imageMap: Record<string, string> = {
   '/src/assets/savannah-kitten-1.jpg': kitten
 };
 const Catalog = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const breedFromUrl = searchParams.get('breed') || 'all';
@@ -96,13 +98,13 @@ const Catalog = () => {
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
                 <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold tracking-widest uppercase text-primary">Эксклюзивная коллекция</span>
+                <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('catalog.badge')}</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow">
-                Наши роскошные кошки
+                {t('catalog.title')}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                Откройте для себя идеального кошачьего друга из нашей эксклюзивной коллекции
+                {t('catalog.subtitle')}
               </p>
             </div>
           </div>
