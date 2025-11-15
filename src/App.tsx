@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import { useTranslations } from "./hooks/useTranslations";
+import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -32,6 +33,7 @@ const queryClient = new QueryClient();
 const App = () => {
   useSmoothScroll();
   useTranslations(); // Загружаем переводы из базы данных
+  useAutoTranslation(); // Автоматическая замена текста на переводы
   
   return (
     <QueryClientProvider client={queryClient}>
