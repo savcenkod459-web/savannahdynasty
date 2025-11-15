@@ -348,13 +348,235 @@
     "resendSuccessTitle": "验证码已重新发送",
     "resendSuccessDescription": "检查您的电子邮件以获取新验证码"
   },
-  "warranty": {},
-  "featuredCollection": {},
-  "paymentMethods": {},
-  "pricingSection": {},
-  "raritySection": {},
+  "warranty": {
+    "badge": "高级保护",
+    "title": "健康保证",
+    "subtitle": "您的安心是我们的优先事项。我们以全面的健康保证和终身支持为每只精英猫提供支持。",
+    "mainGuarantees": "全面健康保证",
+    "oneMonth": {
+      "title": "1个月健康保证",
+      "description": "全面覆盖遗传性和先天性疾病"
+    },
+    "lifeSupport": {
+      "title": "终身支持",
+      "description": "来自经验丰富的繁育者的持续咨询和协助"
+    },
+    "consultation": {
+      "title": "免费兽医咨询",
+      "description": "关于健康和营养问题的专业建议"
+    },
+    "healthCertificate": "健康证书",
+    "healthCertificateDesc": "每只猫都配有全面的医疗证书",
+    "healthIncluded": "包含内容：",
+    "healthCheck1": "完整的兽医检查",
+    "healthCheck2": "当前疫苗接种",
+    "healthCheck3": "基因检测",
+    "healthCheck4": "寄生虫检查",
+    "healthCheck5": "保证无健康问题",
+    "termsTitle": "保修条款",
+    "termsItem1": "购买后48小时内进行全面医学检查",
+    "termsItem2": "保修期内的全面兽医护理",
+    "termsItem3": "如发现遗传问题，可更换或退款",
+    "termsItem4": "防止基因缺陷和先天性疾病",
+    "termsItem5": "终身获得我们专家的建议",
+    "supportTitle": "我们的支持",
+    "supportItem1": "24/7紧急健康咨询",
+    "supportItem2": "持续的营养和护理协助",
+    "supportItem3": "行为和训练帮助",
+    "supportItem4": "精英猫主社区",
+    "protectionTitle": "投资保护",
+    "protectionDesc": "您对精英猫的投资受到我们全面保证的保护。我们在猫的一生中支持它们的健康和福祉。",
+    "protectionFeature1": "健康认证",
+    "protectionFeature1Desc": "完整的医疗文件和认证",
+    "protectionFeature2": "投资保护",
+    "protectionFeature2Desc": "对健康问题的财务保护",
+    "protectionFeature3": "专家指导",
+    "protectionFeature3Desc": "来自繁育者和兽医的持续咨询",
+    "contactTitle": "有疑问吗？",
+    "contactDesc": "联系我们以获取有关我们保证的更多信息",
+    "emailCopied": "电子邮件已复制！",
+    "emailCopiedDesc": "savannahdynastyofficial@gmail.com已复制到剪贴板"
+  },
+  "featuredCollection": {
+    "badge": "独家",
+    "title": "我们的豪华收藏",
+    "subtitle": "体验我们精心挑选的精英猫的优雅和美丽",
+    "viewAll": "查看完整收藏",
+    "viewDetails": "查看详情",
+    "available": "可用",
+    "reserved": "已预订",
+    "gallery": "画廊"
+  },
+  "paymentMethods": {
+    "title": "安全支付方式",
+    "subtitle": "选择您喜欢的支付方式购买精英猫",
+    "badge": "安全支付",
+    "crypto": {
+      "title": "加密货币",
+      "subtitle": "USDT, TON, SOL, ETH",
+      "feature1": "匿名支付",
+      "feature2": "低手续费",
+      "feature3": "全球货币"
+    },
+    "cash": {
+      "title": "现金",
+      "subtitle": "快递送货",
+      "feature1": "货到付款",
+      "feature2": "个人转账",
+      "feature3": "国际配送"
+    },
+    "securityTitle": "您的支付安全",
+    "bankLevel": {
+      "title": "银行级安全",
+      "description": "256位SSL加密保护所有交易"
+    },
+    "dataProtection": {
+      "title": "数据保护",
+      "description": "卡数据永远不会存储在我们的服务器上"
+    },
+    "privacy": {
+      "title": "隐私",
+      "description": "您的个人数据安全受到保护，永远不会与第三方共享"
+    }
+  },
+  "pricingSection": {
+    "badge": "定价",
+    "title": "价格信息",
+    "subtitle": "当涉及到萨凡纳品种时，价格不仅仅是一个数字。它反映了每只猫的独特性、起源和独特性。",
+    "generationTitle": "⚜️ 代数很重要",
+    "f1": {
+      "title": "Savannah F1",
+      "description": "第一代，是薮猫和家猫直接杂交的后代。野性和与薮猫相似度的最高水平。",
+      "price": "🐾 价格：10,000至25,000欧元",
+      "priceNote": "稀有颜色的猫有时会达到35,000+欧元",
+      "note": "F1是地位、收藏价值和活生生的独特性"
+    },
+    "f2": {
+      "title": "Savannah F2",
+      "description": "第二代。薮猫的比例较小，但异国情调的外观仍然明显。",
+      "price": "💎 价格：6,000至15,000欧元",
+      "note": "更实惠的价格，同时保持令人印象深刻的外观"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "description": "第三和第四代。更温顺，但保留异国情调的外观。",
+      "price": "✨ 价格：2,000至6,000欧元",
+      "note": "外观和性格之间的完美平衡，适合家庭饲养"
+    },
+    "f5plus": {
+      "title": "Savannah F5+",
+      "description": "更远的世代。性格上更接近家猫，但保留部分异国情调的外观。",
+      "price": "🌟 价格：1,500至3,000欧元",
+      "note": "更实惠的选择，同时保持品种美感"
+    },
+    "factorsTitle": "💰 影响价格的因素",
+    "factor1": {
+      "title": "颜色和图案",
+      "description": "稀有颜色（雪色、银色、黑色素）比标准斑点颜色贵得多"
+    },
+    "factor2": {
+      "title": "尺寸和体型",
+      "description": "萨凡纳越大，其野生特征（大耳朵、长腿）越明显，价格就越高"
+    },
+    "factor3": {
+      "title": "性别",
+      "description": "雌性F1-F3通常更贵，因为它们可以繁殖，而雄性通常是不育的"
+    },
+    "factor4": {
+      "title": "血统和猫舍",
+      "description": "来自获奖父母和知名猫舍的小猫价格要高得多"
+    },
+    "factor5": {
+      "title": "年龄",
+      "description": "小猫比成年猫贵。3-6个月大的小猫需求最高"
+    },
+    "valueTitle": "✨ 这不仅仅是购买 - 这是一项投资",
+    "valueDesc": "萨凡纳不是宠物。它是情感、独特性和活生生的地位。价格反映了独特性、稀有性和繁殖成本。购买萨凡纳是对一个伴侣的投资，它将永远陪伴您，成为您故事的一部分。"
+  },
+  "raritySection": {
+    "badge": "独特性",
+    "title": "稀有性和独特性",
+    "subtitle": "萨凡纳 - 猫世界中最稀有的钻石",
+    "intro": "萨凡纳不仅仅是一只猫。它是野性优雅、智慧和真正地位的化身。这些猫是非洲薮猫和家猫独特杂交的结果，每只萨凡纳都是一件活生生的艺术品，由自然和基因精确度诞生。",
+    "rarity": {
+      "title": "💫 值得收藏家的稀有性",
+      "description": "萨凡纳是世界上最稀有和最昂贵的品种之一。由于复杂的繁殖过程和严格的质量标准，每年出生的小猫数量非常有限。这个品种的每个代表实际上都是一个单一的标本，成为萨凡纳主人之一是一种特权，只有少数人可以享受。"
+    },
+    "beauty": {
+      "title": "🌟 每一个动作都是野性之美",
+      "description": "萨凡纳看起来就像刚从非洲大草原走出来一样。大、肌肉发达、有斑点的皮毛和令人难以置信的表情丰富的眼睛。它的优雅和移动方式令人着迷 - 这是真正的掠食性优雅，封装在家养宠物的身体中。"
+    },
+    "intelligence": {
+      "title": "🧠 超出任何期望的智慧",
+      "description": "萨凡纳是最聪明的猫品种之一。它很容易学习命令，习惯了牵引绳，甚至可以玩取物游戏。这些猫喜欢水，可以打开门和抽屉，它们的好奇心和机智超过了几乎任何家养品种。"
+    },
+    "character": {
+      "title": "💎 独特的性格",
+      "description": "萨凡纳不是典型的独立猫。它非常社交、忠诚，像狗一样依附于主人。这些猫活跃、好玩，需要持续的关注。有了萨凡纳，生活变得更加充满活力和光明。"
+    },
+    "status": {
+      "title": "👑 地位的象征",
+      "description": "萨凡纳不仅仅是宠物，它是成功的象征。这个品种只对那些愿意投资于独特动物的人开放。拥有萨凡纳强调品味、地位和对不寻常事物的热爱。"
+    },
+    "companion": {
+      "title": "🌍 终身伴侣",
+      "description": "萨凡纳不仅仅是一只会住在附近的猫。它是一个真正的朋友，会迎接你、玩耍、交流并每天让你开心。与萨凡纳的联系是独特的 - 这是伙伴关系和真正友谊层面的关系。"
+    }
+  },
   "admin": {
-    "cats": {},
-    "messages": {}
+    "cats": {
+      "title": "猫管理",
+      "addNew": "添加新猫",
+      "name": "名称",
+      "breed": "品种",
+      "age": "年龄",
+      "gender": "性别",
+      "price": "价格（欧元）",
+      "description": "描述",
+      "traits": "特征",
+      "traitsPlaceholder": "聪明、好玩、忠诚",
+      "mainImage": "主图",
+      "additionalImages": "附加图片",
+      "video": "视频（URL）",
+      "uploadImage": "上传图片",
+      "uploading": "上传中...",
+      "create": "创建猫",
+      "creating": "创建中...",
+      "save": "保存更改",
+      "saving": "保存中...",
+      "delete": "删除",
+      "deletePedigree": "删除血统",
+      "confirmDelete": "您确定吗？",
+      "male": "雄性",
+      "female": "雌性",
+      "kitten": "小猫",
+      "young": "年轻",
+      "adult": "成年",
+      "accessDenied": "访问被拒绝。您没有管理员权限",
+      "created": "猫创建成功",
+      "updated": "猫更新成功",
+      "deleted": "猫删除成功",
+      "imageUploaded": "图片上传成功",
+      "pedigreeDeleted": "血统已删除"
+    },
+    "messages": {
+      "title": "客户消息",
+      "all": "全部",
+      "unread": "未读",
+      "read": "已读",
+      "search": "搜索消息...",
+      "from": "来自：",
+      "markRead": "标记为已读",
+      "markUnread": "标记为未读",
+      "delete": "删除",
+      "noMessages": "还没有消息",
+      "noUnread": "没有未读消息",
+      "noRead": "没有已读消息",
+      "accessDenied": "访问被拒绝",
+      "accessDeniedDesc": "您没有管理员权限",
+      "updated": "消息已更新",
+      "deleted": "消息已删除",
+      "error": "错误"
+    }
   }
 }
