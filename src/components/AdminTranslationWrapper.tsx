@@ -31,6 +31,7 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
     let isSelecting = false;
     let startX = 0;
     let startY = 0;
+    let selectionTimeout: NodeJS.Timeout | null = null;
 
     const handleMouseDown = (e: MouseEvent) => {
       startX = e.clientX;
@@ -39,7 +40,6 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Если мышь сдвинулась с нажатой кнопкой более чем на 3 пикселя, это выделение
       if (e.buttons === 1) {
         const deltaX = Math.abs(e.clientX - startX);
         const deltaY = Math.abs(e.clientY - startY);
@@ -50,7 +50,6 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
     };
 
     const handleClick = (e: MouseEvent) => {
-      // Блокируем клики по ссылкам/кнопкам только если был процесс выделения
       if (isSelecting) {
         e.preventDefault();
         e.stopPropagation();
@@ -58,23 +57,20 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
       }
     };
 
-    const handleTextSelection = (e: MouseEvent) => {
-      // Проверяем, был ли клик внутри меню перевода
-      if (menuRef.current && menuRef.current.contains(e.target as Node)) {
+    const checkSelection = () => {
+      if (menuRef.current && document.activeElement && menuRef.current.contains(document.activeElement)) {
         return;
       }
 
-      // Небольшая задержка для корректного получения выделения
-      setTimeout(() => {
-        const selection = window.getSelection();
-        const text = selection?.toString().trim();
+      const selection = window.getSelection();
+      const text = selection?.toString().trim();
 
-        if (text && text.length > 0) {
+      if (text && text.length > 0) {
+        try {
           const range = selection?.getRangeAt(0);
           const rect = range?.getBoundingClientRect();
 
-          if (rect) {
-            // Вычисляем позицию меню с учетом прокрутки
+          if (rect && rect.width > 0 && rect.height > 0) {
             const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
             const scrollY = window.pageYOffset || document.documentElement.scrollTop;
             
@@ -85,28 +81,60 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
             });
             setShowMenu(true);
           }
-        } else if (!menuRef.current?.contains(e.target as Node)) {
-          setShowMenu(false);
+        } catch (e) {
+          console.log('Selection error:', e);
         }
-      }, 10);
+      }
+    };
 
-      // Сбрасываем флаг выделения после небольшой задержки
-      setTimeout(() => {
-        isSelecting = false;
+    const handleSelectionChange = () => {
+      if (selectionTimeout) {
+        clearTimeout(selectionTimeout);
+      }
+      
+      selectionTimeout = setTimeout(() => {
+        checkSelection();
       }, 100);
     };
 
-    // Добавляем все слушатели с capture: true для перехвата событий
+    const handleMouseUp = (e: MouseEvent) => {
+      if (menuRef.current && menuRef.current.contains(e.target as Node)) {
+        return;
+      }
+
+      setTimeout(() => {
+        checkSelection();
+        isSelecting = false;
+      }, 50);
+    };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        const selection = window.getSelection();
+        const text = selection?.toString().trim();
+        if (!text || text.length === 0) {
+          setShowMenu(false);
+        }
+      }
+    };
+
     document.addEventListener('mousedown', handleMouseDown, true);
     document.addEventListener('mousemove', handleMouseMove, true);
     document.addEventListener('click', handleClick, true);
-    document.addEventListener('mouseup', handleTextSelection, true);
+    document.addEventListener('mouseup', handleMouseUp, true);
+    document.addEventListener('selectionchange', handleSelectionChange);
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
+      if (selectionTimeout) {
+        clearTimeout(selectionTimeout);
+      }
       document.removeEventListener('mousedown', handleMouseDown, true);
       document.removeEventListener('mousemove', handleMouseMove, true);
       document.removeEventListener('click', handleClick, true);
-      document.removeEventListener('mouseup', handleTextSelection, true);
+      document.removeEventListener('mouseup', handleMouseUp, true);
+      document.removeEventListener('selectionchange', handleSelectionChange);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isAdmin]);
 
