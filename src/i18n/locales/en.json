@@ -353,5 +353,236 @@
     "successDescription": "You can now login with your new password",
     "resendSuccessTitle": "Code resent",
     "resendSuccessDescription": "Check your email for the new code"
+  },
+  "warranty": {
+    "badge": "Premium Protection",
+    "title": "Health Guarantee",
+    "subtitle": "Your peace of mind is our priority. We support every elite cat with comprehensive health guarantees and lifetime support.",
+    "mainGuarantees": "Comprehensive Health Guarantee",
+    "oneMonth": {
+      "title": "1 Month Health Guarantee",
+      "description": "Full coverage of hereditary and congenital diseases"
+    },
+    "lifeSupport": {
+      "title": "Lifetime Support",
+      "description": "Ongoing consultation and assistance from experienced breeders"
+    },
+    "consultation": {
+      "title": "Free Veterinary Consultation",
+      "description": "Professional recommendations on health and nutrition issues"
+    },
+    "healthCertificate": "Health Certificate",
+    "healthCertificateDesc": "Each cat comes with a comprehensive medical certificate",
+    "healthIncluded": "What's included:",
+    "healthCheck1": "Complete veterinary examination",
+    "healthCheck2": "Current vaccinations",
+    "healthCheck3": "Genetic testing",
+    "healthCheck4": "Parasite check",
+    "healthCheck5": "Guarantee of no health problems",
+    "termsTitle": "Warranty Terms",
+    "termsItem1": "Complete medical examination within 48 hours of purchase",
+    "termsItem2": "Comprehensive veterinary care during the warranty period",
+    "termsItem3": "Replacement or refund if hereditary problems are detected",
+    "termsItem4": "Protection from genetic defects and congenital diseases",
+    "termsItem5": "Lifetime access to advice from our experts",
+    "supportTitle": "Our Support",
+    "supportItem1": "24/7 emergency health consultation",
+    "supportItem2": "Ongoing nutrition and care assistance",
+    "supportItem3": "Behavior and training help",
+    "supportItem4": "Elite cat owners community",
+    "protectionTitle": "Investment Protection",
+    "protectionDesc": "Your investment in an elite cat is protected by our comprehensive guarantees. We support the health and well-being of our cats throughout their lives.",
+    "protectionFeature1": "Health Certification",
+    "protectionFeature1Desc": "Complete medical documentation and certification",
+    "protectionFeature2": "Investment Protection",
+    "protectionFeature2Desc": "Financial protection from health problems",
+    "protectionFeature3": "Expert Guidance",
+    "protectionFeature3Desc": "Ongoing consultation from breeders and veterinarians",
+    "contactTitle": "Have questions?",
+    "contactDesc": "Contact us for more information about our guarantees",
+    "emailCopied": "Email copied!",
+    "emailCopiedDesc": "savannahdynastyofficial@gmail.com copied to clipboard"
+  },
+  "featuredCollection": {
+    "badge": "Exclusive",
+    "title": "Our Luxury Collection",
+    "subtitle": "Experience the elegance and beauty of our carefully selected elite cats",
+    "viewAll": "View Full Collection",
+    "viewDetails": "View Details",
+    "available": "Available",
+    "reserved": "Reserved",
+    "gallery": "Gallery"
+  },
+  "paymentMethods": {
+    "title": "Secure Payment Methods",
+    "subtitle": "Choose your preferred payment method to purchase an elite cat",
+    "badge": "Secure Payments",
+    "crypto": {
+      "title": "Cryptocurrency",
+      "subtitle": "USDT, TON, SOL, ETH",
+      "feature1": "Anonymous payment",
+      "feature2": "Low fees",
+      "feature3": "Global currency"
+    },
+    "cash": {
+      "title": "Cash",
+      "subtitle": "Courier delivery",
+      "feature1": "Payment on delivery",
+      "feature2": "Personal transfer",
+      "feature3": "International delivery"
+    },
+    "securityTitle": "Your Payment Security",
+    "bankLevel": {
+      "title": "Bank-level security",
+      "description": "256-bit SSL encryption protects all transactions"
+    },
+    "dataProtection": {
+      "title": "Data Protection",
+      "description": "Card data is never stored on our servers"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "description": "Your personal data is securely protected and never shared with third parties"
+    }
+  },
+  "pricingSection": {
+    "badge": "PRICING",
+    "title": "Price Information",
+    "subtitle": "When it comes to the Savannah breed, price is not just a number. It is a reflection of exclusivity, origin and uniqueness of each cat.",
+    "generationTitle": "⚜️ Generation matters",
+    "f1": {
+      "title": "Savannah F1",
+      "description": "First generation, descendant of direct crossing of serval and domestic cat. Maximum level of wildness and similarity to serval.",
+      "price": "🐾 Price: from 10,000 to 25,000 EUR",
+      "priceNote": "Sometimes reaches 35,000+ EUR for rare color cats",
+      "note": "F1 is status, collectibility and living exclusivity"
+    },
+    "f2": {
+      "title": "Savannah F2",
+      "description": "Second generation. Serval share is smaller, but exotic appearance is still pronounced.",
+      "price": "💎 Price: from 6,000 to 15,000 EUR",
+      "note": "More affordable price while maintaining impressive appearance"
+    },
+    "f3f4": {
+      "title": "Savannah F3-F4",
+      "description": "Third and fourth generations. More docile, but retain exotic appearance.",
+      "price": "✨ Price: from 2,000 to 6,000 EUR",
+      "note": "Great balance between appearance and character for home keeping"
+    },
+    "f5plus": {
+      "title": "Savannah F5+",
+      "description": "Distant generations. Closer in character to domestic cat, but retain part of exotic appearance.",
+      "price": "🌟 Price: from 1,500 to 3,000 EUR",
+      "note": "More affordable option while maintaining breed beauty"
+    },
+    "factorsTitle": "💰 Factors affecting price",
+    "factor1": {
+      "title": "Color and pattern",
+      "description": "Rare colors (snow, silver, melanistic) are significantly more expensive than standard spotted colors"
+    },
+    "factor2": {
+      "title": "Size and build",
+      "description": "The larger the Savannah and the more pronounced its wild features (big ears, long legs), the higher the price"
+    },
+    "factor3": {
+      "title": "Gender",
+      "description": "Females F1-F3 are usually more expensive as they can reproduce, while males are often sterile"
+    },
+    "factor4": {
+      "title": "Pedigree and cattery",
+      "description": "Kittens from titled parents and famous catteries cost significantly more"
+    },
+    "factor5": {
+      "title": "Age",
+      "description": "Kittens are more expensive than adult cats. Highest demand for kittens aged 3-6 months"
+    },
+    "valueTitle": "✨ It's not just a purchase - it's an investment",
+    "valueDesc": "Savannah is not a pet. It's emotions, uniqueness and living status. The price reflects exclusivity, rarity and breeding costs. Acquiring a Savannah is an investment in a companion who will remain with you forever as part of your story."
+  },
+  "raritySection": {
+    "badge": "EXCLUSIVITY",
+    "title": "Rarity and Uniqueness",
+    "subtitle": "Savannah - the rarest diamond in the cat world",
+    "intro": "Savannah is not just a cat. It is an embodiment of wild grace, intelligence and true status. These cats are the result of unique crossing of African serval and domestic cat, and each Savannah is a living work of art, born by nature and genetic precision.",
+    "rarity": {
+      "title": "💫 Rarity worthy of collectors",
+      "description": "Savannah is one of the rarest and most expensive breeds in the world. Due to complex breeding process and strict quality standards, a very limited number of kittens are born per year. Each representative of this breed is literally a single specimen, and being among Savannah owners is a privilege available to few."
+    },
+    "beauty": {
+      "title": "🌟 Wild beauty in every movement",
+      "description": "Savannah looks as if it just came out of the African savannah. Large, muscular, with spotted coat and incredibly expressive eyes. Its grace and manner of movement fascinate - this is real predatory elegance enclosed in the body of a domestic pet."
+    },
+    "intelligence": {
+      "title": "🧠 Intelligence beyond any expectations",
+      "description": "Savannah is one of the smartest cat breeds. It easily learns commands, gets used to a leash and can even play fetch. These cats love water, can open doors and drawers, and their curiosity and ingenuity exceed almost any domestic breed."
+    },
+    "character": {
+      "title": "💎 Unique character",
+      "description": "Savannah is not a typical independent cat. It is extremely social, loyal and attached to its owner like a dog. These cats are active, playful and require constant attention. With Savannah, life becomes more dynamic and brighter."
+    },
+    "status": {
+      "title": "👑 Status symbol",
+      "description": "Savannah is not just a pet, it is a symbol of success. This breed is available only to those who are ready to invest in a unique animal. Owning a Savannah emphasizes taste, status and love for the unusual."
+    },
+    "companion": {
+      "title": "🌍 Companion for life",
+      "description": "Savannah is not just a cat that will live nearby. It is a true friend who will greet you, play, communicate and delight every day. The bond with Savannah is unique - it is a relationship at the level of partnership and true friendship."
+    }
+  },
+  "admin": {
+    "cats": {
+      "title": "Cat Management",
+      "addNew": "Add New Cat",
+      "name": "Name",
+      "breed": "Breed",
+      "age": "Age",
+      "gender": "Gender",
+      "price": "Price (EUR)",
+      "description": "Description",
+      "traits": "Traits",
+      "traitsPlaceholder": "Smart, Playful, Loyal",
+      "mainImage": "Main Image",
+      "additionalImages": "Additional Images",
+      "video": "Video (URL)",
+      "uploadImage": "Upload Image",
+      "uploading": "Uploading...",
+      "create": "Create Cat",
+      "creating": "Creating...",
+      "save": "Save Changes",
+      "saving": "Saving...",
+      "delete": "Delete",
+      "deletePedigree": "Delete Pedigree",
+      "confirmDelete": "Are you sure?",
+      "male": "Male",
+      "female": "Female",
+      "kitten": "Kitten",
+      "young": "Young",
+      "adult": "Adult",
+      "accessDenied": "Access denied. You don't have admin rights",
+      "created": "Cat successfully created",
+      "updated": "Cat successfully updated",
+      "deleted": "Cat successfully deleted",
+      "imageUploaded": "Image uploaded successfully",
+      "pedigreeDeleted": "Pedigree deleted"
+    },
+    "messages": {
+      "title": "Customer Messages",
+      "all": "All",
+      "unread": "Unread",
+      "read": "Read",
+      "search": "Search messages...",
+      "from": "From:",
+      "markRead": "Mark as read",
+      "markUnread": "Mark as unread",
+      "delete": "Delete",
+      "noMessages": "No messages yet",
+      "noUnread": "No unread messages",
+      "noRead": "No read messages",
+      "accessDenied": "Access denied",
+      "accessDeniedDesc": "You don't have admin rights",
+      "updated": "Message updated",
+      "deleted": "Message deleted",
+      "error": "Error"
+    }
   }
 }
