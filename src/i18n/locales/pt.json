@@ -353,5 +353,14 @@
     "successDescription": "Agora você pode fazer login com sua nova senha",
     "resendSuccessTitle": "Código reenviado",
     "resendSuccessDescription": "Verifique seu e-mail para o novo código"
+  },
+  "warranty": {},
+  "featuredCollection": {},
+  "paymentMethods": {},
+  "pricingSection": {},
+  "raritySection": {},
+  "admin": {
+    "cats": {},
+    "messages": {}
   }
 }
