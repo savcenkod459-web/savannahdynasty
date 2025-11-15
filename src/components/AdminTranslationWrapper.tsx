@@ -29,29 +29,32 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
     if (!isAdmin) return;
 
     let isSelecting = false;
-    let mouseDownTarget: EventTarget | null = null;
+    let startX = 0;
+    let startY = 0;
 
     const handleMouseDown = (e: MouseEvent) => {
-      mouseDownTarget = e.target;
+      startX = e.clientX;
+      startY = e.clientY;
       isSelecting = false;
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Если мышь движется с нажатой кнопкой, это выделение текста
+      // Если мышь сдвинулась с нажатой кнопкой более чем на 3 пикселя, это выделение
       if (e.buttons === 1) {
-        isSelecting = true;
+        const deltaX = Math.abs(e.clientX - startX);
+        const deltaY = Math.abs(e.clientY - startY);
+        if (deltaX > 3 || deltaY > 3) {
+          isSelecting = true;
+        }
       }
     };
 
     const handleClick = (e: MouseEvent) => {
-      // Если был процесс выделения, отменяем клик по ссылкам/кнопкам
+      // Блокируем клики по ссылкам/кнопкам только если был процесс выделения
       if (isSelecting) {
-        const selection = window.getSelection();
-        const text = selection?.toString().trim();
-        if (text && text.length > 0) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
       }
     };
 
@@ -61,30 +64,39 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
         return;
       }
 
-      const selection = window.getSelection();
-      const text = selection?.toString().trim();
+      // Небольшая задержка для корректного получения выделения
+      setTimeout(() => {
+        const selection = window.getSelection();
+        const text = selection?.toString().trim();
 
-      if (text && text.length > 0) {
-        const range = selection?.getRangeAt(0);
-        const rect = range?.getBoundingClientRect();
+        if (text && text.length > 0) {
+          const range = selection?.getRangeAt(0);
+          const rect = range?.getBoundingClientRect();
 
-        if (rect) {
-          setSelectedText(text);
-          setMenuPosition({
-            x: rect.left + window.scrollX,
-            y: rect.bottom + window.scrollY + 10
-          });
-          setShowMenu(true);
+          if (rect) {
+            // Вычисляем позицию меню с учетом прокрутки
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            setSelectedText(text);
+            setMenuPosition({
+              x: rect.left + scrollX,
+              y: rect.bottom + scrollY + 10
+            });
+            setShowMenu(true);
+          }
+        } else if (!menuRef.current?.contains(e.target as Node)) {
+          setShowMenu(false);
         }
-      } else if (!menuRef.current?.contains(e.target as Node)) {
-        setShowMenu(false);
-      }
+      }, 10);
 
-      // Сбрасываем флаг выделения
-      isSelecting = false;
+      // Сбрасываем флаг выделения после небольшой задержки
+      setTimeout(() => {
+        isSelecting = false;
+      }, 100);
     };
 
-    // Добавляем все слушатели
+    // Добавляем все слушатели с capture: true для перехвата событий
     document.addEventListener('mousedown', handleMouseDown, true);
     document.addEventListener('mousemove', handleMouseMove, true);
     document.addEventListener('click', handleClick, true);

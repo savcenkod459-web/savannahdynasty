@@ -171,7 +171,8 @@ export const TranslationSelectionMenu = ({
   if (showEditDialog) {
     return (
       <div 
-        className="fixed inset-0 bg-black/50 flex items-center justify-center z-[99999] p-4"
+        className="fixed inset-0 bg-black/50 flex items-center justify-center p-4"
+        style={{ zIndex: 2147483647 }}
         onClick={(e) => {
           if (e.target === e.currentTarget) {
             setShowEditDialog(false);
@@ -242,11 +243,12 @@ export const TranslationSelectionMenu = ({
 
   return (
     <Card
-      className="fixed z-[99999] shadow-2xl border-2 border-primary/20 bg-background/95 backdrop-blur-sm"
+      className="fixed shadow-2xl border-2 border-primary/20 bg-background/95 backdrop-blur-sm"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
-        maxWidth: '400px'
+        maxWidth: '400px',
+        zIndex: 2147483647
       }}
       onClick={(e) => e.stopPropagation()}
       onMouseDown={(e) => e.stopPropagation()}

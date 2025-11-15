@@ -192,7 +192,7 @@ All colors MUST be HSL.
     text-shadow: 0 2px 20px hsl(43 96% 56% / 0.15);
   }
   
-  /* Разрешаем выделение текста для админов везде */
+  /* Глобальное разрешение выделения текста для админов */
   .admin-text-selection-enabled * {
     user-select: text !important;
     -webkit-user-select: text !important;
@@ -200,20 +200,32 @@ All colors MUST be HSL.
     -ms-user-select: text !important;
   }
   
-  /* Отключаем на полях ввода для корректной работы */
-  .admin-text-selection-enabled input:not([readonly]),
-  .admin-text-selection-enabled textarea:not([readonly]),
-  .admin-text-selection-enabled select {
-    user-select: auto !important;
-    -webkit-user-select: auto !important;
-    -moz-user-select: auto !important;
-    -ms-user-select: auto !important;
-  }
-  
-  /* Отключаем pointer-events на ссылках и кнопках во время выделения */
+  /* Особые правила для кнопок и ссылок */
+  .admin-text-selection-enabled button,
   .admin-text-selection-enabled a,
-  .admin-text-selection-enabled button {
-    pointer-events: auto !important;
+  .admin-text-selection-enabled [role="button"] {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    cursor: text !important;
+  }
+
+  /* Текст внутри кнопок и ссылок также должен выделяться */
+  .admin-text-selection-enabled button *,
+  .admin-text-selection-enabled a *,
+  .admin-text-selection-enabled [role="button"] * {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    cursor: text !important;
+    pointer-events: none !important;
+  }
+
+  /* Разрешаем выделение на полях ввода */
+  .admin-text-selection-enabled input,
+  .admin-text-selection-enabled textarea,
+  .admin-text-selection-enabled select {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    cursor: text !important;
   }
 }
 
