@@ -170,8 +170,19 @@ export const TranslationSelectionMenu = ({
 
   if (showEditDialog) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999] p-4">
-        <Card className="w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 space-y-4">
+      <div 
+        className="fixed inset-0 bg-black/50 flex items-center justify-center z-[99999] p-4"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            setShowEditDialog(false);
+          }
+        }}
+      >
+        <Card 
+          className="w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 space-y-4"
+          onClick={(e) => e.stopPropagation()}
+          onMouseDown={(e) => e.stopPropagation()}
+        >
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold">Редактировать переводы</h3>
             <Button variant="ghost" size="icon" onClick={() => setShowEditDialog(false)}>
@@ -231,12 +242,14 @@ export const TranslationSelectionMenu = ({
 
   return (
     <Card
-      className="fixed z-[9999] shadow-lg border-2 border-primary/20"
+      className="fixed z-[99999] shadow-2xl border-2 border-primary/20 bg-background/95 backdrop-blur-sm"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
         maxWidth: '400px'
       }}
+      onClick={(e) => e.stopPropagation()}
+      onMouseDown={(e) => e.stopPropagation()}
     >
       <div className="p-4 space-y-3">
         <div className="flex justify-between items-start">
