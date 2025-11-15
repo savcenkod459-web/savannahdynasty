@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect, ReactNode, useRef } from 'react';
 import { useAdminRole } from '@/hooks/useAdminRole';
 import { TranslationSelectionMenu } from './TranslationSelectionMenu';
 
@@ -11,11 +11,17 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
   const [selectedText, setSelectedText] = useState('');
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isAdmin) return;
 
-    const handleTextSelection = () => {
+    const handleTextSelection = (e: MouseEvent) => {
+      // Проверяем, был ли клик внутри меню перевода
+      if (menuRef.current && menuRef.current.contains(e.target as Node)) {
+        return; // Игнорируем клики внутри меню
+      }
+
       const selection = window.getSelection();
       const text = selection?.toString().trim();
 
@@ -31,7 +37,8 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
           });
           setShowMenu(true);
         }
-      } else {
+      } else if (!menuRef.current?.contains(e.target as Node)) {
+        // Закрываем меню только если клик был вне меню
         setShowMenu(false);
       }
     };
@@ -42,7 +49,7 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
     return () => {
       document.removeEventListener('mouseup', handleTextSelection);
     };
-  }, [isAdmin]);
+  }, [isAdmin, showMenu]);
 
   const handleCloseMenu = () => {
     setShowMenu(false);
@@ -61,11 +68,13 @@ export const AdminTranslationWrapper = ({ children }: AdminTranslationWrapperPro
     <>
       {children}
       {isAdmin && showMenu && (
-        <TranslationSelectionMenu
-          selectedText={selectedText}
-          position={menuPosition}
-          onClose={handleCloseMenu}
-        />
+        <div ref={menuRef}>
+          <TranslationSelectionMenu
+            selectedText={selectedText}
+            position={menuPosition}
+            onClose={handleCloseMenu}
+          />
+        </div>
       )}
     </>
   );
