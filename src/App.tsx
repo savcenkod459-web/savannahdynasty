@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -31,9 +32,20 @@ import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 const queryClient = new QueryClient();
 
 const App = () => {
+  const [isContentVisible, setIsContentVisible] = useState(false);
+  
   useSmoothScroll();
   useTranslations(); // Загружаем переводы из базы данных
   useAutoTranslation(); // Автоматическая замена текста на переводы
+
+  useEffect(() => {
+    // Wait for preloader to finish (2000ms) + small delay
+    const timer = setTimeout(() => {
+      setIsContentVisible(true);
+    }, 2100);
+
+    return () => clearTimeout(timer);
+  }, []);
   
   return (
     <QueryClientProvider client={queryClient}>
@@ -43,7 +55,12 @@ const App = () => {
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>
-          <Routes>
+          <div 
+            className={`transition-opacity duration-1000 ${
+              isContentVisible ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/catalog" element={<Catalog />} />
@@ -64,7 +81,8 @@ const App = () => {
           <Route path="/admin/translations" element={<AdminTranslations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-          </Routes>
+            </Routes>
+          </div>
         </AdminTranslationWrapper>
       </BrowserRouter>
     </TooltipProvider>

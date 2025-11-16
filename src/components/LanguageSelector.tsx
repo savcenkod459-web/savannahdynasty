@@ -27,6 +27,10 @@ const LanguageSelector = () => {
   
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
+    // Reload page to show preloader and apply new language
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   return (
