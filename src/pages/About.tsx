@@ -250,7 +250,7 @@ const About = () => {
                       <Award className="w-8 h-8 text-primary animate-pulse" />
                     </div>
                     <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light flex-1">
-                      Саванна — это не просто кошка. Это <span className="text-foreground font-bold">воплощение дикой грации, интеллекта и настоящего статуса</span>. Эти кошки — результат уникального скрещивания африканского сервала и домашней кошки, и каждая Саванна — это живое произведение искусства, рождённое природой и генной точностью.
+                      {t('about.savannah_description')}
                     </p>
                   </div>
                 </div>
@@ -391,7 +391,7 @@ const About = () => {
                         </span>
                       </div>
                       <p className="text-muted-foreground font-light">
-                        Иногда доходит до <span className="text-foreground font-bold">35 000+ EUR</span> за кошек редкого окраса
+                        {t('about.rare_price_note')}
                       </p>
                     </div>
                     <div className="space-y-3">
@@ -493,7 +493,7 @@ const About = () => {
                   Саванна не просто стоит дорого — она стоит настолько, насколько стоит редкость, невозможность подделки и настоящая природная роскошь.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                  Это не покупка, а <span className="text-foreground font-bold text-luxury-gradient">инвестиция в исключительность</span>. Владельцы Саванн — люди, которые выбирают лучшее не ради цены, а ради того, что ценится по-настоящему.
+                  {t('about.investment_description')}
                 </p>
               </div>
             </div>
