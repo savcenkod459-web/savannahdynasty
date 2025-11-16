@@ -66,10 +66,10 @@ const About = () => {
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
                 <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold tracking-widest uppercase text-primary">Элитные породы</span>
+                <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('about.badge')}</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow">
-                О наших роскошных кошках
+                {t('about.title')}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
                 Откройте для себя мир премиальных кошачьих компаньонов. Наши кошки представляют 

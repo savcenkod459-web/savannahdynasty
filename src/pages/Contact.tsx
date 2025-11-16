@@ -11,6 +11,7 @@ import { Mail, Clock, Instagram, Send, Crown, Sparkles, MessageCircle, Star } fr
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { User } from "@supabase/supabase-js";
+import { useTranslation } from "react-i18next";
 import {
   Dialog,
   DialogContent,
@@ -21,6 +22,7 @@ import {
 import SimpleCaptcha from "@/components/SimpleCaptcha";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -233,7 +235,7 @@ const Contact = () => {
                         id="name" 
                         value={formData.name} 
                         onChange={e => setFormData({ ...formData, name: e.target.value })} 
-                        placeholder="Ваше имя" 
+                        placeholder={t('contact.form.name_placeholder')} 
                         required 
                       />
                     </div>
@@ -245,7 +247,7 @@ const Contact = () => {
                         type="email" 
                         value={formData.email} 
                         onChange={e => setFormData({ ...formData, email: e.target.value })} 
-                        placeholder="your@email.com" 
+                        placeholder={t('contact.form.email_placeholder')} 
                         required 
                       />
                     </div>
@@ -257,7 +259,7 @@ const Contact = () => {
                         type="tel" 
                         value={formData.phone} 
                         onChange={e => setFormData({ ...formData, phone: e.target.value })} 
-                        placeholder="+" 
+                        placeholder={t('contact.form.phone_placeholder')} 
                       />
                     </div>
                     
@@ -267,7 +269,7 @@ const Contact = () => {
                         id="message" 
                         value={formData.message} 
                         onChange={e => setFormData({ ...formData, message: e.target.value })} 
-                        placeholder="Расскажите нам о том, что вас интересует..." 
+                        placeholder={t('contact.form.message_placeholder')} 
                         rows={6} 
                         required 
                       />
