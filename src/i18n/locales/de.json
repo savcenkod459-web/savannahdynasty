@@ -174,17 +174,27 @@
       }
     }
   },
+  "about": {
+    "badge": "Elite-Rassen",
+    "title": "Über unsere Luxuskatzen"
+  },
   "contact": {
+    "badge": "Kontakt aufnehmen",
     "title": "Kontaktieren Sie Uns",
     "subtitle": "Haben Sie Fragen? Wir sind hier, um zu helfen",
     "form": {
+      "title": "Senden Sie uns eine Nachricht",
       "name": "Name",
+      "name_placeholder": "Ihr Name",
       "namePlaceholder": "Ihr vollständiger Name",
       "email": "E-Mail",
+      "email_placeholder": "ihre@email.com",
       "emailPlaceholder": "ihre@email.de",
       "phone": "Telefon",
+      "phone_placeholder": "+49 30 12345678",
       "phonePlaceholder": "+49 30 12345678",
       "message": "Nachricht",
+      "message_placeholder": "Wie können wir Ihnen helfen?",
       "messagePlaceholder": "Wie können wir Ihnen helfen?",
       "submit": "Nachricht Senden",
       "sending": "Wird gesendet...",
@@ -262,6 +272,8 @@
     "subtitle": "Wählen Sie aus mehreren Zahlungsmethoden zum Kauf Ihrer Elite-Katze",
     "crypto": "Kryptowährung",
     "cash": "Barzahlung bei Lieferung",
+    "important": "Wichtig",
+    "crypto_note": "Nach der Überweisung von Kryptowährung kontaktieren Sie uns bitte und geben Sie den Transaktions-Hash zur Zahlungsbestätigung an.",
     "securityTitle": "Sicherheit",
     "securityDesc": "Militärische Verschlüsselung",
     "verifiedTitle": "Verifiziert",
