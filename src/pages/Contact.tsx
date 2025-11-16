@@ -203,14 +203,13 @@ const Contact = () => {
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
                 <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold tracking-widest uppercase text-primary">Свяжитесь с нами</span>
+                <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('contact.badge')}</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow">
-                Связаться
+                {t('contact.title')}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                Готовы приветствовать своего идеального кошачьего друга? Мы здесь, чтобы помочь вам 
-                найти элитную кошку, предназначенную для вашей семьи.
+                {t('contact.subtitle')}
               </p>
             </div>
           </div>
@@ -225,12 +224,12 @@ const Contact = () => {
                 <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant hover:shadow-[0_0_30px_rgba(217,179,112,0.3)] transition-all duration-500 group">
                   <div className="flex items-center gap-3 mb-8">
                     <Send className="w-6 w-6 text-primary" />
-                    <h2 className="font-display font-black text-3xl luxury-text-shadow">Отправить сообщение</h2>
+                    <h2 className="font-display font-black text-3xl luxury-text-shadow">{t('contact.form.title')}</h2>
                   </div>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Имя</Label>
+                      <Label htmlFor="name">{t('contact.form.name')}</Label>
                       <Input 
                         id="name" 
                         value={formData.name} 
@@ -241,35 +240,35 @@ const Contact = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">{t('contact.form.email')}</Label>
                       <Input 
                         id="email" 
                         type="email" 
                         value={formData.email} 
                         onChange={e => setFormData({ ...formData, email: e.target.value })} 
-                        placeholder={t('contact.form.email_placeholder')} 
+                        placeholder={t('contact.form.email_placeholder')}
                         required 
                       />
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Телефон</Label>
+                      <Label htmlFor="phone">{t('contact.form.phone')}</Label>
                       <Input 
                         id="phone" 
                         type="tel" 
                         value={formData.phone} 
                         onChange={e => setFormData({ ...formData, phone: e.target.value })} 
-                        placeholder={t('contact.form.phone_placeholder')} 
+                        placeholder={t('contact.form.phone_placeholder')}
                       />
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="message">Сообщение</Label>
+                      <Label htmlFor="message">{t('contact.form.message')}</Label>
                       <Textarea 
                         id="message" 
                         value={formData.message} 
                         onChange={e => setFormData({ ...formData, message: e.target.value })} 
-                        placeholder={t('contact.form.message_placeholder')} 
+                        placeholder={t('contact.form.message_placeholder')}
                         rows={6} 
                         required 
                       />
