@@ -375,6 +375,17 @@
     "emailCopied": "电子邮件已复制！",
     "emailCopiedDesc": "savannahdynastyofficial@gmail.com已复制到剪贴板"
   },
+  "catalog": {
+    "badge": "独家系列",
+    "title": "我们的豪华猫咪",
+    "subtitle": "从我们的独家系列中发现您完美的猫科伴侣",
+    "filters": "筛选",
+    "filterByBreed": "按品种筛选",
+    "allBreeds": "所有品种",
+    "viewDetails": "详情",
+    "gallery": "画廊",
+    "pedigree": "血统"
+  },
   "featuredCollection": {
     "badge": "独家",
     "title": "我们的豪华收藏",

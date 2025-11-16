@@ -381,6 +381,17 @@
     "emailCopied": "Email copied!",
     "emailCopiedDesc": "savannahdynastyofficial@gmail.com copied to clipboard"
   },
+  "catalog": {
+    "badge": "Exclusive Collection",
+    "title": "Our Luxury Cats",
+    "subtitle": "Discover your perfect feline companion from our exclusive collection",
+    "filters": "Filters",
+    "filterByBreed": "Filter by Breed",
+    "allBreeds": "All Breeds",
+    "viewDetails": "Details",
+    "gallery": "Gallery",
+    "pedigree": "Pedigree"
+  },
   "featuredCollection": {
     "badge": "Exclusive",
     "title": "Our Luxury Collection",
