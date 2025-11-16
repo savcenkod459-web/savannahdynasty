@@ -174,17 +174,27 @@
       }
     }
   },
+  "about": {
+    "badge": "السلالات النخبة",
+    "title": "عن قططنا الفاخرة"
+  },
   "contact": {
+    "badge": "تواصل معنا",
     "title": "اتصل بنا",
     "subtitle": "هل لديك أسئلة؟ نحن هنا للمساعدة",
     "form": {
+      "title": "أرسل لنا رسالة",
       "name": "الاسم",
+      "name_placeholder": "اسمك",
       "namePlaceholder": "اسمك الكامل",
       "email": "البريد الإلكتروني",
+      "email_placeholder": "your@email.com",
       "emailPlaceholder": "your@email.com",
       "phone": "الهاتف",
+      "phone_placeholder": "+966 55 123 4567",
       "phonePlaceholder": "+966 55 123 4567",
       "message": "الرسالة",
+      "message_placeholder": "كيف يمكننا مساعدتك؟",
       "messagePlaceholder": "كيف يمكننا مساعدتك؟",
       "submit": "إرسال الرسالة",
       "sending": "جاري الإرسال...",

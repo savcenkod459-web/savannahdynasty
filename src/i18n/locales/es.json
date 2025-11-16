@@ -179,11 +179,18 @@
       }
     }
   },
+  "about": {
+    "badge": "Razas de élite",
+    "title": "Acerca de nuestros gatos de lujo"
+  },
   "contact": {
+    "badge": "Contacto",
     "title": "Contáctenos",
     "subtitle": "¿Tiene preguntas? Estamos aquí para ayudar",
     "form": {
+      "title": "Envíanos un mensaje",
       "name": "Nombre",
+      "name_placeholder": "Su nombre",
       "namePlaceholder": "Su nombre completo",
       "email": "Email",
       "emailPlaceholder": "su@email.com",
@@ -267,6 +274,8 @@
     "subtitle": "Elija entre múltiples métodos de pago para comprar su gato de élite",
     "crypto": "Criptomoneda",
     "cash": "Pago Contra Entrega",
+    "important": "Importante",
+    "crypto_note": "Después de transferir criptomonedas, comuníquese con nosotros y proporcione el hash de la transacción para confirmar el pago.",
     "securityTitle": "Seguridad",
     "securityDesc": "Cifrado de grado militar",
     "verifiedTitle": "Verificado",

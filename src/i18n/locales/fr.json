@@ -262,6 +262,8 @@
     "subtitle": "Choisissez parmi plusieurs méthodes de paiement pour acheter votre chat d'élite",
     "crypto": "Cryptomonnaie",
     "cash": "Paiement à la Livraison",
+    "important": "Important",
+    "crypto_note": "Après avoir transféré de la cryptomonnaie, veuillez nous contacter et fournir le hash de transaction pour confirmer le paiement.",
     "securityTitle": "Sécurité",
     "securityDesc": "Chiffrement de niveau militaire",
     "verifiedTitle": "Vérifié",

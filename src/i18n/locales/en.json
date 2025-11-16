@@ -137,6 +137,10 @@
     "terms": "Terms of Service",
     "rights": "All rights reserved."
   },
+  "about": {
+    "badge": "Elite Breeds",
+    "title": "About Our Luxury Cats"
+  },
   "breeders": {
     "badge": "Professionals",
     "title": "Our Experienced Breeders",
@@ -180,16 +184,22 @@
     }
   },
   "contact": {
+    "badge": "Get in Touch",
     "title": "Contact Us",
     "subtitle": "Have questions? We're here to help",
     "form": {
+      "title": "Send us a message",
       "name": "Name",
+      "name_placeholder": "Your full name",
       "namePlaceholder": "Your full name",
       "email": "Email",
+      "email_placeholder": "your@email.com",
       "emailPlaceholder": "your@email.com",
       "phone": "Phone",
+      "phone_placeholder": "+1 (555) 123-4567",
       "phonePlaceholder": "+1 (555) 123-4567",
       "message": "Message",
+      "message_placeholder": "How can we help you?",
       "messagePlaceholder": "How can we help you?",
       "submit": "Send Message",
       "sending": "Sending...",
@@ -200,6 +210,7 @@
     },
     "info": {
       "title": "Contact Information",
+      "description": "Stay connected and discover our latest elite felines on social media",
       "email": "Email",
       "phone": "Phone",
       "address": "Address"
@@ -267,6 +278,8 @@
     "subtitle": "Choose from multiple payment methods to purchase your elite cat",
     "crypto": "Cryptocurrency",
     "cash": "Cash on Delivery",
+    "important": "Important",
+    "crypto_note": "After transferring cryptocurrency, please contact us and provide the transaction hash to confirm payment.",
     "securityTitle": "Security",
     "securityDesc": "Military-grade encryption",
     "verifiedTitle": "Verified",
