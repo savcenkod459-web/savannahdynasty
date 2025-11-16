@@ -20,6 +20,28 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import SimpleCaptcha from "@/components/SimpleCaptcha";
+import { z } from "zod";
+
+// Contact form validation schema
+const contactFormSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, "Name is required")
+    .max(100, "Name must be less than 100 characters"),
+  email: z.string()
+    .trim()
+    .email("Invalid email address")
+    .max(255, "Email must be less than 255 characters"),
+  phone: z.string()
+    .trim()
+    .max(20, "Phone must be less than 20 characters")
+    .optional()
+    .or(z.literal("")),
+  message: z.string()
+    .trim()
+    .min(1, "Message is required")
+    .max(2000, "Message must be less than 2000 characters")
+});
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -52,6 +74,21 @@ const Contact = () => {
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate form data
+    try {
+      contactFormSchema.parse(formData);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const firstError = error.errors[0];
+        toast({
+          title: "Validation Error",
+          description: firstError.message,
+          variant: "destructive"
+        });
+        return;
+      }
+    }
 
     // Проверяем авторизацию
     if (!user) {
