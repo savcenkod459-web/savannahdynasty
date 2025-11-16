@@ -57,8 +57,8 @@ const Payment = () => {
     navigator.clipboard.writeText(address);
     setCopiedAddress(address);
     toast({
-      title: "Скопировано",
-      description: "Адрес скопирован в буфер обмена"
+      title: t('payment.copied'),
+      description: t('payment.copied_desc')
     });
     setTimeout(() => setCopiedAddress(null), 2000);
   };
@@ -87,7 +87,7 @@ const Payment = () => {
                 {t('payment.title')}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                Выберите один из множества способов оплаты для покупки элитной кошки
+                {t('payment.hero.description')}
               </p>
             </div>
           </div>
@@ -166,32 +166,32 @@ const Payment = () => {
               {activeTab === "cash" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
                   <div className="flex items-center gap-3 mb-6">
                     <Banknote className="w-8 h-8 text-primary" />
-                    <h3 className="text-3xl font-display font-bold luxury-text-shadow">Наличные</h3>
+                    <h3 className="text-3xl font-display font-bold luxury-text-shadow">{t('payment.cash.title')}</h3>
                   </div>
                   
                   <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                     <p>
-                      Для международных покупателей мы предлагаем доставку котят лично в руки через профессионального курьера.
+                      {t('payment.cash.international')}
                     </p>
                     
                     <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
                       <Plane className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                       <p>
-                        Курьер сопровождает котёнка в салоне самолёта, контролирует весь путь и передаёт животное новому владельцу лично в аэропорту прибытия.
+                        {t('payment.cash.courier')}
                       </p>
                     </div>
                     
                     <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
                       <Wallet className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                       <p>
-                        Оплата происходит при получении. Предоплата вносится заранее для бронирования котёнка.
+                        {t('payment.cash.payment')}
                       </p>
                     </div>
                     
                     <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
                       <Shield className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                       <p>
-                        Такой способ гарантирует безопасность, спокойствие животного и комфортное сотрудничество между питомником и новыми владельцами.
+                        {t('payment.cash.safety')}
                       </p>
                     </div>
                   </div>
@@ -207,14 +207,14 @@ const Payment = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <div className="p-10 rounded-3xl shadow-soft bg-stone-100 ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
-                <div className="flex items-center gap-3 mb-6">
+                 <div className="flex items-center gap-3 mb-6">
                   <Crown className="w-8 h-8 text-primary" />
-                  <h3 className="text-3xl font-display font-bold luxury-text-shadow">Бронирование</h3>
+                  <h3 className="text-3xl font-display font-bold luxury-text-shadow">{t('payment.booking.title')}</h3>
                 </div>
                 
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                   <p className="text-lg text-muted-foreground">
-                    Чтобы узнать детали - свяжитесь с нами
+                    {t('payment.booking.inquiry')}
                   </p>
                   
                   <Button size="lg" onClick={() => navigate('/contact')} className="whitespace-nowrap relative overflow-hidden group/btn hover:shadow-[0_0_60px_rgba(217,179,112,0.8),_0_0_100px_rgba(217,179,112,0.6)] hover:-translate-y-1 hover:scale-105 transition-all duration-700 ease-out hover:brightness-110 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/30 before:to-primary/0 before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000">

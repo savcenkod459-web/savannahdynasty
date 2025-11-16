@@ -532,7 +532,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Drumstick className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      Рацион составлен преимущественно из <span className="text-foreground font-medium">сырого мяса</span> — цыплёнок, перепёлки, шейки, курица и аналогичные виды.
+                      {t('about.nutrition.raw_meat')}
                     </p>
                   </div>
                 </div>
@@ -540,7 +540,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Snowflake className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      Используется <span className="text-foreground font-medium">замороженное мясо высокого качества</span>, регулярно размораживается и подаётся свежим.
+                      {t('about.nutrition.frozen')}
                     </p>
                   </div>
                 </div>
@@ -548,7 +548,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Activity className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      Всё это — <span className="text-foreground font-medium">богатый белком рацион</span>, важный для поддержания здоровья, сил, роста, мускулатуры и активности.
+                      {t('about.nutrition.protein')}
                     </p>
                   </div>
                 </div>
@@ -571,7 +571,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Wind className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      Коты содержатся в <span className="text-foreground font-medium">просторных вольерах</span>, где они могут свободно двигаться, разворачиваются, прыгать, лазить.
+                      {t('about.living_conditions.spacious')}
                     </p>
                   </div>
                 </div>
@@ -579,7 +579,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Home className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      Также коты хорошо адаптируются к жизни в <span className="text-foreground font-medium">доме и квартире</span> — при условии достаточного пространства, возможности лазать вверх, охотиться на игрушки, активно играть.
+                      {t('about.living_conditions.home')}
                     </p>
                   </div>
                 </div>
@@ -587,7 +587,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Sparkles className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      Они любят <span className="text-foreground font-medium">свободу и разнообразные стимулы</span> (игрушки, полки, переходы, вертикальные пространства).
+                      {t('about.living_conditions.stimuli')}
                     </p>
                   </div>
                 </div>
