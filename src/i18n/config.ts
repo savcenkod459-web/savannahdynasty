@@ -72,12 +72,11 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    lng: customLanguageDetector.lookup(),
     interpolation: {
       escapeValue: false,
     },
     detection: {
-      order: ['customDetector', 'localStorage', 'navigator'],
+      order: ['localStorage', 'customDetector', 'navigator'],
       caches: ['localStorage'],
     },
   });

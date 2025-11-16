@@ -25,8 +25,11 @@ const LanguageSelector = () => {
   
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
   
-  const changeLanguage = (code: string) => {
-    i18n.changeLanguage(code);
+  const changeLanguage = async (code: string) => {
+    // Wait for language change to complete and save to localStorage
+    await i18n.changeLanguage(code);
+    // Ensure it's saved in localStorage
+    localStorage.setItem('i18nextLng', code);
     // Reload page to show preloader and apply new language
     setTimeout(() => {
       window.location.reload();
