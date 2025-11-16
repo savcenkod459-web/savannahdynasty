@@ -250,7 +250,7 @@ const About = () => {
                       <Award className="w-8 h-8 text-primary animate-pulse" />
                     </div>
                     <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light flex-1">
-                      {t("about.savannah_description")}
+                      Саванна — это не просто кошка. Это <span className="text-foreground font-bold">воплощение дикой грации, интеллекта и настоящего статуса</span>. Эти кошки — результат уникального скрещивания африканского сервала и домашней кошки, и каждая Саванна — это живое произведение искусства, рождённое природой и генной точностью.
                     </p>
                   </div>
                 </div>
@@ -391,7 +391,7 @@ const About = () => {
                         </span>
                       </div>
                       <p className="text-muted-foreground font-light">
-                        {t("about.rare_price_note")}
+                        Иногда доходит до <span className="text-foreground font-bold">35 000+ EUR</span> за кошек редкого окраса
                       </p>
                     </div>
                     <div className="space-y-3">
@@ -493,7 +493,7 @@ const About = () => {
                   Саванна не просто стоит дорого — она стоит настолько, насколько стоит редкость, невозможность подделки и настоящая природная роскошь.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                  {t("about.investment_description")}
+                  Это не покупка, а <span className="text-foreground font-bold text-luxury-gradient">инвестиция в исключительность</span>. Владельцы Саванн — люди, которые выбирают лучшее не ради цены, а ради того, что ценится по-настоящему.
                 </p>
               </div>
             </div>
@@ -532,25 +532,25 @@ const About = () => {
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
                   <div className="flex items-start gap-3">
                     <Drumstick className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.nutrition_1")}
-                    </p>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                  Рацион составлен преимущественно из <span className="text-foreground font-medium">сырого мяса</span> — цыплёнок, перепёлки, шейки, курица и аналогичные виды.
+                </p>
                   </div>
                 </div>
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
                   <div className="flex items-start gap-3">
                     <Snowflake className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.nutrition_2")}
-                    </p>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                  Используется <span className="text-foreground font-medium">замороженное мясо высокого качества</span>, регулярно размораживается и подаётся свежим.
+                </p>
                   </div>
                 </div>
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
                   <div className="flex items-start gap-3">
                     <Activity className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.nutrition_3")}
-                    </p>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                  Всё это — <span className="text-foreground font-medium">богатый белком рацион</span>, важный для поддержания здоровья, сил, роста, мускулатуры и активности.
+                </p>
                   </div>
                 </div>
               </div>
@@ -571,25 +571,25 @@ const About = () => {
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
                   <div className="flex items-start gap-3">
                     <Wind className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.living_condition_1")}
-                    </p>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                  Коты содержатся в <span className="text-foreground font-medium">просторных вольерах</span>, где они могут свободно двигаться, разворачиваются, прыгать, лазить.
+                </p>
                   </div>
                 </div>
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
                   <div className="flex items-start gap-3">
                     <Home className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.living_condition_2")}
-                    </p>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                  Также коты хорошо адаптируются к жизни в <span className="text-foreground font-medium">доме и квартире</span> — при условии достаточного пространства, возможности лазать вверх, охотиться на игрушки, активно играть.
+                </p>
                   </div>
                 </div>
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
                   <div className="flex items-start gap-3">
                     <Sparkles className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.living_condition_3")}
-                    </p>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                  Они любят <span className="text-foreground font-medium">свободу и разнообразные стимулы</span> (игрушки, полки, переходы, вертикальные пространства).
+                </p>
                   </div>
                 </div>
               </div>
@@ -610,7 +610,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.hunting_instinct")}
+                      Саванна, особенно поколения F1 и F2, обладают <span className="text-foreground font-medium">сильным охотничьим инстинктом</span>. Это значит, что маленьких животных (грызуны, птицы и др.) стоит держать отдельно или под присмотром, т.к. могут проявлять инстинкты преследования.
                     </p>
                   </div>
                 </div>
@@ -618,7 +618,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.with_dogs")}
+                      <span className="text-foreground font-medium">Собаки / другие крупные животные</span> — в большинстве случаев возможна дружба, если котёнок социализирован с ними с раннего возраста.
                     </p>
                   </div>
                 </div>
@@ -626,7 +626,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.with_children")}
+                      <span className="text-foreground font-medium">С детьми</span>: при правильной социализации котята Саванны становятся ласковыми, преданными, могут играть, но требуется, чтобы дети уважали кошек — не дергали резко, не боялись и не нарушали личное пространство питомца.
                     </p>
                   </div>
                 </div>
@@ -634,7 +634,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                      {t("about.family_attachment")}
+                      Они могут быть осторожны или настороженны с незнакомцами, но часто <span className="text-foreground font-medium">сильно привязываются к членам семьи</span>.
                     </p>
                   </div>
                 </div>
@@ -729,7 +729,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-base text-muted-foreground font-light">
-                      {t("about.adult_advantage_1")}
+                      <span className="font-medium text-foreground">Уже социализированы</span> — приучены к человеку, выгулу на шлейке, лотку, знают правила поведения в доме
                     </p>
                   </div>
                 </div>
@@ -737,7 +737,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-base text-muted-foreground font-light">
-                      {t("about.adult_advantage_2")}
+                      <span className="font-medium text-foreground">Сформировавшийся характер</span> — никаких "сюрпризов" как с котёнком, всё прозрачно
                     </p>
                   </div>
                 </div>
@@ -745,7 +745,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-base text-muted-foreground font-light">
-                      {t("about.adult_advantage_3")}
+                      <span className="font-medium text-foreground">Впечатляющий внешний вид</span> — яркий окрас, крупное телосложение, "дикий" типаж максимально выражен
                     </p>
                   </div>
                 </div>
@@ -753,7 +753,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-base text-muted-foreground font-light">
-                      {t("about.adult_advantage_4")}
+                      <span className="font-medium text-foreground">Отлично подходят для разведения</span> — с родословной, проверенным здоровьем и великолепной генетикой
                     </p>
                   </div>
                 </div>
@@ -797,7 +797,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Star className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground font-light">
-                      {t("about.kitten_benefit_1")}
+                      <span className="font-medium text-foreground">Домашнего любимца</span>, который с первых месяцев будет привязан к вам
                     </p>
                   </div>
                 </div>
@@ -805,7 +805,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Star className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground font-light">
-                      {t("about.kitten_benefit_2")}
+                      <span className="font-medium text-foreground">Экзотику класса люкс</span> — редкую породу, которая вызывает восторг у всех гостей
                     </p>
                   </div>
                 </div>
@@ -813,7 +813,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Star className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground font-light">
-                      {t("about.kitten_benefit_3")}
+                      <span className="font-medium text-foreground">Питомца с перспективой</span> — для выставок, разведения, участия в племенной программе
                     </p>
                   </div>
                 </div>
@@ -821,7 +821,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Star className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <p className="text-lg text-muted-foreground font-light">
-                      {t("about.kitten_benefit_4")}
+                      <span className="font-medium text-foreground">Умного и активного спутника</span> — котята Саванны обучаются быстро, проявляют интеллект, охотно играют и исследуют
                     </p>
                   </div>
                 </div>
