@@ -137,6 +137,10 @@
     "terms": "Termos de Serviço",
     "rights": "Todos os direitos reservados."
   },
+  "about": {
+    "badge": "Raças de elite",
+    "title": "Sobre nossos gatos de luxo"
+  },
   "breeders": {
     "badge": "Profissionais",
     "title": "Nossos Criadores Experientes",
@@ -180,16 +184,22 @@
     }
   },
   "contact": {
+    "badge": "Entre em contato",
     "title": "Entre em Contato",
     "subtitle": "Tem perguntas? Estamos aqui para ajudar",
     "form": {
+      "title": "Envie-nos uma mensagem",
       "name": "Nome",
+      "name_placeholder": "Seu nome",
       "namePlaceholder": "Seu nome completo",
       "email": "E-mail",
+      "email_placeholder": "seu@email.com",
       "emailPlaceholder": "seu@email.com",
       "phone": "Telefone",
+      "phone_placeholder": "+55 11 98765-4321",
       "phonePlaceholder": "+55 11 98765-4321",
       "message": "Mensagem",
+      "message_placeholder": "Como podemos ajudá-lo?",
       "messagePlaceholder": "Como podemos ajudá-lo?",
       "submit": "Enviar Mensagem",
       "sending": "Enviando...",
@@ -267,6 +277,8 @@
     "subtitle": "Escolha entre vários métodos de pagamento para comprar seu gato de elite",
     "crypto": "Criptomoeda",
     "cash": "Pagamento na Entrega",
+    "important": "Importante",
+    "crypto_note": "Após transferir criptomoeda, entre em contato conosco e forneça o hash da transação para confirmar o pagamento.",
     "securityTitle": "Segurança",
     "securityDesc": "Criptografia de nível militar",
     "verifiedTitle": "Verificado",
