@@ -132,6 +132,10 @@
     "terms": "服务条款",
     "rights": "版权所有。"
   },
+  "about": {
+    "badge": "精英品种",
+    "title": "关于我们的豪华猫"
+  },
   "breeders": {
     "badge": "专业人士",
     "title": "我们经验丰富的繁育者",
@@ -175,16 +179,22 @@
     }
   },
   "contact": {
+    "badge": "联系我们",
     "title": "联系我们",
     "subtitle": "有问题吗？我们随时为您提供帮助",
     "form": {
+      "title": "给我们留言",
       "name": "姓名",
+      "name_placeholder": "您的姓名",
       "namePlaceholder": "您的全名",
       "email": "电子邮件",
+      "email_placeholder": "your@email.com",
       "emailPlaceholder": "your@email.com",
       "phone": "电话",
+      "phone_placeholder": "+86 138 0000 0000",
       "phonePlaceholder": "+86 138 0000 0000",
       "message": "消息",
+      "message_placeholder": "我们能帮您什么？",
       "messagePlaceholder": "我们能帮您什么？",
       "submit": "发送消息",
       "sending": "发送中...",
@@ -262,6 +272,8 @@
     "subtitle": "选择多种支付方式购买您的精英猫",
     "crypto": "加密货币",
     "cash": "货到付款",
+    "important": "重要",
+    "crypto_note": "转账加密货币后，请联系我们并提供交易哈希以确认付款。",
     "securityTitle": "安全",
     "securityDesc": "军用级加密",
     "verifiedTitle": "已验证",

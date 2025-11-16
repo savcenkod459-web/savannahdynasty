@@ -132,6 +132,10 @@
     "terms": "Conditions d'Utilisation",
     "rights": "Tous droits réservés."
   },
+  "about": {
+    "badge": "Races d'élite",
+    "title": "À propos de nos chats de luxe"
+  },
   "breeders": {
     "badge": "Professionnels",
     "title": "Nos Éleveurs Expérimentés",
@@ -175,16 +179,22 @@
     }
   },
   "contact": {
+    "badge": "Contactez-nous",
     "title": "Contactez-Nous",
     "subtitle": "Des questions? Nous sommes là pour aider",
     "form": {
+      "title": "Envoyez-nous un message",
       "name": "Nom",
+      "name_placeholder": "Votre nom",
       "namePlaceholder": "Votre nom complet",
       "email": "Email",
+      "email_placeholder": "votre@email.com",
       "emailPlaceholder": "votre@email.com",
       "phone": "Téléphone",
+      "phone_placeholder": "+33 6 12 34 56 78",
       "phonePlaceholder": "+33 6 12 34 56 78",
       "message": "Message",
+      "message_placeholder": "Comment pouvons-nous vous aider?",
       "messagePlaceholder": "Comment pouvons-nous vous aider?",
       "submit": "Envoyer le Message",
       "sending": "Envoi...",
