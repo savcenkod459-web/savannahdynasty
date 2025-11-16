@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Lock, Copy, Check, Crown, Sparkles, Shield, Star, Plane, FileText, Headphones, HeartPulse, Wallet, Coins, CircleDollarSign, Bitcoin, AlertCircle, Banknote } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const cryptoAddresses = [{
   name: "USDT (TRC20)",
   address: "TVkjYLi5Yn6XPYA8i5pRRqQdp6741YeGyt",
@@ -36,6 +37,7 @@ const cryptoAddresses = [{
   color: "text-green-500"
 }];
 const Payment = () => {
+  const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"crypto" | "cash">("crypto");
@@ -79,10 +81,10 @@ const Payment = () => {
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
                 <Lock className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold tracking-widest uppercase text-primary">Защищённые платежи</span>
+                <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('payment.badge')}</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow">
-                Безопасные способы оплаты
+                {t('payment.title')}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
                 Выберите один из множества способов оплаты для покупки элитной кошки
@@ -154,7 +156,7 @@ const Payment = () => {
                     <div className="flex items-start gap-3">
                       <AlertCircle className="w-5 h-5 text-zinc-950 flex-shrink-0 mt-0.5" />
                       <p className="text-sm font-medium text-zinc-950">
-                        <strong>Важно:</strong> После перевода криптовалюты, пожалуйста, свяжитесь с нами и предоставьте хеш транзакции для подтверждения платежа.
+                        <strong>Важно:</strong> {t('payment.crypto_note')}
                       </p>
                     </div>
                   </div>
