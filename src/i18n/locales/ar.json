@@ -373,6 +373,17 @@
     "emailCopied": "تم نسخ البريد الإلكتروني!",
     "emailCopiedDesc": "تم نسخ savannahdynastyofficial@gmail.com إلى الحافظة"
   },
+  "catalog": {
+    "badge": "مجموعة حصرية",
+    "title": "قططنا الفاخرة",
+    "subtitle": "اكتشف رفيقك القطط المثالي من مجموعتنا الحصرية",
+    "filters": "المرشحات",
+    "filterByBreed": "تصفية حسب السلالة",
+    "allBreeds": "جميع السلالات",
+    "viewDetails": "التفاصيل",
+    "gallery": "المعرض",
+    "pedigree": "النسب"
+  },
   "featuredCollection": {
     "badge": "حصري",
     "title": "مجموعتنا الفاخرة",

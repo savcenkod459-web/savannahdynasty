@@ -375,6 +375,17 @@
     "emailCopied": "E-Mail kopiert!",
     "emailCopiedDesc": "savannahdynastyofficial@gmail.com in die Zwischenablage kopiert"
   },
+  "catalog": {
+    "badge": "Exklusive Kollektion",
+    "title": "Unsere Luxuskatzen",
+    "subtitle": "Entdecken Sie Ihren perfekten katzenartigen Begleiter aus unserer exklusiven Kollektion",
+    "filters": "Filter",
+    "filterByBreed": "Nach Rasse filtern",
+    "allBreeds": "Alle Rassen",
+    "viewDetails": "Details",
+    "gallery": "Galerie",
+    "pedigree": "Stammbaum"
+  },
   "featuredCollection": {
     "badge": "Exklusiv",
     "title": "Unsere Luxuskollektion",

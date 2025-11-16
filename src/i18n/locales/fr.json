@@ -375,6 +375,17 @@
     "emailCopied": "E-mail copié!",
     "emailCopiedDesc": "savannahdynastyofficial@gmail.com copié dans le presse-papiers"
   },
+  "catalog": {
+    "badge": "Collection Exclusive",
+    "title": "Nos Chats de Luxe",
+    "subtitle": "Découvrez votre compagnon félin parfait de notre collection exclusive",
+    "filters": "Filtres",
+    "filterByBreed": "Filtrer par Race",
+    "allBreeds": "Toutes les Races",
+    "viewDetails": "Détails",
+    "gallery": "Galerie",
+    "pedigree": "Pedigree"
+  },
   "featuredCollection": {
     "badge": "Exclusif",
     "title": "Notre Collection de Luxe",

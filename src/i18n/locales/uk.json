@@ -375,6 +375,17 @@
     "emailCopied": "Email скопійовано!",
     "emailCopiedDesc": "savannahdynastyofficial@gmail.com скопійовано в буфер обміну"
   },
+  "catalog": {
+    "badge": "Ексклюзивна колекція",
+    "title": "Наші розкішні коти",
+    "subtitle": "Відкрийте для себе ідеального котячого компаньйона з нашої ексклюзивної колекції",
+    "filters": "Фільтри",
+    "filterByBreed": "Фільтр за породою",
+    "allBreeds": "Всі породи",
+    "viewDetails": "Деталі",
+    "gallery": "Галерея",
+    "pedigree": "Родовід"
+  },
   "featuredCollection": {
     "badge": "Ексклюзив",
     "title": "Наша розкішна колекція",

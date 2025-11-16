@@ -377,6 +377,17 @@
     "emailCopied": "¡Correo electrónico copiado!",
     "emailCopiedDesc": "savannahdynastyofficial@gmail.com copiado al portapapeles"
   },
+  "catalog": {
+    "badge": "Colección Exclusiva",
+    "title": "Nuestros Gatos de Lujo",
+    "subtitle": "Descubra su compañero felino perfecto de nuestra colección exclusiva",
+    "filters": "Filtros",
+    "filterByBreed": "Filtrar por Raza",
+    "allBreeds": "Todas las Razas",
+    "viewDetails": "Detalles",
+    "gallery": "Galería",
+    "pedigree": "Pedigrí"
+  },
   "featuredCollection": {
     "badge": "Exclusivo",
     "title": "Nuestra Colección de Lujo",
