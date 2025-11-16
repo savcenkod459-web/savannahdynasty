@@ -138,26 +138,32 @@ export type Database = {
       }
       password_reset_codes: {
         Row: {
+          attempts: number
           code: string
           created_at: string | null
           expires_at: string
           id: string
+          locked: boolean
           used: boolean | null
           user_email: string
         }
         Insert: {
+          attempts?: number
           code: string
           created_at?: string | null
           expires_at: string
           id?: string
+          locked?: boolean
           used?: boolean | null
           user_email: string
         }
         Update: {
+          attempts?: number
           code?: string
           created_at?: string | null
           expires_at?: string
           id?: string
+          locked?: boolean
           used?: boolean | null
           user_email?: string
         }

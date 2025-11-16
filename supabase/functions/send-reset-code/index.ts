@@ -35,6 +35,30 @@ const handler = async (req: Request): Promise<Response> => {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
+    // Rate limiting: Check for recent reset codes (max 3 per hour)
+    const oneHourAgo = new Date(Date.now() - 3600000).toISOString();
+    const { data: recentCodes, error: rateLimitError } = await supabase
+      .from("password_reset_codes")
+      .select("created_at")
+      .eq("user_email", email)
+      .gte("created_at", oneHourAgo);
+
+    if (rateLimitError) {
+      console.error("Error checking rate limit:", rateLimitError);
+      throw rateLimitError;
+    }
+
+    if (recentCodes && recentCodes.length >= 3) {
+      console.log(`Rate limit exceeded for email: ${email}`);
+      return new Response(
+        JSON.stringify({ error: "Слишком много попыток. Пожалуйста, попробуйте через час" }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
     // Check if user exists
     const { data: userData, error: userError } = await supabase.auth.admin.listUsers();
     

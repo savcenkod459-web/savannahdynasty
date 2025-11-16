@@ -72,6 +72,45 @@ const handler = async (req: Request): Promise<Response> => {
 
     const resetCode = resetCodes[0];
 
+    // Check if code is locked due to too many attempts
+    if (resetCode.locked) {
+      console.log(`Code locked for email: ${email}`);
+      return new Response(
+        JSON.stringify({ error: "Код заблокирован из-за множественных неудачных попыток. Пожалуйста, запросите новый код" }),
+        {
+          status: 403,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    // Increment attempt counter
+    const newAttempts = (resetCode.attempts || 0) + 1;
+    const shouldLock = newAttempts >= 5;
+
+    const { error: updateAttemptError } = await supabase
+      .from("password_reset_codes")
+      .update({ 
+        attempts: newAttempts,
+        locked: shouldLock 
+      })
+      .eq("id", resetCode.id);
+
+    if (updateAttemptError) {
+      console.error("Error updating attempt counter:", updateAttemptError);
+    }
+
+    if (shouldLock) {
+      console.log(`Code locked after ${newAttempts} attempts for email: ${email}`);
+      return new Response(
+        JSON.stringify({ error: "Слишком много неудачных попыток. Код заблокирован. Пожалуйста, запросите новый код" }),
+        {
+          status: 403,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
     // Check if code expired
     if (new Date(resetCode.expires_at) < new Date()) {
       return new Response(
