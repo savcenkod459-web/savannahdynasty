@@ -213,13 +213,15 @@
   "auth": {
     "signin": {
       "title": "Willkommen Zurück",
-      "subtitle": "Melden Sie sich bei Ihrem Konto an"
+      "subtitle": "Melden Sie sich bei Ihrem Konto an",
+      "button": "Anmelden"
     },
     "signup": {
       "title": "Konto Erstellen",
       "subtitle": "Registrieren Sie sich für Zugriff",
       "success": "Registrierung Erfolgreich",
-      "successDescription": "Überprüfen Sie Ihre E-Mail, um Ihr Konto zu bestätigen"
+      "successDescription": "Überprüfen Sie Ihre E-Mail, um Ihr Konto zu bestätigen",
+      "button": "Registrieren"
     },
     "email": "E-Mail",
     "password": "Passwort",
@@ -315,8 +317,10 @@
     "title": "Passwort zurücksetzen",
     "subtitle": "Geben Sie Ihre E-Mail-Adresse ein, um einen Link zum Zurücksetzen des Passworts zu erhalten",
     "emailLabel": "E-Mail",
-    "sendButton": "Zurücksetzen-Link senden",
-    "backToLogin": "Zurück zur Anmeldung",
+    "sendLink": "Zurücksetzen-Link senden",
+    "backToSignIn": "Zurück zur Anmeldung",
+    "codeSent": "Code gesendet",
+    "codeSentDescription": "Überprüfen Sie Ihre E-Mail für den Reset-Code",
     "codeSent": "Code gesendet",
     "codeDescription": "Überprüfen Sie Ihre E-Mail und geben Sie den Code ein, um Ihr Passwort zurückzusetzen",
     "error": "Fehler"

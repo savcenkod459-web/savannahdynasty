@@ -215,13 +215,15 @@
   "auth": {
     "signin": {
       "title": "Bienvenido de Nuevo",
-      "subtitle": "Inicie sesión en su cuenta"
+      "subtitle": "Inicie sesión en su cuenta",
+      "button": "Iniciar Sesión"
     },
     "signup": {
       "title": "Crear Cuenta",
       "subtitle": "Regístrese para acceder",
       "success": "Registro Exitoso",
-      "successDescription": "Revise su correo para confirmar su cuenta"
+      "successDescription": "Revise su correo para confirmar su cuenta",
+      "button": "Registrarse"
     },
     "email": "Email",
     "password": "Contraseña",
@@ -317,8 +319,10 @@
     "title": "Restablecer Contraseña",
     "subtitle": "Ingrese su correo electrónico para recibir un enlace de restablecimiento de contraseña",
     "emailLabel": "Correo electrónico",
-    "sendButton": "Enviar enlace de restablecimiento",
-    "backToLogin": "Volver al inicio de sesión",
+    "sendLink": "Enviar enlace de restablecimiento",
+    "backToSignIn": "Volver al inicio de sesión",
+    "codeSent": "Código enviado",
+    "codeSentDescription": "Revisa tu correo para el código de restablecimiento",
     "codeSent": "Código enviado",
     "codeDescription": "Revise su correo electrónico e ingrese el código para restablecer su contraseña",
     "error": "Error"

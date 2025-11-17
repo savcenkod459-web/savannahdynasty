@@ -213,13 +213,15 @@
   "auth": {
     "signin": {
       "title": "欢迎回来",
-      "subtitle": "登录到您的账户"
+      "subtitle": "登录到您的账户",
+      "button": "登录"
     },
     "signup": {
       "title": "创建账户",
       "subtitle": "注册以访问",
       "success": "注册成功",
-      "successDescription": "请查看您的电子邮件以确认您的账户"
+      "successDescription": "请查看您的电子邮件以确认您的账户",
+      "button": "注册"
     },
     "email": "电子邮件",
     "password": "密码",
@@ -315,8 +317,10 @@
     "title": "重置密码",
     "subtitle": "输入您的电子邮件以接收密码重置链接",
     "emailLabel": "电子邮件",
-    "sendButton": "发送重置链接",
-    "backToLogin": "返回登录",
+    "sendLink": "发送重置链接",
+    "backToSignIn": "返回登录",
+    "codeSent": "代码已发送",
+    "codeSentDescription": "请检查您的电子邮件以获取重置代码",
     "codeSent": "验证码已发送",
     "codeDescription": "检查您的电子邮件并输入验证码以重置密码",
     "error": "错误"

@@ -213,13 +213,15 @@
   "auth": {
     "signin": {
       "title": "Bon Retour",
-      "subtitle": "Connectez-vous à votre compte"
+      "subtitle": "Connectez-vous à votre compte",
+      "button": "Se Connecter"
     },
     "signup": {
       "title": "Créer un Compte",
       "subtitle": "Inscrivez-vous pour accéder",
       "success": "Inscription Réussie",
-      "successDescription": "Vérifiez votre email pour confirmer votre compte"
+      "successDescription": "Vérifiez votre email pour confirmer votre compte",
+      "button": "S'Inscrire"
     },
     "email": "Email",
     "password": "Mot de Passe",
@@ -315,8 +317,10 @@
     "title": "Réinitialiser le mot de passe",
     "subtitle": "Entrez votre e-mail pour recevoir un lien de réinitialisation du mot de passe",
     "emailLabel": "E-mail",
-    "sendButton": "Envoyer le lien de réinitialisation",
-    "backToLogin": "Retour à la connexion",
+    "sendLink": "Envoyer le lien de réinitialisation",
+    "backToSignIn": "Retour à la connexion",
+    "codeSent": "Code envoyé",
+    "codeSentDescription": "Vérifiez votre e-mail pour le code de réinitialisation",
     "codeSent": "Code envoyé",
     "codeDescription": "Vérifiez votre e-mail et entrez le code pour réinitialiser votre mot de passe",
     "error": "Erreur"

@@ -219,13 +219,15 @@
   "auth": {
     "signin": {
       "title": "Welcome Back",
-      "subtitle": "Sign in to your account"
+      "subtitle": "Sign in to your account",
+      "button": "Sign In"
     },
     "signup": {
       "title": "Create Account",
       "subtitle": "Register to get started",
       "success": "Registration Successful",
-      "successDescription": "Check your email to confirm your account"
+      "successDescription": "Check your email to confirm your account",
+      "button": "Sign Up"
     },
     "email": "Email",
     "password": "Password",
@@ -321,8 +323,10 @@
     "title": "Reset Password",
     "subtitle": "Enter your email to receive a password reset link",
     "emailLabel": "Email",
-    "sendButton": "Send Reset Link",
-    "backToLogin": "Back to Login",
+    "sendLink": "Send Reset Link",
+    "backToSignIn": "Back to Login",
+    "codeSent": "Code Sent",
+    "codeSentDescription": "Check your email for the reset code",
     "codeSent": "Code sent",
     "codeDescription": "Check your email and enter the code to reset your password",
     "error": "Error"

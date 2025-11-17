@@ -218,13 +218,15 @@
   "auth": {
     "signin": {
       "title": "Bem-vindo de Volta",
-      "subtitle": "Entre na sua conta"
+      "subtitle": "Entre na sua conta",
+      "button": "Entrar"
     },
     "signup": {
       "title": "Criar Conta",
       "subtitle": "Registre-se para acessar",
       "success": "Registro Bem-sucedido",
-      "successDescription": "Verifique seu e-mail para confirmar sua conta"
+      "successDescription": "Verifique seu e-mail para confirmar sua conta",
+      "button": "Registrar"
     },
     "email": "E-mail",
     "password": "Senha",
@@ -320,8 +322,10 @@
     "title": "Redefinir Senha",
     "subtitle": "Digite seu e-mail para receber um link de redefinição de senha",
     "emailLabel": "E-mail",
-    "sendButton": "Enviar link de redefinição",
-    "backToLogin": "Voltar para o login",
+    "sendLink": "Enviar link de redefinição",
+    "backToSignIn": "Voltar para o login",
+    "codeSent": "Código enviado",
+    "codeSentDescription": "Verifique seu e-mail para o código de redefinição",
     "codeSent": "Código enviado",
     "codeDescription": "Verifique seu e-mail e digite o código para redefinir sua senha",
     "error": "Erro"
