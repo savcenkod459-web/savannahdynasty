@@ -182,21 +182,25 @@
     "badge": "Kontakt aufnehmen",
     "title": "Kontaktieren Sie Uns",
     "subtitle": "Haben Sie Fragen? Wir sind hier, um zu helfen",
+    "messageSent": "Nachricht gesendet",
+    "messageSentDescription": "Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze mit Ihnen in Verbindung setzen.",
+    "emailCopied": "E-Mail kopiert",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com in die Zwischenablage kopiert",
     "form": {
       "title": "Senden Sie uns eine Nachricht",
       "name": "Name",
       "name_placeholder": "Ihr Name",
       "namePlaceholder": "Ihr vollständiger Name",
       "email": "E-Mail",
-      "email_placeholder": "ihre@email.com",
+      "email_placeholder": "ihre@email.de",
       "emailPlaceholder": "ihre@email.de",
       "phone": "Telefon",
-      "phone_placeholder": "+49 30 12345678",
-      "phonePlaceholder": "+49 30 12345678",
+      "phone_placeholder": "+49 XXX XXXXXXX",
+      "phonePlaceholder": "+49 XXX XXXXXXX",
       "message": "Nachricht",
       "message_placeholder": "Wie können wir Ihnen helfen?",
       "messagePlaceholder": "Wie können wir Ihnen helfen?",
-      "submit": "Nachricht Senden",
+      "submit": "Nachricht senden",
       "sending": "Wird gesendet...",
       "success": "Nachricht erfolgreich gesendet!",
       "error": "Nachricht konnte nicht gesendet werden",
@@ -205,6 +209,7 @@
     },
     "info": {
       "title": "Kontaktinformationen",
+      "description": "Bleiben Sie in Verbindung und entdecken Sie unsere neuesten Elite-Katzen in den sozialen Medien",
       "email": "E-Mail",
       "phone": "Telefon",
       "address": "Adresse"
@@ -354,11 +359,6 @@
     "father": "Vater",
     "mother": "Mutter",
     "noData": "Stammbaumsinformationen nicht verfügbar"
-  },
-  "captcha": {
-    "label": "Geben Sie den Code aus dem Bild ein",
-    "placeholder": "Code eingeben",
-    "refresh": "Aktualisieren"
   },
   "resetPassword": {
     "title": "Passwort zurücksetzen",
@@ -673,11 +673,5 @@
     "checkErrorGeneric": "Bei der Überprüfung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
     "messageError": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
     "fillField": "Bitte füllen Sie dieses Feld aus"
-  },
-  "contact": {
-    "messageSent": "Nachricht gesendet",
-    "messageSentDescription": "Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze mit Ihnen in Verbindung setzen.",
-    "emailCopied": "E-Mail kopiert",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com in die Zwischenablage kopiert"
   }
 }

@@ -187,6 +187,10 @@
     "badge": "Entre em contato",
     "title": "Entre em Contato",
     "subtitle": "Tem perguntas? Estamos aqui para ajudar",
+    "messageSent": "Mensagem enviada",
+    "messageSentDescription": "Obrigado pela sua mensagem! Entraremos em contato em breve.",
+    "emailCopied": "E-mail copiado",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado para a área de transferência",
     "form": {
       "title": "Envie-nos uma mensagem",
       "name": "Nome",
@@ -196,12 +200,12 @@
       "email_placeholder": "seu@email.com",
       "emailPlaceholder": "seu@email.com",
       "phone": "Telefone",
-      "phone_placeholder": "+55 11 98765-4321",
-      "phonePlaceholder": "+55 11 98765-4321",
+      "phone_placeholder": "+351 XXX XXX XXX",
+      "phonePlaceholder": "+351 XXX XXX XXX",
       "message": "Mensagem",
       "message_placeholder": "Como podemos ajudá-lo?",
       "messagePlaceholder": "Como podemos ajudá-lo?",
-      "submit": "Enviar Mensagem",
+      "submit": "Enviar mensagem",
       "sending": "Enviando...",
       "success": "Mensagem enviada com sucesso!",
       "error": "Falha ao enviar mensagem",
@@ -209,7 +213,8 @@
       "loginButton": "Entrar"
     },
     "info": {
-      "title": "Informações de Contato",
+      "title": "Informações de contato",
+      "description": "Fique conectado e descubra nossos mais novos felinos de elite nas redes sociais",
       "email": "E-mail",
       "phone": "Telefone",
       "address": "Endereço"
@@ -322,7 +327,9 @@
     "title": "Confirmação de Segurança",
     "description": "Digite o código da imagem",
     "enterCode": "Digite o código da imagem",
-    "placeholder": "6 caracteres"
+    "placeholder": "6 caracteres",
+    "cancel": "Cancelar",
+    "submit": "Enviar"
   },
   "profile": {
     "title": "Perfil",
@@ -371,11 +378,6 @@
     "father": "Pai",
     "mother": "Mãe",
     "noData": "Informações de pedigree não disponíveis"
-  },
-  "captcha": {
-    "label": "Digite o código da imagem",
-    "placeholder": "Digite o código",
-    "refresh": "Atualizar"
   },
   "resetPassword": {
     "title": "Redefinir Senha",
@@ -690,11 +692,5 @@
     "checkErrorGeneric": "Ocorreu um erro durante a verificação. Por favor, tente novamente mais tarde.",
     "messageError": "Falha ao enviar mensagem. Por favor, tente novamente mais tarde.",
     "fillField": "Por favor, preencha este campo"
-  },
-  "contact": {
-    "messageSent": "Mensagem enviada",
-    "messageSentDescription": "Obrigado pela sua mensagem! Entraremos em contato em breve.",
-    "emailCopied": "E-mail copiado",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado para a área de transferência"
   }
 }

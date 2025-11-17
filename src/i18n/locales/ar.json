@@ -182,29 +182,34 @@
     "badge": "تواصل معنا",
     "title": "اتصل بنا",
     "subtitle": "هل لديك أسئلة؟ نحن هنا للمساعدة",
+    "messageSent": "تم إرسال الرسالة",
+    "messageSentDescription": "شكرًا لرسالتك! سنتواصل معك قريبًا.",
+    "emailCopied": "تم نسخ البريد الإلكتروني",
+    "emailCopiedDescription": "تم نسخ savannahdynastyofficial@gmail.com إلى الحافظة",
     "form": {
       "title": "أرسل لنا رسالة",
       "name": "الاسم",
       "name_placeholder": "اسمك",
       "namePlaceholder": "اسمك الكامل",
       "email": "البريد الإلكتروني",
-      "email_placeholder": "your@email.com",
-      "emailPlaceholder": "your@email.com",
+      "email_placeholder": "بريدك@الإلكتروني.com",
+      "emailPlaceholder": "بريدك@الإلكتروني.com",
       "phone": "الهاتف",
-      "phone_placeholder": "+966 55 123 4567",
-      "phonePlaceholder": "+966 55 123 4567",
+      "phone_placeholder": "+XXX XX XXX XXXX",
+      "phonePlaceholder": "+XXX XX XXX XXXX",
       "message": "الرسالة",
       "message_placeholder": "كيف يمكننا مساعدتك؟",
       "messagePlaceholder": "كيف يمكننا مساعدتك؟",
-      "submit": "إرسال الرسالة",
-      "sending": "جاري الإرسال...",
+      "submit": "إرسال رسالة",
+      "sending": "جارٍ الإرسال...",
       "success": "تم إرسال الرسالة بنجاح!",
-      "error": "فشل في إرسال الرسالة",
+      "error": "فشل إرسال الرسالة",
       "loginPrompt": "يرجى تسجيل الدخول لإرسال رسالة",
       "loginButton": "تسجيل الدخول"
     },
     "info": {
       "title": "معلومات الاتصال",
+      "description": "ابق على اتصال واكتشف أحدث القطط النخبة على وسائل التواصل الاجتماعي",
       "email": "البريد الإلكتروني",
       "phone": "الهاتف",
       "address": "العنوان"
@@ -317,7 +322,9 @@
     "title": "تأكيد الأمان",
     "description": "أدخل الرمز من الصورة",
     "enterCode": "أدخل الرمز من الصورة",
-    "placeholder": "6 أحرف"
+    "placeholder": "6 أحرف",
+    "cancel": "إلغاء",
+    "submit": "إرسال"
   },
   "profile": {
     "title": "الملف الشخصي",
@@ -364,11 +371,6 @@
     "father": "الأب",
     "mother": "الأم",
     "noData": "معلومات النسب غير متوفرة"
-  },
-  "captcha": {
-    "label": "أدخل الرمز من الصورة",
-    "placeholder": "أدخل الرمز",
-    "refresh": "تحديث"
   },
   "resetPassword": {
     "title": "إعادة تعيين كلمة المرور",
@@ -683,11 +685,5 @@
     "checkErrorGeneric": "حدث خطأ أثناء التحقق. يرجى المحاولة لاحقًا.",
     "messageError": "فشل إرسال الرسالة. يرجى المحاولة لاحقًا.",
     "fillField": "يرجى ملء هذا الحقل"
-  },
-  "contact": {
-    "messageSent": "تم إرسال الرسالة",
-    "messageSentDescription": "شكرًا لرسالتك! سنتواصل معك قريبًا.",
-    "emailCopied": "تم نسخ البريد الإلكتروني",
-    "emailCopiedDescription": "تم نسخ savannahdynastyofficial@gmail.com إلى الحافظة"
   }
 }

@@ -182,20 +182,24 @@
     "badge": "联系我们",
     "title": "联系我们",
     "subtitle": "有问题吗？我们随时为您提供帮助",
+    "messageSent": "消息已发送",
+    "messageSentDescription": "感谢您的消息！我们将尽快与您联系。",
+    "emailCopied": "电子邮件已复制",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com 已复制到剪贴板",
     "form": {
       "title": "给我们留言",
       "name": "姓名",
       "name_placeholder": "您的姓名",
       "namePlaceholder": "您的全名",
       "email": "电子邮件",
-      "email_placeholder": "your@email.com",
-      "emailPlaceholder": "your@email.com",
+      "email_placeholder": "您的@邮箱.com",
+      "emailPlaceholder": "您的@邮箱.com",
       "phone": "电话",
-      "phone_placeholder": "+86 138 0000 0000",
-      "phonePlaceholder": "+86 138 0000 0000",
+      "phone_placeholder": "+86 XXX XXXX XXXX",
+      "phonePlaceholder": "+86 XXX XXXX XXXX",
       "message": "消息",
-      "message_placeholder": "我们能帮您什么？",
-      "messagePlaceholder": "我们能帮您什么？",
+      "message_placeholder": "我们如何帮助您？",
+      "messagePlaceholder": "我们如何帮助您？",
       "submit": "发送消息",
       "sending": "发送中...",
       "success": "消息发送成功！",
@@ -205,6 +209,7 @@
     },
     "info": {
       "title": "联系信息",
+      "description": "保持联系，在社交媒体上发现我们最新的精英猫科动物",
       "email": "电子邮件",
       "phone": "电话",
       "address": "地址"
@@ -317,7 +322,9 @@
     "title": "安全确认",
     "description": "输入图像中的代码",
     "enterCode": "输入图像中的代码",
-    "placeholder": "6个字符"
+    "placeholder": "6个字符",
+    "cancel": "取消",
+    "submit": "提交"
   },
   "profile": {
     "title": "个人资料",
@@ -366,11 +373,6 @@
     "father": "父亲",
     "mother": "母亲",
     "noData": "血统信息不可用"
-  },
-  "captcha": {
-    "label": "输入图像中的验证码",
-    "placeholder": "输入验证码",
-    "refresh": "刷新"
   },
   "resetPassword": {
     "title": "重置密码",
@@ -712,11 +714,5 @@
     "checkErrorGeneric": "验证过程中发生错误。请稍后再试。",
     "messageError": "发送消息失败。请稍后再试。",
     "fillField": "请填写此字段"
-  },
-  "contact": {
-    "messageSent": "消息已发送",
-    "messageSentDescription": "感谢您的消息！我们将尽快与您联系。",
-    "emailCopied": "电子邮件已复制",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com 已复制到剪贴板"
   }
 }

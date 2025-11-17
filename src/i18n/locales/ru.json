@@ -384,37 +384,37 @@
     "badge": "Связаться",
     "title": "Свяжитесь с нами",
     "subtitle": "Готовы приветствовать своего идеального кошачьего друга? Мы здесь, чтобы помочь вам найти элитную кошку, предназначенную для вашей семьи.",
+    "messageSent": "Сообщение отправлено",
+    "messageSentDescription": "Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.",
+    "emailCopied": "Email скопирован",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com скопирован в буфер обмена",
     "form": {
       "title": "Отправить сообщение",
       "name": "Имя",
       "name_placeholder": "Ваше имя",
       "namePlaceholder": "Ваше имя",
       "email": "Email",
-      "email_placeholder": "your@email.com",
-      "emailPlaceholder": "your@email.com",
+      "email_placeholder": "ваш@email.com",
+      "emailPlaceholder": "ваш@email.com",
       "phone": "Телефон",
-      "phone_placeholder": "+7 XXX XXX XX XX",
-      "phonePlaceholder": "+7 XXX XXX XX XX",
+      "phone_placeholder": "+7 (XXX) XXX-XX-XX",
+      "phonePlaceholder": "+7 (XXX) XXX-XX-XX",
       "message": "Сообщение",
-      "message_placeholder": "Расскажите нам о том, что вас интересует...",
-      "messagePlaceholder": "Расскажите нам о том, что вас интересует...",
-      "submit": "Отправить сообщение",
+      "message_placeholder": "Как мы можем вам помочь?",
+      "messagePlaceholder": "Как мы можем вам помочь?",
+      "submit": "Отправить",
       "sending": "Отправка...",
       "success": "Сообщение успешно отправлено!",
       "error": "Не удалось отправить сообщение",
-      "loginPrompt": "Пожалуйста, войдите, чтобы отправить сообщение",
+      "loginPrompt": "Пожалуйста, войдите для отправки сообщения",
       "loginButton": "Войти"
     },
     "info": {
       "title": "Контактная информация",
-      "subtitle": "Свяжитесь с нами",
+      "description": "Оставайтесь на связи и следите за нашими новейшими элитными кошками в социальных сетях",
       "email": "Email",
       "phone": "Телефон",
-      "address": "Адрес",
-      "hours": "Часы работы",
-      "hoursValue": "UTC 8:30-23:00",
-      "social": "Подписывайтесь на нас",
-      "socialDescription": "Оставайтесь на связи и смотрите наших последних элитных кошек в социальных сетях"
+      "address": "Адрес"
     }
   },
   "auth": {
@@ -569,6 +569,7 @@
   "captcha": {
     "title": "Подтверждение безопасности",
     "instruction": "Введите код с картинки",
+    "enterCode": "Введите код с изображения",
     "label": "Введите код с изображения",
     "placeholder": "6 символов",
     "refresh": "Обновить",
@@ -801,11 +802,5 @@
     "checkErrorGeneric": "Произошла ошибка при проверке. Попробуйте позже.",
     "messageError": "Не удалось отправить сообщение. Пожалуйста, попробуйте позже.",
     "fillField": "Заполните это поле"
-  },
-  "contact": {
-    "messageSent": "Сообщение отправлено",
-    "messageSentDescription": "Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.",
-    "emailCopied": "Email скопирован",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
   }
 }

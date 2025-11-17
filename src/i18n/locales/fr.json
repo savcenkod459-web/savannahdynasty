@@ -182,6 +182,10 @@
     "badge": "Contactez-nous",
     "title": "Contactez-Nous",
     "subtitle": "Des questions? Nous sommes là pour aider",
+    "messageSent": "Message envoyé",
+    "messageSentDescription": "Merci pour votre message! Nous vous contacterons sous peu.",
+    "emailCopied": "E-mail copié",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copié dans le presse-papiers",
     "form": {
       "title": "Envoyez-nous un message",
       "name": "Nom",
@@ -191,20 +195,21 @@
       "email_placeholder": "votre@email.com",
       "emailPlaceholder": "votre@email.com",
       "phone": "Téléphone",
-      "phone_placeholder": "+33 6 12 34 56 78",
-      "phonePlaceholder": "+33 6 12 34 56 78",
+      "phone_placeholder": "+33 X XX XX XX XX",
+      "phonePlaceholder": "+33 X XX XX XX XX",
       "message": "Message",
       "message_placeholder": "Comment pouvons-nous vous aider?",
       "messagePlaceholder": "Comment pouvons-nous vous aider?",
-      "submit": "Envoyer le Message",
-      "sending": "Envoi...",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
       "success": "Message envoyé avec succès!",
       "error": "Échec de l'envoi du message",
       "loginPrompt": "Veuillez vous connecter pour envoyer un message",
       "loginButton": "Connexion"
     },
     "info": {
-      "title": "Informations de Contact",
+      "title": "Informations de contact",
+      "description": "Restez connecté et découvrez nos derniers félins d'élite sur les réseaux sociaux",
       "email": "Email",
       "phone": "Téléphone",
       "address": "Adresse"
@@ -686,11 +691,5 @@
     "checkErrorGeneric": "Une erreur s'est produite lors de la vérification. Veuillez réessayer plus tard.",
     "messageError": "Échec de l'envoi du message. Veuillez réessayer plus tard.",
     "fillField": "Veuillez remplir ce champ"
-  },
-  "contact": {
-    "messageSent": "Message envoyé",
-    "messageSentDescription": "Merci pour votre message! Nous vous contacterons sous peu.",
-    "emailCopied": "E-mail copié",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copié dans le presse-papiers"
   }
 }

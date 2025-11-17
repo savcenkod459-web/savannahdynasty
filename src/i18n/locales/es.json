@@ -187,26 +187,34 @@
     "badge": "Contacto",
     "title": "Contáctenos",
     "subtitle": "¿Tiene preguntas? Estamos aquí para ayudar",
+    "messageSent": "Mensaje enviado",
+    "messageSentDescription": "¡Gracias por su mensaje! Nos pondremos en contacto con usted en breve.",
+    "emailCopied": "Email copiado",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado al portapapeles",
     "form": {
       "title": "Envíanos un mensaje",
       "name": "Nombre",
       "name_placeholder": "Su nombre",
       "namePlaceholder": "Su nombre completo",
       "email": "Email",
+      "email_placeholder": "su@email.com",
       "emailPlaceholder": "su@email.com",
       "phone": "Teléfono",
-      "phonePlaceholder": "+34 912 345 678",
+      "phone_placeholder": "+34 XXX XXX XXX",
+      "phonePlaceholder": "+34 XXX XXX XXX",
       "message": "Mensaje",
+      "message_placeholder": "¿Cómo podemos ayudarle?",
       "messagePlaceholder": "¿Cómo podemos ayudarle?",
-      "submit": "Enviar Mensaje",
+      "submit": "Enviar mensaje",
       "sending": "Enviando...",
       "success": "¡Mensaje enviado con éxito!",
-      "error": "Error al enviar mensaje",
+      "error": "No se pudo enviar el mensaje",
       "loginPrompt": "Por favor inicie sesión para enviar un mensaje",
-      "loginButton": "Iniciar Sesión"
+      "loginButton": "Iniciar sesión"
     },
     "info": {
-      "title": "Información de Contacto",
+      "title": "Información de contacto",
+      "description": "Manténgase conectado y descubra nuestros últimos felinos de élite en las redes sociales",
       "email": "Email",
       "phone": "Teléfono",
       "address": "Dirección"
@@ -356,11 +364,6 @@
     "father": "Padre",
     "mother": "Madre",
     "noData": "Información de pedigrí no disponible"
-  },
-  "captcha": {
-    "label": "Ingrese el código de la imagen",
-    "placeholder": "Ingrese el código",
-    "refresh": "Actualizar"
   },
   "resetPassword": {
     "title": "Restablecer Contraseña",
@@ -702,11 +705,5 @@
     "checkErrorGeneric": "Se produjo un error durante la verificación. Por favor, intente más tarde.",
     "messageError": "No se pudo enviar el mensaje. Por favor, intente más tarde.",
     "fillField": "Por favor complete este campo"
-  },
-  "contact": {
-    "messageSent": "Mensaje enviado",
-    "messageSentDescription": "¡Gracias por su mensaje! Nos pondremos en contacto con usted en breve.",
-    "emailCopied": "Email copiado",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado al portapapeles"
   }
 }

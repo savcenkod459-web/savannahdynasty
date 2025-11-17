@@ -187,6 +187,10 @@
     "badge": "Get in Touch",
     "title": "Contact Us",
     "subtitle": "Have questions? We're here to help",
+    "messageSent": "Message Sent",
+    "messageSentDescription": "Thank you for your message! We will contact you shortly.",
+    "emailCopied": "Email Copied",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copied to clipboard",
     "form": {
       "title": "Send us a message",
       "name": "Name",
@@ -360,11 +364,6 @@
     "father": "Father",
     "mother": "Mother",
     "noData": "Pedigree information not available"
-  },
-  "captcha": {
-    "label": "Enter the code from the image",
-    "placeholder": "Enter code",
-    "refresh": "Refresh"
   },
   "resetPassword": {
     "title": "Reset Password",
@@ -706,11 +705,5 @@
     "checkErrorGeneric": "An error occurred during verification. Please try again later.",
     "messageError": "Failed to send message. Please try again later.",
     "fillField": "Please fill in this field"
-  },
-  "contact": {
-    "messageSent": "Message Sent",
-    "messageSentDescription": "Thank you for your message! We will contact you shortly.",
-    "emailCopied": "Email Copied",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copied to clipboard"
   }
 }

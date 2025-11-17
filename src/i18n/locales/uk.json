@@ -182,6 +182,10 @@
     "badge": "Зв'язатися",
     "title": "Зв'яжіться з нами",
     "subtitle": "Є питання? Ми тут, щоб допомогти",
+    "messageSent": "Повідомлення надіслано",
+    "messageSentDescription": "Дякуємо за ваше повідомлення! Ми зв'яжемося з вами найближчим часом.",
+    "emailCopied": "Email скопійовано",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com скопійовано в буфер обміну",
     "form": {
       "title": "Надішліть нам повідомлення",
       "name": "Ім'я",
@@ -191,20 +195,21 @@
       "email_placeholder": "ваш@email.com",
       "emailPlaceholder": "ваш@email.com",
       "phone": "Телефон",
-      "phone_placeholder": "+380 67 123 45 67",
-      "phonePlaceholder": "+380 67 123 45 67",
+      "phone_placeholder": "+380 XX XXX XX XX",
+      "phonePlaceholder": "+380 XX XXX XX XX",
       "message": "Повідомлення",
-      "message_placeholder": "Як ми можемо допомогти вам?",
-      "messagePlaceholder": "Як ми можемо допомогти вам?",
-      "submit": "Надіслати повідомлення",
-      "sending": "Відправлення...",
+      "message_placeholder": "Як ми можемо вам допомогти?",
+      "messagePlaceholder": "Як ми можемо вам допомогти?",
+      "submit": "Надіслати",
+      "sending": "Надсилання...",
       "success": "Повідомлення успішно надіслано!",
       "error": "Не вдалося надіслати повідомлення",
-      "loginPrompt": "Будь ласка, увійдіть, щоб надіслати повідомлення",
+      "loginPrompt": "Будь ласка, увійдіть для надсилання повідомлення",
       "loginButton": "Увійти"
     },
     "info": {
       "title": "Контактна інформація",
+      "description": "Залишайтеся на зв'язку та відкривайте наших найновіших елітних кішок у соціальних мережах",
       "email": "Email",
       "phone": "Телефон",
       "address": "Адреса"
@@ -349,11 +354,6 @@
     "father": "Батько",
     "mother": "Мати",
     "noData": "Інформація про родовід недоступна"
-  },
-  "captcha": {
-    "label": "Введіть код із зображення",
-    "placeholder": "Введіть код",
-    "refresh": "Оновити"
   },
   "resetPassword": {
     "title": "Скидання пароля",
@@ -668,11 +668,5 @@
     "checkErrorGeneric": "Сталася помилка під час перевірки. Спробуйте пізніше.",
     "messageError": "Не вдалося надіслати повідомлення. Будь ласка, спробуйте пізніше.",
     "fillField": "Заповніть це поле"
-  },
-  "contact": {
-    "messageSent": "Повідомлення надіслано",
-    "messageSentDescription": "Дякуємо за ваше повідомлення! Ми зв'яжемося з вами найближчим часом.",
-    "emailCopied": "Email скопійовано",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com скопійовано в буфер обміну"
   }
 }
