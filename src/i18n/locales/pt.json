@@ -252,6 +252,13 @@
       "signUpError": "Erro de Registro",
       "error": "Erro"
     },
+    "validation": {
+      "required": "Por favor, preencha este campo",
+      "emailInvalid": "O endereço de e-mail deve conter o símbolo \"@\"",
+      "emailMissing": "O símbolo \"@\" está ausente no endereço",
+      "minLength": "Mínimo de caracteres permitidos: {{min}}. Comprimento atual: {{current}}",
+      "passwordMinLength": "A senha deve conter pelo menos 8 caracteres"
+    },
     "success": {
       "signInTitle": "Login Bem-sucedido",
       "signInDescription": "Você entrou com sucesso",

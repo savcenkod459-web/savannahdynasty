@@ -256,6 +256,13 @@
       "signUpError": "Erreur d'Inscription",
       "error": "Erreur"
     },
+    "validation": {
+      "required": "Veuillez remplir ce champ",
+      "emailInvalid": "L'adresse e-mail doit contenir le symbole \"@\"",
+      "emailMissing": "Le symbole \"@\" est manquant dans l'adresse",
+      "minLength": "Nombre minimum de caractères autorisés : {{min}}. Longueur actuelle : {{current}}",
+      "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères"
+    },
     "success": {
       "signInTitle": "Connexion Réussie",
       "signInDescription": "Vous êtes connecté avec succès",

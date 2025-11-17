@@ -247,6 +247,13 @@
       "signUpError": "注册错误",
       "error": "错误"
     },
+    "validation": {
+      "required": "请填写此字段",
+      "emailInvalid": "电子邮件地址必须包含\"@\"符号",
+      "emailMissing": "地址中缺少\"@\"符号",
+      "minLength": "最少允许字符数：{{min}}。当前长度：{{current}}",
+      "passwordMinLength": "密码必须至少包含8个字符"
+    },
     "success": {
       "signInTitle": "登录成功",
       "signInDescription": "您已成功登录",

@@ -56,8 +56,8 @@ const Navigation = () => {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     toast({
-      title: "Выход выполнен",
-      description: "Вы успешно вышли из системы"
+      title: t("auth.logout.title"),
+      description: t("auth.logout.description")
     });
     navigate("/");
   };

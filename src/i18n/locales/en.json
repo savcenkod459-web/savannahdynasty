@@ -265,6 +265,13 @@
       "signUpError": "Sign Up Error",
       "error": "Error"
     },
+    "validation": {
+      "required": "Please fill out this field",
+      "emailInvalid": "Email address must contain the \"@\" symbol",
+      "emailMissing": "The \"@\" symbol is missing from the address",
+      "minLength": "Minimum allowed characters: {{min}}. Current length: {{current}}",
+      "passwordMinLength": "Password must contain at least 8 characters"
+    },
     "success": {
       "signInTitle": "Successful Sign In",
       "signInDescription": "You have successfully signed in",
