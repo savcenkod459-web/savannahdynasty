@@ -271,6 +271,7 @@
       "emailMissing": "The \"@\" symbol is missing from the address",
       "phoneInvalid": "Please enter a valid phone number (minimum 10 digits)",
       "minLength": "Minimum allowed characters: {{min}}. Current length: {{current}}",
+      "maxLength": "Maximum allowed characters: {{max}}",
       "passwordMinLength": "Password must contain at least 8 characters"
     },
     "success": {

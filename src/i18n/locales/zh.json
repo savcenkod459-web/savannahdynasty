@@ -253,6 +253,7 @@
       "emailMissing": "地址中缺少\"@\"符号",
       "phoneInvalid": "请输入有效的电话号码（至少10位数字）",
       "minLength": "最少允许字符数：{{min}}。当前长度：{{current}}",
+      "maxLength": "最多允许字符数：{{max}}",
       "passwordMinLength": "密码必须至少包含8个字符"
     },
     "success": {

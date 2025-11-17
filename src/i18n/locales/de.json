@@ -266,6 +266,7 @@
       "emailMissing": "Das \"@\"-Symbol fehlt in der Adresse",
       "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein (mindestens 10 Ziffern)",
       "minLength": "Mindestens erforderliche Zeichen: {{min}}. Aktuelle Länge: {{current}}",
+      "maxLength": "Maximal zulässige Zeichen: {{max}}",
       "passwordMinLength": "Das Passwort muss mindestens 8 Zeichen enthalten"
     },
     "success": {

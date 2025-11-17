@@ -22,7 +22,12 @@ export const useFormValidation = () => {
         const minLength = target.getAttribute('minlength') || '8';
         const currentLength = target.value.length;
         target.setCustomValidity(
-          t('auth.validation.minLength', { min: minLength, current: currentLength })
+          t('auth.validation.minLength', { min: minLength, current: currentLength.toString() })
+        );
+      } else if (target.validity.tooLong) {
+        const maxLength = target.getAttribute('maxlength') || '100';
+        target.setCustomValidity(
+          t('auth.validation.maxLength', { max: maxLength })
         );
       } else {
         target.setCustomValidity('');
@@ -39,7 +44,7 @@ export const useFormValidation = () => {
     };
 
     // Добавляем обработчики ко всем полям формы
-    const inputs = document.querySelectorAll('input[required], input[type="email"], input[type="tel"], input[minlength], textarea[required]');
+    const inputs = document.querySelectorAll('input[required], input[type="email"], input[type="tel"], input[minlength], input[maxlength], textarea[required], textarea[minlength], textarea[maxlength]');
     
     inputs.forEach((input) => {
       input.addEventListener('invalid', handleInvalid);

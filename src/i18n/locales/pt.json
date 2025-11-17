@@ -258,6 +258,7 @@
       "emailMissing": "O símbolo \"@\" está ausente no endereço",
       "phoneInvalid": "Por favor, insira um número de telefone válido (mínimo 10 dígitos)",
       "minLength": "Mínimo de caracteres permitidos: {{min}}. Comprimento atual: {{current}}",
+      "maxLength": "Máximo de caracteres permitidos: {{max}}",
       "passwordMinLength": "A senha deve conter pelo menos 8 caracteres"
     },
     "success": {
