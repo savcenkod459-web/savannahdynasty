@@ -104,7 +104,7 @@ const ResetPassword = () => {
               <Button
                 type="button"
                 variant="ghost"
-                className="w-full text-sm hover:bg-secondary/50 transition-all duration-300"
+                className="w-full text-sm hover:bg-secondary/50 hover:text-foreground transition-all duration-300"
                 onClick={() => navigate("/auth")}
               >
                 Вернуться к входу

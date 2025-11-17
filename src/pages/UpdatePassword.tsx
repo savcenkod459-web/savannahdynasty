@@ -255,7 +255,7 @@ const UpdatePassword = () => {
                 <Button
                   type="button"
                   variant="outline"
-                  className="flex-1 text-sm hover:bg-secondary/50 transition-all duration-300"
+                  className="flex-1 text-sm hover:bg-secondary/50 hover:text-foreground transition-all duration-300"
                   onClick={handleResendCode}
                   disabled={resendLoading || !email || resendTimer > 0}
                 >
@@ -274,7 +274,7 @@ const UpdatePassword = () => {
                 <Button
                   type="button"
                   variant="ghost"
-                  className="flex-1 text-sm hover:bg-secondary/50 transition-all duration-300"
+                  className="flex-1 text-sm hover:bg-secondary/50 hover:text-foreground transition-all duration-300"
                   onClick={() => navigate("/reset-password")}
                 >
                   Назад
