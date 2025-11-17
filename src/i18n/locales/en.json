@@ -237,6 +237,15 @@
     "noAccount": "Don't have an account? Register",
     "hasAccount": "Already have an account? Sign In",
     "forgotPassword": "Forgot password?",
+    "logout": {
+      "title": "Logged Out",
+      "description": "You have successfully logged out"
+    },
+    "required": {
+      "title": "Authentication Required",
+      "description": "Please sign in or sign up to send a message",
+      "button": "Sign In"
+    },
     "errors": {
       "invalidCredentials": "Invalid Login Credentials",
       "invalidCredentialsDescription": "Email or password is incorrect. If you forgot your password, click 'Forgot password?'",
@@ -265,6 +274,34 @@
       "error": "Invalid or expired code",
       "codeSent": "Code sent to your email"
     }
+  },
+  "changePassword": {
+    "title": "Change Password",
+    "description": "Enter your current password and the new password twice",
+    "button": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password",
+    "cancel": "Cancel",
+    "save": "Save",
+    "errors": {
+      "title": "Error",
+      "mismatch": "You incorrectly confirmed the new password, please try again",
+      "wrongCurrent": "You entered your current password incorrectly, please try again",
+      "minLength": "Password must contain at least 8 characters",
+      "general": "An error occurred while changing the password"
+    },
+    "success": {
+      "title": "Success",
+      "description": "Password successfully changed. Use the new password on your next login."
+    }
+  },
+  "captcha": {
+    "title": "Security Confirmation",
+    "description": "Enter the code from the image",
+    "placeholder": "6 CHARACTERS",
+    "cancel": "Cancel",
+    "submit": "Submit"
   },
   "profile": {
     "title": "Profile",

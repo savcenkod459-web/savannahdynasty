@@ -233,6 +233,15 @@
     "noAccount": "¿No tiene cuenta? Regístrese",
     "hasAccount": "¿Ya tiene cuenta? Inicie Sesión",
     "forgotPassword": "¿Olvidó su contraseña?",
+    "logout": {
+      "title": "Sesión cerrada",
+      "description": "Has cerrado sesión exitosamente"
+    },
+    "required": {
+      "title": "Autenticación requerida",
+      "description": "Por favor, inicia sesión o regístrate para enviar un mensaje",
+      "button": "Iniciar sesión"
+    },
     "errors": {
       "invalidCredentials": "Credenciales Inválidas",
       "invalidCredentialsDescription": "Email o contraseña incorrectos. Si olvidó su contraseña, haga clic en '¿Olvidó su contraseña?'",
@@ -261,6 +270,34 @@
       "error": "Código inválido o expirado",
       "codeSent": "Código enviado a su email"
     }
+  },
+  "changePassword": {
+    "title": "Cambiar contraseña",
+    "description": "Ingrese su contraseña actual y la nueva contraseña dos veces",
+    "button": "Cambiar contraseña",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar nueva contraseña",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "errors": {
+      "title": "Error",
+      "mismatch": "Confirmó incorrectamente la nueva contraseña, por favor intente nuevamente",
+      "wrongCurrent": "Ingresó incorrectamente su contraseña actual, por favor intente nuevamente",
+      "minLength": "La contraseña debe contener al menos 8 caracteres",
+      "general": "Ocurrió un error al cambiar la contraseña"
+    },
+    "success": {
+      "title": "Éxito",
+      "description": "Contraseña cambiada exitosamente. Use la nueva contraseña en su próximo inicio de sesión."
+    }
+  },
+  "captcha": {
+    "title": "Confirmación de seguridad",
+    "description": "Ingrese el código de la imagen",
+    "placeholder": "6 CARACTERES",
+    "cancel": "Cancelar",
+    "submit": "Enviar"
   },
   "profile": {
     "title": "Perfil",

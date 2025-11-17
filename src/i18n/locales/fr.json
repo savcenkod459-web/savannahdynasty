@@ -231,6 +231,15 @@
     "noAccount": "Pas de compte? Inscrivez-vous",
     "hasAccount": "Vous avez déjà un compte? Connectez-vous",
     "forgotPassword": "Mot de passe oublié?",
+    "logout": {
+      "title": "Déconnexion réussie",
+      "description": "Vous vous êtes déconnecté avec succès"
+    },
+    "required": {
+      "title": "Authentification requise",
+      "description": "Veuillez vous connecter ou vous inscrire pour envoyer un message",
+      "button": "Se connecter"
+    },
     "errors": {
       "invalidCredentials": "Identifiants Invalides",
       "invalidCredentialsDescription": "Email ou mot de passe incorrect. Si vous avez oublié votre mot de passe, cliquez sur 'Mot de passe oublié?'",
@@ -259,6 +268,34 @@
       "error": "Code invalide ou expiré",
       "codeSent": "Code envoyé à votre email"
     }
+  },
+  "changePassword": {
+    "title": "Changer le mot de passe",
+    "description": "Entrez votre mot de passe actuel et le nouveau mot de passe deux fois",
+    "button": "Changer le mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le nouveau mot de passe",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "errors": {
+      "title": "Erreur",
+      "mismatch": "Vous avez mal confirmé le nouveau mot de passe, veuillez réessayer",
+      "wrongCurrent": "Vous avez mal saisi votre mot de passe actuel, veuillez réessayer",
+      "minLength": "Le mot de passe doit contenir au moins 8 caractères",
+      "general": "Une erreur s'est produite lors du changement de mot de passe"
+    },
+    "success": {
+      "title": "Succès",
+      "description": "Mot de passe changé avec succès. Utilisez le nouveau mot de passe lors de votre prochaine connexion."
+    }
+  },
+  "captcha": {
+    "title": "Confirmation de sécurité",
+    "description": "Entrez le code de l'image",
+    "placeholder": "6 CARACTÈRES",
+    "cancel": "Annuler",
+    "submit": "Soumettre"
   },
   "profile": {
     "title": "Profil",
