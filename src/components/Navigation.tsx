@@ -243,7 +243,7 @@ const Navigation = () => {
               </div>
             ) : (
               <Button onClick={() => navigate("/auth")} variant="ghost" size="sm" className="micro-interaction text-[0.75rem]">
-                Войти
+                {t("auth.signin.button")}
               </Button>
             )}
           </div>
