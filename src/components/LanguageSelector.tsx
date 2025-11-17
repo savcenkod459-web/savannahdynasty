@@ -9,15 +9,15 @@ import {
 import { Button } from "@/components/ui/button";
 
 const languages = [
-  { code: 'en', name: 'English', flag: '🇬🇧', label: 'UK' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺', label: 'RU' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦', label: 'SA' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷', label: 'FR' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪', label: 'DE' },
-  { code: 'es', name: 'Español', flag: '🇪🇸', label: 'ES' },
-  { code: 'pt', name: 'Português', flag: '🇧🇷', label: 'BR' },
-  { code: 'zh', name: '中文', flag: '🇨🇳', label: 'CN' },
-  { code: 'uk', name: 'Українська', flag: '🇺🇦', label: 'UA' },
+  { code: 'en', name: 'English', flag: '🇬🇧', buttonLabel: 'UK' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺', buttonLabel: 'RU' },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦', buttonLabel: 'SA' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷', buttonLabel: 'FR' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪', buttonLabel: 'DE' },
+  { code: 'es', name: 'Español', flag: '🇪🇸', buttonLabel: 'ES' },
+  { code: 'pt', name: 'Português', flag: '🇧🇷', buttonLabel: 'BR' },
+  { code: 'zh', name: '中文', flag: '🇨🇳', buttonLabel: 'CN' },
+  { code: 'uk', name: 'Українська', flag: '🇺🇦', buttonLabel: 'UA' },
 ];
 
 const LanguageSelector = () => {
@@ -42,7 +42,7 @@ const LanguageSelector = () => {
           className="gap-1.5 hover:bg-primary/10 text-foreground hover:text-foreground text-sm px-2.5 py-1.5 h-auto"
         >
           <Globe className="w-3.5 h-3.5" />
-          <span className="text-sm">{currentLanguage.label}</span>
+          <span className="text-sm">{currentLanguage.buttonLabel}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-44 bg-background/95 backdrop-blur-lg border-primary/20">
