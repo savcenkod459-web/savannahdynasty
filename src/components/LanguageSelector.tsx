@@ -59,7 +59,7 @@ const LanguageSelector = () => {
             }`}
           >
             <span className="text-xl">{language.flag}</span>
-            <span>{language.label} {language.name}</span>
+            <span>{language.name}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
