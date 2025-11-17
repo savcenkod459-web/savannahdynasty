@@ -82,7 +82,7 @@ const Contact = () => {
       if (error instanceof z.ZodError) {
         const firstError = error.errors[0];
         toast({
-          title: "Validation Error",
+          title: t("errors.validationError"),
           description: firstError.message,
           variant: "destructive"
         });
@@ -93,8 +93,8 @@ const Contact = () => {
     // Проверяем авторизацию
     if (!user) {
       toast({
-        title: "Требуется авторизация",
-        description: "Войдите в аккаунт или зарегистрируйтесь, чтобы отправить сообщение",
+        title: t("auth.authRequired"),
+        description: t("auth.authRequiredDescription"),
         variant: "destructive",
         action: (
           <Button 
@@ -102,7 +102,7 @@ const Contact = () => {
             onClick={() => window.location.href = '/auth'}
             className="bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            Войти
+            {t("auth.login")}
           </Button>
         )
       });
@@ -119,8 +119,8 @@ const Contact = () => {
       if (rateLimitError) {
         console.error('Rate limit check error:', rateLimitError);
         toast({
-          title: "Ошибка проверки",
-          description: "Не удалось проверить лимит сообщений. Попробуйте позже.",
+          title: t("errors.checkError"),
+          description: t("errors.rateLimitCheckError"),
           variant: "destructive"
         });
         return;
@@ -128,8 +128,8 @@ const Contact = () => {
 
       if (canSend === false) {
         toast({
-          title: "Слишком много сообщений",
-          description: "Вы можете отправить максимум 3 сообщения в час. Пожалуйста, попробуйте позже.",
+          title: t("errors.tooManyMessages"),
+          description: t("errors.tooManyMessagesDescription"),
           variant: "destructive"
         });
         return;
@@ -137,8 +137,8 @@ const Contact = () => {
     } catch (error) {
       console.error('Rate limit check exception:', error);
       toast({
-        title: "Ошибка",
-        description: "Произошла ошибка при проверке. Попробуйте позже.",
+        title: t("errors.error"),
+        description: t("errors.checkErrorGeneric"),
         variant: "destructive"
       });
       return;
@@ -190,8 +190,8 @@ const Contact = () => {
       }
 
       toast({
-        title: "Сообщение отправлено",
-        description: "Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время."
+        title: t("contact.messageSent"),
+        description: t("contact.messageSentDescription")
       });
       
       setFormData({
@@ -207,8 +207,8 @@ const Contact = () => {
     } catch (error) {
       console.error('Error submitting contact form:', error);
       toast({
-        title: "Ошибка",
-        description: "Не удалось отправить сообщение. Пожалуйста, попробуйте позже.",
+        title: t("errors.error"),
+        description: t("errors.messageError"),
         variant: "destructive"
       });
     }
@@ -217,8 +217,8 @@ const Contact = () => {
   const copyEmail = () => {
     navigator.clipboard.writeText("savannahdynastyofficial@gmail.com");
     toast({
-      title: "Email скопирован",
-      description: "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
+      title: t("contact.emailCopied"),
+      description: t("contact.emailCopiedDescription")
     });
   };
   

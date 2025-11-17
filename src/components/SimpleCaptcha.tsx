@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RefreshCw } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface SimpleCaptchaProps {
   onVerify: (isValid: boolean) => void;
 }
 
 const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
+  const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [captchaCode, setCaptchaCode] = useState("");
   const [userInput, setUserInput] = useState("");
@@ -187,12 +189,12 @@ const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="captcha-input" className="text-sm">Введите код с картинки</Label>
+        <Label htmlFor="captcha-input" className="text-sm">{t("captcha.enterCode")}</Label>
         <Input
           id="captcha-input"
           value={userInput}
           onChange={(e) => handleInputChange(e.target.value)}
-          placeholder="6 символов"
+          placeholder={t("captcha.placeholder")}
           maxLength={6}
           className="text-base sm:text-lg tracking-widest text-center"
         />

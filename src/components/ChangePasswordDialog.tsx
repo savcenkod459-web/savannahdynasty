@@ -13,8 +13,10 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { KeyRound } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const ChangePasswordDialog = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
@@ -28,8 +30,8 @@ export const ChangePasswordDialog = () => {
     // Проверяем что новые пароли совпадают
     if (newPassword !== confirmPassword) {
       toast({
-        title: "Ошибка",
-        description: "Вы неправильно подтвердили новый пароль, пожалуйста повторите попытку",
+        title: t("changePassword.errors.title"),
+        description: t("changePassword.errors.mismatch"),
         variant: "destructive"
       });
       return;
@@ -38,8 +40,8 @@ export const ChangePasswordDialog = () => {
     // Проверяем минимальную длину
     if (newPassword.length < 8) {
       toast({
-        title: "Ошибка",
-        description: "Пароль должен содержать минимум 8 символов",
+        title: t("changePassword.errors.title"),
+        description: t("changePassword.errors.tooShort"),
         variant: "destructive"
       });
       return;
@@ -50,7 +52,7 @@ export const ChangePasswordDialog = () => {
       // Получаем текущего пользователя
       const { data: { user } } = await supabase.auth.getUser();
       if (!user?.email) {
-        throw new Error("Пользователь не найден");
+        throw new Error(t("changePassword.errors.userNotFound"));
       }
 
       // Проверяем текущий пароль, пытаясь авторизоваться
@@ -61,8 +63,8 @@ export const ChangePasswordDialog = () => {
 
       if (signInError) {
         toast({
-          title: "Ошибка",
-          description: "Вы неправильно ввели свой текущий пароль, пожалуйста повторите попытку",
+          title: t("changePassword.errors.title"),
+          description: t("changePassword.errors.wrongPassword"),
           variant: "destructive"
         });
         setLoading(false);
@@ -79,8 +81,8 @@ export const ChangePasswordDialog = () => {
       }
 
       toast({
-        title: "Успешно",
-        description: "Пароль успешно изменен. Используйте новый пароль при следующем входе."
+        title: t("changePassword.success.title"),
+        description: t("changePassword.success.description")
       });
 
       // Очищаем форму и закрываем диалог
@@ -90,8 +92,8 @@ export const ChangePasswordDialog = () => {
       setOpen(false);
     } catch (error: any) {
       toast({
-        title: "Ошибка",
-        description: error.message || "Произошла ошибка при изменении пароля",
+        title: t("changePassword.errors.title"),
+        description: error.message || t("changePassword.errors.generic"),
         variant: "destructive"
       });
     } finally {
@@ -104,19 +106,19 @@ export const ChangePasswordDialog = () => {
       <DialogTrigger asChild>
         <Button variant="outline" className="w-full">
           <KeyRound className="w-4 h-4 mr-2" />
-          Изменить пароль
+          {t("changePassword.title")}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Изменить пароль</DialogTitle>
+          <DialogTitle>{t("changePassword.title")}</DialogTitle>
           <DialogDescription>
-            Введите текущий пароль и новый пароль дважды
+            {t("changePassword.description")}
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleChangePassword} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="current-password">Текущий пароль</Label>
+            <Label htmlFor="current-password">{t("changePassword.currentPassword")}</Label>
             <Input
               id="current-password"
               type="password"
@@ -126,7 +128,7 @@ export const ChangePasswordDialog = () => {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="new-password">Новый пароль</Label>
+            <Label htmlFor="new-password">{t("changePassword.newPassword")}</Label>
             <Input
               id="new-password"
               type="password"
@@ -137,7 +139,7 @@ export const ChangePasswordDialog = () => {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="confirm-password">Подтвердите новый пароль</Label>
+            <Label htmlFor="confirm-password">{t("changePassword.confirmPassword")}</Label>
             <Input
               id="confirm-password"
               type="password"
@@ -154,10 +156,10 @@ export const ChangePasswordDialog = () => {
               onClick={() => setOpen(false)}
               className="flex-1"
             >
-              Отмена
+              {t("changePassword.cancel")}
             </Button>
             <Button type="submit" disabled={loading} className="flex-1">
-              {loading ? "Сохранение..." : "Сохранить"}
+              {loading ? t("changePassword.saving") : t("changePassword.save")}
             </Button>
           </div>
         </form>
