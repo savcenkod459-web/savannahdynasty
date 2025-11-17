@@ -300,24 +300,29 @@
   },
   "changePassword": {
     "title": "Alterar Senha",
+    "description": "Digite sua senha atual e a nova senha duas vezes",
     "currentPassword": "Senha Atual",
     "newPassword": "Nova Senha",
     "confirmPassword": "Confirmar Nova Senha",
-    "cancel": "Cancelar",
-    "save": "Salvar",
     "saving": "Salvando...",
-    "success": "Senha alterada com sucesso",
-    "error": "Erro ao alterar senha",
-    "passwordMismatch": "As senhas não correspondem",
-    "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
-    "incorrectPassword": "Senha atual incorreta"
+    "errors": {
+      "title": "Erro",
+      "mismatch": "As senhas não correspondem",
+      "tooShort": "A senha deve ter pelo menos 8 caracteres",
+      "wrongPassword": "Senha atual incorreta",
+      "userNotFound": "Usuário não encontrado",
+      "generic": "Erro ao alterar senha"
+    },
+    "success": {
+      "title": "Sucesso",
+      "description": "Senha alterada com sucesso"
+    }
   },
   "captcha": {
-    "title": "Verificação de Segurança",
-    "instruction": "Digite as letras e números mostrados abaixo:",
-    "placeholder": "Digite o código aqui",
-    "regenerate": "Alterar código",
-    "incorrect": "Código incorreto. Tente novamente."
+    "title": "Confirmação de Segurança",
+    "description": "Digite o código da imagem",
+    "enterCode": "Digite o código da imagem",
+    "placeholder": "6 caracteres"
   },
   "profile": {
     "title": "Perfil",
@@ -596,27 +601,6 @@
       "title": "🌍 Companheiro para toda a vida",
       "description": "Savannah não é apenas um gato que viverá por perto. É um verdadeiro amigo que irá recebê-lo, brincar, comunicar e alegrar todos os dias. A ligação com Savannah é única - é uma relação ao nível de parceria e verdadeira amizade."
     }
-  },
-  "changePassword": {
-    "title": "Alterar Senha",
-    "currentPassword": "Senha Atual",
-    "newPassword": "Nova Senha",
-    "confirmPassword": "Confirmar Nova Senha",
-    "cancel": "Cancelar",
-    "save": "Salvar",
-    "saving": "Salvando...",
-    "success": "Senha alterada com sucesso",
-    "error": "Erro ao alterar senha",
-    "passwordMismatch": "As senhas não correspondem",
-    "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
-    "incorrectPassword": "Senha atual incorreta"
-  },
-  "captcha": {
-    "title": "Verificação de Segurança",
-    "instruction": "Digite as letras e números mostrados abaixo:",
-    "placeholder": "Digite o código aqui",
-    "regenerate": "Alterar código",
-    "incorrect": "Código incorreto. Tente novamente."
   },
   "admin": {
     "cats": {

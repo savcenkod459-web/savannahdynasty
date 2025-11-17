@@ -293,7 +293,8 @@
   "captcha": {
     "title": "Confirmation de sécurité",
     "description": "Entrez le code de l'image",
-    "placeholder": "6 CARACTÈRES",
+    "enterCode": "Entrez le code de l'image",
+    "placeholder": "6 caractères",
     "cancel": "Annuler",
     "submit": "Soumettre"
   },
@@ -344,11 +345,6 @@
     "father": "Père",
     "mother": "Mère",
     "noData": "Informations de pedigree non disponibles"
-  },
-  "captcha": {
-    "label": "Entrez le code de l'image",
-    "placeholder": "Entrez le code",
-    "refresh": "Actualiser"
   },
   "resetPassword": {
     "title": "Réinitialiser le mot de passe",
