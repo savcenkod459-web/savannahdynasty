@@ -616,5 +616,27 @@
       "deleted": "消息已删除",
       "error": "错误"
     }
+  },
+  "updatePassword": {
+    "title": "重置确认",
+    "subtitle": "输入邮件中的代码和新密码",
+    "codeLabel": "确认代码",
+    "codePlaceholder": "输入邮件中的6位数代码",
+    "newPasswordLabel": "输入新密码",
+    "confirmPasswordLabel": "确认密码",
+    "confirmPasswordPlaceholder": "重复新密码",
+    "updateButton": "更新密码",
+    "resendCode": "重新发送代码",
+    "resendIn": "重新发送倒计时",
+    "success": "密码修改成功",
+    "successDescription": "您现在可以使用新密码登录",
+    "errors": {
+      "enterEmailCode": "输入电子邮件和确认代码",
+      "passwordMismatch": "密码不匹配",
+      "passwordTooShort": "密码必须至少8个字符",
+      "enterEmail": "输入电子邮件地址"
+    },
+    "resendSuccess": "代码已重新发送",
+    "resendSuccessDescription": "查看您的电子邮件以获取新代码"
   }
 }

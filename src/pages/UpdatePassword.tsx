@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Clock } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const UpdatePassword = () => {
   const [searchParams] = useSearchParams();
@@ -21,6 +22,7 @@ const UpdatePassword = () => {
   const [resendTimer, setResendTimer] = useState(0);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const emailParam = searchParams.get("email");
@@ -45,8 +47,8 @@ const UpdatePassword = () => {
     if (!email) {
       toast({
         variant: "destructive",
-        title: "Ошибка",
-        description: "Введите email адрес"
+        title: t("auth.error"),
+        description: t("updatePassword.errors.enterEmail")
       });
       return;
     }
@@ -66,13 +68,13 @@ const UpdatePassword = () => {
       
       setResendTimer(60); // 1 minute timer
       toast({
-        title: "Код отправлен повторно",
-        description: "Проверьте почту для получения нового кода"
+        title: t("updatePassword.resendSuccess"),
+        description: t("updatePassword.resendSuccessDescription")
       });
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Ошибка",
+        title: t("auth.error"),
         description: error.message
       });
     } finally {
@@ -86,8 +88,8 @@ const UpdatePassword = () => {
     if (!email || !code) {
       toast({
         variant: "destructive",
-        title: "Ошибка",
-        description: "Введите email и код подтверждения"
+        title: t("auth.error"),
+        description: t("updatePassword.errors.enterEmailCode")
       });
       return;
     }
@@ -95,8 +97,8 @@ const UpdatePassword = () => {
     if (newPassword !== confirmPassword) {
       toast({
         variant: "destructive",
-        title: "Ошибка",
-        description: "Пароли не совпадают"
+        title: t("auth.error"),
+        description: t("updatePassword.errors.passwordMismatch")
       });
       return;
     }
@@ -104,8 +106,8 @@ const UpdatePassword = () => {
     if (newPassword.length < 8) {
       toast({
         variant: "destructive",
-        title: "Ошибка",
-        description: "Пароль должен быть не менее 8 символов"
+        title: t("auth.error"),
+        description: t("updatePassword.errors.passwordTooShort")
       });
       return;
     }
@@ -128,8 +130,8 @@ const UpdatePassword = () => {
       }
       
       toast({
-        title: "Пароль успешно изменен",
-        description: "Теперь вы можете войти с новым паролем"
+        title: t("updatePassword.success"),
+        description: t("updatePassword.successDescription")
       });
       
       setTimeout(() => {
@@ -138,7 +140,7 @@ const UpdatePassword = () => {
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Ошибка",
+        title: t("auth.error"),
         description: error.message || "Произошла ошибка при обновлении пароля"
       });
     } finally {
@@ -167,10 +169,10 @@ const UpdatePassword = () => {
             </div>
             
             <CardTitle className="text-3xl font-display font-black text-center text-luxury-gradient luxury-text-shadow">
-              Подтверждение сброса
+              {t("updatePassword.title")}
             </CardTitle>
             <CardDescription className="text-center text-foreground/70 text-base font-medium">
-              Введите код из письма и новый пароль
+              {t("updatePassword.subtitle")}
             </CardDescription>
           </CardHeader>
           
@@ -194,7 +196,7 @@ const UpdatePassword = () => {
 
               <div className="space-y-3">
                 <Label htmlFor="code" className="text-sm font-semibold text-foreground/80">
-                  Код подтверждения
+                  {t("updatePassword.codeLabel")}
                 </Label>
                 <Input
                   id="code"
@@ -207,13 +209,13 @@ const UpdatePassword = () => {
                   placeholder="000000"
                 />
                 <p className="text-xs text-muted-foreground text-center">
-                  Введите 6-значный код из письма
+                  {t("updatePassword.codePlaceholder")}
                 </p>
               </div>
               
               <div className="space-y-3">
                 <Label htmlFor="new-password" className="text-sm font-semibold text-foreground/80">
-                  Новый пароль
+                  {t("updatePassword.newPasswordLabel")}
                 </Label>
                 <Input
                   id="new-password"
@@ -223,13 +225,13 @@ const UpdatePassword = () => {
                   required
                   minLength={8}
                   className="h-12 px-4 glass-card border-2 border-primary/20 focus:border-primary/50 transition-all duration-300"
-                  placeholder="Введите новый пароль"
+                  placeholder="••••••••"
                 />
               </div>
               
               <div className="space-y-3">
                 <Label htmlFor="confirm-password" className="text-sm font-semibold text-foreground/80">
-                  Подтвердите пароль
+                  {t("updatePassword.confirmPasswordLabel")}
                 </Label>
                 <Input
                   id="confirm-password"
@@ -239,7 +241,7 @@ const UpdatePassword = () => {
                   required
                   minLength={8}
                   className="h-12 px-4 glass-card border-2 border-primary/20 focus:border-primary/50 transition-all duration-300"
-                  placeholder="Повторите новый пароль"
+                  placeholder={t("updatePassword.confirmPasswordPlaceholder")}
                 />
               </div>
               
@@ -248,7 +250,7 @@ const UpdatePassword = () => {
                 className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary to-accent hover:shadow-glow transition-all duration-300"
                 disabled={loading}
               >
-                {loading ? "Обновление..." : "Изменить пароль"}
+                {loading ? t("auth.loading") : t("updatePassword.updateButton")}
               </Button>
               
               <div className="flex gap-3">
@@ -262,12 +264,12 @@ const UpdatePassword = () => {
                   {resendTimer > 0 ? (
                     <span className="flex items-center gap-2">
                       <Clock className="h-4 w-4" />
-                      Подождите {resendTimer}с
+                      {t("updatePassword.resendIn")} {resendTimer}s
                     </span>
                   ) : resendLoading ? (
-                    "Отправка..."
+                    t("auth.loading")
                   ) : (
-                    "Отправить код повторно"
+                    t("updatePassword.resendCode")
                   )}
                 </Button>
                 

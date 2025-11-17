@@ -594,5 +594,27 @@
       "deleted": "Mensagem excluída",
       "error": "Erro"
     }
+  },
+  "updatePassword": {
+    "title": "Confirmação de Redefinição",
+    "subtitle": "Digite o código do email e a nova senha",
+    "codeLabel": "Código de Confirmação",
+    "codePlaceholder": "Digite o código de 6 dígitos do email",
+    "newPasswordLabel": "Digite a nova senha",
+    "confirmPasswordLabel": "Confirmar senha",
+    "confirmPasswordPlaceholder": "Repita a nova senha",
+    "updateButton": "Atualizar Senha",
+    "resendCode": "Reenviar código",
+    "resendIn": "Reenviar em",
+    "success": "Senha alterada com sucesso",
+    "successDescription": "Agora você pode fazer login com sua nova senha",
+    "errors": {
+      "enterEmailCode": "Digite email e código de confirmação",
+      "passwordMismatch": "As senhas não coincidem",
+      "passwordTooShort": "A senha deve ter pelo menos 8 caracteres",
+      "enterEmail": "Digite o endereço de email"
+    },
+    "resendSuccess": "Código reenviado",
+    "resendSuccessDescription": "Verifique seu email para o novo código"
   }
 }

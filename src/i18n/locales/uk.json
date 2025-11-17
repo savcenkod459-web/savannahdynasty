@@ -589,5 +589,27 @@
       "deleted": "Повідомлення видалено",
       "error": "Помилка"
     }
+  },
+  "updatePassword": {
+    "title": "Підтвердження скидання",
+    "subtitle": "Введіть код з листа та новий пароль",
+    "codeLabel": "Код підтвердження",
+    "codePlaceholder": "Введіть 6-значний код з листа",
+    "newPasswordLabel": "Введіть новий пароль",
+    "confirmPasswordLabel": "Підтвердіть пароль",
+    "confirmPasswordPlaceholder": "Повторіть новий пароль",
+    "updateButton": "Оновити пароль",
+    "resendCode": "Відправити код повторно",
+    "resendIn": "Відправити повторно через",
+    "success": "Пароль успішно змінено",
+    "successDescription": "Тепер ви можете увійти з новим паролем",
+    "errors": {
+      "enterEmailCode": "Введіть email та код підтвердження",
+      "passwordMismatch": "Паролі не збігаються",
+      "passwordTooShort": "Пароль повинен бути не менше 8 символів",
+      "enterEmail": "Введіть email адресу"
+    },
+    "resendSuccess": "Код відправлено повторно",
+    "resendSuccessDescription": "Перевірте пошту для отримання нового коду"
   }
 }

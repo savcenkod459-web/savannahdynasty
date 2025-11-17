@@ -360,7 +360,7 @@ const Navigation = () => {
                     variant="ghost" 
                     className="w-full justify-start micro-interaction"
                   >
-                    Войти
+                    {t("auth.signin.button")}
                   </Button>
                 )}
               </div>

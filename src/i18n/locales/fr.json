@@ -616,5 +616,27 @@
       "deleted": "Message supprimé",
       "error": "Erreur"
     }
+  },
+  "updatePassword": {
+    "title": "Confirmation de réinitialisation",
+    "subtitle": "Entrez le code de l'email et le nouveau mot de passe",
+    "codeLabel": "Code de confirmation",
+    "codePlaceholder": "Entrez le code à 6 chiffres de l'email",
+    "newPasswordLabel": "Entrez le nouveau mot de passe",
+    "confirmPasswordLabel": "Confirmer le mot de passe",
+    "confirmPasswordPlaceholder": "Répétez le nouveau mot de passe",
+    "updateButton": "Mettre à jour le mot de passe",
+    "resendCode": "Renvoyer le code",
+    "resendIn": "Renvoyer dans",
+    "success": "Mot de passe modifié avec succès",
+    "successDescription": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe",
+    "errors": {
+      "enterEmailCode": "Entrez l'email et le code de confirmation",
+      "passwordMismatch": "Les mots de passe ne correspondent pas",
+      "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+      "enterEmail": "Entrez l'adresse email"
+    },
+    "resendSuccess": "Code renvoyé",
+    "resendSuccessDescription": "Vérifiez votre email pour le nouveau code"
   }
 }

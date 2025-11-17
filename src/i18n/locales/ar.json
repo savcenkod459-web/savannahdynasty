@@ -587,5 +587,27 @@
       "deleted": "تم حذف الرسالة",
       "error": "خطأ"
     }
+  },
+  "updatePassword": {
+    "title": "تأكيد إعادة التعيين",
+    "subtitle": "أدخل الرمز من البريد الإلكتروني وكلمة المرور الجديدة",
+    "codeLabel": "رمز التأكيد",
+    "codePlaceholder": "أدخل الرمز المكون من 6 أرقام من البريد الإلكتروني",
+    "newPasswordLabel": "أدخل كلمة المرور الجديدة",
+    "confirmPasswordLabel": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "كرر كلمة المرور الجديدة",
+    "updateButton": "تحديث كلمة المرور",
+    "resendCode": "إعادة إرسال الرمز",
+    "resendIn": "إعادة الإرسال خلال",
+    "success": "تم تغيير كلمة المرور بنجاح",
+    "successDescription": "يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة",
+    "errors": {
+      "enterEmailCode": "أدخل البريد الإلكتروني ورمز التأكيد",
+      "passwordMismatch": "كلمات المرور غير متطابقة",
+      "passwordTooShort": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+      "enterEmail": "أدخل عنوان البريد الإلكتروني"
+    },
+    "resendSuccess": "تم إعادة إرسال الرمز",
+    "resendSuccessDescription": "تحقق من بريدك الإلكتروني للحصول على الرمز الجديد"
   }
 }

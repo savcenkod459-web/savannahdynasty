@@ -622,5 +622,27 @@
       "deleted": "Message deleted",
       "error": "Error"
     }
+  },
+  "updatePassword": {
+    "title": "Reset Confirmation",
+    "subtitle": "Enter the code from email and new password",
+    "codeLabel": "Confirmation Code",
+    "codePlaceholder": "Enter 6-digit code from email",
+    "newPasswordLabel": "Enter new password",
+    "confirmPasswordLabel": "Confirm password",
+    "confirmPasswordPlaceholder": "Repeat new password",
+    "updateButton": "Update Password",
+    "resendCode": "Resend code",
+    "resendIn": "Resend in",
+    "success": "Password changed successfully",
+    "successDescription": "You can now login with your new password",
+    "errors": {
+      "enterEmailCode": "Enter email and confirmation code",
+      "passwordMismatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 8 characters",
+      "enterEmail": "Enter email address"
+    },
+    "resendSuccess": "Code resent",
+    "resendSuccessDescription": "Check your email for the new code"
   }
 }

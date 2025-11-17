@@ -719,5 +719,27 @@
       "deleted": "Сообщение удалено",
       "error": "Ошибка"
     }
+  },
+  "updatePassword": {
+    "title": "Подтверждение сброса",
+    "subtitle": "Введите код из письма и новый пароль",
+    "codeLabel": "Код подтверждения",
+    "codePlaceholder": "Введите 6-значный код из письма",
+    "newPasswordLabel": "Введите новый пароль",
+    "confirmPasswordLabel": "Подтвердите пароль",
+    "confirmPasswordPlaceholder": "Повторите новый пароль",
+    "updateButton": "Обновить пароль",
+    "resendCode": "Отправить код повторно",
+    "resendIn": "Отправить повторно через",
+    "success": "Пароль успешно изменен",
+    "successDescription": "Теперь вы можете войти с новым паролем",
+    "errors": {
+      "enterEmailCode": "Введите email и код подтверждения",
+      "passwordMismatch": "Пароли не совпадают",
+      "passwordTooShort": "Пароль должен быть не менее 8 символов",
+      "enterEmail": "Введите email адрес"
+    },
+    "resendSuccess": "Код отправлен повторно",
+    "resendSuccessDescription": "Проверьте почту для получения нового кода"
   }
 }

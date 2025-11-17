@@ -618,5 +618,27 @@
       "deleted": "Mensaje eliminado",
       "error": "Error"
     }
+  },
+  "updatePassword": {
+    "title": "Confirmación de Restablecimiento",
+    "subtitle": "Ingrese el código del correo y nueva contraseña",
+    "codeLabel": "Código de Confirmación",
+    "codePlaceholder": "Ingrese el código de 6 dígitos del correo",
+    "newPasswordLabel": "Ingrese nueva contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "confirmPasswordPlaceholder": "Repita la nueva contraseña",
+    "updateButton": "Actualizar Contraseña",
+    "resendCode": "Reenviar código",
+    "resendIn": "Reenviar en",
+    "success": "Contraseña cambiada con éxito",
+    "successDescription": "Ahora puede iniciar sesión con su nueva contraseña",
+    "errors": {
+      "enterEmailCode": "Ingrese email y código de confirmación",
+      "passwordMismatch": "Las contraseñas no coinciden",
+      "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
+      "enterEmail": "Ingrese dirección de email"
+    },
+    "resendSuccess": "Código reenviado",
+    "resendSuccessDescription": "Revise su correo para el nuevo código"
   }
 }
