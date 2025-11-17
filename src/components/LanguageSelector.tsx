@@ -42,8 +42,7 @@ const LanguageSelector = () => {
           className="gap-1.5 hover:bg-primary/10 text-foreground hover:text-foreground text-sm px-2.5 py-1.5 h-auto"
         >
           <Globe className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline text-sm">{currentLanguage.flag} {currentLanguage.label}</span>
-          <span className="sm:hidden">{currentLanguage.flag}</span>
+          <span className="text-sm">{currentLanguage.label}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-44 bg-background/95 backdrop-blur-lg border-primary/20">
