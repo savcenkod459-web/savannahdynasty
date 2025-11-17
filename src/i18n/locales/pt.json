@@ -263,7 +263,61 @@
       "success": "E-mail verificado com sucesso!",
       "error": "Código inválido ou expirado",
       "codeSent": "Código enviado para seu e-mail"
-    }
+    },
+    "resetPassword": {
+      "title": "Redefinir Senha",
+      "instruction": "Digite seu e-mail para enviar o código de redefinição",
+      "sendCode": "Enviar Código",
+      "enterCode": "Digite o código de verificação",
+      "newPassword": "Nova Senha",
+      "confirmPassword": "Confirmar Senha",
+      "resetButton": "Redefinir Senha",
+      "backToLogin": "Voltar ao Login",
+      "codeSent": "Código enviado para seu e-mail",
+      "passwordReset": "Senha redefinida com sucesso",
+      "invalidCode": "Código inválido",
+      "codeExpired": "Código expirado",
+      "passwordMismatch": "As senhas não correspondem",
+      "passwordTooShort": "A senha deve ter pelo menos 6 caracteres"
+    },
+    "changePassword": {
+      "title": "Alterar Senha",
+      "button": "Alterar Senha",
+      "currentPassword": "Senha Atual",
+      "newPassword": "Nova Senha",
+      "confirmPassword": "Confirmar Nova Senha",
+      "cancel": "Cancelar",
+      "save": "Salvar",
+      "saving": "Salvando...",
+      "success": "Senha alterada com sucesso",
+      "error": "Erro ao alterar senha",
+      "passwordMismatch": "As senhas não correspondem",
+      "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
+      "incorrectPassword": "Senha atual incorreta"
+    },
+    "logout": "Sair",
+    "authRequired": "É necessário fazer login para acessar esta página"
+  },
+  "changePassword": {
+    "title": "Alterar Senha",
+    "currentPassword": "Senha Atual",
+    "newPassword": "Nova Senha",
+    "confirmPassword": "Confirmar Nova Senha",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "saving": "Salvando...",
+    "success": "Senha alterada com sucesso",
+    "error": "Erro ao alterar senha",
+    "passwordMismatch": "As senhas não correspondem",
+    "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
+    "incorrectPassword": "Senha atual incorreta"
+  },
+  "captcha": {
+    "title": "Verificação de Segurança",
+    "instruction": "Digite as letras e números mostrados abaixo:",
+    "placeholder": "Digite o código aqui",
+    "regenerate": "Alterar código",
+    "incorrect": "Código incorreto. Tente novamente."
   },
   "profile": {
     "title": "Perfil",
@@ -542,6 +596,27 @@
       "title": "🌍 Companheiro para toda a vida",
       "description": "Savannah não é apenas um gato que viverá por perto. É um verdadeiro amigo que irá recebê-lo, brincar, comunicar e alegrar todos os dias. A ligação com Savannah é única - é uma relação ao nível de parceria e verdadeira amizade."
     }
+  },
+  "changePassword": {
+    "title": "Alterar Senha",
+    "currentPassword": "Senha Atual",
+    "newPassword": "Nova Senha",
+    "confirmPassword": "Confirmar Nova Senha",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "saving": "Salvando...",
+    "success": "Senha alterada com sucesso",
+    "error": "Erro ao alterar senha",
+    "passwordMismatch": "As senhas não correspondem",
+    "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
+    "incorrectPassword": "Senha atual incorreta"
+  },
+  "captcha": {
+    "title": "Verificação de Segurança",
+    "instruction": "Digite as letras e números mostrados abaixo:",
+    "placeholder": "Digite o código aqui",
+    "regenerate": "Alterar código",
+    "incorrect": "Código incorreto. Tente novamente."
   },
   "admin": {
     "cats": {

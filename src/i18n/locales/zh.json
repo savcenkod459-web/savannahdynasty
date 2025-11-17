@@ -258,7 +258,61 @@
       "success": "电子邮件验证成功！",
       "error": "无效或过期的代码",
       "codeSent": "代码已发送到您的电子邮件"
-    }
+    },
+    "resetPassword": {
+      "title": "重置密码",
+      "instruction": "输入您的电子邮件以发送重置代码",
+      "sendCode": "发送代码",
+      "enterCode": "输入验证码",
+      "newPassword": "新密码",
+      "confirmPassword": "确认密码",
+      "resetButton": "重置密码",
+      "backToLogin": "返回登录",
+      "codeSent": "代码已发送到您的电子邮件",
+      "passwordReset": "密码重置成功",
+      "invalidCode": "代码无效",
+      "codeExpired": "代码已过期",
+      "passwordMismatch": "密码不匹配",
+      "passwordTooShort": "密码必须至少6个字符"
+    },
+    "changePassword": {
+      "title": "更改密码",
+      "button": "更改密码",
+      "currentPassword": "当前密码",
+      "newPassword": "新密码",
+      "confirmPassword": "确认新密码",
+      "cancel": "取消",
+      "save": "保存",
+      "saving": "保存中...",
+      "success": "密码更改成功",
+      "error": "更改密码时出错",
+      "passwordMismatch": "密码不匹配",
+      "passwordTooShort": "密码必须至少6个字符",
+      "incorrectPassword": "当前密码不正确"
+    },
+    "logout": "登出",
+    "authRequired": "需要登录才能访问此页面"
+  },
+  "changePassword": {
+    "title": "更改密码",
+    "currentPassword": "当前密码",
+    "newPassword": "新密码",
+    "confirmPassword": "确认新密码",
+    "cancel": "取消",
+    "save": "保存",
+    "saving": "保存中...",
+    "success": "密码更改成功",
+    "error": "更改密码时出错",
+    "passwordMismatch": "密码不匹配",
+    "passwordTooShort": "密码必须至少6个字符",
+    "incorrectPassword": "当前密码不正确"
+  },
+  "captcha": {
+    "title": "安全验证",
+    "instruction": "输入下面显示的字母和数字：",
+    "placeholder": "在此输入代码",
+    "regenerate": "更改代码",
+    "incorrect": "代码不正确。请重试。"
   },
   "profile": {
     "title": "个人资料",
@@ -564,6 +618,27 @@
       "title": "🌍 终身伴侣",
       "description": "萨凡纳不仅仅是一只会住在附近的猫。它是一个真正的朋友，会迎接你、玩耍、交流并每天让你开心。与萨凡纳的联系是独特的 - 这是伙伴关系和真正友谊层面的关系。"
     }
+  },
+  "changePassword": {
+    "title": "更改密码",
+    "currentPassword": "当前密码",
+    "newPassword": "新密码",
+    "confirmPassword": "确认新密码",
+    "cancel": "取消",
+    "save": "保存",
+    "saving": "保存中...",
+    "success": "密码更改成功",
+    "error": "更改密码时出错",
+    "passwordMismatch": "密码不匹配",
+    "passwordTooShort": "密码必须至少6个字符",
+    "incorrectPassword": "当前密码不正确"
+  },
+  "captcha": {
+    "title": "安全验证",
+    "instruction": "输入下面显示的字母和数字：",
+    "placeholder": "在此输入代码",
+    "regenerate": "更改代码",
+    "incorrect": "代码不正确。请重试。"
   },
   "admin": {
     "cats": {
