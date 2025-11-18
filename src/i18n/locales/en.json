@@ -14,6 +14,10 @@
     "logout": "Logout",
     "admin": "Admin"
   },
+  "theme": {
+    "switchToLight": "Switch to Light Mode",
+    "switchToDark": "Switch to Dark Mode"
+  },
   "hero": {
     "badge": "Elite Cattery",
     "title": "SavannahDynasty",

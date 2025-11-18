@@ -14,6 +14,10 @@
     "logout": "Sair",
     "admin": "Admin"
   },
+  "theme": {
+    "switchToLight": "Mudar para modo claro",
+    "switchToDark": "Mudar para modo escuro"
+  },
   "hero": {
     "badge": "Gatil de Elite",
     "title": "SavannahDynasty",

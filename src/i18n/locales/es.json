@@ -14,6 +14,10 @@
     "logout": "Cerrar Sesión",
     "admin": "Admin"
   },
+  "theme": {
+    "switchToLight": "Cambiar a modo claro",
+    "switchToDark": "Cambiar a modo oscuro"
+  },
   "hero": {
     "badge": "Criadero de Élite",
     "title": "SavannahDynasty",
