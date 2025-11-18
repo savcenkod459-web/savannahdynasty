@@ -243,7 +243,13 @@
     "forgotPassword": "¿Olvidó su contraseña?",
     "logout": {
       "title": "Sesión cerrada",
-      "description": "Has cerrado sesión exitosamente"
+      "description": "Has cerrado sesión exitosamente",
+      "confirm": {
+        "title": "Confirmar cierre de sesión",
+        "description": "¿Está seguro de que desea cerrar sesión de su cuenta?",
+        "cancel": "Cancelar",
+        "confirm": "Cerrar sesión"
+      }
     },
     "required": {
       "title": "Autenticación requerida",

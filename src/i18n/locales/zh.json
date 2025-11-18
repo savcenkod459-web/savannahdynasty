@@ -240,6 +240,16 @@
     "noAccount": "没有账户？注册",
     "hasAccount": "已有账户？登录",
     "forgotPassword": "忘记密码？",
+    "logout": {
+      "title": "已登出",
+      "description": "您已成功登出",
+      "confirm": {
+        "title": "确认登出",
+        "description": "您确定要登出您的账户吗？",
+        "cancel": "取消",
+        "confirm": "登出"
+      }
+    },
     "errors": {
       "invalidCredentials": "无效的登录凭据",
       "invalidCredentialsDescription": "电子邮件或密码不正确。如果您忘记了密码，请点击'忘记密码？'",

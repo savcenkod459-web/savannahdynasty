@@ -242,7 +242,13 @@
     "forgotPassword": "Mot de passe oublié?",
     "logout": {
       "title": "Déconnexion réussie",
-      "description": "Vous vous êtes déconnecté avec succès"
+      "description": "Vous vous êtes déconnecté avec succès",
+      "confirm": {
+        "title": "Confirmer la déconnexion",
+        "description": "Êtes-vous sûr de vouloir vous déconnecter de votre compte?",
+        "cancel": "Annuler",
+        "confirm": "Se déconnecter"
+      }
     },
     "required": {
       "title": "Authentification requise",
