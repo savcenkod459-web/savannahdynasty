@@ -23,6 +23,25 @@ const ResetPassword = () => {
 
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Валидация email перед отправкой
+    const emailInput = document.getElementById('email') as HTMLInputElement;
+    if (!emailInput.validity.valid) {
+      emailInput.reportValidity();
+      return;
+    }
+    
+    // Дополнительная проверка формата email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        variant: "destructive",
+        title: t("auth.errors.invalidEmail"),
+        description: t("auth.validation.emailInvalid")
+      });
+      return;
+    }
+    
     setLoading(true);
     
     try {

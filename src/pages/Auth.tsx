@@ -54,6 +54,32 @@ const Auth = () => {
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Валидация полей перед отправкой
+    const form = e.target as HTMLFormElement;
+    const emailInput = form.querySelector('#email') as HTMLInputElement;
+    const passwordInput = form.querySelector('#password') as HTMLInputElement;
+    
+    if (!emailInput.validity.valid || !passwordInput.validity.valid) {
+      if (!emailInput.validity.valid) {
+        emailInput.reportValidity();
+      } else {
+        passwordInput.reportValidity();
+      }
+      return;
+    }
+    
+    // Дополнительная проверка формата email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        variant: "destructive",
+        title: t("auth.errors.invalidEmail"),
+        description: t("auth.validation.emailInvalid")
+      });
+      return;
+    }
+    
     setLoading(true);
     
     try {

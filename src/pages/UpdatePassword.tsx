@@ -56,6 +56,17 @@ const UpdatePassword = () => {
       });
       return;
     }
+    
+    // Проверка формата email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        variant: "destructive",
+        title: t("auth.error"),
+        description: t("auth.validation.emailInvalid")
+      });
+      return;
+    }
 
     setResendLoading(true);
     
@@ -89,7 +100,18 @@ const UpdatePassword = () => {
   const handleUpdatePassword = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !code) {
+    // Проверка формата email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      toast({
+        variant: "destructive",
+        title: t("auth.error"),
+        description: !email ? t("updatePassword.errors.enterEmailCode") : t("auth.validation.emailInvalid")
+      });
+      return;
+    }
+    
+    if (!code) {
       toast({
         variant: "destructive",
         title: t("auth.error"),
