@@ -5,66 +5,111 @@ export const useFormValidation = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const validateField = (target: HTMLInputElement | HTMLTextAreaElement) => {
-      // Сбрасываем любое предыдущее кастомное сообщение
-      target.setCustomValidity('');
-      
-      // Проверяем валидность после сброса
-      if (!target.validity.valid) {
-        if (target.validity.valueMissing) {
-          target.setCustomValidity(t('auth.validation.required'));
-        } else if (target.validity.typeMismatch && target.type === 'email') {
-          target.setCustomValidity(t('auth.validation.emailInvalid'));
-        } else if (target.validity.patternMismatch && target.type === 'tel') {
-          target.setCustomValidity(t('auth.validation.phoneInvalid'));
-        } else if (target.validity.tooShort) {
-          const minLength = target.getAttribute('minlength') || '8';
-          const currentLength = target.value.length;
-          target.setCustomValidity(
-            t('auth.validation.minLength', { min: minLength, current: currentLength.toString() })
-          );
-        } else if (target.validity.tooLong) {
-          const maxLength = target.getAttribute('maxlength') || '100';
-          target.setCustomValidity(
-            t('auth.validation.maxLength', { max: maxLength })
-          );
-        }
+    const validateField = (input: HTMLInputElement | HTMLTextAreaElement): boolean => {
+      let errorMessage = '';
+
+      if (input.validity.valueMissing) {
+        errorMessage = t('auth.validation.required');
+      } else if (input.validity.typeMismatch && input.type === 'email') {
+        errorMessage = t('auth.validation.emailInvalid');
+      } else if (input.validity.patternMismatch && input.type === 'tel') {
+        errorMessage = t('auth.validation.phoneInvalid');
+      } else if (input.validity.tooShort) {
+        const minLength = input.getAttribute('minlength') || '8';
+        const currentLength = input.value.length;
+        errorMessage = t('auth.validation.minLength', { 
+          min: minLength, 
+          current: currentLength.toString() 
+        });
+      } else if (input.validity.tooLong) {
+        const maxLength = input.getAttribute('maxlength') || '100';
+        errorMessage = t('auth.validation.maxLength', { max: maxLength });
       }
-      return target.validity.valid;
+
+      input.setCustomValidity(errorMessage);
+      return input.validity.valid;
     };
 
     const handleInvalid = (e: Event) => {
       e.preventDefault();
-      const target = e.target as HTMLInputElement | HTMLTextAreaElement;
-      validateField(target);
-      target.reportValidity();
+      const input = e.target as HTMLInputElement | HTMLTextAreaElement;
+      validateField(input);
+      
+      // Показываем сообщение об ошибке
+      const errorSpan = input.parentElement?.querySelector('.validation-error');
+      if (errorSpan) {
+        errorSpan.textContent = input.validationMessage;
+      } else {
+        // Создаем элемент для отображения ошибки
+        const span = document.createElement('span');
+        span.className = 'validation-error text-sm text-destructive mt-1 block';
+        span.textContent = input.validationMessage;
+        input.parentElement?.appendChild(span);
+      }
     };
 
     const handleInput = (e: Event) => {
-      const target = e.target as HTMLInputElement | HTMLTextAreaElement;
-      target.setCustomValidity('');
+      const input = e.target as HTMLInputElement | HTMLTextAreaElement;
+      input.setCustomValidity('');
+      
+      // Убираем сообщение об ошибке
+      const errorSpan = input.parentElement?.querySelector('.validation-error');
+      if (errorSpan) {
+        errorSpan.remove();
+      }
+      
+      // Проверяем валидность после ввода
+      if (input.value.length > 0) {
+        validateField(input);
+      }
     };
 
     const handleSubmit = (e: Event) => {
       const form = e.target as HTMLFormElement;
-      const inputs = form.querySelectorAll('input[required], input[type="email"], input[type="tel"], input[minlength], input[maxlength], textarea[required], textarea[minlength], textarea[maxlength]');
+      const inputs = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
+        'input[required], input[type="email"], input[type="tel"], input[minlength], input[maxlength], textarea[required], textarea[minlength], textarea[maxlength]'
+      );
       
+      let isValid = true;
       inputs.forEach((input) => {
-        validateField(input as HTMLInputElement | HTMLTextAreaElement);
+        if (!validateField(input)) {
+          isValid = false;
+          // Показываем ошибку для невалидных полей
+          const errorSpan = input.parentElement?.querySelector('.validation-error');
+          if (!errorSpan && input.validationMessage) {
+            const span = document.createElement('span');
+            span.className = 'validation-error text-sm text-destructive mt-1 block';
+            span.textContent = input.validationMessage;
+            input.parentElement?.appendChild(span);
+          }
+        }
       });
+      
+      if (!isValid) {
+        e.preventDefault();
+      }
     };
 
-    // Добавляем обработчики ко всем полям формы
-    const inputs = document.querySelectorAll('input[required], input[type="email"], input[type="tel"], input[minlength], input[maxlength], textarea[required], textarea[minlength], textarea[maxlength]');
+    // Добавляем novalidate ко всем формам
     const forms = document.querySelectorAll('form');
+    forms.forEach((form) => {
+      form.setAttribute('novalidate', 'true');
+      form.addEventListener('submit', handleSubmit);
+    });
+
+    // Добавляем обработчики ко всем полям формы
+    const inputs = document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
+      'input[required], input[type="email"], input[type="tel"], input[minlength], input[maxlength], textarea[required], textarea[minlength], textarea[maxlength]'
+    );
     
     inputs.forEach((input) => {
       input.addEventListener('invalid', handleInvalid);
       input.addEventListener('input', handleInput);
-    });
-
-    forms.forEach((form) => {
-      form.addEventListener('submit', handleSubmit);
+      input.addEventListener('blur', () => {
+        if (input.value.length > 0) {
+          validateField(input);
+        }
+      });
     });
 
     return () => {
