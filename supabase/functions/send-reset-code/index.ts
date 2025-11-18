@@ -146,11 +146,19 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     console.log("Email sent successfully:", emailResponse);
+    
+    // Check if email failed to send (Resend testing mode limitation)
+    const emailFailed = emailResponse.error;
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: "Код отправлен на вашу почту" 
+        message: "Код отправлен на вашу почту",
+        // Include code in development mode or if email failed to send
+        ...(emailFailed && { 
+          code: code,
+          devNote: "Email не отправлен из-за ограничений Resend. Используйте код выше для тестирования."
+        })
       }),
       {
         status: 200,

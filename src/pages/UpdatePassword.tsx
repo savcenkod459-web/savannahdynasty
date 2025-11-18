@@ -33,7 +33,18 @@ const UpdatePassword = () => {
     if (emailParam) {
       setEmail(emailParam);
     }
-  }, [searchParams]);
+    
+    // Если есть тестовый код, автоматически заполняем его
+    const testCodeParam = searchParams.get("testCode");
+    if (testCodeParam) {
+      setCode(testCodeParam);
+      toast({
+        title: "⚠️ Режим тестирования",
+        description: "Код автоматически заполнен для тестирования",
+        duration: 5000,
+      });
+    }
+  }, [searchParams, toast]);
 
   // Timer countdown
   useEffect(() => {
@@ -81,11 +92,22 @@ const UpdatePassword = () => {
         throw new Error(data.error);
       }
       
+      // Если код возвращен (для тестирования), автоматически заполняем
+      if (data?.code) {
+        setCode(data.code);
+        toast({
+          title: "⚠️ Режим тестирования",
+          description: `Код автоматически заполнен: ${data.code}`,
+          duration: 8000,
+        });
+      } else {
+        toast({
+          title: t("updatePassword.resendSuccess"),
+          description: t("updatePassword.resendSuccessDescription")
+        });
+      }
+      
       setResendTimer(60); // 1 minute timer
-      toast({
-        title: t("updatePassword.resendSuccess"),
-        description: t("updatePassword.resendSuccessDescription")
-      });
     } catch (error: any) {
       toast({
         variant: "destructive",

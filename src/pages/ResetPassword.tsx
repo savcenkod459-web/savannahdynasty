@@ -55,12 +55,26 @@ const ResetPassword = () => {
         throw new Error(data.error);
       }
       
-      toast({
-        title: t("resetPassword.codeSent"),
-        description: t("resetPassword.codeSentDescription")
-      });
+      // Если код возвращен (для тестирования), показываем его
+      if (data?.code) {
+        toast({
+          title: "⚠️ Режим тестирования",
+          description: `Ваш код: ${data.code}. ${data.devNote || ''}`,
+          duration: 10000,
+        });
+      } else {
+        toast({
+          title: t("resetPassword.codeSent"),
+          description: t("resetPassword.codeSentDescription")
+        });
+      }
       
-      setTimeout(() => navigate(`/update-password?email=${encodeURIComponent(email)}`), 1500);
+      // Передаем код, если он есть
+      const urlParams = new URLSearchParams({ email });
+      if (data?.code) {
+        urlParams.append('testCode', data.code);
+      }
+      setTimeout(() => navigate(`/update-password?${urlParams.toString()}`), 1500);
     } catch (error: any) {
       toast({
         variant: "destructive",
