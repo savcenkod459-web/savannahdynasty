@@ -35,7 +35,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Rate limiting: Check for recent reset codes (max 10 per hour for easier testing)
+    // Rate limiting: Check for recent reset codes (max 5 per hour)
     const oneHourAgo = new Date(Date.now() - 3600000).toISOString();
     const { data: recentCodes, error: rateLimitError } = await supabase
       .from("password_reset_codes")
@@ -48,7 +48,7 @@ const handler = async (req: Request): Promise<Response> => {
       throw rateLimitError;
     }
 
-    if (recentCodes && recentCodes.length >= 10) {
+    if (recentCodes && recentCodes.length >= 5) {
       console.log(`Rate limit exceeded for email: ${email}`);
       return new Response(
         JSON.stringify({ error: "Слишком много попыток. Пожалуйста, попробуйте через час" }),
@@ -147,19 +147,11 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     console.log("Email sent successfully:", emailResponse);
-    
-    // Check if email failed to send (Resend testing mode limitation)
-    const emailFailed = emailResponse.error;
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: "Код отправлен на вашу почту",
-        // Include code in development mode or if email failed to send
-        ...(emailFailed && { 
-          code: code,
-          devNote: "Email не отправлен из-за ограничений Resend. Используйте код выше для тестирования."
-        })
+        message: "Код отправлен на вашу почту"
       }),
       {
         status: 200,
