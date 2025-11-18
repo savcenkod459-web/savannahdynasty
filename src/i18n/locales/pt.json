@@ -325,7 +325,14 @@
       "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
       "incorrectPassword": "Senha atual incorreta"
     },
-    "logout": "Sair",
+    "logout": {
+      "confirm": {
+        "title": "Confirmar Saída",
+        "description": "Tem certeza de que deseja sair da sua conta?",
+        "cancel": "Cancelar",
+        "confirm": "Sair"
+      }
+    },
     "authRequired": "É necessário fazer login para acessar esta página"
   },
   "changePassword": {

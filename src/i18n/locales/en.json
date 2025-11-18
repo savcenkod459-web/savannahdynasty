@@ -302,6 +302,14 @@
       "success": "Email verified successfully!",
       "error": "Invalid or expired code",
       "codeSent": "Code sent to your email"
+    },
+    "logout": {
+      "confirm": {
+        "title": "Confirm Logout",
+        "description": "Are you sure you want to log out of your account?",
+        "cancel": "Cancel",
+        "confirm": "Log Out"
+      }
     }
   },
   "changePassword": {
