@@ -274,6 +274,10 @@
       "maxLength": "Caracteres máximos permitidos: {{max}}",
       "passwordMinLength": "La contraseña debe contener al menos 8 caracteres"
     },
+    "password": {
+      "show": "Mostrar contraseña",
+      "hide": "Ocultar contraseña"
+    },
     "success": {
       "signInTitle": "Inicio de Sesión Exitoso",
       "signInDescription": "Ha iniciado sesión correctamente",

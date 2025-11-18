@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 import {
   Dialog,
@@ -196,9 +197,8 @@ export const ChangePasswordDialog = () => {
         <form id="change-password-form" onSubmit={handleChangePassword} className="space-y-4" noValidate>
           <div className="space-y-2">
             <Label htmlFor="current-password">{t("changePassword.currentPassword")}</Label>
-            <Input
+            <PasswordInput
               id="current-password"
-              type="password"
               placeholder={t("changePassword.currentPasswordPlaceholder")}
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
@@ -208,9 +208,8 @@ export const ChangePasswordDialog = () => {
           </div>
           <div className="space-y-2">
             <Label htmlFor="new-password">{t("changePassword.newPassword")}</Label>
-            <Input
+            <PasswordInput
               id="new-password"
-              type="password"
               placeholder={t("changePassword.newPasswordPlaceholder")}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
@@ -220,9 +219,8 @@ export const ChangePasswordDialog = () => {
           </div>
           <div className="space-y-2">
             <Label htmlFor="confirm-password">{t("changePassword.confirmPassword")}</Label>
-            <Input
+            <PasswordInput
               id="confirm-password"
-              type="password"
               placeholder={t("changePassword.confirmPasswordPlaceholder")}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}

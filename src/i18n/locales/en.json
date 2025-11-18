@@ -274,6 +274,10 @@
       "maxLength": "Maximum allowed characters: {{max}}",
       "passwordMinLength": "Password must contain at least 8 characters"
     },
+    "password": {
+      "show": "Show password",
+      "hide": "Hide password"
+    },
     "success": {
       "signInTitle": "Successful Sign In",
       "signInDescription": "You have successfully signed in",

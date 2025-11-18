@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -265,9 +266,8 @@ const UpdatePassword = () => {
                 <Label htmlFor="new-password" className="text-sm font-semibold text-foreground/80">
                   {t("updatePassword.newPasswordLabel")}
                 </Label>
-                <Input
+                <PasswordInput
                   id="new-password"
-                  type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   required
@@ -281,9 +281,8 @@ const UpdatePassword = () => {
                 <Label htmlFor="confirm-password" className="text-sm font-semibold text-foreground/80">
                   {t("updatePassword.confirmPasswordLabel")}
                 </Label>
-                <Input
+                <PasswordInput
                   id="confirm-password"
-                  type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required

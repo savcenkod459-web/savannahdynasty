@@ -256,6 +256,10 @@
       "maxLength": "最多允许字符数：{{max}}",
       "passwordMinLength": "密码必须至少包含8个字符"
     },
+    "password": {
+      "show": "显示密码",
+      "hide": "隐藏密码"
+    },
     "success": {
       "signInTitle": "登录成功",
       "signInDescription": "您已成功登录",
