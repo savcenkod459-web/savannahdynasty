@@ -8,10 +8,22 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "@/components/LanguageSelector";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [aboutPopoverOpen, setAboutPopoverOpen] = useState(false);
   const [adminPopoverOpen, setAdminPopoverOpen] = useState(false);
+  const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [user, setUser] = useState<any>(null);
   const location = useLocation();
@@ -54,6 +66,7 @@ const Navigation = () => {
     return () => subscription.unsubscribe();
   }, []);
   const handleLogout = async () => {
+    setLogoutDialogOpen(false);
     await supabase.auth.signOut();
     toast({
       title: t("auth.logout.title"),
@@ -231,15 +244,32 @@ const Navigation = () => {
                 >
                   <User className="h-4 w-4" />
                 </Button>
-                <Button 
-                  onClick={handleLogout} 
-                  variant="ghost" 
-                  size="sm" 
-                  className="micro-interaction text-[0.75rem]"
-                >
-                  <LogOut className="h-4 w-4 mr-1" />
-                  Выйти
-                </Button>
+                <AlertDialog open={logoutDialogOpen} onOpenChange={setLogoutDialogOpen}>
+                  <AlertDialogTrigger asChild>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="micro-interaction text-[0.75rem]"
+                    >
+                      <LogOut className="h-4 w-4 mr-1" />
+                      {t("auth.logout.confirm.confirm")}
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>{t("auth.logout.confirm.title")}</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        {t("auth.logout.confirm.description")}
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>{t("auth.logout.confirm.cancel")}</AlertDialogCancel>
+                      <AlertDialogAction onClick={handleLogout}>
+                        {t("auth.logout.confirm.confirm")}
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
               </div>
             ) : (
               <Button onClick={() => navigate("/auth")} variant="ghost" size="sm" className="micro-interaction text-[0.75rem]">
@@ -340,16 +370,33 @@ const Navigation = () => {
                       className="w-full justify-start micro-interaction"
                     >
                       <User className="h-4 w-4 mr-2" />
-                      Профиль
+                      {t("profile.title")}
                     </Button>
-                    <Button 
-                      onClick={handleLogout} 
-                      variant="ghost" 
-                      className="w-full justify-start micro-interaction"
-                    >
-                      <LogOut className="h-4 w-4 mr-2" />
-                      Выйти
-                    </Button>
+                    <AlertDialog open={logoutDialogOpen} onOpenChange={setLogoutDialogOpen}>
+                      <AlertDialogTrigger asChild>
+                        <Button 
+                          variant="ghost" 
+                          className="w-full justify-start micro-interaction"
+                        >
+                          <LogOut className="h-4 w-4 mr-2" />
+                          {t("auth.logout.confirm.confirm")}
+                        </Button>
+                      </AlertDialogTrigger>
+                      <AlertDialogContent>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>{t("auth.logout.confirm.title")}</AlertDialogTitle>
+                          <AlertDialogDescription>
+                            {t("auth.logout.confirm.description")}
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>{t("auth.logout.confirm.cancel")}</AlertDialogCancel>
+                          <AlertDialogAction onClick={handleLogout}>
+                            {t("auth.logout.confirm.confirm")}
+                          </AlertDialogAction>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
                   </>
                 ) : (
                   <Button 

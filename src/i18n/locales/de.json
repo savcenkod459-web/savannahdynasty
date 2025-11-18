@@ -242,7 +242,13 @@
     "forgotPassword": "Passwort vergessen?",
     "logout": {
       "title": "Abgemeldet",
-      "description": "Sie haben sich erfolgreich abgemeldet"
+      "description": "Sie haben sich erfolgreich abgemeldet",
+      "confirm": {
+        "title": "Abmeldung bestätigen",
+        "description": "Sind Sie sicher, dass Sie sich von Ihrem Konto abmelden möchten?",
+        "cancel": "Abbrechen",
+        "confirm": "Abmelden"
+      }
     },
     "required": {
       "title": "Authentifizierung erforderlich",

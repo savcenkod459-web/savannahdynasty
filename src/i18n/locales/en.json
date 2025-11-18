@@ -245,7 +245,13 @@
     "hidePassword": "Hide password",
     "logout": {
       "title": "Logged Out",
-      "description": "You have successfully logged out"
+      "description": "You have successfully logged out",
+      "confirm": {
+        "title": "Confirm Logout",
+        "description": "Are you sure you want to log out of your account?",
+        "cancel": "Cancel",
+        "confirm": "Log Out"
+      }
     },
     "required": {
       "title": "Authentication Required",

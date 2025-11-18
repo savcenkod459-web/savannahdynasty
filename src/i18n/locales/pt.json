@@ -241,6 +241,16 @@
     "noAccount": "Não tem conta? Registre-se",
     "hasAccount": "Já tem conta? Entre",
     "forgotPassword": "Esqueceu a senha?",
+    "logout": {
+      "title": "Sessão encerrada",
+      "description": "Você saiu da sua conta com sucesso",
+      "confirm": {
+        "title": "Confirmar saída",
+        "description": "Tem certeza de que deseja sair da sua conta?",
+        "cancel": "Cancelar",
+        "confirm": "Sair"
+      }
+    },
     "errors": {
       "invalidCredentials": "Credenciais Inválidas",
       "invalidCredentialsDescription": "E-mail ou senha incorretos. Se você esqueceu sua senha, clique em 'Esqueceu a senha?'",
