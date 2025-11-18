@@ -14,6 +14,10 @@
     "logout": "登出",
     "admin": "管理"
   },
+  "theme": {
+    "switchToLight": "切换到浅色模式",
+    "switchToDark": "切换到深色模式"
+  },
   "hero": {
     "badge": "精英猫舍",
     "title": "SavannahDynasty",

@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "@/components/LanguageSelector";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -232,6 +233,7 @@ const Navigation = () => {
             )}
 
             <LanguageSelector />
+            <ThemeToggle />
 
             {user ? (
               <div className="flex items-center gap-1">
@@ -252,7 +254,7 @@ const Navigation = () => {
                       className="micro-interaction text-[0.75rem]"
                     >
                       <LogOut className="h-4 w-4 mr-1" />
-                      {t("auth.logout.confirm.confirm")}
+                      {t("nav.logout")}
                     </Button>
                   </AlertDialogTrigger>
                   <AlertDialogContent>
@@ -355,8 +357,11 @@ const Navigation = () => {
                   </div>
                 )}
 
-                <div className="border-t border-primary/10 pt-4 mt-4">
+                <div className="border-t border-primary/10 pt-4 mt-4 space-y-2">
                   <LanguageSelector />
+                  <div className="flex justify-center">
+                    <ThemeToggle />
+                  </div>
                 </div>
 
                 {user ? (
@@ -379,7 +384,7 @@ const Navigation = () => {
                           className="w-full justify-start micro-interaction"
                         >
                           <LogOut className="h-4 w-4 mr-2" />
-                          {t("auth.logout.confirm.confirm")}
+                          {t("nav.logout")}
                         </Button>
                       </AlertDialogTrigger>
                       <AlertDialogContent>

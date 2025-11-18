@@ -14,6 +14,10 @@
     "logout": "تسجيل الخروج",
     "admin": "المسؤول"
   },
+  "theme": {
+    "switchToLight": "التبديل إلى الوضع الفاتح",
+    "switchToDark": "التبديل إلى الوضع الداكن"
+  },
   "hero": {
     "badge": "مربية النخبة",
     "title": "SavannahDynasty",

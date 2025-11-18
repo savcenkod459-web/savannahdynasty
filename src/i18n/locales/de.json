@@ -14,6 +14,10 @@
     "logout": "Abmelden",
     "admin": "Admin"
   },
+  "theme": {
+    "switchToLight": "Zum hellen Modus wechseln",
+    "switchToDark": "Zum dunklen Modus wechseln"
+  },
   "hero": {
     "badge": "Premium-Zucht",
     "title": "SavannahDynasty Cats",
