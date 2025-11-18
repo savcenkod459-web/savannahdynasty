@@ -31,21 +31,28 @@ export const ChangePasswordDialog = () => {
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Валидация полей перед отправкой
+    const form = e.target as HTMLFormElement;
+    const currentPasswordInput = form.querySelector('#current-password') as HTMLInputElement;
+    const newPasswordInput = form.querySelector('#new-password') as HTMLInputElement;
+    const confirmPasswordInput = form.querySelector('#confirm-password') as HTMLInputElement;
+    
+    if (!currentPasswordInput.validity.valid || !newPasswordInput.validity.valid || !confirmPasswordInput.validity.valid) {
+      if (!currentPasswordInput.validity.valid) {
+        currentPasswordInput.reportValidity();
+      } else if (!newPasswordInput.validity.valid) {
+        newPasswordInput.reportValidity();
+      } else {
+        confirmPasswordInput.reportValidity();
+      }
+      return;
+    }
+    
     // Проверяем что новые пароли совпадают
     if (newPassword !== confirmPassword) {
       toast({
         title: t("changePassword.errors.title"),
         description: t("changePassword.errors.mismatch"),
-        variant: "destructive"
-      });
-      return;
-    }
-
-    // Проверяем минимальную длину
-    if (newPassword.length < 8) {
-      toast({
-        title: t("changePassword.errors.title"),
-        description: t("changePassword.errors.tooShort"),
         variant: "destructive"
       });
       return;
@@ -126,9 +133,11 @@ export const ChangePasswordDialog = () => {
             <Input
               id="current-password"
               type="password"
+              placeholder={t("changePassword.currentPasswordPlaceholder")}
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
               required
+              minLength={8}
             />
           </div>
           <div className="space-y-2">
@@ -136,6 +145,7 @@ export const ChangePasswordDialog = () => {
             <Input
               id="new-password"
               type="password"
+              placeholder={t("changePassword.newPasswordPlaceholder")}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               required
@@ -147,6 +157,7 @@ export const ChangePasswordDialog = () => {
             <Input
               id="confirm-password"
               type="password"
+              placeholder={t("changePassword.confirmPasswordPlaceholder")}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
