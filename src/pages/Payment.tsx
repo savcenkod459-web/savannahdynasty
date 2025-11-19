@@ -217,7 +217,7 @@ const Payment = () => {
                     Чтобы узнать детали - свяжитесь с нами
                   </p>
                   
-                  <Button size="lg" onClick={() => navigate('/contact')} className="whitespace-nowrap relative overflow-hidden group/btn hover:shadow-[0_0_60px_rgba(217,179,112,0.8),_0_0_100px_rgba(217,179,112,0.6)] hover:-translate-y-1 hover:scale-105 transition-all duration-700 ease-out hover:brightness-110 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/30 before:to-primary/0 before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000">
+                  <Button size="lg" onClick={() => navigate('/contact')} className="whitespace-nowrap relative overflow-hidden group/btn">
                     <span className="relative z-10">Связаться с нами</span>
                   </Button>
                 </div>
