@@ -89,7 +89,7 @@ const Preloader = () => {
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="relative flex items-center justify-center" style={{ width: '80px', height: '80px' }}>
             <Crown 
-              className="w-20 h-20 text-primary relative z-10" 
+              className="w-20 h-20 text-foreground relative z-10" 
               fill="transparent"
               strokeWidth={2.5}
               style={{ 
