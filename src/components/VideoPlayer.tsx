@@ -211,9 +211,7 @@ export const VideoPlayer = ({
         </div>}
       
       {/* Fullscreen button - always visible on mobile, positioned at bottom right */}
-      {onToggleFullscreen && <Button variant="ghost" size="icon" onClick={onToggleFullscreen} className="absolute bottom-4 right-4 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-10 h-10 transition-all hover:scale-110">
-          <Maximize className="h-5 w-5" />
-        </Button>}
+      {onToggleFullscreen}
 
       {/* Play button - centered at bottom */}
       {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
