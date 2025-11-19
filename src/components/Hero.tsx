@@ -74,34 +74,15 @@ const Hero = () => {
               <img src={displayImage} alt={heroImages?.alt_text || "Элитная кошка Саванна F1"} className="w-full h-[600px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
               
-              {/* Logo with Crown - appears on hover */}
-              <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 flex items-center gap-2">
-                <span 
-                  className="font-display font-black text-3xl tracking-tight"
-                  style={{ 
-                    color: '#D4AF37',
-                    textShadow: '0 0 15px rgba(212, 175, 55, 0.6), 0 0 25px rgba(212, 175, 55, 0.4), 0 0 35px rgba(212, 175, 55, 0.3), 2px 2px 6px rgba(0, 0, 0, 0.7)',
-                    filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.5))',
-                  }}
-                >
-                  SavannahDynasty
-                </span>
-                <Crown 
-                  className="w-10 h-10" 
-                  style={{ 
-                    color: '#D4AF37',
-                    filter: 'drop-shadow(0 0 12px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.3)) drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.7))',
-                  }} 
-                />
-              </div>
               
               {/* Gold accent overlay */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/30 to-transparent rounded-bl-full" />
             </div>
             
             {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold animate-gold-pulse micro-interaction hover:scale-105 mx-0 my-[20px] px-[30px] py-[20px]" style={{
-            boxShadow: '0 0 60px 20px rgba(217, 179, 112, 0.6), 0 0 100px 40px rgba(217, 179, 112, 0.4), 0 0 140px 60px rgba(217, 179, 112, 0.2)'
+              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold micro-interaction hover:scale-105 mx-0 my-[20px] px-[30px] py-[20px]" style={{
+            boxShadow: '0 0 60px 20px rgba(217, 179, 112, 0.6), 0 0 100px 40px rgba(217, 179, 112, 0.4), 0 0 140px 60px rgba(217, 179, 112, 0.2)',
+            animation: 'gold-pulse-slow 9s ease-in-out infinite'
           }}>
               <p className="text-sm font-bold opacity-90 tracking-wider uppercase">{t('breeds.f1.name')}</p>
               <p className="text-3xl font-display font-black luxury-text-shadow">{t('hero.premiumClass')}</p>

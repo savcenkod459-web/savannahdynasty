@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Spark {
   id: number;
@@ -12,10 +13,12 @@ interface Spark {
 
 const SparkEffect = () => {
   const [sparks, setSparks] = useState<Spark[]>([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const newSparks: Spark[] = [];
-    for (let i = 0; i < 20; i++) {
+    const sparkCount = isMobile ? 10 : 20;
+    for (let i = 0; i < sparkCount; i++) {
       newSparks.push({
         id: i,
         x: Math.random() * 100,
@@ -27,14 +30,14 @@ const SparkEffect = () => {
       });
     }
     setSparks(newSparks);
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[2] overflow-hidden">
       {sparks.map((spark) => (
         <div
           key={spark.id}
-          className="absolute"
+          className="absolute will-change-transform"
           style={{
             left: `${spark.x}%`,
             top: `${spark.y}%`,

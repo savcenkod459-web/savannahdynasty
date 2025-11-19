@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Particle {
   id: number;
@@ -10,10 +11,12 @@ interface Particle {
 
 const GoldenParticles = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const newParticles: Particle[] = [];
-    for (let i = 0; i < 30; i++) {
+    const particleCount = isMobile ? 15 : 30;
+    for (let i = 0; i < particleCount; i++) {
       newParticles.push({
         id: i,
         x: Math.random() * 100,
@@ -23,14 +26,14 @@ const GoldenParticles = () => {
       });
     }
     setParticles(newParticles);
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute bottom-0 rounded-full blur-sm animate-float-up dark:bg-gradient-to-t dark:from-primary/40 dark:to-accent/20 bg-gradient-to-t from-[hsl(0,0%,75%)]/25 to-[hsl(0,0%,85%)]/15"
+          className="absolute bottom-0 rounded-full blur-sm animate-float-up dark:bg-gradient-to-t dark:from-primary/40 dark:to-accent/20 bg-gradient-to-t from-[hsl(0,0%,75%)]/25 to-[hsl(0,0%,85%)]/15 will-change-transform"
           style={{
             left: `${particle.x}%`,
             width: `${particle.size}px`,
