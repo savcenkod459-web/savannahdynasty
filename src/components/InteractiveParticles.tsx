@@ -65,14 +65,16 @@ const InteractiveParticles = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute rounded-full bg-[hsl(0,0%,70%)]/30 dark:bg-primary/50 blur-[2px]"
+          className="absolute rounded-full dark:bg-primary/60 bg-[hsl(0,0%,55%)]/60 blur-[1px]"
           style={{
             left: `${particle.x}px`,
             top: `${particle.y}px`,
             width: `${particle.size}px`,
             height: `${particle.size}px`,
             transition: 'all 0.1s ease-out',
-            boxShadow: '0 0 20px hsl(0 0% 70% / 0.4), 0 0 30px hsl(0 0% 70% / 0.25)',
+            boxShadow: document.documentElement.classList.contains('dark')
+              ? '0 0 25px rgba(217, 179, 112, 0.6), 0 0 40px rgba(217, 179, 112, 0.4)'
+              : '0 0 25px rgba(192, 192, 192, 0.8), 0 0 40px rgba(192, 192, 192, 0.6)',
           }}
         />
       ))}

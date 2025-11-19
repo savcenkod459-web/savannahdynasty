@@ -77,20 +77,18 @@ const Hero = () => {
               {/* Logo with Crown - appears on hover */}
               <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 flex items-center gap-2">
                 <span 
-                  className="font-display font-black text-3xl tracking-tight"
+                  className="font-display font-black text-4xl tracking-tight text-[#D4AF37]"
                   style={{ 
-                    color: '#D4AF37',
-                    textShadow: '0 0 15px rgba(212, 175, 55, 0.6), 0 0 25px rgba(212, 175, 55, 0.4), 0 0 35px rgba(212, 175, 55, 0.3), 2px 2px 6px rgba(0, 0, 0, 0.7)',
-                    filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.5))',
+                    textShadow: '0 0 25px rgba(212, 175, 55, 0.95), 0 0 40px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.6), 2px 2px 8px rgba(0, 0, 0, 0.95)',
+                    filter: 'drop-shadow(0 0 18px rgba(212, 175, 55, 0.9)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.7))',
                   }}
                 >
                   SavannahDynasty
                 </span>
                 <Crown 
-                  className="w-10 h-10" 
+                  className="w-12 h-12 text-[#D4AF37]"
                   style={{ 
-                    color: '#D4AF37',
-                    filter: 'drop-shadow(0 0 12px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.3)) drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.7))',
+                    filter: 'drop-shadow(0 0 20px rgba(212, 175, 55, 0.95)) drop-shadow(0 0 35px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 55px rgba(212, 175, 55, 0.6)) drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.95))',
                   }} 
                 />
               </div>
@@ -100,7 +98,7 @@ const Hero = () => {
             </div>
             
             {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold animate-gold-pulse micro-interaction hover:scale-105 mx-0 my-[20px] px-[30px] py-[20px]" style={{
+              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold animate-slow-pulse micro-interaction hover:scale-105 mx-0 my-[20px] px-[30px] py-[20px]" style={{
             boxShadow: '0 0 60px 20px rgba(217, 179, 112, 0.6), 0 0 100px 40px rgba(217, 179, 112, 0.4), 0 0 140px 60px rgba(217, 179, 112, 0.2)'
           }}>
               <p className="text-sm font-bold opacity-90 tracking-wider uppercase">{t('breeds.f1.name')}</p>

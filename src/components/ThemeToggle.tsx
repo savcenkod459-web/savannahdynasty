@@ -16,6 +16,9 @@ export function ThemeToggle() {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     
+    // Add transitioning class for smoother animation
+    document.documentElement.classList.add('theme-transitioning');
+    
     if (newTheme === "dark") {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -23,6 +26,11 @@ export function ThemeToggle() {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
+
+    // Remove transitioning class after animation completes
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-transitioning');
+    }, 500);
   };
 
   return (

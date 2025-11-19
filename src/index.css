@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth theme transitions */
+* {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -518,7 +523,79 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes gold-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(217, 179, 112, 0.3),
+                  0 0 40px rgba(217, 179, 112, 0.2),
+                  0 0 60px rgba(217, 179, 112, 0.1);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(217, 179, 112, 0.5),
+                  0 0 60px rgba(217, 179, 112, 0.3),
+                  0 0 90px rgba(217, 179, 112, 0.2);
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes slow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(217, 179, 112, 0.3),
+                  0 0 40px rgba(217, 179, 112, 0.2),
+                  0 0 60px rgba(217, 179, 112, 0.1);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(217, 179, 112, 0.5),
+                  0 0 60px rgba(217, 179, 112, 0.3),
+                  0 0 90px rgba(217, 179, 112, 0.2);
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes pulsating-halo-gold {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(217, 179, 112, 0.4),
+                  0 0 30px rgba(217, 179, 112, 0.3),
+                  0 0 45px rgba(217, 179, 112, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(217, 179, 112, 0.6),
+                  0 0 50px rgba(217, 179, 112, 0.4),
+                  0 0 75px rgba(217, 179, 112, 0.3);
+    }
+  }
+
+  @keyframes pulsating-halo-silver {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(192, 192, 192, 0.5),
+                  0 0 30px rgba(192, 192, 192, 0.4),
+                  0 0 45px rgba(192, 192, 192, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(192, 192, 192, 0.7),
+                  0 0 50px rgba(192, 192, 192, 0.5),
+                  0 0 75px rgba(192, 192, 192, 0.4);
+    }
+  }
+
   .animate-float-up {
     animation: float-up linear infinite;
+  }
+
+  .animate-gold-pulse {
+    animation: gold-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-slow-pulse {
+    animation: slow-pulse 6s ease-in-out infinite;
+  }
+
+  .dark .pulsating-halo {
+    animation: pulsating-halo-gold 4s ease-in-out infinite;
+  }
+
+  .pulsating-halo {
+    animation: pulsating-halo-silver 4s ease-in-out infinite;
   }
 }
