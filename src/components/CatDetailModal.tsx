@@ -44,9 +44,7 @@ export const CatDetailModal = ({
           </VisuallyHidden.Root>
           <div className="relative w-full h-[90vh] flex flex-col md:flex-row">
             {/* Close button */}
-            <Button variant="ghost" size="icon" className="absolute top-4 right-4 z-50 text-foreground hover:bg-primary/20 rounded-full" onClick={onClose}>
-              <X className="h-6 w-6" />
-            </Button>
+            
 
             {/* Left panel - Images */}
             <div className="w-full md:w-1/2 h-[45vh] md:h-full relative md:border-r border-b md:border-b-0 border-primary/20">
