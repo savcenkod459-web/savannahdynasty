@@ -210,13 +210,13 @@ export const VideoPlayer = ({
           <Loader2 className="h-8 w-8 text-white animate-spin" />
         </div>}
       
-      {/* Fullscreen button - positioned at bottom right */}
+      {/* Fullscreen button - positioned at bottom center */}
       {onToggleFullscreen && (
         <Button 
           variant="ghost" 
           size="icon" 
           onClick={onToggleFullscreen} 
-          className="absolute bottom-2 right-2 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
+          className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
         >
           <Maximize className="h-5 w-5" />
         </Button>
