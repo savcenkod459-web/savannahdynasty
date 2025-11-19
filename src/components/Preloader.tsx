@@ -68,13 +68,26 @@ const Preloader = () => {
           <Crown 
             className="w-20 h-20 text-primary" 
             strokeWidth={2}
+            style={{
+              filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 0.4))'
+            }}
           />
           
           <div className="text-center space-y-3">
-            <h1 className="font-display font-black text-4xl text-primary">
+            <h1 
+              className="font-display font-black text-4xl text-primary"
+              style={{
+                textShadow: '0 0 12px hsl(43 96% 56% / 0.5), 0 0 24px hsl(43 96% 56% / 0.2)'
+              }}
+            >
               SavannahDynasty
             </h1>
-            <p className="text-sm text-muted-foreground tracking-[0.3em] uppercase font-semibold">Premium Luxury Cats</p>
+            <p 
+              className="text-sm text-muted-foreground tracking-[0.3em] uppercase font-semibold"
+              style={{
+                textShadow: '0 0 8px hsl(43 96% 56% / 0.3)'
+              }}
+            >Premium Luxury Cats</p>
             <div className="flex gap-2 justify-center pt-2">
               <div className="w-2.5 h-2.5 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
               <div className="w-2.5 h-2.5 rounded-full bg-accent animate-bounce" style={{ animationDelay: '150ms' }} />
