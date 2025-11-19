@@ -50,19 +50,17 @@
       .animate-fade-in { animation: fadeIn 0.6s ease-out; }
       @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
       
-      /* Reduce animations on low-end devices */
+      /* Reduce animations only when user explicitly requests it */
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
+          animation-duration: 0.2s !important;
+          transition-duration: 0.2s !important;
         }
       }
       
-      /* Mobile optimization */
+      /* Mobile optimization - subtle adjustments only */
       @media (max-width: 768px) {
-        html { font-size: 14px; }
-        img { image-rendering: -webkit-optimize-contrast; }
+        html { font-size: 15px; }
       }
     </style>
     

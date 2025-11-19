@@ -54,19 +54,21 @@ export const performanceMonitor = {
     }
   },
 
-  // Оптимизируем производительность скролла
+  // Оптимизируем производительность скролла только на мобильных
   optimizeScrollPerformance: () => {
+    const isMobile = /Mobile|Android|iPhone/i.test(navigator.userAgent);
+    if (!isMobile) return; // Не применяем на ПК
+    
     let ticking = false;
     
     const optimizeScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          // Отключаем тяжелые эффекты во время скролла
           document.body.classList.add('is-scrolling');
           
           setTimeout(() => {
             document.body.classList.remove('is-scrolling');
-          }, 150);
+          }, 100);
           
           ticking = false;
         });
@@ -78,40 +80,31 @@ export const performanceMonitor = {
     window.addEventListener('scroll', optimizeScroll, { passive: true });
   },
 
-  // Добавляем глобальные стили для оптимизации
+  // Добавляем глобальные стили для оптимизации только на мобильных
   injectOptimizationStyles: () => {
+    const isMobile = /Mobile|Android|iPhone/i.test(navigator.userAgent);
+    const deviceMemory = (navigator as any).deviceMemory || 4;
+    const isLowEnd = deviceMemory <= 2;
+    
     const style = document.createElement('style');
     style.textContent = `
-      /* Отключаем тяжелые эффекты во время скролла */
-      .is-scrolling * {
-        pointer-events: none !important;
-      }
-      
-      .is-scrolling .animate-float,
-      .is-scrolling .animate-gold-pulse,
-      .is-scrolling .animate-pulse {
-        animation-play-state: paused !important;
-      }
-      
-      /* Оптимизация для мобильных устройств */
+      /* Оптимизация только для мобильных устройств */
       @media (max-width: 768px) {
         * {
           -webkit-tap-highlight-color: transparent;
         }
         
-        img, video {
-          will-change: auto;
+        ${isLowEnd ? `
+        /* Отключаем тяжелые эффекты во время скролла только на слабых устройствах */
+        .is-scrolling .animate-float,
+        .is-scrolling .animate-gold-pulse {
+          animation-play-state: paused !important;
         }
+        ` : ''}
         
+        /* Уменьшаем сложность shadow только на мобильных */
         .hover\\:shadow-\\[0_0_60px_rgba\\(217\\,179\\,112\\,0\\.8\\)\\]:hover {
-          box-shadow: 0 0 30px rgba(217,179,112,0.4) !important;
-        }
-      }
-      
-      /* Для слабых устройств отключаем сложные анимации */
-      @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
-        [class*="animate-"] {
-          animation-duration: 0.3s !important;
+          box-shadow: 0 0 40px rgba(217,179,112,0.6) !important;
         }
       }
     `;
@@ -126,10 +119,5 @@ export const performanceMonitor = {
     
     const deviceInfo = performanceMonitor.getDevicePerformance();
     console.log('Device performance info:', deviceInfo);
-    
-    // Для слабых устройств уменьшаем частоту обновления анимаций
-    if (deviceInfo.isLowEnd || deviceInfo.saveData) {
-      document.documentElement.style.setProperty('--animation-duration', '0.3s');
-    }
   }
 };
