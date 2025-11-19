@@ -55,6 +55,7 @@ export const VideoPlayer = memo(({
   posterImage
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const { enableAdaptiveBitrate } = useMediaOptimization();
   const [isPlaying, setIsPlaying] = useState(false);
@@ -65,7 +66,27 @@ export const VideoPlayer = memo(({
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [isInFullscreen, setIsInFullscreen] = useState(false);
   const videoSources = generateVideoSources(videoUrl);
+  
+  // Отслеживание изменения fullscreen состояния
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsInFullscreen(!!document.fullscreenElement);
+    };
+    
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+    
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+    };
+  }, []);
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !shouldLoadVideo) return;
@@ -165,22 +186,36 @@ export const VideoPlayer = memo(({
       setIsPlaying(false);
     }
   };
-  const handleFullscreen = () => {
-    // On mobile or when onToggleFullscreen is provided, use custom fullscreen
-    if (isMobile || onToggleFullscreen) {
-      onToggleFullscreen?.();
-      return;
-    }
+  const handleFullscreen = async () => {
+    const container = containerRef.current;
+    if (!container) return;
     
-    // Fallback to native fullscreen API for desktop
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-    if (!document.fullscreenElement) {
-      videoElement.requestFullscreen().catch(err => {
-        console.error('Error attempting to enable fullscreen:', err);
-      });
-    } else {
-      document.exitFullscreen();
+    try {
+      if (!document.fullscreenElement) {
+        // Входим в fullscreen
+        if (container.requestFullscreen) {
+          await container.requestFullscreen();
+        } else if ((container as any).webkitRequestFullscreen) {
+          await (container as any).webkitRequestFullscreen();
+        } else if ((container as any).mozRequestFullScreen) {
+          await (container as any).mozRequestFullScreen();
+        } else if ((container as any).msRequestFullscreen) {
+          await (container as any).msRequestFullscreen();
+        }
+      } else {
+        // Выходим из fullscreen
+        if (document.exitFullscreen) {
+          await document.exitFullscreen();
+        } else if ((document as any).webkitExitFullscreen) {
+          await (document as any).webkitExitFullscreen();
+        } else if ((document as any).mozCancelFullScreen) {
+          await (document as any).mozCancelFullScreen();
+        } else if ((document as any).msExitFullscreen) {
+          await (document as any).msExitFullscreen();
+        }
+      }
+    } catch (err) {
+      console.error('Error toggling fullscreen:', err);
     }
   };
   const handleSeek = (value: number[]) => {
@@ -279,7 +314,10 @@ export const VideoPlayer = memo(({
         </DialogContent>
       </Dialog>;
   }
-  return <div className="relative w-full h-full bg-black/5 rounded-lg overflow-hidden touch-auto">
+  return <div 
+    ref={containerRef}
+    className={`relative w-full h-full bg-black/5 rounded-lg overflow-hidden touch-auto ${isInFullscreen ? 'bg-black' : ''}`}
+  >
       {/* Poster image placeholder */}
       {!shouldLoadVideo && posterImage && <img src={posterImage} alt="Video preview" className="w-full h-full object-contain rounded-lg blur-sm" loading="lazy" />}
       
