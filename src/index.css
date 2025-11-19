@@ -352,6 +352,40 @@ All colors MUST be HSL.
     }
   }
   
+  @keyframes floatParticle {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 0.3;
+    }
+    25% {
+      transform: translate(10px, -15px);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-5px, -25px);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(-15px, -10px);
+      opacity: 0.6;
+    }
+  }
+  
+  @keyframes colorGlow {
+    0%, 100% {
+      filter: hue-rotate(0deg) brightness(1);
+    }
+    25% {
+      filter: hue-rotate(15deg) brightness(1.2);
+    }
+    50% {
+      filter: hue-rotate(25deg) brightness(1.3);
+    }
+    75% {
+      filter: hue-rotate(15deg) brightness(1.1);
+    }
+  }
+  
   @keyframes fadeInUp {
     from {
       opacity: 0;
