@@ -95,14 +95,14 @@ export const CatDetailModal = ({
               <X className="h-6 w-6" />
             </Button>
 
-            {images.length > 1 && <Button variant="ghost" size="icon" className="absolute left-4 z-50 text-white hover:bg-white/20 rounded-full" onClick={goToPreviousImage}>
+            {images.length > 1 && <Button variant="ghost" size="icon" className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 rounded-full" onClick={goToPreviousImage}>
                 <ChevronLeft className="h-8 w-8" />
               </Button>}
 
             <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="max-w-full max-h-full object-contain" />
 
             {images.length > 1 && <>
-                <Button variant="ghost" size="icon" className="absolute right-4 z-50 text-white hover:bg-white/20 rounded-full" onClick={goToNextImage}>
+                <Button variant="ghost" size="icon" className="absolute right-4 top-1/2 -translate-y-1/2 z-40 text-white hover:bg-white/20 rounded-full" onClick={goToNextImage}>
                   <ChevronRight className="h-8 w-8" />
                 </Button>
 
