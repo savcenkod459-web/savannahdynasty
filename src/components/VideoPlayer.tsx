@@ -233,6 +233,13 @@ export const VideoPlayer = memo(({
           <Loader2 className="h-8 w-8 text-white animate-spin" />
         </div>}
       
+      {/* Initial Play button - shown before video loads */}
+      {!shouldLoadVideo && <div className="absolute inset-0 flex items-center justify-center z-30">
+          <Button variant="ghost" size="icon" onClick={handlePlayClick} className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/70 hover:bg-black/80 text-white backdrop-blur-sm active:scale-95 transition-transform">
+            <Play className="h-8 w-8 md:h-10 md:w-10" />
+          </Button>
+        </div>}
+      
       {/* Desktop: Progress bar at bottom, controls unified */}
       {/* Mobile: All controls unified at bottom like desktop */}
       {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40 touch-auto">
@@ -244,7 +251,7 @@ export const VideoPlayer = memo(({
           {/* Controls row */}
           <div className="flex items-center gap-2 md:gap-3 text-white">
             {/* Play button */}
-            <Button variant="ghost" size="icon" onClick={handlePlayClick} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 rounded-full touch-auto transition-transform">
+            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 rounded-full touch-auto transition-transform">
               {isPlaying ? <Pause className="h-5 w-5 md:h-6 md:w-6" /> : <Play className="h-5 w-5 md:h-6 md:w-6" />}
             </Button>
             
