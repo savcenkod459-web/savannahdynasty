@@ -90,11 +90,21 @@ const CatDetailModalComponent = ({
 
             {/* Right panel - Video */}
             <div className="w-full md:w-1/2 h-[45vh] md:h-full p-4 md:p-6 flex items-center justify-center bg-black/5">
-              {video ? <div className="w-full h-full flex items-center justify-center">
-                  <VideoPlayer videoUrl={video} isOpen={true} onClose={() => {}} onToggleFullscreen={() => setIsVideoFullscreen(true)} />
-                </div> : <div className="text-center text-muted-foreground">
+              {video ? (
+                <div className="w-full h-full flex items-center justify-center">
+                  <VideoPlayer 
+                    videoUrl={video} 
+                    isOpen={true} 
+                    onClose={() => {}} 
+                    onToggleFullscreen={() => setIsVideoFullscreen(true)}
+                    posterImage={images[0]}
+                  />
+                </div>
+              ) : (
+                <div className="text-center text-muted-foreground">
                   <p>Видео не загружено</p>
-                </div>}
+                </div>
+              )}
             </div>
           </div>
         </DialogContent>
@@ -140,7 +150,14 @@ const CatDetailModalComponent = ({
       </Dialog>
 
       {/* Fullscreen Video */}
-      <VideoPlayer videoUrl={video || ""} isOpen={isVideoFullscreen} onClose={() => setIsVideoFullscreen(false)} isFullscreen={true} onToggleFullscreen={() => setIsVideoFullscreen(false)} />
+      <VideoPlayer 
+        videoUrl={video || ""} 
+        isOpen={isVideoFullscreen} 
+        onClose={() => setIsVideoFullscreen(false)} 
+        isFullscreen={true} 
+        onToggleFullscreen={() => setIsVideoFullscreen(false)}
+        posterImage={images[0]}
+      />
     </>;
 };
 
