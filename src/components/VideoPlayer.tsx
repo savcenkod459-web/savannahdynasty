@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useMediaOptimization } from "@/hooks/useMediaOptimization";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 interface VideoPlayerProps {
   videoUrl: string;
@@ -23,6 +24,7 @@ export const VideoPlayer = memo(({
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const isMobile = useIsMobile();
+  const { videoPreload, enableAdaptiveBitrate } = useMediaOptimization();
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -185,7 +187,16 @@ export const VideoPlayer = memo(({
               </div>}
 
             {/* Video element */}
-            {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="max-w-full max-h-full object-contain" onClick={togglePlay} preload={isMobile ? "none" : "metadata"} playsInline />}
+            {shouldLoadVideo && <video 
+              ref={videoRef} 
+              src={videoUrl} 
+              className="max-w-full max-h-full object-contain" 
+              onClick={togglePlay} 
+              preload={videoPreload}
+              playsInline
+              x-webkit-airplay="allow"
+              controlsList="nodownload"
+            />}
 
             {/* Loading spinner */}
             {isLoading && <div className="absolute inset-0 flex items-center justify-center">
@@ -226,7 +237,16 @@ export const VideoPlayer = memo(({
       {!shouldLoadVideo && posterImage && <img src={posterImage} alt="Video preview" className="w-full h-full object-contain rounded-lg blur-sm" loading="lazy" />}
       
       {/* Video element - lazy load on play */}
-      {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg touch-none" preload={isMobile ? "none" : "metadata"} playsInline onClick={togglePlay} />}
+      {shouldLoadVideo && <video 
+        ref={videoRef} 
+        src={videoUrl} 
+        className="w-full h-full object-contain rounded-lg touch-none" 
+        preload={videoPreload}
+        playsInline 
+        onClick={togglePlay}
+        x-webkit-airplay="allow"
+        controlsList="nodownload"
+      />}
 
       {/* Loading spinner */}
       {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30 z-20">
