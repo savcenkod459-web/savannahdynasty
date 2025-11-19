@@ -116,6 +116,9 @@ All colors MUST be HSL.
   .text-luxury-gradient {
     @apply bg-gradient-to-r from-[hsl(48,100%,88%)] via-primary to-accent bg-clip-text text-transparent;
     animation: textGoldPulse 3s ease-in-out infinite;
+  }
+  
+  .dark .text-luxury-gradient {
     filter: drop-shadow(0 0 2px hsl(43 96% 56% / 0.2));
   }
   
@@ -245,7 +248,16 @@ All colors MUST be HSL.
   }
   
   .luxury-text-shadow {
+    text-shadow: none;
+  }
+  
+  .dark .luxury-text-shadow {
     text-shadow: 0 2px 20px hsl(43 96% 56% / 0.15);
+  }
+  
+  /* Убираем фоновые переходы между секциями в темной теме */
+  .dark section.bg-secondary\/30 {
+    background-color: transparent !important;
   }
   
   /* Глобальное разрешение выделения текста для админов */
