@@ -222,8 +222,8 @@ export const VideoPlayer = ({
         </Button>
       )}
 
-      {/* Play button - centered at bottom */}
-      {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
+      {/* Play button - bottom left corner */}
+      {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-2 left-2 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
           <Play className="h-6 w-6" />
         </Button>}
 
