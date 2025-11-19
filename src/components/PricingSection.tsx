@@ -66,7 +66,7 @@ const PricingSection = () => {
                 </div>
                 
                 <Link to="/catalog?breed=Саванна F1" className="block mt-6">
-                  <Button className="w-full text-sm md:text-lg py-6 group whitespace-normal h-auto min-h-[3rem]">
+                  <Button className="w-full text-sm md:text-lg py-6 group whitespace-normal h-auto min-h-[3rem] hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(217,179,112,0.6),0_5px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
                     {t('pricingSection.f1.button')}
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform flex-shrink-0" />
                   </Button>

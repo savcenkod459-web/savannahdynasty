@@ -39,7 +39,7 @@ const Hero = () => {
           {/* Text Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20 hover-shine micro-interaction dark:bg-gradient-to-r dark:from-primary/20 dark:to-accent/20 dark:border-primary/40 dark:shadow-[0_0_20px_rgba(217,179,112,0.3)] bg-slate-200 mx-0 px-[15px] py-[10px] my-[20px]">
+              <div className="inline-flex items-center gap-2 rounded-full border hover-shine micro-interaction bg-slate-200 dark:bg-background/80 dark:backdrop-blur-xl border-primary/20 dark:border-primary/40 dark:shadow-[0_0_20px_rgba(217,179,112,0.3)] mx-0 px-[15px] py-[10px] my-[20px]">
                 <Crown className="w-4 h-4 text-primary animate-gold-pulse dark:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]" />
                 <span className="tracking-widest uppercase text-neutral-950 dark:text-primary font-extrabold text-sm dark:drop-shadow-[0_0_5px_rgba(217,179,112,0.5)]">{t('hero.badge')}</span>
               </div>
@@ -82,7 +82,7 @@ const Hero = () => {
             {/* Floating Badge */}
             <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold micro-interaction hover:scale-105 mx-0 my-[20px] px-[30px] py-[20px]" style={{
             boxShadow: '0 0 60px 20px rgba(217, 179, 112, 0.6), 0 0 100px 40px rgba(217, 179, 112, 0.4), 0 0 140px 60px rgba(217, 179, 112, 0.2)',
-            animation: 'gold-pulse-slow 1.8s ease-in-out infinite'
+            animation: 'gold-pulse-slow 0.9s ease-in-out infinite'
           }}>
               <p className="text-sm font-bold opacity-90 tracking-wider uppercase">{t('breeds.f1.name')}</p>
               <p className="text-3xl font-display font-black luxury-text-shadow">{t('hero.premiumClass')}</p>

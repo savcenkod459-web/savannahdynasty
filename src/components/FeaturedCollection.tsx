@@ -172,12 +172,12 @@ const FeaturedCollection = () => {
                       </div>
                       <div className="flex gap-2 mt-8">
                         <Link to={`/pedigree/${cat.id}`} onClick={e => e.stopPropagation()} className="flex-1">
-                          <Button variant="ghost-gold" size="sm" className="w-full">
+                          <Button variant="ghost-gold" size="sm" className="w-full hover:-translate-y-1 transition-all duration-300">
                             Родословная
                           </Button>
                         </Link>
                         <Link to="/payment#booking" onClick={e => e.stopPropagation()} className="flex-1">
-                          <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
+                          <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(217,179,112,0.7)] hover:-translate-y-1 transition-all duration-300">
                             Забронировать
                           </Button>
                         </Link>
@@ -191,7 +191,7 @@ const FeaturedCollection = () => {
 
         <div className="text-center">
           <Link to="/catalog">
-            <Button size="lg" variant="ghost-gold" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-2xl">
+            <Button size="lg" variant="ghost-gold" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-2xl hover:-translate-y-1 transition-all duration-300">
               Посмотреть всю коллекцию
               <ArrowRight className="ml-2 h-4 md:h-5 w-4 md:w-5" />
             </Button>

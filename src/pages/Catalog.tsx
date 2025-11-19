@@ -218,12 +218,12 @@ const Catalog = () => {
                       </div>
                       <div className="flex gap-2 mt-8">
                         <Link to={`/pedigree/${cat.id}`} onClick={e => e.stopPropagation()} className="flex-1">
-                          <Button variant="ghost-gold" size="sm" className="w-full py-[20px]">
+                          <Button variant="ghost-gold" size="sm" className="w-full py-[20px] hover:-translate-y-1 transition-all duration-300">
                             Родословная
                           </Button>
                         </Link>
                         <Link to="/payment#booking" onClick={e => e.stopPropagation()} className="flex-1">
-                          <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300 py-[20px]">
+                          <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(217,179,112,0.7)] hover:-translate-y-1 transition-all duration-300 py-[20px]">
                             Забронировать
                           </Button>
                         </Link>
