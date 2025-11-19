@@ -163,7 +163,7 @@ const Navigation = () => {
             if (item.hasSubmenu) {
               return <Popover key={item.path} open={aboutPopoverOpen} onOpenChange={setAboutPopoverOpen}>
                     <PopoverTrigger asChild>
-                      <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+                      <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(217,179,112,0.3)] ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
                         {item.name}
                         <ChevronDown className="w-4 h-4" />
                         <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
@@ -188,7 +188,7 @@ const Navigation = () => {
                     </PopoverContent>
                   </Popover>;
             }
-            return <Link key={item.path} to={item.path} className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+            return <Link key={item.path} to={item.path} className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(217,179,112,0.3)] ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
                   {item.name}
                   <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
                 </Link>;
@@ -197,7 +197,7 @@ const Navigation = () => {
             {isAdmin && (
               <Popover open={adminPopoverOpen} onOpenChange={setAdminPopoverOpen}>
                 <PopoverTrigger asChild>
-                  <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${location.pathname.startsWith("/admin") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+                  <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(217,179,112,0.3)] ${location.pathname.startsWith("/admin") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
                     ⚙️ Админ
                     <ChevronDown className="w-4 h-4" />
                     <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${location.pathname.startsWith("/admin") ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
@@ -237,7 +237,7 @@ const Navigation = () => {
                   onClick={() => navigate("/profile")} 
                   variant="ghost" 
                   size="icon" 
-                  className="micro-interaction h-8 w-8"
+                  className="micro-interaction h-8 w-8 hover:shadow-gold hover:-translate-y-0.5"
                   title="Профиль"
                 >
                   <User className="h-4 w-4" />
@@ -247,7 +247,7 @@ const Navigation = () => {
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="micro-interaction text-[0.75rem]"
+                      className="micro-interaction text-[0.75rem] hover:shadow-gold hover:-translate-y-0.5"
                     >
                       <LogOut className="h-4 w-4 mr-1" />
                       {t("nav.logout")}
@@ -270,7 +270,7 @@ const Navigation = () => {
                 </AlertDialog>
               </div>
             ) : (
-              <Button onClick={() => navigate("/auth")} variant="ghost" size="sm" className="micro-interaction text-[0.75rem]">
+              <Button onClick={() => navigate("/auth")} variant="ghost" size="sm" className="micro-interaction text-[0.75rem] hover:shadow-gold hover:-translate-y-0.5">
                 {t("auth.signin.button")}
               </Button>
             )}
@@ -302,7 +302,7 @@ const Navigation = () => {
                 {navItems.map(item => {
               if (item.hasSubmenu) {
                 return <div key={item.path} className="space-y-1">
-                        <Link to={item.path} onClick={() => setIsOpen(false)} className={`block py-3 px-4 rounded-xl transition-all duration-300 micro-interaction ${isActive(item.path) ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-gold font-semibold" : "text-foreground/70 hover:bg-primary/10 hover:text-primary"}`}>
+                        <Link to={item.path} onClick={() => setIsOpen(false)} className={`block py-3 px-4 rounded-xl transition-all duration-300 micro-interaction hover:-translate-y-0.5 hover:shadow-gold ${isActive(item.path) ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-gold font-semibold" : "text-foreground/70 hover:bg-primary/10 hover:text-primary"}`}>
                           {item.name}
                         </Link>
                         <div className="ml-4 space-y-2 pl-4 border-l-2 border-gradient-to-b from-primary/40 to-accent/40">
@@ -321,7 +321,7 @@ const Navigation = () => {
                         </div>
                       </div>;
               }
-              return <Link key={item.path} to={item.path} onClick={() => setIsOpen(false)} className={`block py-3 px-4 rounded-xl transition-all duration-300 micro-interaction ${isActive(item.path) ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-gold font-semibold" : "text-foreground/70 hover:bg-primary/10 hover:text-primary"}`}>
+              return <Link key={item.path} to={item.path} onClick={() => setIsOpen(false)} className={`block py-3 px-4 rounded-xl transition-all duration-300 micro-interaction hover:-translate-y-0.5 hover:shadow-gold ${isActive(item.path) ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-gold font-semibold" : "text-foreground/70 hover:bg-primary/10 hover:text-primary"}`}>
                       {item.name}
                     </Link>;
             })}
@@ -368,7 +368,7 @@ const Navigation = () => {
                         setIsOpen(false);
                       }} 
                       variant="ghost" 
-                      className="w-full justify-start micro-interaction"
+                      className="w-full justify-start micro-interaction hover:shadow-gold hover:-translate-y-0.5"
                     >
                       <User className="h-4 w-4 mr-2" />
                       {t("profile.title")}
@@ -377,7 +377,7 @@ const Navigation = () => {
                       <AlertDialogTrigger asChild>
                         <Button 
                           variant="ghost" 
-                          className="w-full justify-start micro-interaction"
+                          className="w-full justify-start micro-interaction hover:shadow-gold hover:-translate-y-0.5"
                         >
                           <LogOut className="h-4 w-4 mr-2" />
                           {t("nav.logout")}
@@ -406,7 +406,7 @@ const Navigation = () => {
                       setIsOpen(false);
                     }} 
                     variant="ghost" 
-                    className="w-full justify-start micro-interaction"
+                    className="w-full justify-start micro-interaction hover:shadow-gold hover:-translate-y-0.5"
                   >
                     {t("auth.signin.button")}
                   </Button>
