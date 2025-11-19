@@ -3,18 +3,29 @@ import { ArrowUp } from "lucide-react";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
   
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
         setIsVisible(true);
+        setShouldRender(true);
+        setIsLeaving(false);
       } else {
-        setIsVisible(false);
+        if (isVisible) {
+          setIsLeaving(true);
+          setTimeout(() => {
+            setIsVisible(false);
+            setShouldRender(false);
+            setIsLeaving(false);
+          }, 500);
+        }
       }
     };
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+  }, [isVisible]);
   
   const scrollToTop = () => {
     window.scrollTo({
@@ -23,7 +34,7 @@ const ScrollToTop = () => {
     });
   };
   
-  if (!isVisible) return null;
+  if (!shouldRender) return null;
   
   return (
     <button
@@ -34,7 +45,7 @@ const ScrollToTop = () => {
         position: 'fixed',
         zIndex: 9999,
         boxShadow: '0 0 30px hsl(43 96% 56% / 0.4), 0 0 60px hsl(43 96% 56% / 0.2)',
-        animation: 'fadeInSlide 0.5s ease-out forwards'
+        animation: isLeaving ? 'fadeOutSlide 0.5s ease-out forwards' : 'fadeInSlide 0.5s ease-out forwards'
       }}
     >
       <ArrowUp className="h-4 w-4 md:h-5 md:w-5" />
