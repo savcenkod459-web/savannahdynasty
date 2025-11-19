@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useEffect, useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -10,13 +11,13 @@ interface Shimmer {
   delay: number;
 }
 
-const GoldShimmer = () => {
+const GoldShimmer = memo(() => {
   const [shimmers, setShimmers] = useState<Shimmer[]>([]);
   const isMobile = useIsMobile();
 
   useEffect(() => {
     const newShimmers: Shimmer[] = [];
-    const shimmerCount = isMobile ? 8 : 15;
+    const shimmerCount = isMobile ? 3 : 10;
     for (let i = 0; i < shimmerCount; i++) {
       newShimmers.push({
         id: i,
@@ -50,6 +51,8 @@ const GoldShimmer = () => {
       ))}
     </div>
   );
-};
+});
+
+GoldShimmer.displayName = 'GoldShimmer';
 
 export default GoldShimmer;

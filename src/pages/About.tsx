@@ -105,7 +105,13 @@ const About = () => {
                 </p>
               </div>
               <div className="rounded-3xl overflow-hidden shadow-glow animate-scale-in hover-lift micro-interaction image-blur-edges">
-                <img src={displayBreedingImage} alt={breedingImages?.alt_text || "Breeding Facility"} className="w-full h-[400px] object-cover hover-scale" />
+                <img 
+                  src={displayBreedingImage} 
+                  alt={breedingImages?.alt_text || "Breeding Facility"} 
+                  className="w-full h-[400px] object-cover hover-scale"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>

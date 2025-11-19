@@ -71,7 +71,13 @@ const Hero = () => {
           <div className="relative animate-scale-in group/hero">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl animate-gold-pulse" />
             <div className="relative rounded-3xl overflow-hidden shadow-deep hover:shadow-glow transition-all duration-700 hover:scale-[1.02] image-blur-edges">
-              <img src={displayImage} alt={heroImages?.alt_text || "Элитная кошка Саванна F1"} className="w-full h-[600px] object-cover" />
+              <img 
+                src={displayImage} 
+                alt={heroImages?.alt_text || "Элитная кошка Саванна F1"} 
+                className="w-full h-[600px] object-cover" 
+                loading="eager"
+                decoding="async"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
               
               

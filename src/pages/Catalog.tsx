@@ -144,7 +144,13 @@ const Catalog = () => {
                       {/* Content */}
                       <div className="relative">
                         <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl">
-                          <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                          <img 
+                            src={cat.image} 
+                            alt={cat.name} 
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           
                           {/* Gradient overlay on hover - softer colors */}
                           <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

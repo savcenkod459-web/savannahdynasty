@@ -702,4 +702,49 @@ All colors MUST be HSL.
     scrollbar-width: thin;
     scrollbar-color: hsl(43 96% 56%) hsl(0 0% 4%);
   }
+
+  /* Performance optimizations for mobile */
+  @media (max-width: 768px) {
+    * {
+      /* Disable expensive animations on mobile */
+      animation-duration: 0.3s !important;
+    }
+    
+    .hover-shine::before,
+    .hover-shine::after {
+      display: none;
+    }
+    
+    /* Simplify shadows on mobile */
+    .shadow-gold,
+    .shadow-glow,
+    .shadow-elegant,
+    .shadow-deep {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* GPU acceleration for animations */
+  .animate-fade-in,
+  .animate-scale-in,
+  .animate-float,
+  .animate-float-up,
+  .animate-shimmer-pulse,
+  .animate-gold-pulse {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 }

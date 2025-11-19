@@ -50,7 +50,14 @@ export const CatDetailModal = ({
             <div className="w-full md:w-1/2 h-[45vh] md:h-full relative md:border-r border-b md:border-b-0 border-primary/20">
               <div className="h-full flex items-center justify-center p-4 md:p-6">
                 <div className="relative w-full h-full">
-                  <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="w-full h-full object-contain cursor-pointer rounded-lg" onClick={handleImageClick} />
+                  <img 
+                    src={images[currentImageIndex]} 
+                    alt={`Gallery ${currentImageIndex + 1}`} 
+                    className="w-full h-full object-contain cursor-pointer rounded-lg" 
+                    onClick={handleImageClick}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   
                   {images.length > 1 && <>
                       <Button 
@@ -111,7 +118,13 @@ export const CatDetailModal = ({
                 <ChevronLeft className="h-10 w-10" />
               </Button>}
 
-            <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="max-w-full max-h-full object-contain" />
+            <img 
+              src={images[currentImageIndex]} 
+              alt={`Gallery ${currentImageIndex + 1}`} 
+              className="max-w-full max-h-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
 
             {images.length > 1 && <>
                 <Button 

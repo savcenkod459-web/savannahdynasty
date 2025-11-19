@@ -19,6 +19,14 @@ const ScrollAnimationWrapper = ({
     triggerOnce: true 
   });
 
+  // Disable animations on mobile for better performance
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (isMobile || prefersReducedMotion) {
+    return <div ref={elementRef} className={className}>{children}</div>;
+  }
+
   const getAnimationClass = () => {
     if (!isVisible || animation === 'none') return 'opacity-0';
     

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useEffect, useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -9,13 +10,13 @@ interface Particle {
   delay: number;
 }
 
-const GoldenParticles = () => {
+const GoldenParticles = memo(() => {
   const [particles, setParticles] = useState<Particle[]>([]);
   const isMobile = useIsMobile();
 
   useEffect(() => {
     const newParticles: Particle[] = [];
-    const particleCount = isMobile ? 15 : 30;
+    const particleCount = isMobile ? 5 : 20;
     for (let i = 0; i < particleCount; i++) {
       newParticles.push({
         id: i,
@@ -46,6 +47,8 @@ const GoldenParticles = () => {
       ))}
     </div>
   );
-};
+});
+
+GoldenParticles.displayName = 'GoldenParticles';
 
 export default GoldenParticles;

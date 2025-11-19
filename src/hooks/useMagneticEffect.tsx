@@ -7,6 +7,10 @@ export const useMagneticEffect = (strength: number = 0.3) => {
     const element = ref.current;
     if (!element) return;
 
+    // Disable magnetic effect on touch devices for better performance
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+
     let animationFrameId: number;
     let currentX = 0;
     let currentY = 0;
