@@ -30,20 +30,10 @@ export const CatGallery = ({ images, isOpen, onClose, initialIndex = 0 }: CatGal
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none"
+        className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none [&>button]:top-4 [&>button]:right-4 [&>button]:text-white [&>button]:hover:bg-white/20"
         onKeyDown={handleKeyDown}
       >
         <div className="relative w-full h-[95vh] flex items-center justify-center">
-          {/* Close button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 rounded-full"
-            onClick={onClose}
-          >
-            <X className="h-6 w-6" />
-          </Button>
-
           {/* Previous button */}
           {images.length > 1 && (
             <Button

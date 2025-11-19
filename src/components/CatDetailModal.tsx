@@ -85,16 +85,12 @@ export const CatDetailModal = ({
 
       {/* Fullscreen Image Gallery */}
       <Dialog open={isImageFullscreen} onOpenChange={setIsImageFullscreen}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none" onKeyDown={handleKeyDown}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none [&>button]:top-4 [&>button]:right-4 [&>button]:text-white [&>button]:hover:bg-white/20" onKeyDown={handleKeyDown}>
           <VisuallyHidden.Root>
             <DialogTitle>Полноэкранный просмотр</DialogTitle>
             <DialogDescription>Изображение в полноэкранном режиме</DialogDescription>
           </VisuallyHidden.Root>
           <div className="relative w-full h-[95vh] flex items-center justify-center">
-            <Button variant="ghost" size="icon" className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 rounded-full" onClick={() => setIsImageFullscreen(false)}>
-              <X className="h-6 w-6" />
-            </Button>
-
             {images.length > 1 && <Button variant="ghost" size="icon" className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 rounded-full" onClick={goToPreviousImage}>
                 <ChevronLeft className="h-8 w-8" />
               </Button>}
