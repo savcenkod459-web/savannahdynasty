@@ -63,7 +63,18 @@ const Preloader = () => {
           overflow: 'hidden'
         }}>
       <div className="relative">
-        {/* Crown logo - clean without any effects */}
+        {/* Pulsating glow circle */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div 
+            className="w-32 h-32 rounded-full animate-pulse"
+            style={{
+              background: 'radial-gradient(circle, hsl(43 96% 56% / 0.15) 0%, transparent 70%)',
+              animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+            }}
+          />
+        </div>
+        
+        {/* Crown logo */}
         <div className="relative z-10 flex flex-col items-center gap-6">
           <Crown 
             className="w-20 h-20 text-primary" 
