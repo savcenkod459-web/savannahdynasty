@@ -233,41 +233,41 @@ export const VideoPlayer = memo(({
           <Loader2 className="h-8 w-8 text-white animate-spin" />
         </div>}
       
-      {/* Video controls - unified layout like desktop */}
-      {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-3 md:p-6 bg-gradient-to-t from-black/90 to-transparent z-40">
-          <div className="flex flex-col gap-2 md:gap-3">
-            {/* Progress bar */}
-            <div className="flex items-center gap-2 text-white">
-              <span className="text-xs md:text-sm min-w-[35px] md:min-w-[45px]">{formatTime(currentTime)}</span>
-              <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="flex-1 cursor-pointer touch-auto" />
-              <span className="text-xs md:text-sm min-w-[35px] md:min-w-[45px]">{formatTime(duration)}</span>
-            </div>
-            
-            {/* Control buttons */}
-            <div className="flex items-center justify-between text-white">
-              <div className="flex items-center gap-1 md:gap-2">
-                <Button variant="ghost" size="icon" onClick={handlePlayClick} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 transition-transform">
-                  {isPlaying ? <Pause className="h-5 w-5 md:h-6 md:w-6" /> : <Play className="h-5 w-5 md:h-6 md:w-6" />}
-                </Button>
-                
-                <Button variant="ghost" size="icon" onClick={handleStop} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 transition-transform">
-                  <Square className="h-4 w-4 md:h-5 md:w-5" />
-                </Button>
-              </div>
-
-              <div className="flex items-center gap-1 md:gap-2">
-                <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 transition-transform">
-                  {isMuted ? <VolumeX className="h-4 w-4 md:h-5 md:w-5" /> : <Volume2 className="h-4 w-4 md:h-5 md:w-5" />}
-                </Button>
-                <div className="hidden sm:block">
-                  <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="w-16 md:w-24 cursor-pointer touch-auto" />
-                </div>
-                <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 transition-transform">
-                  <Maximize className="h-5 w-5 md:h-6 md:w-6" />
-                </Button>
-              </div>
-            </div>
+      {/* Progress bar - always visible, positioned at bottom */}
+      {isVideoLoaded && <div className="absolute bottom-20 left-4 right-4 z-40 touch-auto">
+          <div className="bg-black/70 backdrop-blur-sm rounded-lg p-2 md:p-3">
+            <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="cursor-pointer touch-auto" />
           </div>
+        </div>}
+
+      {/* Play button and time display - always visible, positioned at bottom left */}
+      <div className="absolute bottom-4 left-4 z-40 flex items-center gap-2 md:gap-3 touch-auto">
+        <Button variant="ghost" size="icon" onClick={handlePlayClick} className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform">
+          {isPlaying ? <Pause className="h-5 w-5 md:h-6 md:w-6" /> : <Play className="h-5 w-5 md:h-6 md:w-6" />}
+        </Button>
+        {isVideoLoaded && <div className="text-white text-xs md:text-sm font-medium bg-black/70 backdrop-blur-sm px-2 py-1 md:px-3 md:py-2 rounded-full whitespace-nowrap">
+            {formatTime(currentTime)} / {formatTime(duration)}
+          </div>}
+      </div>
+      
+      {/* Volume and fullscreen controls - always visible, positioned at bottom right */}
+      <div className="absolute bottom-4 right-4 z-40 flex items-center gap-1 md:gap-2 touch-auto">
+        {isVideoLoaded && <>
+            <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform">
+              {isMuted ? <VolumeX className="h-5 w-5 md:h-6 md:w-6" /> : <Volume2 className="h-5 w-5 md:h-6 md:w-6" />}
+            </Button>
+            <div className="hidden md:flex bg-black/70 backdrop-blur-sm rounded-full px-2 py-1 md:px-3 md:py-2">
+              <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="w-16 md:w-20 cursor-pointer touch-auto" />
+            </div>
+          </>}
+        <Button variant="ghost" size="icon" onClick={handleFullscreen} className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform">
+          <Maximize className="h-5 w-5 md:h-6 md:w-6" />
+        </Button>
+      </div>
+
+      {/* Stop button - always visible on mobile */}
+      {isVideoLoaded && <div className="absolute top-4 right-4 z-40 touch-auto">
+          
         </div>}
     </div>;
 });
