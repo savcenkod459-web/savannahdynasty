@@ -134,7 +134,9 @@
     "legal": "Юридична інформація",
     "privacy": "Політика конфіденційності",
     "terms": "Умови використання",
-    "rights": "Усі права захищені."
+    "rights": "Усі права захищені.",
+    "emailCopiedTitle": "Email скопійовано!",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com скопійовано в буфер обміну"
   },
   "about": {
     "badge": "Елітні породи",

@@ -139,7 +139,9 @@
     "legal": "Юридическая информация",
     "privacy": "Политика конфиденциальности",
     "terms": "Условия использования",
-    "rights": "Все права защищены."
+    "rights": "Все права защищены.",
+    "emailCopiedTitle": "Email скопирован!",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
   },
   "about": {
     "badge": "Элитные породы",

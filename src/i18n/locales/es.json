@@ -139,7 +139,9 @@
     "legal": "Legal",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "emailCopiedTitle": "¡Correo copiado!",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado al portapapeles"
   },
   "breeders": {
     "badge": "Profesionales",
