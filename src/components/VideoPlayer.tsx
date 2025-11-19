@@ -233,7 +233,8 @@ export const VideoPlayer = memo(({
           <Loader2 className="h-8 w-8 text-white animate-spin" />
         </div>}
       
-      {/* Video controls - unified layout like desktop */}
+      {/* Desktop: Progress bar at bottom, controls unified */}
+      {/* Mobile: All controls unified at bottom like desktop */}
       {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40 touch-auto">
           {/* Progress bar */}
           <div className="mb-3">
@@ -243,7 +244,7 @@ export const VideoPlayer = memo(({
           {/* Controls row */}
           <div className="flex items-center gap-2 md:gap-3 text-white">
             {/* Play button */}
-            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 rounded-full touch-auto transition-transform">
+            <Button variant="ghost" size="icon" onClick={handlePlayClick} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 rounded-full touch-auto transition-transform">
               {isPlaying ? <Pause className="h-5 w-5 md:h-6 md:w-6" /> : <Play className="h-5 w-5 md:h-6 md:w-6" />}
             </Button>
             
