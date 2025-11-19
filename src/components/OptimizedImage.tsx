@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from "react";
-import { useIndexedDBCache } from "@/hooks/useIndexedDBCache";
-import { useMobileOptimization } from "@/hooks/useMobileOptimization";
+import { useImageCache } from "@/hooks/useImageCache";
+import { useMediaOptimization } from "@/hooks/useMediaOptimization";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface OptimizedImageProps {
@@ -21,57 +21,61 @@ const OptimizedImageComponent = ({
   const [currentSrc, setCurrentSrc] = useState(lowQualitySrc || src);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const { getFromCache, saveToCache } = useIndexedDBCache({ maxEntries: 30 });
-  const { imageQuality, shouldLazyLoadImages } = useMobileOptimization();
+  const { getFromCache, saveToCache } = useImageCache();
+  const { imageQuality } = useMediaOptimization();
   const isMobile = useIsMobile();
 
   useEffect(() => {
     let isMounted = true;
+    setIsLoading(true);
+    setError(false);
 
-    const loadImage = async () => {
-      setIsLoading(true);
-      setError(false);
-
-      // Проверяем кэш
-      const cachedImage = await getFromCache(src);
-      if (cachedImage && isMounted) {
+    // Проверяем кэш
+    const cachedImage = getFromCache(src);
+    if (cachedImage) {
+      if (isMounted) {
         setCurrentSrc(cachedImage);
         setIsLoading(false);
-        return;
       }
+      return;
+    }
 
-      // Для мобильных устройств с низким качеством загружаем напрямую
-      if (isMobile && imageQuality === 'low') {
-        const img = new Image();
-        img.onload = () => {
-          if (isMounted) {
-            setCurrentSrc(src);
-            setIsLoading(false);
-          }
-        };
-        img.onerror = () => {
-          if (isMounted) {
-            setError(true);
-            setIsLoading(false);
-          }
-        };
-        img.src = src;
-        return;
-      }
-
-      // Создаем WebP версию URL если возможно
-      const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+    // Создаем WebP версию URL если возможно
+    const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
     
-      // Пробуем загрузить WebP
-      const webpImg = new Image();
-      webpImg.src = webpSrc;
+    // Пробуем загрузить WebP
+    const webpImg = new Image();
+    webpImg.src = webpSrc;
+    
+    webpImg.onload = () => {
+      if (isMounted) {
+        setCurrentSrc(webpSrc);
+        setIsLoading(false);
+        // Сохраняем в кэш
+        fetch(webpSrc)
+          .then(res => res.blob())
+          .then(blob => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              saveToCache(src, reader.result as string);
+            };
+            reader.readAsDataURL(blob);
+          })
+          .catch(console.error);
+      }
+    };
+    
+    webpImg.onerror = () => {
+      // Если WebP не загрузился, пробуем оригинальный формат
+      const originalImg = new Image();
+      originalImg.src = src;
       
-      webpImg.onload = () => {
+      originalImg.onload = () => {
         if (isMounted) {
-          setCurrentSrc(webpSrc);
+          setCurrentSrc(src);
           setIsLoading(false);
           // Сохраняем в кэш
-          fetch(webpSrc)
+          fetch(src)
             .then(res => res.blob())
             .then(blob => {
               const reader = new FileReader();
@@ -84,44 +88,20 @@ const OptimizedImageComponent = ({
         }
       };
       
-      webpImg.onerror = () => {
-        // Если WebP не загрузился, пробуем оригинальный формат
-        const originalImg = new Image();
-        originalImg.src = src;
-        
-        originalImg.onload = () => {
-          if (isMounted) {
-            setCurrentSrc(src);
-            setIsLoading(false);
-            // Сохраняем в кэш
-            fetch(src)
-              .then(res => res.blob())
-              .then(blob => {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                  saveToCache(src, reader.result as string);
-                };
-                reader.readAsDataURL(blob);
-              })
-              .catch(console.error);
-          }
-        };
-        
-        originalImg.onerror = () => {
-          if (isMounted) {
-            setError(true);
-            setIsLoading(false);
-          }
-        };
+      originalImg.onerror = () => {
+        if (isMounted) {
+          setError(true);
+          setIsLoading(false);
+        }
       };
     };
 
-    loadImage();
-
     return () => {
       isMounted = false;
+      webpImg.onload = null;
+      webpImg.onerror = null;
     };
-  }, [src, getFromCache, saveToCache, isMobile, imageQuality]);
+  }, [src, getFromCache, saveToCache]);
 
   if (error) {
     return (
@@ -150,7 +130,7 @@ const OptimizedImageComponent = ({
       alt={alt}
       className={`${className} ${isLoading && lowQualitySrc ? 'blur-sm scale-105' : 'blur-0 scale-100'} transition-all duration-500`}
       onClick={onClick}
-      loading={shouldLazyLoadImages ? "lazy" : "eager"}
+      loading="lazy"
       decoding="async"
       fetchPriority={imageQuality === 'high' ? 'high' : 'low'}
     />

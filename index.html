@@ -2,18 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    
-    <!-- Performance hints for mobile -->
-    <meta name="renderer" content="webkit" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="screen-orientation" content="portrait" />
-    <meta name="full-screen" content="yes" />
-    <meta name="browsermode" content="application" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>SavannahDynasty - Элитные кошки породы Саванна</title>
     <meta name="description" content="Откройте для себя своего идеального кошачьего друга из нашей эксклюзивной коллекции породистых элитных кошек Саванна F1 и F2. Премиум родословная, гарантия здоровья." />
     <meta name="author" content="SavannahDynasty" />
@@ -23,17 +12,8 @@
     <style>
       /* Critical Layout & Typography */
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-      body { 
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-        line-height: 1.5; 
-        color: #e5e5e5; 
-        background: #0A0A0A;
-        /* Prevent mobile bounce scroll */
-        overscroll-behavior-y: none;
-        /* Better touch scrolling on iOS */
-        -webkit-overflow-scrolling: touch;
-      }
+      html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; color: #e5e5e5; background: #0A0A0A; }
       
       /* Critical Loading State */
       #root { min-height: 100vh; }
@@ -49,19 +29,6 @@
       /* Hide content until loaded */
       .animate-fade-in { animation: fadeIn 0.6s ease-out; }
       @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-      
-      /* Reduce animations only when user explicitly requests it */
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after {
-          animation-duration: 0.2s !important;
-          transition-duration: 0.2s !important;
-        }
-      }
-      
-      /* Mobile optimization - subtle adjustments only */
-      @media (max-width: 768px) {
-        html { font-size: 15px; }
-      }
     </style>
     
     <!-- PWA Meta Tags -->
@@ -82,14 +49,9 @@
     <!-- Load fonts with display=swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Preload critical images with responsive sources -->
-    <link rel="preload" as="image" href="/src/assets/hero-cat-new.png" type="image/png" media="(min-width: 768px)">
-    <link rel="preload" as="image" href="/src/assets/hero-savannah.jpg" type="image/jpeg" fetchpriority="high">
-    
-    <!-- Resource hints for better performance -->
-    <link rel="dns-prefetch" href="https://rujvbcxpnzpikkmgdkfs.supabase.co">
-    <link rel="preconnect" href="https://rujvbcxpnzpikkmgdkfs.supabase.co">
-    <link rel="prefetch" as="image" href="/src/assets/breeding-facility-new.png">
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="/src/assets/hero-cat-new.png" type="image/png">
+    <link rel="preload" as="image" href="/src/assets/hero-savannah.jpg" type="image/jpeg">
 
     <meta property="og:title" content="SavannahDynasty - Элитные кошки породы Саванна" />
     <meta property="og:description" content="Откройте для себя своего идеального кошачьего друга из нашей эксклюзивной коллекции породистых элитных кошек." />
@@ -105,5 +67,8 @@
     <div id="root"></div>
     <!-- Main script loads as module (deferred by default) -->
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Prefetch DNS for external resources -->
+    <link rel="dns-prefetch" href="https://rujvbcxpnzpikkmgdkfs.supabase.co">
   </body>
 </html>

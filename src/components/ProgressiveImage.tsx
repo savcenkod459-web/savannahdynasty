@@ -1,5 +1,5 @@
 import { useState, useEffect, memo } from "react";
-import { useMobileOptimization } from "@/hooks/useMobileOptimization";
+import { useMediaOptimization } from "@/hooks/useMediaOptimization";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ProgressiveImageProps {
@@ -19,7 +19,7 @@ const ProgressiveImageComponent = ({
 }: ProgressiveImageProps) => {
   const [currentSrc, setCurrentSrc] = useState(lowQualitySrc || src);
   const [isLoading, setIsLoading] = useState(true);
-  const { imageQuality, shouldLazyLoadImages } = useMobileOptimization();
+  const { imageQuality } = useMediaOptimization();
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const ProgressiveImageComponent = ({
       alt={alt}
       className={`${className} ${isLoading && lowQualitySrc ? 'blur-sm scale-105' : 'blur-0 scale-100'} transition-all duration-500`}
       onClick={onClick}
-      loading={shouldLazyLoadImages ? "lazy" : "eager"}
+      loading="lazy"
       decoding="async"
       fetchPriority={imageQuality === 'high' ? 'high' : 'low'}
     />

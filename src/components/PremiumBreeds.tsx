@@ -1,10 +1,8 @@
 import { Crown, Diamond, Sparkles, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useMobileOptimization } from "@/hooks/useMobileOptimization";
 
 const PremiumBreeds = () => {
   const { t } = useTranslation();
-  const { enableHeavyEffects } = useMobileOptimization();
   
   const breeds = [{
     name: t('breeds.f1.name'),
@@ -12,11 +10,9 @@ const PremiumBreeds = () => {
     traits: [t('breeds.traits.active'), t('breeds.traits.intelligent'), t('breeds.traits.exotic'), t('breeds.traits.loyal')]
   }];
   return <section className="py-20 bg-secondary/30 relative overflow-hidden">
-      {enableHeavyEffects && (
-        <div className="absolute top-10 right-10 opacity-5">
-          <Crown className="w-40 h-40 text-primary animate-float" />
-        </div>
-      )}
+      <div className="absolute top-10 right-10 opacity-5">
+        <Crown className="w-40 h-40 text-primary animate-float" />
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 animate-fade-in">

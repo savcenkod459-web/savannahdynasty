@@ -4,7 +4,6 @@ import "./index.css";
 import "./i18n/config";
 import Preloader from "./components/Preloader.tsx";
 import { registerServiceWorker } from "./registerServiceWorker";
-import { performanceMonitor } from "./lib/performance-monitor";
 
 // Initialize theme from localStorage
 const savedTheme = localStorage.getItem("theme");
@@ -17,9 +16,6 @@ if (savedTheme === "dark" || !savedTheme) {
 } else {
   localStorage.setItem("theme", "light");
 }
-
-// Initialize performance optimizations for mobile
-performanceMonitor.init();
 
 // Register service worker for PWA and offline support
 registerServiceWorker();
