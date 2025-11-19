@@ -78,20 +78,12 @@ const Preloader = () => {
           <div className="absolute bottom-0 right-1/3 w-1.5 h-1.5 bg-accent rounded-full animate-ping" style={{ animationDelay: '2s' }} />
         </div>
         
-        {/* Crown logo with enhanced glow */}
+        {/* Crown logo with neon outline */}
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <div className="relative">
-            {/* Glow layers behind crown */}
-            <div className="absolute rounded-full animate-pulse pointer-events-none" style={{ width: '160px', height: '160px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: 'radial-gradient(circle, rgba(217,179,112,0.3) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: -1 }} />
-            <div className="absolute rounded-full animate-pulse pointer-events-none" style={{ width: '200px', height: '200px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animationDelay: '0.5s', background: 'radial-gradient(circle, rgba(217,179,112,0.2) 0%, rgba(255,215,0,0.15) 40%, transparent 70%)', filter: 'blur(50px)', zIndex: -2 }} />
-            <div className="absolute rounded-full animate-pulse pointer-events-none" style={{ width: '240px', height: '240px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animationDelay: '1s', background: 'radial-gradient(circle, rgba(217,179,112,0.15) 0%, transparent 70%)', filter: 'blur(60px)', zIndex: -3 }} />
-            
-            {/* Crown icon */}
-            <Crown className="w-20 h-20 text-primary" style={{ 
-              animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
-              filter: 'drop-shadow(0 0 25px rgba(217,179,112,0.9)) drop-shadow(0 0 50px rgba(217,179,112,0.7))'
-            }} />
-          </div>
+          <Crown className="w-20 h-20 text-primary" style={{ 
+            animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
+            filter: 'drop-shadow(0 0 3px rgba(217,179,112,1)) drop-shadow(0 0 8px rgba(217,179,112,0.8)) drop-shadow(0 0 15px rgba(217,179,112,0.6)) drop-shadow(0 0 25px rgba(217,179,112,0.4)) drop-shadow(0 0 40px rgba(217,179,112,0.2))'
+          }} />
           
           <div className="text-center space-y-3">
             <h1 className="font-display font-black text-4xl text-luxury-gradient luxury-text-shadow animate-shimmer drop-shadow-[0_0_20px_rgba(217,179,112,0.6)]">
