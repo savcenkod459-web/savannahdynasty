@@ -206,10 +206,10 @@ const Payment = () => {
           <section id="booking" className="py-20 border-t glass-effect scroll-mt-24">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
-              <div className="p-10 rounded-3xl shadow-soft bg-stone-100 ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
+              <div className="p-10 rounded-3xl shadow-soft bg-card ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
                 <div className="flex items-center gap-3 mb-6">
                   <Crown className="w-8 h-8 text-primary" />
-                  <h3 className="text-3xl font-display font-bold luxury-text-shadow">Бронирование</h3>
+                  <h3 className="text-3xl font-display font-bold luxury-text-shadow text-foreground">Бронирование</h3>
                 </div>
                 
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
