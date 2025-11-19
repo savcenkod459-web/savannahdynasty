@@ -34,13 +34,13 @@ export const useDevicePerformance = (): DevicePerformance => {
       const saveData = connection?.saveData || false;
       
       // Consider low-end if:
-      // - Any mobile device (for animation optimization)
-      // - Desktop with <= 2 cores or <= 4GB RAM
+      // - Mobile with <= 2 cores or <= 2GB RAM
       // - Slow connection or save data mode
+      // - Low device pixel ratio (< 1.5)
       const pixelRatio = window.devicePixelRatio || 1;
-      const isLow = isMobile || (
+      const isLow = isMobile && (
         cores <= 2 || 
-        memory <= 4 || 
+        memory <= 2 || 
         slowConnection || 
         saveData ||
         pixelRatio < 1.5
