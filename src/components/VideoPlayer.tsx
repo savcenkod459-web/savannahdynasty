@@ -197,12 +197,15 @@ export const VideoPlayer = memo(({
             {shouldLoadVideo && <video 
               ref={videoRef} 
               src={videoUrl} 
+              poster={posterImage}
               className="max-w-full max-h-full object-contain" 
               onClick={togglePlay} 
               preload={videoPreload}
               playsInline
+              webkit-playsinline="true"
               x-webkit-airplay="allow"
               controlsList="nodownload"
+              disablePictureInPicture={false}
             />}
 
             {/* Loading spinner */}
@@ -250,9 +253,11 @@ export const VideoPlayer = memo(({
         className="w-full h-full object-contain rounded-lg touch-none" 
         preload={videoPreload}
         playsInline 
+        webkit-playsinline="true"
         onClick={togglePlay}
         x-webkit-airplay="allow"
         controlsList="nodownload"
+        disablePictureInPicture={false}
       />}
 
       {/* Loading spinner */}
