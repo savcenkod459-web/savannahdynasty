@@ -78,12 +78,17 @@ const Preloader = () => {
           <div className="absolute bottom-0 right-1/3 w-1.5 h-1.5 bg-accent rounded-full animate-ping" style={{ animationDelay: '2s' }} />
         </div>
         
-        {/* Crown logo with neon outline */}
+        {/* Crown logo with minimal glow */}
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <Crown className="w-20 h-20 text-primary" style={{ 
-            animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
-            filter: 'drop-shadow(0 0 3px rgba(217,179,112,1)) drop-shadow(0 0 8px rgba(217,179,112,0.8)) drop-shadow(0 0 15px rgba(217,179,112,0.6)) drop-shadow(0 0 25px rgba(217,179,112,0.4)) drop-shadow(0 0 40px rgba(217,179,112,0.2))'
-          }} />
+          <Crown 
+            className="w-20 h-20 text-primary" 
+            strokeWidth={2.5}
+            style={{ 
+              animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
+              filter: 'drop-shadow(0 0 8px rgba(217,179,112,0.6))',
+              background: 'transparent'
+            }} 
+          />
           
           <div className="text-center space-y-3">
             <h1 className="font-display font-black text-4xl text-luxury-gradient luxury-text-shadow animate-shimmer drop-shadow-[0_0_20px_rgba(217,179,112,0.6)]">
