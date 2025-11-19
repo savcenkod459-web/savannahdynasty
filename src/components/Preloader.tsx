@@ -80,14 +80,14 @@ const Preloader = () => {
         
         {/* Crown logo with enhanced glow */}
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <div className="relative flex items-center justify-center w-32 h-32">
+          <div className="relative inline-flex items-center justify-center">
             <Crown className="w-20 h-20 text-primary relative z-10" style={{ 
               animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
               filter: 'drop-shadow(0 0 25px rgba(217,179,112,0.9)) drop-shadow(0 0 50px rgba(217,179,112,0.7))'
             }} />
-            <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full animate-pulse" style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }} />
-            <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-accent/25 to-transparent blur-2xl rounded-full animate-pulse" style={{ width: '180%', height: '180%', left: '-40%', top: '-40%', animationDelay: '0.5s' }} />
-            <div className="absolute inset-0 bg-primary/15 blur-3xl rounded-full animate-pulse" style={{ width: '220%', height: '220%', left: '-60%', top: '-60%', animationDelay: '1s' }} />
+            <div className="absolute rounded-full animate-pulse" style={{ width: '160px', height: '160px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: 'radial-gradient(circle, rgba(217,179,112,0.3) 0%, transparent 70%)', filter: 'blur(40px)' }} />
+            <div className="absolute rounded-full animate-pulse" style={{ width: '200px', height: '200px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animationDelay: '0.5s', background: 'radial-gradient(circle, rgba(217,179,112,0.2) 0%, rgba(255,215,0,0.15) 40%, transparent 70%)', filter: 'blur(50px)' }} />
+            <div className="absolute rounded-full animate-pulse" style={{ width: '240px', height: '240px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animationDelay: '1s', background: 'radial-gradient(circle, rgba(217,179,112,0.15) 0%, transparent 70%)', filter: 'blur(60px)' }} />
           </div>
           
           <div className="text-center space-y-3">
