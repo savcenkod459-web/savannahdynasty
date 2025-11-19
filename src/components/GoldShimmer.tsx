@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useDevicePerformance } from '@/hooks/useDevicePerformance';
 
 interface Shimmer {
   id: number;
@@ -12,11 +12,12 @@ interface Shimmer {
 
 const GoldShimmer = () => {
   const [shimmers, setShimmers] = useState<Shimmer[]>([]);
-  const isMobile = useIsMobile();
+  const { isLowEnd, isMobile } = useDevicePerformance();
 
   useEffect(() => {
     const newShimmers: Shimmer[] = [];
-    const shimmerCount = isMobile ? 5 : 15;
+    // Reduce shimmers on mobile, especially low-end devices
+    const shimmerCount = isLowEnd ? 2 : isMobile ? 4 : 10;
     for (let i = 0; i < shimmerCount; i++) {
       newShimmers.push({
         id: i,
@@ -28,7 +29,7 @@ const GoldShimmer = () => {
       });
     }
     setShimmers(newShimmers);
-  }, [isMobile]);
+  }, [isMobile, isLowEnd]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[1] overflow-hidden">

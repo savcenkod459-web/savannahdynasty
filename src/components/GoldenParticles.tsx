@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useDevicePerformance } from '@/hooks/useDevicePerformance';
 
 interface Particle {
   id: number;
@@ -11,11 +11,12 @@ interface Particle {
 
 const GoldenParticles = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
-  const isMobile = useIsMobile();
+  const { isLowEnd, isMobile } = useDevicePerformance();
 
   useEffect(() => {
     const newParticles: Particle[] = [];
-    const particleCount = isMobile ? 10 : 30;
+    // Reduce particles significantly on mobile, especially low-end devices
+    const particleCount = isLowEnd ? 3 : isMobile ? 6 : 20;
     for (let i = 0; i < particleCount; i++) {
       newParticles.push({
         id: i,
@@ -26,7 +27,7 @@ const GoldenParticles = () => {
       });
     }
     setParticles(newParticles);
-  }, [isMobile]);
+  }, [isMobile, isLowEnd]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">

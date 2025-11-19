@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Crown, Sparkles, Star, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,7 @@ interface CatCardProps {
 
 const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps) => {
   const navigate = useNavigate();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <div
@@ -46,11 +47,12 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
 
         {/* Content */}
         <div className="relative">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted">
             <ProgressiveImage
               src={cat.image}
               alt={cat.name}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              lowQualitySrc={cat.image}
             />
 
             {/* Gradient overlay on hover */}

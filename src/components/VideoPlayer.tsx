@@ -3,7 +3,9 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { Button } from "@/components/ui/button";
 import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2 } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
+import { useIsMobile } from "@/hooks/use-mobile";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+
 interface VideoPlayerProps {
   videoUrl: string;
   isOpen: boolean;
@@ -12,6 +14,7 @@ interface VideoPlayerProps {
   onToggleFullscreen?: () => void;
   posterImage?: string;
 }
+
 export const VideoPlayer = ({
   videoUrl,
   isOpen,
@@ -21,6 +24,7 @@ export const VideoPlayer = ({
   posterImage
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const isMobile = useIsMobile();
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -28,14 +32,20 @@ export const VideoPlayer = ({
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !shouldLoadVideo) return;
+    
+    setIsLoading(true);
+
     const handleTimeUpdate = () => {
       if (video.duration && isFinite(video.duration) && video.currentTime <= video.duration) {
         setCurrentTime(video.currentTime);
       }
     };
+
     const handleLoadedMetadata = () => {
       if (video.duration && isFinite(video.duration)) {
         setDuration(video.duration);
@@ -43,34 +53,42 @@ export const VideoPlayer = ({
       setIsLoading(false);
       setIsVideoLoaded(true);
     };
+
     const handleDurationChange = () => {
       if (video.duration && isFinite(video.duration)) {
         setDuration(video.duration);
       }
     };
+
     const handleCanPlay = () => {
       if (video.duration && isFinite(video.duration)) {
         setDuration(video.duration);
       }
       setIsLoading(false);
     };
+
     const handleLoadedData = () => {
       if (video.duration && isFinite(video.duration)) {
         setDuration(video.duration);
       }
     };
+
     const handlePlay = () => {
       setIsPlaying(true);
     };
+
     const handlePause = () => {
       setIsPlaying(false);
     };
+
     const handleWaiting = () => {
       setIsLoading(true);
     };
+
     const handlePlaying = () => {
       setIsLoading(false);
     };
+
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('durationchange', handleDurationChange);
@@ -86,6 +104,7 @@ export const VideoPlayer = ({
     if (video.readyState >= 1 && video.duration && isFinite(video.duration)) {
       setDuration(video.duration);
     }
+
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
@@ -97,10 +116,20 @@ export const VideoPlayer = ({
       video.removeEventListener('waiting', handleWaiting);
       video.removeEventListener('playing', handlePlaying);
     };
-  }, [videoUrl, isOpen, isFullscreen]);
+  }, [videoUrl, isOpen, isFullscreen, shouldLoadVideo]);
+
   const handlePlayClick = () => {
-    togglePlay();
+    if (!shouldLoadVideo) {
+      setShouldLoadVideo(true);
+      // Wait a moment for video to start loading
+      setTimeout(() => {
+        togglePlay();
+      }, 100);
+    } else {
+      togglePlay();
+    }
   };
+
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -108,101 +137,166 @@ export const VideoPlayer = ({
       } else {
         videoRef.current.play();
       }
-      setIsPlaying(!isPlaying);
     }
   };
-  const handleTimeChange = (value: number[]) => {
-    if (videoRef.current && value[0] <= duration) {
-      videoRef.current.currentTime = Math.min(value[0], duration);
-      setCurrentTime(Math.min(value[0], duration));
+
+  const handleSeek = (value: number[]) => {
+    if (videoRef.current && duration > 0) {
+      videoRef.current.currentTime = value[0];
+      setCurrentTime(value[0]);
     }
   };
+
   const handleVolumeChange = (value: number[]) => {
-    const newVolume = value[0];
-    setVolume(newVolume);
     if (videoRef.current) {
-      videoRef.current.volume = newVolume;
+      videoRef.current.volume = value[0];
+      setVolume(value[0]);
+      setIsMuted(value[0] === 0);
     }
-    setIsMuted(newVolume === 0);
   };
+
   const toggleMute = () => {
     if (videoRef.current) {
-      const newMuted = !isMuted;
-      setIsMuted(newMuted);
-      videoRef.current.muted = newMuted;
-      if (newMuted) {
-        setVolume(0);
-      } else {
-        setVolume(1);
-        videoRef.current.volume = 1;
-      }
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
     }
   };
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
+
+  const formatTime = (time: number): string => {
+    if (!isFinite(time)) return '0:00';
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
-  if (isFullscreen && onToggleFullscreen) {
-    return <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black border-none">
+
+  if (isFullscreen && isOpen) {
+    return (
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] w-full h-full p-0 bg-black/95 border-primary/20">
           <VisuallyHidden.Root>
-            <DialogTitle>Полноэкранное видео</DialogTitle>
-            <DialogDescription>Видео в полноэкранном режиме</DialogDescription>
+            <DialogTitle>Video Player</DialogTitle>
+            <DialogDescription>Fullscreen video player</DialogDescription>
           </VisuallyHidden.Root>
-          <div className="relative w-full h-[95vh] group flex items-center justify-center bg-black">
-            <Button variant="ghost" size="icon" className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 rounded-full" onClick={onToggleFullscreen}>
+          
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onClose}
+              className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 rounded-full"
+            >
               <X className="h-6 w-6" />
             </Button>
 
-            {/* Placeholder image */}
-            {posterImage && !isVideoLoaded && <div className="absolute inset-0 flex items-center justify-center">
-                <img src={posterImage} alt="Video placeholder" className="max-w-full max-h-full object-contain blur-sm opacity-50" />
-              </div>}
+            {/* Poster image placeholder */}
+            {!shouldLoadVideo && posterImage && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <img 
+                  src={posterImage} 
+                  alt="Video preview" 
+                  className="max-w-full max-h-full object-contain blur-sm"
+                />
+              </div>
+            )}
 
             {/* Video element */}
-            <video ref={videoRef} src={videoUrl} className="max-w-full max-h-full object-contain" onClick={togglePlay} preload="metadata" playsInline />
+            {shouldLoadVideo && (
+              <video 
+                ref={videoRef} 
+                src={videoUrl} 
+                className="max-w-full max-h-full object-contain" 
+                onClick={togglePlay} 
+                preload={isMobile ? "none" : "metadata"} 
+                playsInline 
+              />
+            )}
 
             {/* Loading spinner */}
-            {isLoading && <div className="absolute inset-0 flex items-center justify-center">
-                <Loader2 className="w-12 h-12 text-primary animate-spin" />
-              </div>}
-
-            {/* Play button */}
-            <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm">
-              {isPlaying ? <Pause className="h-8 w-8" /> : <Play className="h-8 w-8" />}
-            </Button>
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Loader2 className="h-12 w-12 text-white animate-spin" />
+              </div>
+            )}
 
             {/* Video controls */}
-            {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="space-y-2">
-                  <Slider value={[Math.min(currentTime, duration)]} min={0} max={duration || 100} step={0.1} onValueChange={handleTimeChange} className="cursor-pointer" />
-                  <div className="flex items-center justify-center gap-3">
-                    <Button variant="ghost" size="icon" onClick={togglePlay} className="text-white hover:bg-white/20 h-8 w-8">
-                      {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+            {isVideoLoaded && (
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
+                <div className="flex items-center gap-4 text-white">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={togglePlay}
+                    className="hover:bg-white/20"
+                  >
+                    {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
+                  </Button>
+
+                  <div className="flex items-center gap-2 flex-1">
+                    <span className="text-sm min-w-[45px]">{formatTime(currentTime)}</span>
+                    <Slider
+                      value={[currentTime]}
+                      max={duration || 100}
+                      step={0.1}
+                      onValueChange={handleSeek}
+                      className="flex-1"
+                    />
+                    <span className="text-sm min-w-[45px]">{formatTime(duration)}</span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={toggleMute}
+                      className="hover:bg-white/20"
+                    >
+                      {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
                     </Button>
-                    <span className="text-xs text-white whitespace-nowrap">
-                      {formatTime(Math.min(currentTime, duration))} / {formatTime(duration || 0)}
-                    </span>
-                    <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 h-8 w-8">
-                      {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-                    </Button>
-                    <Slider value={[isMuted ? 0 : volume]} min={0} max={1} step={0.1} onValueChange={handleVolumeChange} className="cursor-pointer w-20" />
+                    <Slider
+                      value={[isMuted ? 0 : volume]}
+                      max={1}
+                      step={0.01}
+                      onValueChange={handleVolumeChange}
+                      className="w-24"
+                    />
                   </div>
                 </div>
-              </div>}
+              </div>
+            )}
           </div>
         </DialogContent>
-      </Dialog>;
+      </Dialog>
+    );
   }
-  return <div className="relative w-full h-full group flex items-center justify-center bg-black/5 rounded-lg overflow-hidden">
-      {/* Video element - always render to show first frame */}
-      <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg" preload="metadata" playsInline />
+
+  return (
+    <div className="relative w-full h-full group flex items-center justify-center bg-black/5 rounded-lg overflow-hidden">
+      {/* Poster image placeholder */}
+      {!shouldLoadVideo && posterImage && (
+        <img 
+          src={posterImage} 
+          alt="Video preview" 
+          className="w-full h-full object-contain rounded-lg blur-sm"
+        />
+      )}
+      
+      {/* Video element - lazy load on play */}
+      {shouldLoadVideo && (
+        <video 
+          ref={videoRef} 
+          src={videoUrl} 
+          className="w-full h-full object-contain rounded-lg" 
+          preload={isMobile ? "none" : "metadata"} 
+          playsInline 
+        />
+      )}
 
       {/* Loading spinner */}
-      {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-          <Loader2 className="w-8 h-8 text-primary animate-spin" />
-        </div>}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+          <Loader2 className="h-8 w-8 text-white animate-spin" />
+        </div>
+      )}
       
       {/* Fullscreen button - always visible on mobile, positioned at bottom right */}
       {onToggleFullscreen && (
@@ -241,22 +335,23 @@ export const VideoPlayer = ({
       )}
 
       {/* Video controls */}
-      {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="space-y-2">
-            <Slider value={[Math.min(currentTime, duration)]} min={0} max={duration || 100} step={0.1} onValueChange={handleTimeChange} className="cursor-pointer" />
-            <div className="flex items-center justify-center gap-3">
-              <Button variant="ghost" size="icon" onClick={togglePlay} className="text-white hover:bg-white/20 h-8 w-8">
-                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-              </Button>
-              <span className="text-xs text-white whitespace-nowrap">
-                {formatTime(Math.min(currentTime, duration))} / {formatTime(duration || 0)}
-              </span>
-              <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 h-8 w-8">
-                {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-              </Button>
-              <Slider value={[isMuted ? 0 : volume]} min={0} max={1} step={0.1} onValueChange={handleVolumeChange} className="cursor-pointer w-20" />
+      {isVideoLoaded && (
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="flex items-center gap-3 text-white">
+            <div className="flex items-center gap-2 flex-1">
+              <span className="text-xs min-w-[40px]">{formatTime(currentTime)}</span>
+              <Slider
+                value={[currentTime]}
+                max={duration || 100}
+                step={0.1}
+                onValueChange={handleSeek}
+                className="flex-1"
+              />
+              <span className="text-xs min-w-[40px]">{formatTime(duration)}</span>
             </div>
           </div>
-        </div>}
-    </div>;
+        </div>
+      )}
+    </div>
+  );
 };

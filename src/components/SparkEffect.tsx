@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useDevicePerformance } from '@/hooks/useDevicePerformance';
 
 interface Spark {
   id: number;
@@ -13,11 +13,12 @@ interface Spark {
 
 const SparkEffect = () => {
   const [sparks, setSparks] = useState<Spark[]>([]);
-  const isMobile = useIsMobile();
+  const { isLowEnd, isMobile } = useDevicePerformance();
 
   useEffect(() => {
     const newSparks: Spark[] = [];
-    const sparkCount = isMobile ? 6 : 20;
+    // Reduce sparks on mobile, especially low-end devices
+    const sparkCount = isLowEnd ? 3 : isMobile ? 5 : 15;
     for (let i = 0; i < sparkCount; i++) {
       newSparks.push({
         id: i,
@@ -30,7 +31,7 @@ const SparkEffect = () => {
       });
     }
     setSparks(newSparks);
-  }, [isMobile]);
+  }, [isMobile, isLowEnd]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[2] overflow-hidden">
