@@ -125,18 +125,18 @@ const Payment = () => {
             <div className="max-w-4xl mx-auto">
               {/* Tabs */}
               <div className="flex gap-2 md:gap-4 mb-8 border-b justify-center max-w-2xl mx-auto">
-                <button onClick={() => setActiveTab("crypto")} className={`flex-1 px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all rounded-t-lg flex items-center justify-center gap-1 md:gap-2 ${activeTab === "crypto" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
-                  <Bitcoin className="h-4 w-4 md:h-5 md:w-5" />
+                <button onClick={() => setActiveTab("crypto")} className={`flex-1 px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all duration-500 rounded-t-lg flex items-center justify-center gap-1 md:gap-2 ${activeTab === "crypto" ? "text-primary border-b-2 border-primary glass-card shadow-soft scale-105" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20 hover:scale-102"}`}>
+                  <Bitcoin className={`h-4 w-4 md:h-5 md:w-5 transition-transform duration-500 ${activeTab === "crypto" ? "rotate-12" : ""}`} />
                   Криптовалюта
                 </button>
-                <button onClick={() => setActiveTab("cash")} className={`flex-1 px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all rounded-t-lg flex items-center justify-center gap-1 md:gap-2 ${activeTab === "cash" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
-                  <Banknote className="h-4 w-4 md:h-5 md:w-5" />
+                <button onClick={() => setActiveTab("cash")} className={`flex-1 px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all duration-500 rounded-t-lg flex items-center justify-center gap-1 md:gap-2 ${activeTab === "cash" ? "text-primary border-b-2 border-primary glass-card shadow-soft scale-105" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20 hover:scale-102"}`}>
+                  <Banknote className={`h-4 w-4 md:h-5 md:w-5 transition-transform duration-500 ${activeTab === "cash" ? "rotate-12" : ""}`} />
                   Наличные
                 </button>
               </div>
 
               {/* Crypto */}
-              {activeTab === "crypto" && <div className="space-y-6 animate-fade-in">
+              {activeTab === "crypto" && <div className="space-y-6 animate-fade-in opacity-0" style={{ animation: 'fadeIn 0.6s ease-out forwards' }}>
                   {cryptoAddresses.map((crypto, index) => <div key={index} className="p-6 bg-card rounded-3xl shadow-soft ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl">
@@ -163,7 +163,7 @@ const Payment = () => {
                 </div>}
 
               {/* Cash */}
-              {activeTab === "cash" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
+              {activeTab === "cash" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in opacity-0 ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300" style={{ animation: 'fadeIn 0.6s ease-out forwards' }}>
                   <div className="flex items-center gap-3 mb-6">
                     <Banknote className="w-8 h-8 text-primary" />
                     <h3 className="text-3xl font-display font-bold luxury-text-shadow">Наличные</h3>

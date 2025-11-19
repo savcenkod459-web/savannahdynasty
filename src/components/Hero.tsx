@@ -77,9 +77,9 @@ const Hero = () => {
               {/* Logo with Crown - appears on hover */}
               <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-500 transform group-hover/hero:scale-110 flex items-center gap-3">
                 <div className="relative">
-                  <Crown className="w-8 h-8 animate-pulse drop-shadow-[0_0_20px_rgba(217,179,112,1)]" style={{ color: 'hsl(43, 96%, 65%)' }} />
+                  <Crown className="w-8 h-8 animate-pulse text-primary" style={{ filter: 'drop-shadow(0 0 20px hsl(43 96% 56% / 0.8))' }} />
                 </div>
-                <span className="font-display font-black text-2xl drop-shadow-[0_0_30px_rgba(217,179,112,1)] luxury-text-shadow text-luxury-gradient">SavannahDynasty</span>
+                <span className="font-display font-black text-2xl text-luxury-gradient">SavannahDynasty</span>
               </div>
               
               {/* Gold accent overlay */}
