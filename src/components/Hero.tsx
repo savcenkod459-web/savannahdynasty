@@ -6,8 +6,11 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
+import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
+
 const Hero = () => {
   const { t } = useTranslation();
+  const { shouldAnimate } = useOptimizedAnimation();
   
   const { data: heroImages } = useQuery({
     queryKey: ["site-images", "home", "hero"],
@@ -29,11 +32,15 @@ const Hero = () => {
   const displayImage = heroImages?.image_url || heroImage;
 
   return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
-      animationDelay: '3s'
-    }} />
+      {/* Decorative Elements - автоматически отключаются на мобильных через CSS */}
+      {shouldAnimate('heavy') && (
+        <>
+          <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
+            animationDelay: '3s'
+          }} />
+        </>
+      )}
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -70,7 +77,9 @@ const Hero = () => {
 
           {/* Hero Image */}
           <div className="relative animate-scale-in group/hero">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl animate-gold-pulse" />
+            {shouldAnimate('heavy') && (
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl animate-gold-pulse" />
+            )}
             <div className="relative rounded-3xl overflow-hidden shadow-deep hover:shadow-glow transition-all duration-700 hover:scale-[1.02] image-blur-edges">
               <img 
                 src={displayImage} 
