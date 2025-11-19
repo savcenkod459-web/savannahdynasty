@@ -39,6 +39,7 @@ const ScrollToTop = () => {
         position: 'fixed',
         zIndex: 9999,
         boxShadow: '0 0 30px hsl(43 96% 56% / 0.4), 0 0 60px hsl(43 96% 56% / 0.2)',
+        animation: isVisible ? 'fadeInSlide 0.5s ease-out forwards' : 'none'
       }}
     >
       <ArrowUp className="h-4 w-4 md:h-5 md:w-5" />
