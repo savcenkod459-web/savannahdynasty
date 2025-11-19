@@ -32,7 +32,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="micro-interaction h-8 w-8"
+      className="h-8 w-8 hover:bg-transparent"
       title={theme === "light" ? t("theme.switchToDark") : t("theme.switchToLight")}
     >
       {theme === "light" ? (
