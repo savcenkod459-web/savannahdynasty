@@ -8,6 +8,7 @@ import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import { useTranslations } from "./hooks/useTranslations";
 import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
+import GoldenParticles from "./components/GoldenParticles";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Catalog from "./pages/Catalog";
@@ -52,6 +53,7 @@ const App = () => {
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <GoldenParticles />
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>
