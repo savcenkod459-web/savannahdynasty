@@ -5,7 +5,7 @@ const RaritySection = () => {
   const { t } = useTranslation();
   
   return (
-    <section className="py-20 relative overflow-visible">
+    <section className="py-12 md:py-20 relative overflow-visible">
       <div className="absolute top-20 left-10 opacity-5">
         <Diamond className="w-40 h-40 text-primary animate-float" />
       </div>
@@ -13,9 +13,9 @@ const RaritySection = () => {
         <Gem className="w-48 h-48 text-accent animate-float" style={{animationDelay: '2s'}} />
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full mb-6 micro-interaction">
               <Sparkles className="w-5 h-5 text-primary" />
               <span className="text-base font-bold tracking-widest uppercase text-primary">{t('raritySection.badge')}</span>
@@ -30,7 +30,7 @@ const RaritySection = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-scale-in hover-lift micro-interaction">
+            <div className="p-6 md:p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-scale-in hover-lift micro-interaction">
               <div className="flex items-start gap-4 mb-6">
                 <div className="p-3 bg-primary/10 rounded-full">
                   <Award className="w-8 h-8 text-primary animate-pulse" />
@@ -41,8 +41,8 @@ const RaritySection = () => {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mt-12">
-              <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction" style={{animationDelay: '100ms'}}>
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
+              <div className="p-6 md:p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction" style={{animationDelay: '100ms'}}>
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <Diamond className="w-8 h-8 text-primary" />

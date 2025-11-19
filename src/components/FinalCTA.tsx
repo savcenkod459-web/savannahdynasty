@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const FinalCTA = () => {
   const { t } = useTranslation();
-  return <section className="py-32 relative overflow-visible">
+  return <section className="py-16 md:py-32 relative overflow-visible">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 opacity-5 bg-stone-950">
         <Crown className="absolute top-20 left-20 w-32 h-32 text-primary animate-float" />
@@ -14,33 +14,33 @@ const FinalCTA = () => {
       }} />
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary via-accent to-primary p-12 md:p-20 shadow-glow image-blur-edges">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary via-accent to-primary p-8 md:p-12 lg:p-20 shadow-glow image-blur-edges">
           {/* Glassmorphism overlay */}
           <div className="absolute inset-0 backdrop-blur-sm bg-white/5" />
           
-          <div className="relative z-10 text-center space-y-8 animate-fade-in">
+          <div className="relative z-10 text-center space-y-6 md:space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full mb-4 micro-interaction border border-white/30">
               <Crown className="w-4 h-4 text-white" />
               <span className="text-sm font-bold tracking-widest uppercase text-white">{t('cta.badge')}</span>
             </div>
             
-            <h2 className="font-display leading-tight luxury-text-shadow text-stone-950 text-center text-5xl mx-0 my-0 px-0 py-[10px] font-bold">
+            <h2 className="font-display leading-tight luxury-text-shadow text-stone-950 text-center text-3xl md:text-4xl lg:text-5xl mx-0 my-0 px-0 py-2 md:py-[10px] font-bold">
               {t('cta.title')}
             </h2>
-            <p className="text-xl md:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed font-light">
               {t('cta.subtitle')}
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pt-4">
               <Link to="/catalog">
-                <Button size="lg" variant="secondary" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl shadow-elegant transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(217,179,112,0.6)] micro-interaction font-semibold">
+                <Button size="lg" variant="secondary" className="group w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-5 md:py-7 rounded-2xl shadow-elegant transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(217,179,112,0.6)] micro-interaction font-semibold">
                   {t('hero.cta')}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl border-2 border-white/80 hover:border-white backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] text-white micro-interaction font-semibold">
+                <Button size="lg" variant="outline" className="group w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-5 md:py-7 rounded-2xl border-2 border-white/80 hover:border-white backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] text-white micro-interaction font-semibold">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   {t('cta.button')}
                 </Button>

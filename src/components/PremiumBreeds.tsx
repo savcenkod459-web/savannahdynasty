@@ -9,13 +9,13 @@ const PremiumBreeds = () => {
     description: t('breeds.f1.description'),
     traits: [t('breeds.traits.active'), t('breeds.traits.intelligent'), t('breeds.traits.exotic'), t('breeds.traits.loyal')]
   }];
-  return <section className="py-20 bg-secondary/30 relative overflow-visible">
+  return <section className="py-12 md:py-20 bg-secondary/30 relative overflow-visible">
       <div className="absolute top-10 right-10 opacity-5">
         <Crown className="w-40 h-40 text-primary animate-float" />
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center mb-12 md:mb-16 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
             <Diamond className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('breeds.title')}</span>
@@ -24,7 +24,7 @@ const PremiumBreeds = () => {
         </div>
         
         <div className="max-w-3xl mx-auto">
-          {breeds.map((breed, index) => <div key={index} className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-scale-in hover-lift micro-interaction" style={{
+          {breeds.map((breed, index) => <div key={index} className="p-6 md:p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-scale-in hover-lift micro-interaction" style={{
           animationDelay: `${index * 200}ms`
         }}>
               <h3 className="font-display font-black text-3xl mb-4 luxury-text-shadow">{breed.name}</h3>
