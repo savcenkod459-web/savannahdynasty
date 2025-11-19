@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
     title: t('whyChoose.support.title'),
     description: t('whyChoose.support.description')
   }];
-  return <section className="py-32 bg-secondary/30 relative overflow-hidden">
+  return <section className="py-32 bg-secondary/30 relative overflow-visible">
       {/* Декоративные элементы люкса */}
       <div className="absolute top-20 left-10 opacity-5">
         <Crown className="w-32 h-32 text-primary animate-float" />

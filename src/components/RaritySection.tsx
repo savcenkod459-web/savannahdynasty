@@ -5,7 +5,7 @@ const RaritySection = () => {
   const { t } = useTranslation();
   
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-visible">
       <div className="absolute top-20 left-10 opacity-5">
         <Diamond className="w-40 h-40 text-primary animate-float" />
       </div>

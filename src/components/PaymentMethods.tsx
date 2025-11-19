@@ -30,7 +30,7 @@ const PaymentMethods = () => {
     title: t('paymentMethods.privacy.title'),
     description: t('paymentMethods.privacy.description')
   }];
-  return <section className="py-32 bg-secondary/30 relative overflow-hidden">
+  return <section className="py-32 bg-secondary/30 relative overflow-visible">
       {/* Декоративный фон безопасности */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float" />
