@@ -94,11 +94,11 @@ All colors MUST be HSL.
     --primary: 43 96% 56%;
     --primary-foreground: 0 0% 4%;
 
-    --secondary: 0 0% 20%;
+    --secondary: 0 0% 22%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 90%;
+    --muted: 0 0% 22%;
+    --muted-foreground: 0 0% 92%;
 
     --accent: 38 92% 50%;
     --accent-foreground: 0 0% 100%;
@@ -106,8 +106,8 @@ All colors MUST be HSL.
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 20%;
+    --border: 0 0% 28%;
+    --input: 0 0% 22%;
     --ring: 43 96% 56%;
   }
 }
@@ -115,7 +115,7 @@ All colors MUST be HSL.
 @layer utilities {
   .text-luxury-gradient {
     @apply bg-gradient-to-r from-[hsl(48,100%,88%)] via-primary to-accent bg-clip-text text-transparent;
-    animation: goldPulse 3s ease-in-out infinite;
+    animation: textGoldPulse 3s ease-in-out infinite;
   }
   
   .text-gold {
@@ -323,6 +323,15 @@ All colors MUST be HSL.
     }
     50% {
       box-shadow: 0 0 40px hsl(43 96% 56% / 0.6);
+    }
+  }
+
+  @keyframes textGoldPulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 10px hsl(43 96% 56% / 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 25px hsl(43 96% 56% / 0.8)) drop-shadow(0 0 35px hsl(43 96% 56% / 0.5));
     }
   }
 
