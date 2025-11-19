@@ -138,7 +138,9 @@
     "legal": "قانوني",
     "privacy": "سياسة الخصوصية",
     "terms": "شروط الخدمة",
-    "rights": "جميع الحقوق محفوظة."
+    "rights": "جميع الحقوق محفوظة.",
+    "emailCopiedTitle": "تم نسخ البريد الإلكتروني!",
+    "emailCopiedDescription": "تم نسخ savannahdynastyofficial@gmail.com إلى الحافظة"
   },
   "breeders": {
     "badge": "المحترفون",

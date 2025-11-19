@@ -9,8 +9,8 @@ const Footer = () => {
   const copyEmail = () => {
     navigator.clipboard.writeText("savannahdynastyofficial@gmail.com");
     toast({
-      title: "Email скопирован!",
-      description: "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
+      title: t('footer.emailCopiedTitle'),
+      description: t('footer.emailCopiedDescription')
     });
   };
   return <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">

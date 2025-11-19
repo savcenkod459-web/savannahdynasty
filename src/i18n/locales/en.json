@@ -139,7 +139,9 @@
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "emailCopiedTitle": "Email copied!",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copied to clipboard"
   },
   "about": {
     "badge": "Elite Breeds",
