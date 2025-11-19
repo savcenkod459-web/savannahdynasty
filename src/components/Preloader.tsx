@@ -80,14 +80,17 @@ const Preloader = () => {
         
         {/* Crown logo with enhanced glow */}
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <div className="relative inline-flex items-center justify-center">
-            <Crown className="w-20 h-20 text-primary relative z-10" style={{ 
+          <div className="relative">
+            {/* Glow layers behind crown */}
+            <div className="absolute rounded-full animate-pulse pointer-events-none" style={{ width: '160px', height: '160px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: 'radial-gradient(circle, rgba(217,179,112,0.3) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: -1 }} />
+            <div className="absolute rounded-full animate-pulse pointer-events-none" style={{ width: '200px', height: '200px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animationDelay: '0.5s', background: 'radial-gradient(circle, rgba(217,179,112,0.2) 0%, rgba(255,215,0,0.15) 40%, transparent 70%)', filter: 'blur(50px)', zIndex: -2 }} />
+            <div className="absolute rounded-full animate-pulse pointer-events-none" style={{ width: '240px', height: '240px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animationDelay: '1s', background: 'radial-gradient(circle, rgba(217,179,112,0.15) 0%, transparent 70%)', filter: 'blur(60px)', zIndex: -3 }} />
+            
+            {/* Crown icon */}
+            <Crown className="w-20 h-20 text-primary" style={{ 
               animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
               filter: 'drop-shadow(0 0 25px rgba(217,179,112,0.9)) drop-shadow(0 0 50px rgba(217,179,112,0.7))'
             }} />
-            <div className="absolute rounded-full animate-pulse" style={{ width: '160px', height: '160px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: 'radial-gradient(circle, rgba(217,179,112,0.3) 0%, transparent 70%)', filter: 'blur(40px)' }} />
-            <div className="absolute rounded-full animate-pulse" style={{ width: '200px', height: '200px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animationDelay: '0.5s', background: 'radial-gradient(circle, rgba(217,179,112,0.2) 0%, rgba(255,215,0,0.15) 40%, transparent 70%)', filter: 'blur(50px)' }} />
-            <div className="absolute rounded-full animate-pulse" style={{ width: '240px', height: '240px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', animationDelay: '1s', background: 'radial-gradient(circle, rgba(217,179,112,0.15) 0%, transparent 70%)', filter: 'blur(60px)' }} />
           </div>
           
           <div className="text-center space-y-3">
