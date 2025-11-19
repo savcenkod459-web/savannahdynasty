@@ -75,21 +75,22 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
               
               {/* Logo with Crown - appears on hover */}
-              <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 flex items-center gap-1.5">
+              <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 flex items-center gap-2">
                 <span 
-                  className="font-display font-black text-xl tracking-tight"
+                  className="font-display font-black text-3xl tracking-tight"
                   style={{ 
                     color: '#D4AF37',
-                    textShadow: '0 0 8px rgba(212, 175, 55, 0.4), 0 0 12px rgba(212, 175, 55, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.6)',
+                    textShadow: '0 0 15px rgba(212, 175, 55, 0.6), 0 0 25px rgba(212, 175, 55, 0.4), 0 0 35px rgba(212, 175, 55, 0.3), 2px 2px 6px rgba(0, 0, 0, 0.7)',
+                    filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.5))',
                   }}
                 >
                   SavannahDynasty
                 </span>
                 <Crown 
-                  className="w-7 h-7" 
+                  className="w-10 h-10" 
                   style={{ 
                     color: '#D4AF37',
-                    filter: 'drop-shadow(0 0 6px rgba(212, 175, 55, 0.4)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6))',
+                    filter: 'drop-shadow(0 0 12px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.3)) drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.7))',
                   }} 
                 />
               </div>

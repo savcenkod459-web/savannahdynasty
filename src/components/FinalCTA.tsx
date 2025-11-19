@@ -34,13 +34,13 @@ const FinalCTA = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link to="/catalog">
-                <Button size="lg" variant="secondary" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl shadow-elegant transition-all duration-500 hover:-translate-y-1 micro-interaction font-semibold">
+                <Button size="lg" variant="secondary" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl shadow-elegant transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(217,179,112,0.6)] micro-interaction font-semibold">
                   {t('hero.cta')}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl border-2 border-white/80 hover:border-white backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-500 text-white micro-interaction font-semibold">
+                <Button size="lg" variant="outline" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl border-2 border-white/80 hover:border-white backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] text-white micro-interaction font-semibold">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   {t('cta.button')}
                 </Button>
