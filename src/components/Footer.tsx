@@ -13,7 +13,7 @@ const Footer = () => {
       description: t('footer.emailCopiedDescription')
     });
   };
-  return <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">
+  return <footer className="bg-secondary/30 relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 opacity-5">
         <Crown className="absolute top-10 right-20 w-24 h-24 text-primary animate-float" />

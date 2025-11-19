@@ -60,7 +60,7 @@ const FeaturedCollection = () => {
       }));
     }
   });
-  return <section className="py-32 relative overflow-hidden">
+  return <section className="py-32 pb-40 relative overflow-visible">
       {/* Декоративный фон */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />

@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const FinalCTA = () => {
   const { t } = useTranslation();
-  return <section className="py-32 relative overflow-hidden">
+  return <section className="py-32 relative overflow-visible">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 opacity-5 bg-stone-950">
         <Crown className="absolute top-20 left-20 w-32 h-32 text-primary animate-float" />

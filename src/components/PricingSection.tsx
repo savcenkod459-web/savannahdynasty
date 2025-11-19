@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const PricingSection = () => {
   const { t } = useTranslation();
   
-  return <section className="py-20 bg-secondary/30 relative overflow-hidden">
+  return <section className="py-20 pb-32 bg-secondary/30 relative overflow-visible">
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
       animationDelay: '3s'
