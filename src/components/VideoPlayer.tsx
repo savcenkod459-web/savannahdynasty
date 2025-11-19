@@ -217,14 +217,14 @@ export const VideoPlayer = ({
             variant="ghost" 
             size="icon" 
             onClick={onToggleFullscreen} 
-            className="absolute bottom-4 right-4 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
+            className="absolute bottom-1 right-1 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
           >
             <Maximize className="h-5 w-5" />
           </Button>
         )}
 
         {/* Play button - bottom left corner */}
-        {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-4 left-4 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
+        {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-1 left-1 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
             <Play className="h-6 w-6" />
           </Button>}
 
