@@ -6,6 +6,38 @@ import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useMediaOptimization } from "@/hooks/useMediaOptimization";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+
+// Определение типа видео по расширению
+const getVideoType = (url: string): string => {
+  const extension = url.split('.').pop()?.toLowerCase();
+  const typeMap: { [key: string]: string } = {
+    'mp4': 'video/mp4',
+    'webm': 'video/webm',
+    'ogg': 'video/ogg',
+    'mov': 'video/quicktime',
+    'm4v': 'video/x-m4v'
+  };
+  return typeMap[extension || 'mp4'] || 'video/mp4';
+};
+
+// Генерация альтернативных источников для лучшей совместимости
+const generateVideoSources = (url: string): Array<{ src: string; type: string }> => {
+  const baseUrl = url.substring(0, url.lastIndexOf('.'));
+  const currentType = getVideoType(url);
+  
+  // Возвращаем текущий URL и возможные альтернативы
+  const sources = [{ src: url, type: currentType }];
+  
+  // Если это MP4, предлагаем WebM как альтернативу и наоборот
+  if (currentType === 'video/mp4') {
+    sources.push({ src: `${baseUrl}.webm`, type: 'video/webm' });
+  } else if (currentType === 'video/webm') {
+    sources.push({ src: `${baseUrl}.mp4`, type: 'video/mp4' });
+  }
+  
+  return sources;
+};
+
 interface VideoPlayerProps {
   videoUrl: string;
   isOpen: boolean;
@@ -24,7 +56,7 @@ export const VideoPlayer = memo(({
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const isMobile = useIsMobile();
-  const { videoPreload, enableAdaptiveBitrate } = useMediaOptimization();
+  const { enableAdaptiveBitrate } = useMediaOptimization();
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -33,6 +65,7 @@ export const VideoPlayer = memo(({
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const videoSources = generateVideoSources(videoUrl);
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !shouldLoadVideo) return;
@@ -196,17 +229,21 @@ export const VideoPlayer = memo(({
             {/* Video element */}
             {shouldLoadVideo && <video 
               ref={videoRef} 
-              src={videoUrl} 
               poster={posterImage}
               className="max-w-full max-h-full object-contain" 
               onClick={togglePlay} 
-              preload={videoPreload}
+              preload="metadata"
               playsInline
               webkit-playsinline="true"
               x-webkit-airplay="allow"
               controlsList="nodownload"
               disablePictureInPicture={false}
-            />}
+            >
+              {videoSources.map((source, index) => (
+                <source key={index} src={source.src} type={source.type} />
+              ))}
+              Ваш браузер не поддерживает воспроизведение видео.
+            </video>}
 
             {/* Loading spinner */}
             {isLoading && <div className="absolute inset-0 flex items-center justify-center">
@@ -249,16 +286,20 @@ export const VideoPlayer = memo(({
       {/* Video element - lazy load on play */}
       {shouldLoadVideo && <video 
         ref={videoRef} 
-        src={videoUrl} 
         className="w-full h-full object-contain rounded-lg touch-none" 
-        preload={videoPreload}
+        preload="metadata"
         playsInline 
         webkit-playsinline="true"
         onClick={togglePlay}
         x-webkit-airplay="allow"
         controlsList="nodownload"
         disablePictureInPicture={false}
-      />}
+      >
+        {videoSources.map((source, index) => (
+          <source key={index} src={source.src} type={source.type} />
+        ))}
+        Ваш браузер не поддерживает воспроизведение видео.
+      </video>}
 
       {/* Loading spinner */}
       {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30 z-20">
