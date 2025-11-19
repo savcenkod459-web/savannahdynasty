@@ -124,7 +124,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-4 py-0">
               <p className="text-sm text-muted-foreground font-light">
-                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-all duration-300 cursor-pointer font-normal hover:shadow-gold hover:-translate-y-0.5 micro-interaction">savannahdynastyofficial@gmail.com</button>
+                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-all duration-300 cursor-pointer font-normal hover:-translate-y-0.5 micro-interaction outline-none focus:outline-none hover:[text-shadow:0_0_20px_hsl(43_96%_56%/0.8),0_0_40px_hsl(43_96%_56%/0.5)]">savannahdynastyofficial@gmail.com</button>
               </p>
               
               <div className="flex gap-4 pt-2">
