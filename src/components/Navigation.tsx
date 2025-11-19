@@ -68,10 +68,12 @@ const Navigation = () => {
   }, []);
   const handleLogout = async () => {
     setLogoutDialogOpen(false);
+    const logoutTitle = t("auth.logout.title");
+    const logoutDescription = t("auth.logout.description");
     await supabase.auth.signOut();
     toast({
-      title: t("auth.logout.title"),
-      description: t("auth.logout.description")
+      title: logoutTitle,
+      description: logoutDescription
     });
     navigate("/");
   };
