@@ -248,10 +248,13 @@ export const VideoPlayer = memo(({
             <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="cursor-pointer touch-auto" />
           </div>
           
-          {/* Mobile: Centered play button */}
-          <div className="flex md:hidden items-center justify-center">
+          {/* Mobile: Centered play button and fullscreen */}
+          <div className="flex md:hidden items-center justify-center gap-4">
             <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full touch-auto transition-transform text-white">
               {isPlaying ? <Pause className="h-7 w-7" /> : <Play className="h-7 w-7" />}
+            </Button>
+            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full touch-auto transition-transform text-white">
+              <Maximize className="h-7 w-7" />
             </Button>
           </div>
           
