@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Crown, ChevronDown, Star, Diamond, DollarSign, AlertCircle, Cat, Baby, Award, LogOut, Settings, Image, FileText, MessageSquare, User, Languages } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -27,6 +27,8 @@ const Navigation = () => {
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [user, setUser] = useState<any>(null);
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const navRefs = useRef<{ [key: string]: HTMLElement | null }>({});
   const location = useLocation();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -147,6 +149,20 @@ const Navigation = () => {
   };
 
   const isActive = (path: string) => location.pathname === path;
+
+  useEffect(() => {
+    const activeItem = navItems.find(item => isActive(item.path));
+    if (activeItem && navRefs.current[activeItem.path]) {
+      const element = navRefs.current[activeItem.path];
+      if (element) {
+        setIndicatorStyle({
+          left: element.offsetLeft,
+          width: element.offsetWidth
+        });
+      }
+    }
+  }, [location.pathname]);
+
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-primary/10">
       <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between gap-4">
@@ -158,15 +174,17 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-4 flex-1 justify-end mr-6">
+          <div className="hidden lg:flex items-center gap-4 flex-1 justify-end mr-6 relative">
             {navItems.map(item => {
             if (item.hasSubmenu) {
               return <Popover key={item.path} open={aboutPopoverOpen} onOpenChange={setAboutPopoverOpen}>
                     <PopoverTrigger asChild>
-                      <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}>
+                      <button 
+                        ref={(el) => navRefs.current[item.path] = el}
+                        className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 pb-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
+                      >
                         {item.name}
                         <ChevronDown className="w-4 h-4" />
-                        <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
                       </button>
                     </PopoverTrigger>
                     <PopoverContent className="w-80 p-3 bg-gradient-to-br from-background/98 to-background/95 backdrop-blur-xl border-2 border-primary/20 shadow-glow animate-scale-in">
@@ -188,11 +206,25 @@ const Navigation = () => {
                     </PopoverContent>
                   </Popover>;
             }
-            return <Link key={item.path} to={item.path} className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}>
+            return <Link 
+                key={item.path} 
+                to={item.path} 
+                ref={(el) => navRefs.current[item.path] = el}
+                className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction pb-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
+              >
                   {item.name}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
                 </Link>;
           })}
+            
+            {/* Sliding indicator */}
+            <span 
+              className="absolute -bottom-1 h-0.5 bg-gradient-to-r from-primary to-accent shadow-glow rounded-full transition-all duration-500 ease-out"
+              style={{
+                left: `${indicatorStyle.left}px`,
+                width: `${indicatorStyle.width}px`,
+                opacity: indicatorStyle.width > 0 ? 1 : 0
+              }}
+            />
             
             {isAdmin && (
               <Popover open={adminPopoverOpen} onOpenChange={setAdminPopoverOpen}>
