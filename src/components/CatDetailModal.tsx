@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { VideoPlayer } from "./VideoPlayer";
-import { ProgressiveImage } from "./ProgressiveImage";
+import { OptimizedImage } from "./OptimizedImage";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 interface CatDetailModalProps {
   images: string[];
@@ -51,7 +51,7 @@ const CatDetailModalComponent = ({
             <div className="w-full md:w-1/2 h-[45vh] md:h-full relative md:border-r border-b md:border-b-0 border-primary/20">
               <div className="h-full flex items-center justify-center p-4 md:p-6">
                 <div className="relative w-full h-full">
-                  <ProgressiveImage
+                  <OptimizedImage
                     src={images[currentImageIndex]} 
                     alt={`Gallery ${currentImageIndex + 1}`} 
                     className="w-full h-full object-contain cursor-pointer rounded-lg" 
@@ -128,7 +128,7 @@ const CatDetailModalComponent = ({
               </Button>
             )}
 
-            <ProgressiveImage 
+            <OptimizedImage 
               src={images[currentImageIndex]} 
               alt={`Gallery ${currentImageIndex + 1}`} 
               className="max-w-full max-h-full object-contain" 

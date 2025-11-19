@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Crown, Sparkles, Star, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ProgressiveImage } from "./ProgressiveImage";
+import { OptimizedImage } from "./OptimizedImage";
 
 type Cat = {
   id: string;
@@ -48,7 +48,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
         {/* Content */}
         <div className="relative">
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted">
-            <ProgressiveImage
+            <OptimizedImage
               src={cat.image}
               alt={cat.name}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

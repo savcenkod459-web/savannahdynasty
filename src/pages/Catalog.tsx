@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, memo, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Crown, Sparkles, Diamond, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -10,6 +10,8 @@ import { useQuery } from "@tanstack/react-query";
 import { CatDetailModal } from "@/components/CatDetailModal";
 import { CatCard } from "@/components/CatCard";
 import { useTranslation } from "react-i18next";
+import { useVirtualizer } from "@tanstack/react-virtual";
+import { useDataCache } from "@/hooks/useImageCache";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
@@ -70,6 +72,8 @@ const Catalog = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImages, setModalImages] = useState<string[]>([]);
   const [modalVideo, setModalVideo] = useState<string | undefined>();
+  const parentRef = useRef<HTMLDivElement>(null);
+  const { getFromCache, saveToCache } = useDataCache<Cat[]>('catalog_cats', 30 * 60 * 1000); // 30 минут
 
   useEffect(() => {
     if (breedFromUrl !== 'all') {
@@ -90,7 +94,7 @@ const Catalog = () => {
     }
   };
 
-  // Fetch cats from Supabase
+  // Fetch cats from Supabase with caching
   const {
     data: cats,
     isLoading,
@@ -98,6 +102,12 @@ const Catalog = () => {
   } = useQuery({
     queryKey: ['cats'],
     queryFn: async () => {
+      // Проверяем кэш
+      const cached = getFromCache();
+      if (cached) {
+        return cached;
+      }
+
       const {
         data,
         error
@@ -105,17 +115,33 @@ const Catalog = () => {
         ascending: true
       });
       if (error) throw error;
-      return (data as Cat[]).map(cat => ({
+      
+      const processedData = (data as Cat[]).map(cat => ({
         ...cat,
         image: imageMap[cat.image] || cat.image
       }));
-    }
+      
+      // Сохраняем в кэш
+      saveToCache(processedData);
+      
+      return processedData;
+    },
+    staleTime: 5 * 60 * 1000, // 5 минут
   });
   const allCats = cats || [];
   const filteredCats = allCats.filter(cat => {
     if (selectedBreed !== "all" && cat.breed !== selectedBreed) return false;
     return true;
   });
+
+  // Виртуализация для больших списков
+  const rowVirtualizer = useVirtualizer({
+    count: Math.ceil(filteredCats.length / 3), // Количество рядов (по 3 карточки)
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 600, // Приблизительная высота карточки + отступы
+    overscan: 2, // Рендерим 2 дополнительных ряда сверху и снизу
+  });
+
   return <div className="min-h-screen">
       <Navigation />
       
@@ -147,10 +173,7 @@ const Catalog = () => {
           </div>
         </section>
 
-        {/* Filters */}
-        
-
-        {/* Catalog Grid */}
+        {/* Catalog Grid with Virtualization */}
         <ScrollAnimationWrapper animation="fade" delay={100}>
           <section className="py-20">
             <div className="container mx-auto px-6">
@@ -171,22 +194,58 @@ const Catalog = () => {
                   </p>
                 </div>
               ) : (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredCats.map((cat, index) => (
-                    <div
-                      key={cat.id}
-                      onMouseEnter={() => {
-                        // Preload images when hovering over card
-                        preloadImages(filteredCats, index);
-                      }}
-                    >
-                      <CatCard 
-                        cat={cat} 
-                        onCardClick={openCatDetail}
-                        animationDelay={index * 100}
-                      />
-                    </div>
-                  ))}
+                <div 
+                  ref={parentRef} 
+                  style={{
+                    height: '2000px',
+                    overflow: 'auto',
+                  }}
+                >
+                  <div
+                    style={{
+                      height: `${rowVirtualizer.getTotalSize()}px`,
+                      width: '100%',
+                      position: 'relative',
+                    }}
+                  >
+                    {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+                      const startIndex = virtualRow.index * 3;
+                      const rowCats = filteredCats.slice(startIndex, startIndex + 3);
+                      
+                      return (
+                        <div
+                          key={virtualRow.key}
+                          style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            transform: `translateY(${virtualRow.start}px)`,
+                          }}
+                        >
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {rowCats.map((cat, colIndex) => {
+                              const index = startIndex + colIndex;
+                              return (
+                                <div
+                                  key={cat.id}
+                                  onMouseEnter={() => {
+                                    preloadImages(filteredCats, index);
+                                  }}
+                                >
+                                  <CatCard 
+                                    cat={cat} 
+                                    onCardClick={openCatDetail}
+                                    animationDelay={0}
+                                  />
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
             </div>
