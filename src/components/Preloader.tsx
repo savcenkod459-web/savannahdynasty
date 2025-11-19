@@ -78,15 +78,13 @@ const Preloader = () => {
           <div className="absolute bottom-0 right-1/3 w-1.5 h-1.5 bg-accent rounded-full animate-ping" style={{ animationDelay: '2s' }} />
         </div>
         
-        {/* Crown logo with minimal glow */}
+        {/* Crown logo without filters */}
         <div className="relative z-10 flex flex-col items-center gap-6">
           <Crown 
             className="w-20 h-20 text-primary" 
-            strokeWidth={2.5}
+            strokeWidth={2}
             style={{ 
-              animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
-              filter: 'drop-shadow(0 0 8px rgba(217,179,112,0.6))',
-              background: 'transparent'
+              animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite'
             }} 
           />
           
