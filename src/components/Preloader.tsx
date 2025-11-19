@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Crown } from "lucide-react";
 
 const Preloader = () => {
-  // Add keyframes for glow fade-in animation
+  // Add keyframes for glow fade-in and pulse animations
   useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
@@ -12,6 +12,14 @@ const Preloader = () => {
         }
         to {
           opacity: 1;
+        }
+      }
+      @keyframes pulseGlow {
+        0%, 100% {
+          filter: drop-shadow(0 0 8px hsl(43 96% 56% / 0.4));
+        }
+        50% {
+          filter: drop-shadow(0 0 16px hsl(43 96% 56% / 0.7));
         }
       }
     `;
@@ -88,7 +96,7 @@ const Preloader = () => {
             strokeWidth={2}
             style={{
               filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 0.4))',
-              animation: 'fadeInGlow 1.2s ease-out forwards'
+              animation: 'fadeInGlow 1.2s ease-out forwards, pulseGlow 2s ease-in-out infinite 1.2s'
             }}
           />
           

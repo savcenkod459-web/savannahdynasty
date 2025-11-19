@@ -14,7 +14,6 @@ export function ThemeToggle() {
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
     
     if (newTheme === "dark") {
       document.documentElement.classList.add("dark");
@@ -23,6 +22,9 @@ export function ThemeToggle() {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
+    
+    // Reload page to show preloader with new theme
+    window.location.reload();
   };
 
   return (
