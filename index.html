@@ -38,9 +38,20 @@
     <meta name="apple-mobile-web-app-title" content="SavannahDynasty" />
     <link rel="apple-touch-icon" href="/placeholder.svg" />
     
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v36/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.woff2" crossorigin>
+    
+    <!-- Load fonts with display=swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="/src/assets/hero-cat-new.png" type="image/png">
+    <link rel="preload" as="image" href="/src/assets/hero-savannah.jpg" type="image/jpeg">
 
     <meta property="og:title" content="SavannahDynasty - Элитные кошки породы Саванна" />
     <meta property="og:description" content="Откройте для себя своего идеального кошачьего друга из нашей эксклюзивной коллекции породистых элитных кошек." />
@@ -54,6 +65,10 @@
 
   <body>
     <div id="root"></div>
+    <!-- Main script loads as module (deferred by default) -->
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Prefetch DNS for external resources -->
+    <link rel="dns-prefetch" href="https://rujvbcxpnzpikkmgdkfs.supabase.co">
   </body>
 </html>
