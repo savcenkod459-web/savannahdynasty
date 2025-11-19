@@ -66,10 +66,10 @@ const Preloader = () => {
         {/* Pulsating glow circle */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div 
-            className="w-32 h-32 rounded-full animate-pulse"
+            className="w-64 h-64 rounded-full"
             style={{
-              background: 'radial-gradient(circle, hsl(43 96% 56% / 0.15) 0%, transparent 70%)',
-              animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+              background: 'radial-gradient(circle, hsl(43 96% 56% / 0.35) 0%, hsl(43 96% 56% / 0.15) 50%, transparent 70%)',
+              animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
             }}
           />
         </div>
