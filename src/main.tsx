@@ -6,10 +6,13 @@ import Preloader from "./components/Preloader.tsx";
 
 // Initialize theme from localStorage
 const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") {
+if (savedTheme === "dark" || !savedTheme) {
+  // Default to dark theme if no preference is saved
   document.documentElement.classList.add("dark");
-} else if (!savedTheme) {
-  // Default to light theme if no preference is saved
+  if (!savedTheme) {
+    localStorage.setItem("theme", "dark");
+  }
+} else {
   localStorage.setItem("theme", "light");
 }
 
