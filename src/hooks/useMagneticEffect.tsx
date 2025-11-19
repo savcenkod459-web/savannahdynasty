@@ -22,9 +22,9 @@ export const useMagneticEffect = (strength: number = 0.3) => {
       const deltaY = e.clientY - centerY;
       const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
       
-      // Only apply effect when cursor is within 150px
-      if (distance < 150) {
-        const force = Math.max(0, 1 - distance / 150);
+      // Увеличил радиус действия до 250px
+      if (distance < 250) {
+        const force = Math.max(0, 1 - distance / 250);
         targetX = deltaX * strength * force;
         targetY = deltaY * strength * force;
       } else {
