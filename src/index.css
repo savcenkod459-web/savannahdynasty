@@ -603,6 +603,22 @@ All colors MUST be HSL.
     animation: sparkle-fall 2s ease-out forwards;
   }
 
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  .ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(217, 179, 112, 0.6);
+    transform: scale(0);
+    animation: ripple 0.6s ease-out;
+    pointer-events: none;
+  }
+
   /* Custom scrollbar styles for dark theme */
   .dark ::-webkit-scrollbar {
     width: 16px;
