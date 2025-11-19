@@ -241,22 +241,29 @@ export const VideoPlayer = memo(({
         </div>}
       
       {/* Desktop: Progress bar at bottom, controls unified */}
-      {/* Mobile: All controls unified at bottom like desktop */}
+      {/* Mobile: Centered play button */}
       {shouldLoadVideo && <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40 touch-auto">
           {/* Progress bar */}
           <div className="mb-3">
             <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="cursor-pointer touch-auto" />
           </div>
           
-          {/* Controls row */}
-          <div className="flex items-center gap-2 md:gap-3 text-white">
+          {/* Mobile: Centered play button */}
+          <div className="flex md:hidden items-center justify-center">
+            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full touch-auto transition-transform text-white">
+              {isPlaying ? <Pause className="h-7 w-7" /> : <Play className="h-7 w-7" />}
+            </Button>
+          </div>
+          
+          {/* Desktop: Full controls row */}
+          <div className="hidden md:flex items-center gap-3 text-white">
             {/* Play button */}
-            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 rounded-full touch-auto transition-transform">
-              {isPlaying ? <Pause className="h-5 w-5 md:h-6 md:w-6" /> : <Play className="h-5 w-5 md:h-6 md:w-6" />}
+            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full touch-auto transition-transform">
+              {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
             </Button>
             
             {/* Time display */}
-            <div className="text-xs md:text-sm font-medium whitespace-nowrap">
+            <div className="text-sm font-medium whitespace-nowrap">
               {formatTime(currentTime)} / {formatTime(duration)}
             </div>
             
@@ -264,18 +271,18 @@ export const VideoPlayer = memo(({
             <div className="flex-1" />
             
             {/* Volume control */}
-            <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 rounded-full touch-auto transition-transform">
-              {isMuted ? <VolumeX className="h-5 w-5 md:h-6 md:w-6" /> : <Volume2 className="h-5 w-5 md:h-6 md:w-6" />}
+            <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full touch-auto transition-transform">
+              {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
             </Button>
             
             {/* Volume slider - desktop only */}
-            <div className="hidden md:block w-20">
+            <div className="w-20">
               <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="cursor-pointer touch-auto" />
             </div>
             
             {/* Fullscreen button */}
-            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-9 h-9 md:w-10 md:h-10 rounded-full touch-auto transition-transform">
-              <Maximize className="h-5 w-5 md:h-6 md:w-6" />
+            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full touch-auto transition-transform">
+              <Maximize className="h-6 w-6" />
             </Button>
           </div>
         </div>}
