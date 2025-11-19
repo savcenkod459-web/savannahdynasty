@@ -355,13 +355,6 @@ const Navigation = () => {
                   </div>
                 )}
 
-                <div className="border-t border-primary/10 pt-4 mt-4 space-y-2">
-                  <LanguageSelector />
-                  <div className="flex justify-center">
-                    <ThemeToggle />
-                  </div>
-                </div>
-
                 {user ? (
                   <>
                     <Button 
