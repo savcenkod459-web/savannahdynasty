@@ -30,14 +30,14 @@ const GoldenParticles = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute bottom-0 rounded-full blur-sm animate-float-up dark:bg-gradient-to-t dark:from-primary/40 dark:to-accent/20 bg-gradient-to-t from-[hsl(0,0%,70%)]/20 to-[hsl(0,0%,80%)]/10"
+          className="absolute bottom-0 rounded-full blur-sm animate-float-up dark:bg-gradient-to-t dark:from-primary/40 dark:to-accent/20 bg-gradient-to-t from-[hsl(0,0%,75%)]/25 to-[hsl(0,0%,85%)]/15"
           style={{
             left: `${particle.x}%`,
             width: `${particle.size}px`,
             height: `${particle.size}px`,
             animationDuration: `${particle.duration}s`,
             animationDelay: `${particle.delay}s`,
-            boxShadow: '0 0 10px hsl(0 0% 70% / 0.3), 0 0 20px hsl(0 0% 70% / 0.2)',
+            boxShadow: 'var(--theme) === "dark" ? "0 0 15px hsl(43 96% 56% / 0.4), 0 0 25px hsl(43 96% 56% / 0.3)" : "0 0 15px hsl(0 0% 75% / 0.4), 0 0 25px hsl(0 0% 75% / 0.3)"',
           }}
         />
       ))}
