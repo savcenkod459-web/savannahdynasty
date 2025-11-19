@@ -222,14 +222,31 @@ export const VideoPlayer = ({
           <Loader2 className="h-8 w-8 text-white animate-spin" />
         </div>}
       
-      {/* Buttons container - positioned at bottom center */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
-        {/* Play button */}
-        {!isPlaying}
-        
-        {/* Fullscreen button */}
-        {onToggleFullscreen}
+      {/* Play button - positioned at bottom left */}
+      <div className="absolute bottom-4 left-4 z-30">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={handlePlayClick}
+          className="text-white hover:bg-white/20 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm"
+        >
+          {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
+        </Button>
       </div>
+      
+      {/* Fullscreen button - positioned at bottom right */}
+      {onToggleFullscreen && (
+        <div className="absolute bottom-4 right-4 z-30">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={onToggleFullscreen}
+            className="text-white hover:bg-white/20 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm"
+          >
+            <Maximize className="h-6 w-6" />
+          </Button>
+        </div>
+      )}
 
       {/* Pause button - appears in center when playing */}
       {isPlaying && <Button variant="ghost" size="icon" onClick={togglePlay} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm z-10">
