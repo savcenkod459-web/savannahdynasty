@@ -122,7 +122,6 @@ export const VideoPlayer = ({
       }
     }
   };
-
   const handleStop = () => {
     if (videoRef.current) {
       videoRef.current.pause();
@@ -226,21 +225,10 @@ export const VideoPlayer = ({
       {/* Buttons container - positioned at bottom center */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
         {/* Play button */}
-        {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
-            <Play className="h-6 w-6" />
-          </Button>}
+        {!isPlaying}
         
         {/* Fullscreen button */}
-        {onToggleFullscreen && (
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={onToggleFullscreen} 
-            className="text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110"
-          >
-            <Maximize className="h-6 w-6" />
-          </Button>
-        )}
+        {onToggleFullscreen}
       </div>
 
       {/* Pause button - appears in center when playing */}
