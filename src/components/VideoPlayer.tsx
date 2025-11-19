@@ -198,39 +198,41 @@ export const VideoPlayer = ({
         </DialogContent>
       </Dialog>;
   }
-  return <div className="relative w-full h-full group flex items-center justify-center bg-black/5 rounded-lg overflow-hidden">
-      {/* Poster image placeholder */}
-      {!shouldLoadVideo && posterImage && <img src={posterImage} alt="Video preview" className="w-full h-full object-contain rounded-lg blur-sm" />}
-      
-      {/* Video element - lazy load on play */}
-      {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg" preload={isMobile ? "none" : "metadata"} playsInline />}
+  return <div className="relative w-full h-full group bg-black/5 rounded-lg overflow-hidden flex items-center justify-center">
+      <div className="relative w-full h-full">
+        {/* Poster image placeholder */}
+        {!shouldLoadVideo && posterImage && <img src={posterImage} alt="Video preview" className="w-full h-full object-contain rounded-lg blur-sm" />}
+        
+        {/* Video element - lazy load on play */}
+        {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg" preload={isMobile ? "none" : "metadata"} playsInline />}
 
-      {/* Loading spinner */}
-      {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-          <Loader2 className="h-8 w-8 text-white animate-spin" />
-        </div>}
-      
-      {/* Fullscreen button - positioned at bottom right */}
-      {onToggleFullscreen && (
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={onToggleFullscreen} 
-          className="absolute bottom-2 right-2 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
-        >
-          <Maximize className="h-5 w-5" />
-        </Button>
-      )}
+        {/* Loading spinner */}
+        {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+            <Loader2 className="h-8 w-8 text-white animate-spin" />
+          </div>}
+        
+        {/* Fullscreen button - positioned at bottom right */}
+        {onToggleFullscreen && (
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={onToggleFullscreen} 
+            className="absolute bottom-4 right-4 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
+          >
+            <Maximize className="h-5 w-5" />
+          </Button>
+        )}
 
-      {/* Play button - bottom left corner */}
-      {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-2 left-2 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
-          <Play className="h-6 w-6" />
-        </Button>}
+        {/* Play button - bottom left corner */}
+        {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-4 left-4 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
+            <Play className="h-6 w-6" />
+          </Button>}
 
-      {/* Pause button - appears in center when playing */}
-      {isPlaying && <Button variant="ghost" size="icon" onClick={togglePlay} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm z-10">
-          <Pause className="h-8 w-8" />
-        </Button>}
+        {/* Pause button - appears in center when playing */}
+        {isPlaying && <Button variant="ghost" size="icon" onClick={togglePlay} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm z-10">
+            <Pause className="h-8 w-8" />
+          </Button>}
+      </div>
 
       {/* Video controls */}
       {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
