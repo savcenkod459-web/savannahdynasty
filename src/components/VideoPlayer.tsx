@@ -198,41 +198,42 @@ export const VideoPlayer = ({
         </DialogContent>
       </Dialog>;
   }
-  return <div className="relative w-full h-full group bg-black/5 rounded-lg overflow-hidden flex items-center justify-center">
-      <div className="relative w-full h-full">
-        {/* Poster image placeholder */}
-        {!shouldLoadVideo && posterImage && <img src={posterImage} alt="Video preview" className="w-full h-full object-contain rounded-lg blur-sm" />}
-        
-        {/* Video element - lazy load on play */}
-        {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg" preload={isMobile ? "none" : "metadata"} playsInline />}
+  return <div className="relative w-full h-full group bg-black/5 rounded-lg overflow-hidden">
+      {/* Poster image placeholder */}
+      {!shouldLoadVideo && posterImage && <img src={posterImage} alt="Video preview" className="w-full h-full object-contain rounded-lg blur-sm" />}
+      
+      {/* Video element - lazy load on play */}
+      {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg" preload={isMobile ? "none" : "metadata"} playsInline />}
 
-        {/* Loading spinner */}
-        {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-            <Loader2 className="h-8 w-8 text-white animate-spin" />
-          </div>}
+      {/* Loading spinner */}
+      {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+          <Loader2 className="h-8 w-8 text-white animate-spin" />
+        </div>}
+      
+      {/* Buttons container - positioned at bottom center */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
+        {/* Play button */}
+        {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
+            <Play className="h-6 w-6" />
+          </Button>}
         
-        {/* Fullscreen button - positioned at bottom right */}
+        {/* Fullscreen button */}
         {onToggleFullscreen && (
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={onToggleFullscreen} 
-            className="absolute bottom-1 right-1 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
+            className="text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
           >
             <Maximize className="h-5 w-5" />
           </Button>
         )}
-
-        {/* Play button - bottom left corner */}
-        {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-1 left-1 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
-            <Play className="h-6 w-6" />
-          </Button>}
-
-        {/* Pause button - appears in center when playing */}
-        {isPlaying && <Button variant="ghost" size="icon" onClick={togglePlay} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm z-10">
-            <Pause className="h-8 w-8" />
-          </Button>}
       </div>
+
+      {/* Pause button - appears in center when playing */}
+      {isPlaying && <Button variant="ghost" size="icon" onClick={togglePlay} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm z-10">
+          <Pause className="h-8 w-8" />
+        </Button>}
 
       {/* Video controls */}
       {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
