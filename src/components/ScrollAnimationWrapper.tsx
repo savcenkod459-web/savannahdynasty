@@ -22,8 +22,12 @@ const ScrollAnimationWrapper = ({
   const { shouldReduceAnimations } = useMobileOptimization();
 
   const getAnimationClass = () => {
-    // Если нужно уменьшить анимации или элемент не видим, возвращаем базовый класс
-    if (shouldReduceAnimations || !isVisible || animation === 'none') return 'opacity-0';
+    if (!isVisible || animation === 'none') return 'opacity-0';
+    
+    // Уменьшаем анимации только для очень слабых устройств
+    if (shouldReduceAnimations && animation === 'fade') {
+      return 'animate-fade-in';
+    }
     
     switch (animation) {
       case 'fade':

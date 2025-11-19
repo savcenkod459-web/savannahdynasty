@@ -67,30 +67,30 @@ export const useMobileOptimization = (): MobileOptimizationSettings => {
       }
       // Медленное соединение (3G)
       else if (effectiveType === '3g' || downlink < 1.5) {
-        shouldReduceAnimations = true;
+        shouldReduceAnimations = false; // Не уменьшаем анимации на 3G
         imageQuality = 'medium';
         videoQuality = '480p';
         enableHeavyEffects = false;
-        preloadStrategy = 'none';
+        preloadStrategy = 'metadata';
         maxConcurrentImages = 4;
       }
       // Мобильное устройство с хорошим соединением
       else if (isMobile) {
-        shouldReduceAnimations = deviceMemory <= 2 || hardwareConcurrency <= 2;
+        shouldReduceAnimations = deviceMemory < 2 && hardwareConcurrency < 2; // Только для очень слабых устройств
         imageQuality = deviceMemory <= 2 ? 'medium' : 'high';
         videoQuality = deviceMemory <= 2 ? '480p' : '720p';
-        enableHeavyEffects = deviceMemory > 2 && hardwareConcurrency > 2;
+        enableHeavyEffects = deviceMemory >= 4 && hardwareConcurrency >= 4;
         preloadStrategy = 'metadata';
-        maxConcurrentImages = deviceMemory <= 2 ? 4 : 6;
+        maxConcurrentImages = deviceMemory <= 2 ? 5 : 8;
       }
       // Слабое десктопное устройство
       else if (deviceMemory <= 2 || hardwareConcurrency <= 2) {
-        shouldReduceAnimations = false;
-        imageQuality = 'medium';
+        shouldReduceAnimations = false; // Не уменьшаем на десктопе
+        imageQuality = 'high'; // Высокое качество на десктопе
         videoQuality = '720p';
-        enableHeavyEffects = false;
+        enableHeavyEffects = true; // Включаем эффекты на десктопе
         preloadStrategy = 'metadata';
-        maxConcurrentImages = 8;
+        maxConcurrentImages = 10;
       }
       // Мощное устройство с хорошим соединением
       else {
@@ -99,7 +99,7 @@ export const useMobileOptimization = (): MobileOptimizationSettings => {
         videoQuality = '1080p';
         enableHeavyEffects = true;
         preloadStrategy = 'auto';
-        maxConcurrentImages = 10;
+        maxConcurrentImages = 15;
       }
 
       setSettings({
