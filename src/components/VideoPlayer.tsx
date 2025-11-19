@@ -28,11 +28,9 @@ export const VideoPlayer = ({
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !shouldLoadVideo) return;
-    setIsLoading(true);
+    if (!video) return;
     const handleTimeUpdate = () => {
       if (video.duration && isFinite(video.duration) && video.currentTime <= video.duration) {
         setCurrentTime(video.currentTime);
@@ -99,19 +97,9 @@ export const VideoPlayer = ({
       video.removeEventListener('waiting', handleWaiting);
       video.removeEventListener('playing', handlePlaying);
     };
-  }, [videoUrl, isOpen, isFullscreen, shouldLoadVideo]);
+  }, [videoUrl, isOpen, isFullscreen]);
   const handlePlayClick = () => {
-    if (!shouldLoadVideo) {
-      setShouldLoadVideo(true);
-      // Wait for video to load before playing
-      setTimeout(() => {
-        if (videoRef.current) {
-          videoRef.current.play();
-        }
-      }, 100);
-    } else {
-      togglePlay();
-    }
+    togglePlay();
   };
   const togglePlay = () => {
     if (videoRef.current) {
@@ -173,7 +161,7 @@ export const VideoPlayer = ({
               </div>}
 
             {/* Video element */}
-            {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="max-w-full max-h-full object-contain" onClick={togglePlay} preload="metadata" playsInline poster={posterImage} />}
+            <video ref={videoRef} src={videoUrl} className="max-w-full max-h-full object-contain" onClick={togglePlay} preload="metadata" playsInline />
 
             {/* Loading spinner */}
             {isLoading && <div className="absolute inset-0 flex items-center justify-center">
@@ -209,7 +197,7 @@ export const VideoPlayer = ({
   }
   return <div className="relative w-full h-full group flex items-center justify-center bg-black/5 rounded-lg overflow-hidden">
       {/* Video element - always render to show first frame */}
-      <video ref={videoRef} src={shouldLoadVideo ? videoUrl : undefined} className={`w-full h-full object-contain rounded-lg ${!shouldLoadVideo ? 'pointer-events-none' : ''}`} preload="metadata" playsInline poster={posterImage} />
+      <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg" preload="metadata" playsInline />
 
       {/* Loading spinner */}
       {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30">
@@ -217,17 +205,40 @@ export const VideoPlayer = ({
         </div>}
       
       {/* Fullscreen button - always visible on mobile, positioned at bottom right */}
-      {onToggleFullscreen}
+      {onToggleFullscreen && (
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={onToggleFullscreen}
+          className="absolute bottom-4 right-4 z-20 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-12 h-12 transition-all hover:scale-110 md:opacity-0 md:group-hover:opacity-100"
+        >
+          <Maximize className="h-5 w-5" />
+        </Button>
+      )}
 
       {/* Play button - centered at bottom */}
-      {!isPlaying && <Button variant="ghost" size="icon" onClick={handlePlayClick} className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110">
+      {!isPlaying && (
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={handlePlayClick} 
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110"
+        >
           <Play className="h-6 w-6" />
-        </Button>}
+        </Button>
+      )}
 
       {/* Pause button - appears in center when playing */}
-      {isPlaying && <Button variant="ghost" size="icon" onClick={togglePlay} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm">
+      {isPlaying && (
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={togglePlay} 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm z-10"
+        >
           <Pause className="h-8 w-8" />
-        </Button>}
+        </Button>
+      )}
 
       {/* Video controls */}
       {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
