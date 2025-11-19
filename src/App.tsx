@@ -10,6 +10,7 @@ import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 import GoldenParticles from "./components/GoldenParticles";
 import InteractiveParticles from "./components/InteractiveParticles";
+import SparkEffect from "./components/SparkEffect";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Catalog from "./pages/Catalog";
@@ -56,6 +57,7 @@ const App = () => {
       <Sonner />
       <GoldenParticles />
       <InteractiveParticles />
+      <SparkEffect />
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>

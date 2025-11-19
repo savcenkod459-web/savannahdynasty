@@ -75,22 +75,24 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
               
               {/* Logo with Crown - appears on hover */}
-              <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 transform group-hover/hero:scale-125 flex items-center gap-3">
-                <Crown 
-                  className="w-12 h-12 text-primary animate-gold-pulse" 
-                  style={{ 
-                    filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 0.6)) drop-shadow(0 0 12px hsl(43 96% 56% / 0.4))',
-                  }} 
-                />
+              <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 flex items-center gap-2">
                 <span 
-                  className="font-display font-black text-4xl text-primary animate-gold-pulse"
+                  className="font-display font-black text-5xl tracking-tight"
                   style={{ 
-                    filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 0.6)) drop-shadow(0 0 12px hsl(43 96% 56% / 0.4))',
-                    textShadow: '0 0 20px hsl(43 96% 56% / 0.5)'
+                    color: '#D4AF37',
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
+                    WebkitTextStroke: '1px rgba(0, 0, 0, 0.3)'
                   }}
                 >
                   SavannahDynasty
                 </span>
+                <Crown 
+                  className="w-10 h-10" 
+                  style={{ 
+                    color: '#D4AF37',
+                    filter: 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8))',
+                  }} 
+                />
               </div>
               
               {/* Gold accent overlay */}

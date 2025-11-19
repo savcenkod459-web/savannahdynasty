@@ -391,6 +391,17 @@ All colors MUST be HSL.
     }
   }
   
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
   @keyframes floatMedium {
     0%, 100% {
       transform: translateY(0px) translateX(0px) scale(1);
