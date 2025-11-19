@@ -235,6 +235,21 @@ export const VideoPlayer = ({
           <Loader2 className="h-8 w-8 text-white animate-spin" />
         </div>}
       
+      {/* Progress bar - positioned at bottom */}
+      {isVideoLoaded && (
+        <div className="absolute bottom-20 left-4 right-4 z-30">
+          <div className="bg-black/50 backdrop-blur-sm rounded-lg p-3">
+            <Slider 
+              value={[currentTime]} 
+              max={duration || 100} 
+              step={0.1} 
+              onValueChange={handleSeek} 
+              className="cursor-pointer"
+            />
+          </div>
+        </div>
+      )}
+
       {/* Play button and time display - positioned at bottom left */}
       <div className="absolute bottom-4 left-4 z-30 flex items-center gap-3">
         <Button variant="ghost" size="icon" onClick={handlePlayClick} className="text-white hover:bg-white/20 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm">
@@ -247,8 +262,24 @@ export const VideoPlayer = ({
         )}
       </div>
       
-      {/* Fullscreen button - positioned at bottom right */}
-      <div className="absolute bottom-4 right-4 z-30">
+      {/* Volume and fullscreen controls - positioned at bottom right */}
+      <div className="absolute bottom-4 right-4 z-30 flex items-center gap-2">
+        {isVideoLoaded && (
+          <>
+            <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm">
+              {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
+            </Button>
+            <div className="bg-black/50 backdrop-blur-sm rounded-full px-3 py-2">
+              <Slider 
+                value={[isMuted ? 0 : volume]} 
+                max={1} 
+                step={0.01} 
+                onValueChange={handleVolumeChange} 
+                className="w-20 cursor-pointer"
+              />
+            </div>
+          </>
+        )}
         <Button variant="ghost" size="icon" onClick={handleFullscreen} className="text-white hover:bg-white/20 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm">
           <Maximize className="h-6 w-6" />
         </Button>
