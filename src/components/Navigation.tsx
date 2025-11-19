@@ -68,17 +68,6 @@ const Navigation = () => {
   }, []);
   const handleLogout = async () => {
     setLogoutDialogOpen(false);
-    
-    // Get translations before signing out
-    const logoutTitle = t("auth.logout.title");
-    const logoutDescription = t("auth.logout.description");
-    
-    // Show toast before signing out to ensure translations are available
-    toast({
-      title: logoutTitle,
-      description: logoutDescription
-    });
-    
     await supabase.auth.signOut();
     navigate("/");
   };
