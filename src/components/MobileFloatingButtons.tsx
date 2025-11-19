@@ -1,9 +1,11 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ThemeToggle } from "./ThemeToggle";
 import LanguageSelector from "./LanguageSelector";
+import { useMagneticEffect } from "@/hooks/useMagneticEffect";
 
 const MobileFloatingButtons = () => {
   const isMobile = useIsMobile();
+  const themeToggleRef = useMagneticEffect(0.3);
 
   if (!isMobile) return null;
 
@@ -12,7 +14,11 @@ const MobileFloatingButtons = () => {
       <div className="bg-background/80 backdrop-blur-md rounded-full p-1 shadow-glow border border-primary/20 pointer-events-auto">
         <LanguageSelector />
       </div>
-      <div className="bg-background/80 backdrop-blur-md rounded-full p-1 shadow-glow border border-primary/20 pointer-events-auto">
+      <div 
+        ref={themeToggleRef as React.RefObject<HTMLDivElement>}
+        className="bg-background/80 backdrop-blur-md rounded-full p-1 shadow-glow border border-primary/20 pointer-events-auto"
+        style={{ transform: 'translate(var(--magnetic-x, 0), var(--magnetic-y, 0))' }}
+      >
         <ThemeToggle />
       </div>
     </div>
