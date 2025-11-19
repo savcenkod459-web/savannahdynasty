@@ -4,15 +4,17 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { Shield, Clock, Headphones, RefreshCw, Crown, Sparkles, Star, Award, HeartPulse, Stethoscope, Heart, FileText, DollarSign, ClipboardCheck, ListChecks, Package, ClipboardList, Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
 const Warranty = () => {
   const {
     toast
   } = useToast();
+  const { t } = useTranslation();
   const copyEmail = () => {
     navigator.clipboard.writeText("savannahdynastyofficial@gmail.com");
     toast({
-      title: "Email скопирован!",
-      description: "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
+      title: t('footer.emailCopiedTitle'),
+      description: t('footer.emailCopiedDescription')
     });
   };
   return <div className="min-h-screen">
