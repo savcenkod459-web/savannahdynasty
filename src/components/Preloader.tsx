@@ -2,6 +2,24 @@ import { useEffect, useState } from "react";
 import { Crown } from "lucide-react";
 
 const Preloader = () => {
+  // Add keyframes for glow fade-in animation
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInGlow {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -66,10 +84,11 @@ const Preloader = () => {
         {/* Crown logo - clean without any effects */}
         <div className="relative z-10 flex flex-col items-center gap-6">
           <Crown 
-            className="w-20 h-20 text-primary" 
+            className="w-20 h-20 text-primary animate-fade-in" 
             strokeWidth={2}
             style={{
-              filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 0.4))'
+              filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 0.4))',
+              animation: 'fadeInGlow 1.2s ease-out forwards'
             }}
           />
           
@@ -77,7 +96,9 @@ const Preloader = () => {
             <h1 
               className="font-display font-black text-4xl text-primary"
               style={{
-                textShadow: '0 0 12px hsl(43 96% 56% / 0.5), 0 0 24px hsl(43 96% 56% / 0.2)'
+                textShadow: '0 0 12px hsl(43 96% 56% / 0.5), 0 0 24px hsl(43 96% 56% / 0.2)',
+                animation: 'fadeInGlow 1.2s ease-out 0.2s forwards',
+                opacity: 0
               }}
             >
               SavannahDynasty
@@ -85,7 +106,9 @@ const Preloader = () => {
             <p 
               className="text-sm text-muted-foreground tracking-[0.3em] uppercase font-semibold"
               style={{
-                textShadow: '0 0 8px hsl(43 96% 56% / 0.3)'
+                textShadow: '0 0 8px hsl(43 96% 56% / 0.3)',
+                animation: 'fadeInGlow 1.2s ease-out 0.4s forwards',
+                opacity: 0
               }}
             >Premium Luxury Cats</p>
             <div className="flex gap-2 justify-center pt-2">
