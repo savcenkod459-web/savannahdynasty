@@ -15,24 +15,24 @@ const ScrollAnimationWrapper = ({
   delay = 0
 }: ScrollAnimationWrapperProps) => {
   const { elementRef, isVisible } = useScrollAnimation({ 
-    threshold: 0.05, 
+    threshold: 0.1, 
     triggerOnce: true 
   });
 
   const getAnimationClass = () => {
-    if (!isVisible || animation === 'none') return 'opacity-0 translate-y-12';
+    if (!isVisible || animation === 'none') return 'opacity-0 translate-y-8';
     
     switch (animation) {
       case 'fade':
-        return 'animate-[fadeInUp_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
+        return 'animate-[fadeInUp_0.8s_ease-out_forwards]';
       case 'slide-up':
-        return 'animate-[slide-up_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
+        return 'animate-[slide-up_0.8s_ease-out_forwards]';
       case 'slide-left':
-        return 'animate-[slide-left_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
+        return 'animate-[slide-left_0.8s_ease-out_forwards]';
       case 'slide-right':
-        return 'animate-[slide-right_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
+        return 'animate-[slide-right_0.8s_ease-out_forwards]';
       case 'scale':
-        return 'animate-[scaleIn_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
+        return 'animate-[scaleIn_0.8s_ease-out_forwards]';
       default:
         return '';
     }
