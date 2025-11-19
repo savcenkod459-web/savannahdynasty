@@ -23,9 +23,6 @@ export function ThemeToggle() {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
-    
-    // Reload page to apply theme to preloader
-    window.location.reload();
   };
 
   return (
