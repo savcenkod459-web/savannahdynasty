@@ -39,7 +39,7 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-48 right-4 md:bottom-6 md:right-6 z-[9999] flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground shadow-glow hover:scale-110 transition-all duration-300 cursor-pointer border border-primary/30 animate-in fade-in slide-in-from-bottom-4 duration-500"
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground shadow-glow hover:scale-110 transition-all duration-300 cursor-pointer border border-primary/30 animate-in fade-in slide-in-from-bottom-4 duration-500"
       aria-label="Scroll to top"
       style={{
         position: 'fixed',
