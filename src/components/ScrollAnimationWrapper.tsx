@@ -15,24 +15,24 @@ const ScrollAnimationWrapper = ({
   delay = 0
 }: ScrollAnimationWrapperProps) => {
   const { elementRef, isVisible } = useScrollAnimation({ 
-    threshold: 0.1, 
+    threshold: 0.05, 
     triggerOnce: true 
   });
 
   const getAnimationClass = () => {
-    if (!isVisible || animation === 'none') return 'opacity-0';
+    if (!isVisible || animation === 'none') return 'opacity-0 translate-y-12';
     
     switch (animation) {
       case 'fade':
-        return 'animate-fade-in';
+        return 'animate-[fadeInUp_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
       case 'slide-up':
-        return 'animate-[slide-up_0.8s_ease-out_forwards]';
+        return 'animate-[slide-up_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
       case 'slide-left':
-        return 'animate-[slide-left_0.8s_ease-out_forwards]';
+        return 'animate-[slide-left_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
       case 'slide-right':
-        return 'animate-[slide-right_0.8s_ease-out_forwards]';
+        return 'animate-[slide-right_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
       case 'scale':
-        return 'animate-scale-in';
+        return 'animate-[scaleIn_1s_cubic-bezier(0.4,0,0.2,1)_forwards]';
       default:
         return '';
     }
@@ -41,9 +41,9 @@ const ScrollAnimationWrapper = ({
   return (
     <div 
       ref={elementRef}
-      className={`transition-all duration-1000 ${getAnimationClass()} ${className}`}
+      className={`${getAnimationClass()} ${className}`}
       style={{
-        transitionDelay: `${delay}ms`
+        animationDelay: `${delay}ms`
       }}
     >
       {children}

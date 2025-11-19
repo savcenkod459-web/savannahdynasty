@@ -54,13 +54,13 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/catalog">
-                <Button size="lg" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
+                <Button size="lg" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl relative z-10">
                   <span className="relative z-10 font-semibold">{t('hero.cta')}</span>
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform relative z-10" />
                 </Button>
               </Link>
               <Link to="/about">
-                <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-10 py-7 rounded-2xl text-lg micro-interaction font-semibold">
+                <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-10 py-7 rounded-2xl text-lg font-semibold">
                   {t('hero.learn')}
                 </Button>
               </Link>
