@@ -16,7 +16,7 @@ const GoldShimmer = () => {
 
   useEffect(() => {
     const newShimmers: Shimmer[] = [];
-    const shimmerCount = isMobile ? 8 : 15;
+    const shimmerCount = isMobile ? 5 : 15;
     for (let i = 0; i < shimmerCount; i++) {
       newShimmers.push({
         id: i,

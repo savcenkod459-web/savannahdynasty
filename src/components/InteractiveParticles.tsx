@@ -17,7 +17,7 @@ const InteractiveParticles = () => {
 
   useEffect(() => {
     const newParticles: Particle[] = [];
-    const particleCount = isMobile ? 8 : 15;
+    const particleCount = isMobile ? 5 : 15;
     for (let i = 0; i < particleCount; i++) {
       newParticles.push({
         id: i,
@@ -32,18 +32,49 @@ const InteractiveParticles = () => {
   }, [isMobile]);
 
   useEffect(() => {
+    // Отключаем интерактивность на мобильных для производительности
+    if (isMobile) return;
+    
+    let rafId: number;
+    let lastUpdate = 0;
+    const throttleDelay = 50;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      const now = Date.now();
+      if (now - lastUpdate < throttleDelay) return;
+      
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setMousePos({ x: e.clientX, y: e.clientY });
+        lastUpdate = now;
+      });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [isMobile]);
 
   useEffect(() => {
+    // На мобильных - более редкие обновления
+    const updateInterval = isMobile ? 100 : 50;
+    
     const interval = setInterval(() => {
       setParticles((prev) =>
         prev.map((particle) => {
+          // На мобильных - статичные частицы без интерактивности
+          if (isMobile) {
+            let newX = particle.x + particle.speedX;
+            let newY = particle.y + particle.speedY;
+            
+            if (newX < 0 || newX > window.innerWidth) newX = Math.random() * window.innerWidth;
+            if (newY < 0 || newY > window.innerHeight) newY = Math.random() * window.innerHeight;
+            
+            return { ...particle, x: newX, y: newY };
+          }
+          
           const dx = mousePos.x - particle.x;
           const dy = mousePos.y - particle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -58,10 +89,10 @@ const InteractiveParticles = () => {
           return { ...particle, x: newX, y: newY };
         })
       );
-    }, 50);
+    }, updateInterval);
 
     return () => clearInterval(interval);
-  }, [mousePos]);
+  }, [mousePos, isMobile]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[1] overflow-hidden">

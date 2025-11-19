@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -10,7 +10,7 @@ interface CatDetailModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-export const CatDetailModal = ({
+const CatDetailModalComponent = ({
   images,
   video,
   isOpen,
@@ -50,7 +50,14 @@ export const CatDetailModal = ({
             <div className="w-full md:w-1/2 h-[45vh] md:h-full relative md:border-r border-b md:border-b-0 border-primary/20">
               <div className="h-full flex items-center justify-center p-4 md:p-6">
                 <div className="relative w-full h-full">
-                  <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="w-full h-full object-contain cursor-pointer rounded-lg" onClick={handleImageClick} />
+                  <img 
+                    src={images[currentImageIndex]} 
+                    alt={`Gallery ${currentImageIndex + 1}`} 
+                    className="w-full h-full object-contain cursor-pointer rounded-lg" 
+                    onClick={handleImageClick} 
+                    loading="lazy"
+                    decoding="async"
+                  />
                   
                   {images.length > 1 && <>
                       <Button 
@@ -136,3 +143,5 @@ export const CatDetailModal = ({
       <VideoPlayer videoUrl={video || ""} isOpen={isVideoFullscreen} onClose={() => setIsVideoFullscreen(false)} isFullscreen={true} onToggleFullscreen={() => setIsVideoFullscreen(false)} />
     </>;
 };
+
+export const CatDetailModal = memo(CatDetailModalComponent);

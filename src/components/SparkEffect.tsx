@@ -17,7 +17,7 @@ const SparkEffect = () => {
 
   useEffect(() => {
     const newSparks: Spark[] = [];
-    const sparkCount = isMobile ? 10 : 20;
+    const sparkCount = isMobile ? 6 : 20;
     for (let i = 0; i < sparkCount; i++) {
       newSparks.push({
         id: i,

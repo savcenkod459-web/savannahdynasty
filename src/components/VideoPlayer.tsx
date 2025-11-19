@@ -150,6 +150,8 @@ export const VideoPlayer = ({
               src={videoUrl} 
               className="max-w-full max-h-full object-contain"
               onClick={togglePlay}
+              preload="metadata"
+              playsInline
             />
 
             <Button 
@@ -194,6 +196,8 @@ export const VideoPlayer = ({
         ref={videoRef} 
         src={videoUrl} 
         className="w-full h-full object-contain rounded-lg"
+        preload="metadata"
+        playsInline
       />
       
       {onToggleFullscreen && <Button variant="ghost" size="icon" onClick={onToggleFullscreen} className="absolute bottom-4 right-4 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-full">

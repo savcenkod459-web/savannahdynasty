@@ -15,7 +15,7 @@ const GoldenParticles = () => {
 
   useEffect(() => {
     const newParticles: Particle[] = [];
-    const particleCount = isMobile ? 15 : 30;
+    const particleCount = isMobile ? 10 : 30;
     for (let i = 0; i < particleCount; i++) {
       newParticles.push({
         id: i,

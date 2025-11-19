@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense, memo } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,12 +8,14 @@ import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import { useTranslations } from "./hooks/useTranslations";
 import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
-import GoldenParticles from "./components/GoldenParticles";
-import InteractiveParticles from "./components/InteractiveParticles";
-import SparkEffect from "./components/SparkEffect";
-import GoldShimmer from "./components/GoldShimmer";
-import PageLoadWave from "./components/PageLoadWave";
-import MobileFloatingButtons from "./components/MobileFloatingButtons";
+
+// Lazy load эффектов для улучшения производительности
+const GoldenParticles = lazy(() => import("./components/GoldenParticles"));
+const InteractiveParticles = lazy(() => import("./components/InteractiveParticles"));
+const SparkEffect = lazy(() => import("./components/SparkEffect"));
+const GoldShimmer = lazy(() => import("./components/GoldShimmer"));
+const PageLoadWave = lazy(() => import("./components/PageLoadWave"));
+const MobileFloatingButtons = lazy(() => import("./components/MobileFloatingButtons"));
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Catalog from "./pages/Catalog";
@@ -35,7 +37,18 @@ import UpdatePassword from "./pages/UpdatePassword";
 import NotFound from "./pages/NotFound";
 import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
-const queryClient = new QueryClient();
+// Оптимизированная конфигурация QueryClient
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 минут
+      gcTime: 10 * 60 * 1000, // 10 минут
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      retry: 1,
+    },
+  },
+});
 
 const App = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
@@ -58,12 +71,14 @@ const App = () => {
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <GoldenParticles />
-      <InteractiveParticles />
-      <SparkEffect />
-      <GoldShimmer />
-      <PageLoadWave />
-      <MobileFloatingButtons />
+      <Suspense fallback={null}>
+        <GoldenParticles />
+        <InteractiveParticles />
+        <SparkEffect />
+        <GoldShimmer />
+        <PageLoadWave />
+        <MobileFloatingButtons />
+      </Suspense>
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>

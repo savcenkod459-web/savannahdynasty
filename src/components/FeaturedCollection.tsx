@@ -4,7 +4,7 @@ import { ArrowRight, Crown, Sparkles, Loader2, Star, Calendar, Users } from "luc
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { CatGallery } from "@/components/CatGallery";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useTranslation } from "react-i18next";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
@@ -104,6 +104,8 @@ const FeaturedCollection = () => {
                       src={cat.image} 
                       alt={cat.name} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                      loading="lazy"
+                      decoding="async"
                     />
                     
                     {/* Gradient overlay on hover - softer colors */}
@@ -202,4 +204,4 @@ const FeaturedCollection = () => {
       <CatGallery images={galleryImages} isOpen={galleryOpen} onClose={() => setGalleryOpen(false)} initialIndex={galleryInitialIndex} />
     </section>;
 };
-export default FeaturedCollection;
+export default memo(FeaturedCollection);

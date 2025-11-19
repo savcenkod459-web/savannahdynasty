@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, memo } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface ScrollAnimationWrapperProps {
@@ -51,4 +51,4 @@ const ScrollAnimationWrapper = ({
   );
 };
 
-export default ScrollAnimationWrapper;
+export default memo(ScrollAnimationWrapper);
