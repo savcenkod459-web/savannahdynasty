@@ -143,12 +143,37 @@ All colors MUST be HSL.
     left: -100%;
     width: 100%;
     height: 100%;
-    background: var(--gradient-shine);
-    transition: left 0.6s;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(217, 179, 112, 0.4),
+      transparent
+    );
+    transition: left 0.7s ease;
   }
   
   .hover-shine:hover::before {
     left: 100%;
+  }
+  
+  .hover-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(217, 179, 112, 0.15) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .hover-shine:hover::after {
+    opacity: 1;
   }
   
   .text-shimmer {
