@@ -228,8 +228,10 @@ const Navigation = () => {
               </Popover>
             )}
 
-            <LanguageSelector />
-            <ThemeToggle />
+            <div className="hidden md:flex items-center gap-2">
+              <LanguageSelector />
+              <ThemeToggle />
+            </div>
 
             {user ? (
               <div className="flex items-center gap-1">
