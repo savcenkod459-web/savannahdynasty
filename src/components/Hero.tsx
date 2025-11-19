@@ -28,40 +28,40 @@ const Hero = () => {
 
   const displayImage = heroImages?.image_url || heroImage;
 
-  return <section className="relative min-h-screen flex items-center pt-20 overflow-visible pb-20">
+  return <section className="relative min-h-screen flex items-center pt-20 overflow-visible pb-12 md:pb-20">
       {/* Decorative Elements */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
       animationDelay: '3s'
     }} />
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Text Content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-6">
+          <div className="space-y-6 md:space-y-8 animate-fade-in">
+            <div className="space-y-4 md:space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border hover-shine micro-interaction bg-slate-200 dark:bg-background/80 dark:backdrop-blur-xl border-primary/20 dark:border-primary/40 dark:shadow-[0_0_20px_rgba(217,179,112,0.3)] mx-0 px-[15px] py-[10px] my-[20px]">
                 <Crown className="w-4 h-4 text-primary animate-gold-pulse dark:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]" />
                 <span className="tracking-widest uppercase text-neutral-950 dark:text-primary font-extrabold text-sm dark:drop-shadow-[0_0_5px_rgba(217,179,112,0.5)]">{t('hero.badge')}</span>
               </div>
-              <h1 className="font-display font-black text-luxury-gradient leading-tight relative luxury-text-shadow text-3xl sm:text-4xl md:text-5xl lg:text-6xl py-[10px]">
+              <h1 className="font-display font-black text-luxury-gradient leading-tight relative luxury-text-shadow text-3xl sm:text-4xl md:text-5xl lg:text-6xl py-2 md:py-[10px]">
                 {t('hero.title')}
-                <div className="absolute -bottom-4 left-0 w-32 h-1.5 bg-gradient-to-r from-primary via-accent to-transparent rounded-full" />
+                <div className="absolute -bottom-2 md:-bottom-4 left-0 w-24 md:w-32 h-1 md:h-1.5 bg-gradient-to-r from-primary via-accent to-transparent rounded-full" />
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl font-light">
+              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl font-light">
                 {t('hero.subtitle')}
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Link to="/catalog">
-                <Button size="lg" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
+                <Button size="lg" className="group w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-5 md:py-7 rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
                   <span className="relative z-10 font-semibold">{t('hero.cta')}</span>
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform relative z-10" />
                 </Button>
               </Link>
               <Link to="/about">
-                <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-10 py-7 rounded-2xl text-lg micro-interaction font-semibold">
+                <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-8 md:px-10 py-5 md:py-7 rounded-2xl text-base md:text-lg micro-interaction font-semibold">
                   {t('hero.learn')}
                 </Button>
               </Link>
@@ -75,7 +75,7 @@ const Hero = () => {
               <img 
                 src={displayImage} 
                 alt={heroImages?.alt_text || "Элитная кошка Саванна F1"} 
-                className="w-full h-[600px] object-cover" 
+                className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"

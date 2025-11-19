@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
     title: t('whyChoose.support.title'),
     description: t('whyChoose.support.description')
   }];
-  return <section className="py-32 bg-secondary/30 relative overflow-visible">
+  return <section className="py-16 md:py-32 bg-secondary/30 relative overflow-visible">
       {/* Декоративные элементы люкса */}
       <div className="absolute top-20 left-10 opacity-5">
         <Crown className="w-32 h-32 text-primary animate-float" />
@@ -32,8 +32,8 @@ const WhyChooseUs = () => {
       }} />
       </div>
       
-      <div className="container mx-auto px-6">
-        <div className="text-center space-y-6 mb-20 animate-fade-in">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center space-y-4 md:space-y-6 mb-12 md:mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('whyChoose.badge')}</span>
@@ -42,8 +42,8 @@ const WhyChooseUs = () => {
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">{t('whyChoose.subtitle')}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => <div key={index} className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift animate-scale-in hover-scale micro-interaction" style={{
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+          {features.map((feature, index) => <div key={index} className="group p-6 md:p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift animate-scale-in hover-scale micro-interaction" style={{
           animationDelay: `${index * 100}ms`
         }}>
               <div className="mb-6 inline-flex p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">

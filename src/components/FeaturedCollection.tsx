@@ -60,7 +60,7 @@ const FeaturedCollection = () => {
       }));
     }
   });
-  return <section className="py-32 pb-40 relative overflow-visible">
+  return <section className="py-16 md:py-32 pb-24 md:pb-40 relative overflow-visible">
       {/* Декоративный фон */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
@@ -69,8 +69,8 @@ const FeaturedCollection = () => {
       }} />
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center space-y-6 mb-20 animate-fade-in">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center space-y-4 md:space-y-6 mb-12 md:mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
             <Crown className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('featuredCollection.badge')}</span>
@@ -83,12 +83,12 @@ const FeaturedCollection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
           {isLoading ? <div className="col-span-full flex justify-center py-12">
               <Loader2 className="w-12 h-12 animate-spin text-primary" />
             </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} style={{
           animationDelay: `${index * 100}ms`
-        }} className="group animate-scale-in py-[30px]">
+        }} className="group animate-scale-in py-6 md:py-[30px]">
               <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
@@ -123,9 +123,9 @@ const FeaturedCollection = () => {
                     <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
                   </div>
                   
-                  <div className="p-6 space-y-5 py-[30px]">
+                  <div className="p-4 md:p-6 space-y-4 md:space-y-5 py-6 md:py-[30px]">
                     <div className="space-y-4 cursor-pointer" onClick={() => navigate('/catalog')}>
-                      <h3 className="text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight drop-shadow-[0_0_20px_rgba(217,179,112,0.4)]">
+                      <h3 className="text-2xl md:text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight drop-shadow-[0_0_20px_rgba(217,179,112,0.4)]">
                         {cat.name}
                       </h3>
                       <p className="text-foreground/80 text-base leading-relaxed font-light tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)] group-hover:text-foreground transition-colors duration-300">{cat.description}</p>
@@ -142,7 +142,7 @@ const FeaturedCollection = () => {
                     </div>
                     
                     {/* Traits grid with icons */}
-                    <div className="flex flex-col gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner group-hover:shadow-[0_0_20px_rgba(217,179,112,0.2)] transition-shadow duration-300 cursor-pointer" onClick={() => navigate('/catalog')}>
+                    <div className="flex flex-col gap-2 md:gap-3 p-4 md:p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner group-hover:shadow-[0_0_20px_rgba(217,179,112,0.2)] transition-shadow duration-300 cursor-pointer" onClick={() => navigate('/catalog')}>
                       {cat.traits.map((trait, i) => <div key={i} className="flex items-center gap-2 text-sm font-semibold text-foreground/90 group/trait">
                           <Sparkles className="w-4 h-4 text-primary group-hover/trait:animate-pulse drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                           <span className="group-hover/trait:text-primary group-hover/trait:drop-shadow-[0_0_8px_rgba(217,179,112,0.4)] transition-all duration-300">{trait}</span>
@@ -150,12 +150,12 @@ const FeaturedCollection = () => {
                     </div>
                     
                     {/* Price section with enhanced styling */}
-                    <div className="pt-6 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
-                      <div className="space-y-4 pb-2 cursor-pointer" onClick={() => navigate('/catalog')}>
+                    <div className="pt-4 md:pt-6 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
+                      <div className="space-y-3 md:space-y-4 pb-2 cursor-pointer" onClick={() => navigate('/catalog')}>
                         <div className="flex items-end justify-between">
                           <div className="space-y-1">
                             <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Цена</span>
-                            <div className="font-display font-black text-luxury-gradient text-4xl leading-none drop-shadow-[0_4px_16px_rgba(217,179,112,0.5)] group-hover:drop-shadow-[0_4px_24px_rgba(217,179,112,0.7)] transition-all duration-300">
+                            <div className="font-display font-black text-luxury-gradient text-3xl md:text-4xl leading-none drop-shadow-[0_4px_16px_rgba(217,179,112,0.5)] group-hover:drop-shadow-[0_4px_24px_rgba(217,179,112,0.7)] transition-all duration-300">
                               {cat.price}
                             </div>
                           </div>
@@ -172,7 +172,7 @@ const FeaturedCollection = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex gap-2 mt-8">
+                      <div className="flex gap-2 mt-6 md:mt-8">
                         <Link to={`/pedigree/${cat.id}`} onClick={e => e.stopPropagation()} className="flex-1">
                           <Button variant="ghost-gold" size="sm" className="w-full hover:-translate-y-1 transition-all duration-300">
                             Родословная
@@ -193,7 +193,7 @@ const FeaturedCollection = () => {
 
         <div className="text-center">
           <Link to="/catalog">
-            <Button size="lg" variant="ghost-gold" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-2xl hover:-translate-y-1 transition-all duration-300">
+            <Button size="lg" variant="ghost-gold" className="text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 rounded-2xl hover:-translate-y-1 transition-all duration-300">
               Посмотреть всю коллекцию
               <ArrowRight className="ml-2 h-4 md:h-5 w-4 md:w-5" />
             </Button>

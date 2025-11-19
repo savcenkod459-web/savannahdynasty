@@ -30,7 +30,7 @@ const PaymentMethods = () => {
     title: t('paymentMethods.privacy.title'),
     description: t('paymentMethods.privacy.description')
   }];
-  return <section className="py-32 bg-secondary/30 relative overflow-visible">
+  return <section className="py-16 md:py-32 bg-secondary/30 relative overflow-visible">
       {/* Декоративный фон безопасности */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float" />
@@ -39,8 +39,8 @@ const PaymentMethods = () => {
       }} />
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center space-y-6 mb-20 animate-fade-in">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center space-y-4 md:space-y-6 mb-12 md:mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
             <Lock className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('paymentMethods.badge')}</span>
@@ -54,14 +54,14 @@ const PaymentMethods = () => {
         </div>
 
         {/* Payment Methods */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-12 md:mb-20 max-w-4xl mx-auto">
           {paymentMethods.map((method, index) => <div key={index} onClick={() => {
           if (index === 0) {
             navigate("/payment?tab=crypto");
           } else if (index === 1) {
             navigate("/payment?tab=cash");
           }
-        }} className={`p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift hover-scale animate-scale-in micro-interaction cursor-pointer`} style={{
+        }} className={`p-6 md:p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift hover-scale animate-scale-in micro-interaction cursor-pointer`} style={{
           animationDelay: `${index * 100}ms`
         }}>
               <div className="mb-6 inline-flex p-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
@@ -79,8 +79,8 @@ const PaymentMethods = () => {
         </div>
 
         {/* Security Features */}
-        <div className="space-y-8">
-          <div className="text-center mb-12">
+        <div className="space-y-6 md:space-y-8">
+          <div className="text-center mb-8 md:mb-12">
             <h3 className="text-3xl font-display font-black mb-4 luxury-text-shadow">{t('paymentMethods.securityTitle')}</h3>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">

@@ -6,15 +6,15 @@ import { useTranslation } from "react-i18next";
 const PricingSection = () => {
   const { t } = useTranslation();
   
-  return <section className="py-20 pb-32 bg-secondary/30 relative overflow-visible">
+  return <section className="py-12 md:py-20 pb-20 md:pb-32 bg-secondary/30 relative overflow-visible">
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
       animationDelay: '3s'
     }} />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full mb-6 micro-interaction">
               <Crown className="w-5 h-5 text-primary" />
               <span className="text-base font-bold tracking-widest uppercase text-primary">{t('pricingSection.badge')}</span>
@@ -28,14 +28,14 @@ const PricingSection = () => {
             <div className="h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-6" />
           </div>
 
-          <div className="mb-16">
+          <div className="mb-12 md:mb-16">
             <div className="flex items-center justify-center gap-4 mb-8">
               <Crown className="w-10 h-10 text-primary" />
               <h3 className="text-3xl font-display font-bold luxury-text-shadow text-center">{t('pricingSection.generationTitle')}</h3>
             </div>
             
-            <div className="space-y-6">
-              <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction border-2 border-primary/20">
+            <div className="space-y-4 md:space-y-6">
+              <div className="p-6 md:p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction border-2 border-primary/20">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="p-4 bg-gradient-to-br from-primary to-accent rounded-2xl">
                     <span className="text-3xl font-display font-black text-white">F1</span>
