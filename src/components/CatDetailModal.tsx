@@ -53,11 +53,23 @@ export const CatDetailModal = ({
                   <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="w-full h-full object-contain cursor-pointer rounded-lg" onClick={handleImageClick} />
                   
                   {images.length > 1 && <>
-                      <Button variant="ghost" size="icon" onClick={goToPreviousImage} className="absolute left-2 top-1/2 -translate-y-1/2 z-40 hover:bg-white/30 rounded-full text-white bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        onClick={goToPreviousImage} 
+                        className="!absolute !left-2 !top-[50%] !-translate-y-1/2 !z-[60] hover:bg-white/30 rounded-full text-white bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
+                        style={{ position: 'absolute', left: '0.5rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
+                      >
                         <ChevronLeft className="h-10 w-10" />
                       </Button>
                       
-                      <Button variant="ghost" size="icon" onClick={goToNextImage} className="absolute right-2 top-1/2 -translate-y-1/2 z-40 hover:bg-white/30 rounded-full text-white bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        onClick={goToNextImage} 
+                        className="!absolute !right-2 !top-[50%] !-translate-y-1/2 !z-[60] hover:bg-white/30 rounded-full text-white bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
+                        style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
+                      >
                         <ChevronRight className="h-10 w-10" />
                       </Button>
 
@@ -89,14 +101,26 @@ export const CatDetailModal = ({
             <DialogDescription>Изображение в полноэкранном режиме</DialogDescription>
           </VisuallyHidden.Root>
           <div className="relative w-full h-[95vh] flex items-center justify-center">
-            {images.length > 1 && <Button variant="ghost" size="icon" className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" onClick={goToPreviousImage}>
+            {images.length > 1 && <Button 
+              variant="ghost" 
+              size="icon" 
+              className="!absolute !left-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" 
+              onClick={goToPreviousImage}
+              style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
+            >
                 <ChevronLeft className="h-10 w-10" />
               </Button>}
 
             <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="max-w-full max-h-full object-contain" />
 
             {images.length > 1 && <>
-                <Button variant="ghost" size="icon" className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" onClick={goToNextImage}>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="!absolute !right-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" 
+                  onClick={goToNextImage}
+                  style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
+                >
                   <ChevronRight className="h-10 w-10" />
                 </Button>
 

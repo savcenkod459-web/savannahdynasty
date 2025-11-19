@@ -39,8 +39,9 @@ export const CatGallery = ({ images, isOpen, onClose, initialIndex = 0 }: CatGal
             <Button
               variant="ghost"
               size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
+              className="!absolute !left-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
               onClick={goToPrevious}
+              style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
             >
               <ChevronLeft className="h-10 w-10" />
             </Button>
@@ -58,8 +59,9 @@ export const CatGallery = ({ images, isOpen, onClose, initialIndex = 0 }: CatGal
             <Button
               variant="ghost"
               size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
+              className="!absolute !right-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
               onClick={goToNext}
+              style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
             >
               <ChevronRight className="h-10 w-10" />
             </Button>
@@ -67,7 +69,7 @@ export const CatGallery = ({ images, isOpen, onClose, initialIndex = 0 }: CatGal
 
           {/* Image counter */}
           {images.length > 1 && (
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm z-30">
               {currentIndex + 1} / {images.length}
             </div>
           )}
