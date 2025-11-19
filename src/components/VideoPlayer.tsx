@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2 } from "lucide-react";
+import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
@@ -122,6 +122,15 @@ export const VideoPlayer = ({
       }
     }
   };
+
+  const handleStop = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      setCurrentTime(0);
+      setIsPlaying(false);
+    }
+  };
   const handleSeek = (value: number[]) => {
     if (videoRef.current && duration > 0) {
       videoRef.current.currentTime = value[0];
@@ -179,6 +188,10 @@ export const VideoPlayer = ({
                   <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20">
                     {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
                   </Button>
+                  
+                  <Button variant="ghost" size="icon" onClick={handleStop} className="hover:bg-white/20">
+                    <Square className="h-6 w-6" />
+                  </Button>
 
                   <div className="flex items-center gap-2 flex-1">
                     <span className="text-sm min-w-[45px]">{formatTime(currentTime)}</span>
@@ -218,7 +231,16 @@ export const VideoPlayer = ({
           </Button>}
         
         {/* Fullscreen button */}
-        {onToggleFullscreen}
+        {onToggleFullscreen && (
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={onToggleFullscreen} 
+            className="text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110"
+          >
+            <Maximize className="h-6 w-6" />
+          </Button>
+        )}
       </div>
 
       {/* Pause button - appears in center when playing */}
@@ -229,6 +251,10 @@ export const VideoPlayer = ({
       {/* Video controls */}
       {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
           <div className="flex items-center gap-3 text-white">
+            <Button variant="ghost" size="icon" onClick={handleStop} className="hover:bg-white/20">
+              <Square className="h-4 w-4" />
+            </Button>
+            
             <div className="flex items-center gap-2 flex-1">
               <span className="text-xs min-w-[40px]">{formatTime(currentTime)}</span>
               <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="flex-1" />
