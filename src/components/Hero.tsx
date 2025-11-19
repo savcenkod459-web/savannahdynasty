@@ -75,22 +75,21 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
               
               {/* Logo with Crown - appears on hover */}
-              <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 flex items-center gap-2">
+              <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 flex items-center gap-1.5">
                 <span 
-                  className="font-display font-black text-5xl tracking-tight"
+                  className="font-display font-black text-xl tracking-tight"
                   style={{ 
                     color: '#D4AF37',
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
-                    WebkitTextStroke: '1px rgba(0, 0, 0, 0.3)'
+                    textShadow: '0 0 8px rgba(212, 175, 55, 0.4), 0 0 12px rgba(212, 175, 55, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.6)',
                   }}
                 >
                   SavannahDynasty
                 </span>
                 <Crown 
-                  className="w-10 h-10" 
+                  className="w-7 h-7" 
                   style={{ 
                     color: '#D4AF37',
-                    filter: 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8))',
+                    filter: 'drop-shadow(0 0 6px rgba(212, 175, 55, 0.4)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6))',
                   }} 
                 />
               </div>

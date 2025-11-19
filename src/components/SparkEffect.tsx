@@ -50,9 +50,9 @@ const SparkEffect = () => {
             }}
           >
             {/* Vertical line */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-[hsl(0,0%,80%)] to-transparent dark:via-primary" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-[hsl(0,0%,70%)] to-transparent dark:via-primary" />
             {/* Horizontal line */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[1px] w-full bg-gradient-to-r from-transparent via-[hsl(0,0%,80%)] to-transparent dark:via-primary" />
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[1px] w-full bg-gradient-to-r from-transparent via-[hsl(0,0%,70%)] to-transparent dark:via-primary" />
           </div>
         </div>
       ))}

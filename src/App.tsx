@@ -11,6 +11,7 @@ import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 import GoldenParticles from "./components/GoldenParticles";
 import InteractiveParticles from "./components/InteractiveParticles";
 import SparkEffect from "./components/SparkEffect";
+import CursorTrail from "./components/CursorTrail";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Catalog from "./pages/Catalog";
@@ -58,6 +59,7 @@ const App = () => {
       <GoldenParticles />
       <InteractiveParticles />
       <SparkEffect />
+      <CursorTrail />
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>

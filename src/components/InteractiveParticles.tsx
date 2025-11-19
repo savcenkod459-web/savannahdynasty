@@ -65,13 +65,14 @@ const InteractiveParticles = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute rounded-full bg-[hsl(0,0%,70%)]/30 dark:bg-primary/50 blur-[2px]"
+          className="absolute rounded-full bg-[hsl(0,0%,65%)]/25 dark:bg-primary/50 blur-[2px]"
           style={{
             left: `${particle.x}px`,
             top: `${particle.y}px`,
             width: `${particle.size}px`,
             height: `${particle.size}px`,
             transition: 'all 0.1s ease-out',
+            boxShadow: '0 0 15px hsl(0 0% 65% / 0.3), 0 0 25px hsl(0 0% 65% / 0.15)',
           }}
         />
       ))}
