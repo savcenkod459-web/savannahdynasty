@@ -1,5 +1,4 @@
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useMagneticEffect } from "@/hooks/useMagneticEffect";
 import { Globe, Moon, Sun } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -24,8 +23,6 @@ const languages = [
 
 const MobileFloatingButtons = () => {
   const isMobile = useIsMobile();
-  const languageRef = useMagneticEffect(1.2);
-  const themeToggleRef = useMagneticEffect(1.2);
   const { i18n, t } = useTranslation();
   const [theme, setTheme] = useState<"light" | "dark">("light");
   
@@ -65,13 +62,7 @@ const MobileFloatingButtons = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <div 
-            ref={languageRef as React.RefObject<HTMLDivElement>}
-            className="bg-background/80 backdrop-blur-md rounded-full p-2 shadow-glow border border-primary/20 cursor-pointer hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:border-primary/40 active:scale-95 flex items-center gap-1.5"
-            style={{ 
-              transform: 'translate3d(var(--magnetic-x, 0), var(--magnetic-y, 0), 0)',
-              transition: 'box-shadow 0.2s, border-color 0.2s',
-              willChange: 'transform'
-            }}
+            className="bg-background/80 backdrop-blur-md rounded-full p-2 shadow-glow border border-primary/20 cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:border-primary/40 hover:translate-y-[-2px] active:scale-95 active:translate-y-0 flex items-center gap-1.5"
           >
             <Globe className="w-3.5 h-3.5 text-foreground" />
             <span className="text-sm text-foreground">{currentLanguage.buttonLabel}</span>
@@ -94,14 +85,8 @@ const MobileFloatingButtons = () => {
       </DropdownMenu>
 
       <div 
-        ref={themeToggleRef as React.RefObject<HTMLDivElement>}
         onClick={toggleTheme}
-        className="bg-background/80 backdrop-blur-md rounded-full p-2 shadow-glow border border-primary/20 cursor-pointer hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:border-primary/40 active:scale-95 flex items-center justify-center"
-        style={{ 
-          transform: 'translate3d(var(--magnetic-x, 0), var(--magnetic-y, 0), 0)',
-          transition: 'box-shadow 0.2s, border-color 0.2s',
-          willChange: 'transform'
-        }}
+        className="bg-background/80 backdrop-blur-md rounded-full p-2 shadow-glow border border-primary/20 cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:border-primary/40 hover:translate-y-[-2px] active:scale-95 active:translate-y-0 flex items-center justify-center"
         title={theme === "light" ? t("theme.switchToDark") : t("theme.switchToLight")}
       >
         {theme === "light" ? (
