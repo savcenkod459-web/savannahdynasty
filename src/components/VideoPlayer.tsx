@@ -1,10 +1,24 @@
 import { useState, useRef, useEffect, memo } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square } from "lucide-react";
+import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square, Settings } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useNetworkSpeed, VideoQuality } from "@/hooks/useNetworkSpeed";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+
+// Generate quality variants for video
+const generateQualityVariants = (url: string): Record<VideoQuality, string> => {
+  const baseUrl = url.substring(0, url.lastIndexOf('.'));
+  const extension = url.substring(url.lastIndexOf('.'));
+  
+  return {
+    '1080p': `${baseUrl}-1080p${extension}`,
+    '720p': `${baseUrl}-720p${extension}`,
+    '480p': `${baseUrl}-480p${extension}`,
+    '360p': `${baseUrl}-360p${extension}`,
+  };
+};
 
 // Определение типа видео по расширению
 const getVideoType = (url: string): string => {
@@ -17,24 +31,6 @@ const getVideoType = (url: string): string => {
     'm4v': 'video/x-m4v'
   };
   return typeMap[extension || 'mp4'] || 'video/mp4';
-};
-
-// Генерация альтернативных источников для лучшей совместимости
-const generateVideoSources = (url: string): Array<{ src: string; type: string }> => {
-  const baseUrl = url.substring(0, url.lastIndexOf('.'));
-  const currentType = getVideoType(url);
-  
-  // Возвращаем текущий URL и возможные альтернативы
-  const sources = [{ src: url, type: currentType }];
-  
-  // Если это MP4, предлагаем WebM как альтернативу и наоборот
-  if (currentType === 'video/mp4') {
-    sources.push({ src: `${baseUrl}.webm`, type: 'video/webm' });
-  } else if (currentType === 'video/webm') {
-    sources.push({ src: `${baseUrl}.mp4`, type: 'video/mp4' });
-  }
-  
-  return sources;
 };
 
 interface VideoPlayerProps {
@@ -56,6 +52,8 @@ export const VideoPlayer = memo(({
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const { recommendedVideoQuality, quality: networkQuality, downlink, isSlowConnection } = useNetworkSpeed();
+  
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -64,7 +62,32 @@ export const VideoPlayer = memo(({
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isInFullscreen, setIsInFullscreen] = useState(false);
-  const videoSources = generateVideoSources(videoUrl);
+  const [currentQuality, setCurrentQuality] = useState<VideoQuality>(recommendedVideoQuality);
+  const [showQualityMenu, setShowQualityMenu] = useState(false);
+  const [isAutoQuality, setIsAutoQuality] = useState(true);
+  
+  const qualityVariants = generateQualityVariants(videoUrl);
+  const currentVideoUrl = qualityVariants[currentQuality] || videoUrl;
+  
+  // Auto-adjust quality based on network speed
+  useEffect(() => {
+    if (isAutoQuality && recommendedVideoQuality !== currentQuality) {
+      const wasPlaying = isPlaying;
+      const savedTime = currentTime;
+      
+      setCurrentQuality(recommendedVideoQuality);
+      
+      // Resume playback at same position if was playing
+      if (videoRef.current && wasPlaying) {
+        videoRef.current.currentTime = savedTime;
+        setTimeout(() => {
+          videoRef.current?.play();
+        }, 100);
+      }
+      
+      console.log(`Video quality adjusted to ${recommendedVideoQuality} (Network: ${networkQuality}, Speed: ${downlink.toFixed(2)} Mbps)`);
+    }
+  }, [recommendedVideoQuality, networkQuality, isAutoQuality]);
   
   // Optimize video loading
   
@@ -89,6 +112,9 @@ export const VideoPlayer = memo(({
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    
+    // Reset loading state when quality changes
+    setIsLoading(true);
     const handleTimeUpdate = () => {
       if (video.duration && isFinite(video.duration) && video.currentTime <= video.duration) {
         setCurrentTime(video.currentTime);
@@ -155,7 +181,34 @@ export const VideoPlayer = memo(({
       video.removeEventListener('waiting', handleWaiting);
       video.removeEventListener('playing', handlePlaying);
     };
-  }, [videoUrl, isOpen, isFullscreen]);
+  }, [currentVideoUrl, isOpen, isFullscreen, currentQuality]);
+  
+  const handleQualityChange = (quality: VideoQuality) => {
+    const wasPlaying = isPlaying;
+    const savedTime = currentTime;
+    
+    setCurrentQuality(quality);
+    setIsAutoQuality(false);
+    setShowQualityMenu(false);
+    
+    // Resume playback at same position if was playing
+    if (videoRef.current && wasPlaying) {
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.currentTime = savedTime;
+          videoRef.current.play();
+        }
+      }, 100);
+    }
+  };
+  
+  const toggleAutoQuality = () => {
+    setIsAutoQuality(!isAutoQuality);
+    if (!isAutoQuality) {
+      setCurrentQuality(recommendedVideoQuality);
+    }
+    setShowQualityMenu(false);
+  };
   
   const togglePlay = () => {
     if (videoRef.current) {
@@ -245,12 +298,14 @@ export const VideoPlayer = memo(({
             </Button>
 
             {/* Video element with optimizations */}
-            <video 
-              ref={videoRef} 
+            <video
+              ref={videoRef}
+              key={currentQuality}
               poster={posterImage}
-              className="max-w-full max-h-full object-contain" 
-              onClick={togglePlay} 
-              preload="auto"
+              src={currentVideoUrl}
+              className="max-w-full max-h-full object-contain"
+              onClick={togglePlay}
+              preload={isSlowConnection ? "metadata" : "auto"}
               playsInline
               x-webkit-airplay="allow"
               controlsList="nodownload"
@@ -260,9 +315,7 @@ export const VideoPlayer = memo(({
                 transform: 'translateZ(0)',
               }}
             >
-              {videoSources.map((source, index) => (
-                <source key={index} src={source.src} type={source.type} />
-              ))}
+              <source src={currentVideoUrl} type={getVideoType(currentVideoUrl)} />
               Ваш браузер не поддерживает воспроизведение видео.
             </video>
 
@@ -273,6 +326,18 @@ export const VideoPlayer = memo(({
 
             {/* Video controls */}
             {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
+                {/* Network quality indicator */}
+                {isAutoQuality && (
+                  <div className="mb-2 flex items-center gap-2 text-xs text-white/70">
+                    <div className={`w-2 h-2 rounded-full ${
+                      networkQuality === 'high' ? 'bg-green-500' :
+                      networkQuality === 'medium' ? 'bg-yellow-500' :
+                      'bg-red-500'
+                    }`} />
+                    <span>Auto ({currentQuality}) • {downlink.toFixed(1)} Mbps</span>
+                  </div>
+                )}
+                
                 <div className="flex items-center gap-4 text-white">
                   <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20">
                     {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
@@ -289,6 +354,47 @@ export const VideoPlayer = memo(({
                   </div>
 
                   <div className="flex items-center gap-2">
+                    {/* Quality selector */}
+                    <div className="relative">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        onClick={() => setShowQualityMenu(!showQualityMenu)} 
+                        className="hover:bg-white/20"
+                      >
+                        <Settings className="h-5 w-5" />
+                      </Button>
+                      
+                      {showQualityMenu && (
+                        <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[140px]">
+                          <div className="text-xs text-white/70 px-2 py-1 mb-1">Quality</div>
+                          
+                          <button
+                            onClick={toggleAutoQuality}
+                            className={`w-full text-left px-2 py-1.5 text-sm rounded ${
+                              isAutoQuality ? 'bg-primary/20 text-primary' : 'text-white hover:bg-white/10'
+                            }`}
+                          >
+                            Auto ({recommendedVideoQuality})
+                          </button>
+                          
+                          {(['1080p', '720p', '480p', '360p'] as VideoQuality[]).map((quality) => (
+                            <button
+                              key={quality}
+                              onClick={() => handleQualityChange(quality)}
+                              className={`w-full text-left px-2 py-1.5 text-sm rounded ${
+                                currentQuality === quality && !isAutoQuality
+                                  ? 'bg-primary/20 text-primary'
+                                  : 'text-white hover:bg-white/10'
+                              }`}
+                            >
+                              {quality}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    
                     <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20">
                       {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
                     </Button>
@@ -306,10 +412,12 @@ export const VideoPlayer = memo(({
   >
       {/* Video element with hardware acceleration */}
       <video 
-        ref={videoRef} 
+        ref={videoRef}
+        key={currentQuality}
         poster={posterImage}
+        src={currentVideoUrl}
         className="w-full h-full object-contain rounded-lg" 
-        preload="auto"
+        preload={isSlowConnection ? "metadata" : "auto"}
         playsInline 
         onClick={togglePlay}
         x-webkit-airplay="allow"
@@ -321,9 +429,7 @@ export const VideoPlayer = memo(({
           backfaceVisibility: 'hidden',
         }}
       >
-        {videoSources.map((source, index) => (
-          <source key={index} src={source.src} type={source.type} />
-        ))}
+        <source src={currentVideoUrl} type={getVideoType(currentVideoUrl)} />
         Ваш браузер не поддерживает воспроизведение видео.
       </video>
 
@@ -335,6 +441,19 @@ export const VideoPlayer = memo(({
       {/* Desktop: Progress bar at bottom, controls unified */}
       {/* Mobile: Centered play button */}
       <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40">
+          {/* Network quality indicator */}
+          {isAutoQuality && (
+            <div className="mb-2 flex items-center gap-2 text-xs text-white/70">
+              <div className={`w-2 h-2 rounded-full ${
+                networkQuality === 'high' ? 'bg-green-500' :
+                networkQuality === 'medium' ? 'bg-yellow-500' :
+                'bg-red-500'
+              }`} />
+              <span className="hidden md:inline">Auto Quality: {currentQuality} • {downlink.toFixed(1)} Mbps</span>
+              <span className="md:hidden">{currentQuality}</span>
+            </div>
+          )}
+          
           {/* Progress bar */}
           <div className="mb-3">
             <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="cursor-pointer touch-auto" />
@@ -364,6 +483,47 @@ export const VideoPlayer = memo(({
             
             {/* Spacer */}
             <div className="flex-1" />
+            
+            {/* Quality selector */}
+            <div className="relative">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setShowQualityMenu(!showQualityMenu)} 
+                className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform"
+              >
+                <Settings className="h-5 w-5" />
+              </Button>
+              
+              {showQualityMenu && (
+                <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[140px] border border-white/10">
+                  <div className="text-xs text-white/70 px-2 py-1 mb-1">Video Quality</div>
+                  
+                  <button
+                    onClick={toggleAutoQuality}
+                    className={`w-full text-left px-2 py-1.5 text-sm rounded transition-colors ${
+                      isAutoQuality ? 'bg-primary/20 text-primary' : 'text-white hover:bg-white/10'
+                    }`}
+                  >
+                    Auto ({recommendedVideoQuality})
+                  </button>
+                  
+                  {(['1080p', '720p', '480p', '360p'] as VideoQuality[]).map((quality) => (
+                    <button
+                      key={quality}
+                      onClick={() => handleQualityChange(quality)}
+                      className={`w-full text-left px-2 py-1.5 text-sm rounded transition-colors ${
+                        currentQuality === quality && !isAutoQuality
+                          ? 'bg-primary/20 text-primary'
+                          : 'text-white hover:bg-white/10'
+                      }`}
+                    >
+                      {quality}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
             
             {/* Volume control */}
             <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform">
