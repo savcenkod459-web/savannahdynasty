@@ -99,7 +99,7 @@ const InteractiveParticles = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute rounded-full bg-[hsl(0,0%,70%)]/30 dark:bg-primary/50 blur-[2px] will-change-transform"
+          className="absolute rounded-full bg-[hsl(0,0%,70%)]/30 dark:bg-primary/35 blur-[2px] will-change-transform"
           style={{
             left: `${particle.x}px`,
             top: `${particle.y}px`,

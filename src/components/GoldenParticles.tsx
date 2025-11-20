@@ -34,7 +34,7 @@ const GoldenParticles = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute bottom-0 rounded-full blur-sm animate-float-up dark:bg-gradient-to-t dark:from-primary/40 dark:to-accent/20 bg-gradient-to-t from-[hsl(0,0%,75%)]/25 to-[hsl(0,0%,85%)]/15 will-change-transform"
+          className="absolute bottom-0 rounded-full blur-sm animate-float-up dark:bg-gradient-to-t dark:from-primary/25 dark:to-accent/10 bg-gradient-to-t from-[hsl(0,0%,75%)]/25 to-[hsl(0,0%,85%)]/15 will-change-transform"
           style={{
             left: `${particle.x}%`,
             width: `${particle.size}px`,
