@@ -75,10 +75,17 @@ Simply open [Lovable](https://savannahdynasty.lovable.app) and click on Share ->
 ### Deploy on GitHub Pages
 
 1. Push your code to GitHub repository
-2. Go to repository Settings → Pages
-3. Under "Build and deployment", select "GitHub Actions" as source
-4. The site will automatically deploy on push to main branch
-5. Your site will be available at `https://your-username.github.io/savannah-dynasty/`
+2. Go to repository Settings → Secrets and variables → Actions
+3. Add the following secrets:
+   - `VITE_SUPABASE_URL` - your Supabase project URL
+   - `VITE_SUPABASE_PUBLISHABLE_KEY` - your Supabase anon key
+   - `VITE_SUPABASE_PROJECT_ID` - your Supabase project ID
+4. Go to repository Settings → Pages
+5. Under "Build and deployment", select "GitHub Actions" as source
+6. The site will automatically deploy on push to main branch
+7. Your site will be available at `https://your-username.github.io/savannah-dynasty/`
+
+**Important:** If your repository name is different from `savannah-dynasty`, update the `VITE_BASE_PATH` variable in `.github/workflows/deploy.yml` (line 34) to match your repository name.
 
 Note: The GitHub Actions workflow is already configured in `.github/workflows/deploy.yml`
 
