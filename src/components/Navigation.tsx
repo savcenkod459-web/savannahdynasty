@@ -148,13 +148,13 @@ const Navigation = () => {
 
   const isActive = (path: string) => location.pathname === path;
   return <nav 
-    className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-primary/10"
+    className="fixed top-0 left-0 right-0 z-50 bg-background/60 border-b border-primary/10"
     style={{
       willChange: 'transform, backdrop-filter',
       transform: 'translateZ(0)',
       backfaceVisibility: 'hidden',
-      WebkitBackdropFilter: 'saturate(180%) blur(36px)',
-      backdropFilter: 'saturate(180%) blur(36px)',
+      WebkitBackdropFilter: 'blur(24px)',
+      backdropFilter: 'blur(24px)',
       isolation: 'isolate',
     }}
   >
