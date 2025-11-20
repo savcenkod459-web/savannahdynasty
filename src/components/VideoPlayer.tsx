@@ -365,7 +365,6 @@ export const VideoPlayer = memo(({
                       
                       {showQualityMenu && (
                         <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[160px]">
-                          <div className="text-xs text-white/70 px-2 py-1 mb-1">Настройки</div>
                           
                           {/* Data Saver Toggle */}
                           <button
@@ -523,7 +522,6 @@ export const VideoPlayer = memo(({
               
               {showQualityMenu && (
                 <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[160px] border border-white/10">
-                  <div className="text-xs text-white/70 px-2 py-1 mb-1">Настройки</div>
                   
                   {/* Data Saver Toggle */}
                   <button
