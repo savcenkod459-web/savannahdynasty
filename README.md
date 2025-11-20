@@ -4,13 +4,15 @@
 
 **URL**: https://lovable.dev/projects/00eaceba-15af-4d49-8177-4fdc83798826
 
+**Live Site**: https://preview--savannahdynasty.lovable.app/
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://preview--savannahdynasty.lovable.app/) and start prompting.
+Simply visit the [Lovable Project](https://lovable.dev/projects/00eaceba-15af-4d49-8177-4fdc83798826) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
