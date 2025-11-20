@@ -96,7 +96,6 @@ const CatDetailModalComponent = ({
                     isOpen={true} 
                     onClose={() => {}} 
                     onToggleFullscreen={() => setIsVideoFullscreen(true)}
-                    posterImage={images[0]}
                   />
                 </div>
               ) : (
@@ -161,7 +160,6 @@ const CatDetailModalComponent = ({
         onClose={() => setIsVideoFullscreen(false)} 
         isFullscreen={true} 
         onToggleFullscreen={() => setIsVideoFullscreen(false)}
-        posterImage={images[0]}
       />
     </>;
 };
