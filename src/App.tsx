@@ -10,6 +10,7 @@ import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 import { PageLoader } from "./components/PageTransition";
 import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
+import Preloader from "./components/Preloader";
 
 // Lazy load эффектов для улучшения производительности
 const GoldenParticles = lazy(() => import("./components/GoldenParticles"));
@@ -77,18 +78,19 @@ const App = () => {
   
   return (
     <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Suspense fallback={null}>
-        <GoldenParticles />
-        <InteractiveParticles />
-        <SparkEffect />
-        <GoldShimmer />
-        <PageLoadWave />
-        <MobileFloatingButtons />
-      </Suspense>
-      <BrowserRouter>
+      <Preloader />
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Suspense fallback={null}>
+          <GoldenParticles />
+          <InteractiveParticles />
+          <SparkEffect />
+          <GoldShimmer />
+          <PageLoadWave />
+          <MobileFloatingButtons />
+        </Suspense>
+        <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>
           <div 
