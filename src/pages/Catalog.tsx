@@ -9,6 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { CatDetailModal } from "@/components/CatDetailModal";
 import { CatCard } from "@/components/CatCard";
+import { CatCardSkeleton } from "@/components/CatCardSkeleton";
 import { useTranslation } from "react-i18next";
 import { useDataCache } from "@/hooks/useImageCache";
 import { useImagePrefetch } from "@/hooks/usePrefetch";
@@ -190,8 +191,10 @@ const Catalog = () => {
           <section className="py-20">
             <div className="container mx-auto px-6">
               {isLoading ? (
-                <div className="flex justify-center items-center py-20">
-                  <Loader2 className="w-12 h-12 animate-spin text-primary" />
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {[...Array(6)].map((_, i) => (
+                    <CatCardSkeleton key={i} />
+                  ))}
                 </div>
               ) : error ? (
                 <div className="text-center py-20">
