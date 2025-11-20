@@ -153,8 +153,8 @@ const Navigation = () => {
       willChange: 'transform, backdrop-filter',
       transform: 'translateZ(0)',
       backfaceVisibility: 'hidden',
-      WebkitBackdropFilter: 'saturate(180%) blur(24px)',
-      backdropFilter: 'saturate(180%) blur(24px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(36px)',
+      backdropFilter: 'saturate(180%) blur(36px)',
       isolation: 'isolate',
     }}
   >
