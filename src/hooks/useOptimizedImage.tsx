@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useImageCache } from './useImageCache';
 import { useMediaOptimization } from './useMediaOptimization';
 import { useIsMobile } from './use-mobile';
+import { useImageCompression } from './useImageCompression';
 
 interface UseOptimizedImageProps {
   src: string;
@@ -15,6 +16,7 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
   const { getFromCache, saveToCache } = useImageCache();
   const { imageQuality } = useMediaOptimization();
   const isMobile = useIsMobile();
+  const { compressImage } = useImageCompression();
 
   useEffect(() => {
     let isMounted = true;
@@ -35,18 +37,7 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
       }
 
       img = new Image();
-      
-      // Progressive image loading strategy with WebP support
-      const getImageVariants = (source: string) => {
-        const baseUrl = source.replace(/\.(jpg|jpeg|png)$/i, '');
-        const originalExt = source.match(/\.(jpg|jpeg|png)$/i)?.[0] || '.jpg';
-        
-        return {
-          webp: `${baseUrl}.webp`,
-          original: source,
-          fallback: source.replace(/\.(jpg|jpeg|png)$/i, originalExt)
-        };
-      };
+      img.crossOrigin = 'anonymous';
       
       const tryLoad = (source: string) => {
         return new Promise<string>((resolve, reject) => {
@@ -58,21 +49,31 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
       };
 
       try {
-        const variants = getImageVariants(src);
-        
-        // Try WebP first (best compression), then fallback to original
-        let loadedSrc: string;
-        try {
-          loadedSrc = await tryLoad(variants.webp);
-        } catch {
-          // Fallback to original format
-          loadedSrc = await tryLoad(variants.original);
-        }
+        // Load original image
+        const loadedSrc = await tryLoad(src);
         
         if (isMounted) {
-          setCurrentSrc(loadedSrc);
+          // Apply compression for mobile devices or low quality setting
+          if (isMobile || imageQuality === 'low') {
+            try {
+              const compressed = await compressImage(loadedSrc, {
+                maxWidth: isMobile ? 800 : 1200,
+                maxHeight: isMobile ? 800 : 1200,
+                quality: imageQuality === 'low' ? 0.7 : 0.85,
+                format: 'image/webp'
+              });
+              setCurrentSrc(compressed);
+              saveToCache(src, compressed);
+            } catch (compressionError) {
+              // If compression fails, use original
+              setCurrentSrc(loadedSrc);
+              saveToCache(src, loadedSrc);
+            }
+          } else {
+            setCurrentSrc(loadedSrc);
+            saveToCache(src, loadedSrc);
+          }
           setIsLoading(false);
-          saveToCache(src, loadedSrc);
         }
       } catch {
         if (isMounted) {
@@ -91,7 +92,7 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
         img.onerror = null;
       }
     };
-  }, [src, getFromCache, saveToCache]);
+  }, [src, getFromCache, saveToCache, isMobile, imageQuality, compressImage]);
 
   const generateSrcSet = () => {
     if (!currentSrc) return undefined;

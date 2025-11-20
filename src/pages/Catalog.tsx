@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
-import { useState, useEffect, memo, useRef } from "react";
+import { useState, useEffect, memo, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Crown, Sparkles, Diamond, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -11,7 +11,7 @@ import { CatDetailModal } from "@/components/CatDetailModal";
 import { CatCard } from "@/components/CatCard";
 import { useTranslation } from "react-i18next";
 import { useDataCache } from "@/hooks/useImageCache";
-import { useVirtualizer } from "@tanstack/react-virtual";
+import { useImagePrefetch } from "@/hooks/usePrefetch";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
@@ -36,34 +36,7 @@ const imageMap: Record<string, string> = {
   '/src/assets/savannah-kitten-1.jpg': kitten
 };
 
-// Preload images for next/previous cards
-const preloadImages = (cats: Cat[], currentIndex: number) => {
-  const imagesToPreload: string[] = [];
-  
-  // Preload next card images
-  if (currentIndex < cats.length - 1) {
-    const nextCat = cats[currentIndex + 1];
-    imagesToPreload.push(nextCat.image);
-    if (nextCat.additional_images) {
-      imagesToPreload.push(...nextCat.additional_images);
-    }
-  }
-  
-  // Preload previous card images
-  if (currentIndex > 0) {
-    const prevCat = cats[currentIndex - 1];
-    imagesToPreload.push(prevCat.image);
-    if (prevCat.additional_images) {
-      imagesToPreload.push(...prevCat.additional_images);
-    }
-  }
-  
-  // Create image objects to trigger preloading
-  imagesToPreload.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
-};
+// Remove unused preloadImages function - now using usePrefetch hook
 const Catalog = () => {
   const { t } = useTranslation();
   const [searchParams] = useSearchParams();
@@ -72,8 +45,8 @@ const Catalog = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImages, setModalImages] = useState<string[]>([]);
   const [modalVideo, setModalVideo] = useState<string | undefined>();
-  const { getFromCache, saveToCache } = useDataCache<Cat[]>('catalog_cats', 30 * 60 * 1000); // 30 минут
-  const parentRef = useRef<HTMLDivElement>(null);
+  const { getFromCache, saveToCache } = useDataCache<Cat[]>('catalog_cats', 30 * 60 * 1000);
+  const { prefetchImages } = useImagePrefetch();
 
   useEffect(() => {
     if (breedFromUrl !== 'all') {
@@ -86,12 +59,6 @@ const Catalog = () => {
     setModalImages(allImages);
     setModalVideo(cat.video);
     setModalOpen(true);
-    
-    // Preload adjacent cat images for faster navigation
-    const currentIndex = filteredCats.findIndex(c => c.id === cat.id);
-    if (currentIndex !== -1) {
-      preloadImages(filteredCats, currentIndex);
-    }
   };
 
   // Fetch cats from Supabase with caching
@@ -134,13 +101,26 @@ const Catalog = () => {
     return true;
   });
 
-  // Virtual scrolling configuration
-  const rowVirtualizer = useVirtualizer({
-    count: Math.ceil(filteredCats.length / 3), // 3 columns
-    getScrollElement: () => parentRef.current,
-    estimateSize: () => 500, // Estimated row height
-    overscan: 2, // Number of items to render outside visible area
-  });
+  // Prefetch adjacent images on card interaction
+  const prefetchAdjacentImages = useCallback((index: number) => {
+    const imagesToPrefetch: string[] = [];
+    
+    // Prefetch next and previous cat images
+    [-1, 1].forEach(offset => {
+      const adjacentIndex = index + offset;
+      if (adjacentIndex >= 0 && adjacentIndex < filteredCats.length) {
+        const adjacentCat = filteredCats[adjacentIndex];
+        imagesToPrefetch.push(adjacentCat.image);
+        if (adjacentCat.additional_images) {
+          imagesToPrefetch.push(...adjacentCat.additional_images);
+        }
+      }
+    });
+    
+    if (imagesToPrefetch.length > 0) {
+      prefetchImages(imagesToPrefetch);
+    }
+  }, [filteredCats, prefetchImages]);
 
   return <div className="min-h-screen">
       <Navigation />
@@ -173,7 +153,7 @@ const Catalog = () => {
           </div>
         </section>
 
-        {/* Catalog Grid with Virtualization */}
+        {/* Catalog Grid */}
         <ScrollAnimationWrapper animation="fade" delay={100}>
           <section className="py-20">
             <div className="container mx-auto px-6">
@@ -194,53 +174,20 @@ const Catalog = () => {
                   </p>
                 </div>
               ) : (
-                <div ref={parentRef} style={{ height: '100%', overflow: 'auto' }}>
-                  <div
-                    style={{
-                      height: `${rowVirtualizer.getTotalSize()}px`,
-                      width: '100%',
-                      position: 'relative',
-                    }}
-                  >
-                    {rowVirtualizer.getVirtualItems().map((virtualRow) => {
-                      const startIndex = virtualRow.index * 3;
-                      const rowCats = filteredCats.slice(startIndex, startIndex + 3);
-                      
-                      return (
-                        <div
-                          key={virtualRow.key}
-                          style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            transform: `translateY(${virtualRow.start}px)`,
-                          }}
-                        >
-                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {rowCats.map((cat, colIndex) => {
-                              const index = startIndex + colIndex;
-                              return (
-                                <div
-                                  key={cat.id}
-                                  onMouseEnter={() => {
-                                    preloadImages(filteredCats, index);
-                                  }}
-                                  style={{ touchAction: 'manipulation' }}
-                                >
-                                  <CatCard 
-                                    cat={cat} 
-                                    onCardClick={openCatDetail}
-                                    animationDelay={0}
-                                  />
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredCats.map((cat, index) => (
+                    <div
+                      key={cat.id}
+                      onMouseEnter={() => prefetchAdjacentImages(index)}
+                      onTouchStart={() => prefetchAdjacentImages(index)}
+                    >
+                      <CatCard 
+                        cat={cat} 
+                        onCardClick={openCatDetail}
+                        animationDelay={index * 100}
+                      />
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
