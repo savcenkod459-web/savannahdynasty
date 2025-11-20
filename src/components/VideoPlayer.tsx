@@ -178,7 +178,10 @@ export const VideoPlayer = memo(({
   }, [videoUrl, isOpen, isFullscreen]);
   
   const handleQualityChange = (quality: VideoQuality) => {
-    if (isDataSaverEnabled) return; // Prevent manual changes in data saver mode
+    // Turn off data saver when manually changing quality
+    if (isDataSaverEnabled) {
+      toggleDataSaver();
+    }
     
     // Just update the quality setting (video source stays the same)
     setCurrentQuality(quality);
@@ -187,7 +190,10 @@ export const VideoPlayer = memo(({
   };
   
   const toggleAutoQuality = () => {
-    if (isDataSaverEnabled) return; // Prevent auto quality in data saver mode
+    // Turn off data saver when enabling auto quality
+    if (isDataSaverEnabled) {
+      toggleDataSaver();
+    }
     
     setIsAutoQuality(!isAutoQuality);
     if (!isAutoQuality) {
@@ -368,9 +374,7 @@ export const VideoPlayer = memo(({
                           
                           <button
                             onClick={toggleAutoQuality}
-                            disabled={isDataSaverEnabled}
                             className={`w-full text-left px-2 py-1.5 text-sm rounded ${
-                              isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                               isAutoQuality ? 'bg-primary/20 text-primary' : 'text-white hover:bg-white/10'
                             }`}
                           >
@@ -381,9 +385,7 @@ export const VideoPlayer = memo(({
                             <button
                               key={quality}
                               onClick={() => handleQualityChange(quality)}
-                              disabled={isDataSaverEnabled}
                               className={`w-full text-left px-2 py-1.5 text-sm rounded ${
-                                isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                                 currentQuality === quality && !isAutoQuality
                                   ? 'bg-primary/20 text-primary'
                                   : 'text-white hover:bg-white/10'
@@ -513,9 +515,7 @@ export const VideoPlayer = memo(({
                   
                   <button
                     onClick={toggleAutoQuality}
-                    disabled={isDataSaverEnabled}
                     className={`w-full text-left px-2 py-1.5 text-sm rounded transition-colors ${
-                      isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                       isAutoQuality ? 'bg-primary/20 text-primary' : 'text-white hover:bg-white/10'
                     }`}
                   >
@@ -526,9 +526,7 @@ export const VideoPlayer = memo(({
                     <button
                       key={quality}
                       onClick={() => handleQualityChange(quality)}
-                      disabled={isDataSaverEnabled}
                       className={`w-full text-left px-2 py-1.5 text-sm rounded transition-colors ${
-                        isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                         currentQuality === quality && !isAutoQuality
                           ? 'bg-primary/20 text-primary'
                           : 'text-white hover:bg-white/10'
