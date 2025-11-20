@@ -36,8 +36,17 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
 
       img = new Image();
       
-      // Try WebP first for better compression
-      const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      // Progressive image loading strategy with WebP support
+      const getImageVariants = (source: string) => {
+        const baseUrl = source.replace(/\.(jpg|jpeg|png)$/i, '');
+        const originalExt = source.match(/\.(jpg|jpeg|png)$/i)?.[0] || '.jpg';
+        
+        return {
+          webp: `${baseUrl}.webp`,
+          original: source,
+          fallback: source.replace(/\.(jpg|jpeg|png)$/i, originalExt)
+        };
+      };
       
       const tryLoad = (source: string) => {
         return new Promise<string>((resolve, reject) => {
@@ -49,8 +58,16 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
       };
 
       try {
-        // Try WebP first
-        const loadedSrc = await tryLoad(webpSrc).catch(() => tryLoad(src));
+        const variants = getImageVariants(src);
+        
+        // Try WebP first (best compression), then fallback to original
+        let loadedSrc: string;
+        try {
+          loadedSrc = await tryLoad(variants.webp);
+        } catch {
+          // Fallback to original format
+          loadedSrc = await tryLoad(variants.original);
+        }
         
         if (isMounted) {
           setCurrentSrc(loadedSrc);
@@ -77,12 +94,29 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
   }, [src, getFromCache, saveToCache]);
 
   const generateSrcSet = () => {
-    if (!isMobile || !currentSrc) return undefined;
+    if (!currentSrc) return undefined;
     
     const baseUrl = currentSrc.replace(/\.(jpg|jpeg|png|webp)$/i, '');
-    const extension = currentSrc.match(/\.(jpg|jpeg|png|webp)$/i)?.[0] || '.jpg';
+    const isWebP = currentSrc.endsWith('.webp');
+    const extension = isWebP ? '.webp' : (currentSrc.match(/\.(jpg|jpeg|png)$/i)?.[0] || '.jpg');
     
-    return `${baseUrl}-small${extension} 480w, ${baseUrl}-medium${extension} 768w, ${currentSrc} 1200w`;
+    // Generate responsive sizes: small (480px), medium (768px), large (1200px)
+    const sizes = [
+      { width: 480, suffix: '-small' },
+      { width: 768, suffix: '-medium' },
+      { width: 1200, suffix: '' }
+    ];
+    
+    return sizes.map(size => 
+      `${baseUrl}${size.suffix}${extension} ${size.width}w`
+    ).join(', ');
+  };
+  
+  const generateSizes = () => {
+    if (isMobile) {
+      return '(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw';
+    }
+    return '(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 400px';
   };
 
   return {
@@ -92,5 +126,6 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
     imageQuality,
     isMobile,
     generateSrcSet,
+    generateSizes,
   };
 };

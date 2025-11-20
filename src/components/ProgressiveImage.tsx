@@ -16,7 +16,7 @@ const ProgressiveImageComponent = ({
   lowQualitySrc,
   onClick 
 }: ProgressiveImageProps) => {
-  const { currentSrc, isLoading, imageQuality, isMobile, generateSrcSet } = useOptimizedImage({ 
+  const { currentSrc, isLoading, imageQuality, generateSrcSet, generateSizes } = useOptimizedImage({ 
     src, 
     lowQualitySrc: lowQualitySrc || src 
   });
@@ -25,7 +25,7 @@ const ProgressiveImageComponent = ({
     <img
       src={currentSrc}
       srcSet={generateSrcSet()}
-      sizes={isMobile ? "(max-width: 768px) 100vw, 768px" : "100vw"}
+      sizes={generateSizes()}
       alt={alt}
       className={`${className} ${isLoading && lowQualitySrc ? 'blur-sm scale-105' : 'blur-0 scale-100'} transition-all duration-500`}
       onClick={onClick}

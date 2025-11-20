@@ -16,7 +16,7 @@ const OptimizedImageComponent = ({
   onClick,
   lowQualitySrc 
 }: OptimizedImageProps) => {
-  const { currentSrc, isLoading, error, imageQuality, isMobile, generateSrcSet } = useOptimizedImage({ src, lowQualitySrc });
+  const { currentSrc, isLoading, error, imageQuality, generateSrcSet, generateSizes } = useOptimizedImage({ src, lowQualitySrc });
 
   if (error) {
     return (
@@ -30,7 +30,7 @@ const OptimizedImageComponent = ({
     <img
       src={currentSrc}
       srcSet={generateSrcSet()}
-      sizes={isMobile ? "(max-width: 768px) 100vw, 768px" : "100vw"}
+      sizes={generateSizes()}
       alt={alt}
       className={`${className} ${isLoading && lowQualitySrc ? 'blur-sm scale-105' : 'blur-0 scale-100'} transition-all duration-500`}
       onClick={onClick}
