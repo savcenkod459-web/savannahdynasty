@@ -8,18 +8,8 @@ import { useNetworkSpeed, VideoQuality } from "@/hooks/useNetworkSpeed";
 import { useDataSaver } from "@/hooks/useDataSaver";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
-// Generate quality variants for video
-const generateQualityVariants = (url: string): Record<VideoQuality, string> => {
-  const baseUrl = url.substring(0, url.lastIndexOf('.'));
-  const extension = url.substring(url.lastIndexOf('.'));
-  
-  return {
-    '1080p': `${baseUrl}-1080p${extension}`,
-    '720p': `${baseUrl}-720p${extension}`,
-    '480p': `${baseUrl}-480p${extension}`,
-    '360p': `${baseUrl}-360p${extension}`,
-  };
-};
+// Video quality is controlled but uses the same source URL
+// In production, you would have actual different quality files
 
 // Определение типа видео по расширению
 const getVideoType = (url: string): string => {
@@ -68,8 +58,8 @@ export const VideoPlayer = memo(({
   const [showQualityMenu, setShowQualityMenu] = useState(false);
   const [isAutoQuality, setIsAutoQuality] = useState(!isDataSaverEnabled);
   
-  const qualityVariants = generateQualityVariants(videoUrl);
-  const currentVideoUrl = qualityVariants[currentQuality] || videoUrl;
+  // Use original video URL for all qualities (in production, you would have different files)
+  const currentVideoUrl = videoUrl;
   
   // Data Saver mode enforcement
   useEffect(() => {
@@ -82,22 +72,10 @@ export const VideoPlayer = memo(({
   // Auto-adjust quality based on network speed
   useEffect(() => {
     if (isAutoQuality && !isDataSaverEnabled && recommendedVideoQuality !== currentQuality) {
-      const wasPlaying = isPlaying;
-      const savedTime = currentTime;
-      
       setCurrentQuality(recommendedVideoQuality);
-      
-      // Resume playback at same position if was playing
-      if (videoRef.current && wasPlaying) {
-        videoRef.current.currentTime = savedTime;
-        setTimeout(() => {
-          videoRef.current?.play();
-        }, 100);
-      }
-      
       console.log(`Video quality adjusted to ${recommendedVideoQuality} (Network: ${networkQuality}, Speed: ${downlink.toFixed(2)} Mbps)`);
     }
-  }, [recommendedVideoQuality, networkQuality, isAutoQuality]);
+  }, [recommendedVideoQuality, networkQuality, isAutoQuality, isDataSaverEnabled, currentQuality, downlink]);
   
   // Optimize video loading
   
@@ -123,8 +101,6 @@ export const VideoPlayer = memo(({
     const video = videoRef.current;
     if (!video) return;
     
-    // Reset loading state when quality changes
-    setIsLoading(true);
     const handleTimeUpdate = () => {
       if (video.duration && isFinite(video.duration) && video.currentTime <= video.duration) {
         setCurrentTime(video.currentTime);
@@ -165,6 +141,11 @@ export const VideoPlayer = memo(({
     const handlePlaying = () => {
       setIsLoading(false);
     };
+    const handleError = (e: Event) => {
+      console.error('Video loading error:', e);
+      setIsLoading(false);
+    };
+    
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('durationchange', handleDurationChange);
@@ -174,11 +155,13 @@ export const VideoPlayer = memo(({
     video.addEventListener('pause', handlePause);
     video.addEventListener('waiting', handleWaiting);
     video.addEventListener('playing', handlePlaying);
+    video.addEventListener('error', handleError);
 
-    // Force load and update
+    // Force load
     video.load();
     if (video.readyState >= 1 && video.duration && isFinite(video.duration)) {
       setDuration(video.duration);
+      setIsLoading(false);
     }
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
@@ -190,28 +173,17 @@ export const VideoPlayer = memo(({
       video.removeEventListener('pause', handlePause);
       video.removeEventListener('waiting', handleWaiting);
       video.removeEventListener('playing', handlePlaying);
+      video.removeEventListener('error', handleError);
     };
-  }, [currentVideoUrl, isOpen, isFullscreen, currentQuality]);
+  }, [videoUrl, isOpen, isFullscreen]);
   
   const handleQualityChange = (quality: VideoQuality) => {
     if (isDataSaverEnabled) return; // Prevent manual changes in data saver mode
     
-    const wasPlaying = isPlaying;
-    const savedTime = currentTime;
-    
+    // Just update the quality setting (video source stays the same)
     setCurrentQuality(quality);
     setIsAutoQuality(false);
     setShowQualityMenu(false);
-    
-    // Resume playback at same position if was playing
-    if (videoRef.current && wasPlaying) {
-      setTimeout(() => {
-        if (videoRef.current) {
-          videoRef.current.currentTime = savedTime;
-          videoRef.current.play();
-        }
-      }, 100);
-    }
   };
   
   const toggleAutoQuality = () => {
@@ -314,7 +286,7 @@ export const VideoPlayer = memo(({
             {/* Video element with optimizations */}
             <video
               ref={videoRef}
-              key={currentQuality}
+              key={videoUrl}
               poster={posterImage}
               src={currentVideoUrl}
               className="max-w-full max-h-full object-contain"
@@ -450,7 +422,7 @@ export const VideoPlayer = memo(({
       {/* Video element with hardware acceleration */}
       <video 
         ref={videoRef}
-        key={currentQuality}
+        key={videoUrl}
         poster={posterImage}
         src={currentVideoUrl}
         className="w-full h-full object-contain rounded-lg" 
