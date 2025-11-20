@@ -5,6 +5,7 @@ import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square } from "luc
 import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useMediaOptimization } from "@/hooks/useMediaOptimization";
+import { useVideoCache } from "@/hooks/useVideoCache";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 // Определение типа видео по расширению
@@ -58,6 +59,7 @@ export const VideoPlayer = memo(({
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const { enableAdaptiveBitrate } = useMediaOptimization();
+  const { getCachedVideo, cacheVideo } = useVideoCache();
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -67,7 +69,36 @@ export const VideoPlayer = memo(({
   const [isLoading, setIsLoading] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [isInFullscreen, setIsInFullscreen] = useState(false);
-  const videoSources = generateVideoSources(videoUrl);
+  const [cachedVideoUrl, setCachedVideoUrl] = useState<string>(videoUrl);
+  const videoSources = generateVideoSources(cachedVideoUrl);
+  
+  
+  // Load video from cache or cache it
+  useEffect(() => {
+    if (!shouldLoadVideo) return;
+    
+    const loadCachedVideo = async () => {
+      try {
+        // Try to get from cache first
+        const cached = await getCachedVideo(videoUrl);
+        if (cached) {
+          setCachedVideoUrl(cached);
+        } else {
+          // Cache video in background for future use
+          cacheVideo(videoUrl).then(url => {
+            // Don't update URL if already playing from original
+            if (!cached) {
+              console.log('Video cached for offline use');
+            }
+          });
+        }
+      } catch (error) {
+        console.warn('Video caching failed, using original URL:', error);
+      }
+    };
+
+    loadCachedVideo();
+  }, [videoUrl, shouldLoadVideo, getCachedVideo, cacheVideo]);
   
   // Отслеживание изменения fullscreen состояния
   useEffect(() => {

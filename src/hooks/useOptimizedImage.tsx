@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useImageCache } from './useImageCache';
 import { useMediaOptimization } from './useMediaOptimization';
 import { useIsMobile } from './use-mobile';
-import { useImageCompression } from './useImageCompression';
 
 interface UseOptimizedImageProps {
   src: string;
@@ -10,13 +9,12 @@ interface UseOptimizedImageProps {
 }
 
 export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps) => {
-  const [currentSrc, setCurrentSrc] = useState(lowQualitySrc || '');
-  const [isLoading, setIsLoading] = useState(true);
+  const [currentSrc, setCurrentSrc] = useState(src); // Start with actual image, not lowQuality
+  const [isLoading, setIsLoading] = useState(false); // Don't show loading initially
   const [error, setError] = useState(false);
   const { getFromCache, saveToCache } = useImageCache();
   const { imageQuality } = useMediaOptimization();
   const isMobile = useIsMobile();
-  const { compressImage } = useImageCompression();
 
   useEffect(() => {
     let isMounted = true;
@@ -25,9 +23,6 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
     const loadImage = async () => {
       if (!src) return;
       
-      setIsLoading(true);
-      setError(false);
-
       // Check cache first
       const cachedImage = getFromCache(src);
       if (cachedImage && isMounted) {
@@ -36,51 +31,25 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
         return;
       }
 
+      // Load image directly without compression to avoid CORS issues
       img = new Image();
-      img.crossOrigin = 'anonymous';
       
-      const tryLoad = (source: string) => {
-        return new Promise<string>((resolve, reject) => {
-          if (!img) return reject();
-          img.src = source;
-          img.onload = () => resolve(source);
-          img.onerror = () => reject();
-        });
-      };
-
-      try {
-        // Load original image
-        const loadedSrc = await tryLoad(src);
-        
+      img.onload = () => {
         if (isMounted) {
-          // Apply compression for mobile devices or low quality setting
-          if (isMobile || imageQuality === 'low') {
-            try {
-              const compressed = await compressImage(loadedSrc, {
-                maxWidth: isMobile ? 800 : 1200,
-                maxHeight: isMobile ? 800 : 1200,
-                quality: imageQuality === 'low' ? 0.7 : 0.85,
-                format: 'image/webp'
-              });
-              setCurrentSrc(compressed);
-              saveToCache(src, compressed);
-            } catch (compressionError) {
-              // If compression fails, use original
-              setCurrentSrc(loadedSrc);
-              saveToCache(src, loadedSrc);
-            }
-          } else {
-            setCurrentSrc(loadedSrc);
-            saveToCache(src, loadedSrc);
-          }
+          setCurrentSrc(src);
           setIsLoading(false);
+          saveToCache(src, src);
         }
-      } catch {
+      };
+      
+      img.onerror = () => {
         if (isMounted) {
           setError(true);
           setIsLoading(false);
         }
-      }
+      };
+      
+      img.src = src;
     };
 
     loadImage();
@@ -92,7 +61,7 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
         img.onerror = null;
       }
     };
-  }, [src, getFromCache, saveToCache, isMobile, imageQuality, compressImage]);
+  }, [src, getFromCache, saveToCache]);
 
   const generateSrcSet = () => {
     if (!currentSrc) return undefined;

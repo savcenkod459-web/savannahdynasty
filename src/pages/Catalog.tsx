@@ -47,6 +47,11 @@ const Catalog = () => {
   const [modalVideo, setModalVideo] = useState<string | undefined>();
   const { getFromCache, saveToCache } = useDataCache<Cat[]>('catalog_cats', 30 * 60 * 1000);
   const { prefetchImages } = useImagePrefetch();
+  
+  // Infinite scroll state
+  const [page, setPage] = useState(1);
+  const [displayedCats, setDisplayedCats] = useState<Cat[]>([]);
+  const ITEMS_PER_PAGE = 6;
 
   useEffect(() => {
     if (breedFromUrl !== 'all') {
@@ -101,6 +106,33 @@ const Catalog = () => {
     return true;
   });
 
+  // Update displayed cats when filteredCats changes
+  useEffect(() => {
+    const itemsToShow = filteredCats.slice(0, page * ITEMS_PER_PAGE);
+    setDisplayedCats(itemsToShow);
+  }, [filteredCats, page]);
+
+  // Reset page when breed filter changes
+  useEffect(() => {
+    setPage(1);
+  }, [selectedBreed]);
+
+  // Infinite scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Load more when user is 800px from bottom
+      if (documentHeight - scrollPosition < 800 && displayedCats.length < filteredCats.length) {
+        setPage(prev => prev + 1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [displayedCats.length, filteredCats.length]);
+
   // Prefetch adjacent images on card interaction
   const prefetchAdjacentImages = useCallback((index: number) => {
     const imagesToPrefetch: string[] = [];
@@ -108,8 +140,8 @@ const Catalog = () => {
     // Prefetch next and previous cat images
     [-1, 1].forEach(offset => {
       const adjacentIndex = index + offset;
-      if (adjacentIndex >= 0 && adjacentIndex < filteredCats.length) {
-        const adjacentCat = filteredCats[adjacentIndex];
+      if (adjacentIndex >= 0 && adjacentIndex < displayedCats.length) {
+        const adjacentCat = displayedCats[adjacentIndex];
         imagesToPrefetch.push(adjacentCat.image);
         if (adjacentCat.additional_images) {
           imagesToPrefetch.push(...adjacentCat.additional_images);
@@ -120,7 +152,7 @@ const Catalog = () => {
     if (imagesToPrefetch.length > 0) {
       prefetchImages(imagesToPrefetch);
     }
-  }, [filteredCats, prefetchImages]);
+  }, [displayedCats, prefetchImages]);
 
   return <div className="min-h-screen">
       <Navigation />
@@ -153,7 +185,7 @@ const Catalog = () => {
           </div>
         </section>
 
-        {/* Catalog Grid */}
+        {/* Catalog Grid with Infinite Scroll */}
         <ScrollAnimationWrapper animation="fade" delay={100}>
           <section className="py-20">
             <div className="container mx-auto px-6">
@@ -174,21 +206,30 @@ const Catalog = () => {
                   </p>
                 </div>
               ) : (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredCats.map((cat, index) => (
-                    <div
-                      key={cat.id}
-                      onMouseEnter={() => prefetchAdjacentImages(index)}
-                      onTouchStart={() => prefetchAdjacentImages(index)}
-                    >
-                      <CatCard 
-                        cat={cat} 
-                        onCardClick={openCatDetail}
-                        animationDelay={index * 100}
-                      />
+                <>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {displayedCats.map((cat, index) => (
+                      <div
+                        key={cat.id}
+                        onMouseEnter={() => prefetchAdjacentImages(index)}
+                        onTouchStart={() => prefetchAdjacentImages(index)}
+                      >
+                        <CatCard 
+                          cat={cat} 
+                          onCardClick={openCatDetail}
+                          animationDelay={index * 100}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {displayedCats.length < filteredCats.length && (
+                    <div className="flex justify-center items-center py-12">
+                      <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                      <span className="ml-3 text-muted-foreground">Загрузка...</span>
                     </div>
-                  ))}
-                </div>
+                  )}
+                </>
               )}
             </div>
           </section>
