@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useMediaOptimization } from "@/hooks/useMediaOptimization";
-import { useVideoCache } from "@/hooks/useVideoCache";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 // Определение типа видео по расширению
@@ -58,8 +56,6 @@ export const VideoPlayer = memo(({
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-  const { enableAdaptiveBitrate } = useMediaOptimization();
-  const { getCachedVideo, cacheVideo } = useVideoCache();
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -67,38 +63,10 @@ export const VideoPlayer = memo(({
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [isInFullscreen, setIsInFullscreen] = useState(false);
-  const [cachedVideoUrl, setCachedVideoUrl] = useState<string>(videoUrl);
-  const videoSources = generateVideoSources(cachedVideoUrl);
+  const videoSources = generateVideoSources(videoUrl);
   
-  
-  // Load video from cache or cache it
-  useEffect(() => {
-    if (!shouldLoadVideo) return;
-    
-    const loadCachedVideo = async () => {
-      try {
-        // Try to get from cache first
-        const cached = await getCachedVideo(videoUrl);
-        if (cached) {
-          setCachedVideoUrl(cached);
-        } else {
-          // Cache video in background for future use
-          cacheVideo(videoUrl).then(url => {
-            // Don't update URL if already playing from original
-            if (!cached) {
-              console.log('Video cached for offline use');
-            }
-          });
-        }
-      } catch (error) {
-        console.warn('Video caching failed, using original URL:', error);
-      }
-    };
-
-    loadCachedVideo();
-  }, [videoUrl, shouldLoadVideo, getCachedVideo, cacheVideo]);
+  // Optimize video loading
   
   // Отслеживание изменения fullscreen состояния
   useEffect(() => {
@@ -120,8 +88,7 @@ export const VideoPlayer = memo(({
   }, []);
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !shouldLoadVideo) return;
-    setIsLoading(true);
+    if (!video) return;
     const handleTimeUpdate = () => {
       if (video.duration && isFinite(video.duration) && video.currentTime <= video.duration) {
         setCurrentTime(video.currentTime);
@@ -188,18 +155,8 @@ export const VideoPlayer = memo(({
       video.removeEventListener('waiting', handleWaiting);
       video.removeEventListener('playing', handlePlaying);
     };
-  }, [videoUrl, isOpen, isFullscreen, shouldLoadVideo]);
-  const handlePlayClick = () => {
-    if (!shouldLoadVideo) {
-      setShouldLoadVideo(true);
-      // Wait a moment for video to start loading
-      setTimeout(() => {
-        togglePlay();
-      }, 100);
-    } else {
-      togglePlay();
-    }
-  };
+  }, [videoUrl, isOpen, isFullscreen]);
+  
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -287,29 +244,27 @@ export const VideoPlayer = memo(({
               <X className="h-6 w-6" />
             </Button>
 
-            {/* Poster image placeholder */}
-            {!shouldLoadVideo && posterImage && <div className="absolute inset-0 flex items-center justify-center">
-                <img src={posterImage} alt="Video preview" className="max-w-full max-h-full object-contain blur-sm" />
-              </div>}
-
-            {/* Video element */}
-            {shouldLoadVideo && <video 
+            {/* Video element with optimizations */}
+            <video 
               ref={videoRef} 
               poster={posterImage}
               className="max-w-full max-h-full object-contain" 
               onClick={togglePlay} 
-              preload="metadata"
+              preload="auto"
               playsInline
-              webkit-playsinline="true"
               x-webkit-airplay="allow"
               controlsList="nodownload"
               disablePictureInPicture={false}
+              style={{
+                willChange: 'transform',
+                transform: 'translateZ(0)',
+              }}
             >
               {videoSources.map((source, index) => (
                 <source key={index} src={source.src} type={source.type} />
               ))}
               Ваш браузер не поддерживает воспроизведение видео.
-            </video>}
+            </video>
 
             {/* Loading spinner */}
             {isLoading && <div className="absolute inset-0 flex items-center justify-center">
@@ -347,44 +302,39 @@ export const VideoPlayer = memo(({
   }
   return <div 
     ref={containerRef}
-    className={`relative w-full h-full bg-black/5 rounded-lg overflow-hidden touch-auto ${isInFullscreen ? 'bg-black' : ''}`}
+    className={`relative w-full h-full bg-black/5 rounded-lg overflow-hidden ${isInFullscreen ? 'bg-black' : ''}`}
   >
-      {/* Poster image placeholder */}
-      {!shouldLoadVideo && posterImage && <img src={posterImage} alt="Video preview" className="w-full h-full object-contain rounded-lg blur-sm" loading="lazy" />}
-      
-      {/* Video element - lazy load on play */}
-      {shouldLoadVideo && <video 
+      {/* Video element with hardware acceleration */}
+      <video 
         ref={videoRef} 
-        className="w-full h-full object-contain rounded-lg touch-none" 
-        preload="metadata"
+        poster={posterImage}
+        className="w-full h-full object-contain rounded-lg" 
+        preload="auto"
         playsInline 
-        webkit-playsinline="true"
         onClick={togglePlay}
         x-webkit-airplay="allow"
         controlsList="nodownload"
         disablePictureInPicture={false}
+        style={{
+          willChange: 'transform',
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+        }}
       >
         {videoSources.map((source, index) => (
           <source key={index} src={source.src} type={source.type} />
         ))}
         Ваш браузер не поддерживает воспроизведение видео.
-      </video>}
+      </video>
 
       {/* Loading spinner */}
       {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30 z-20">
           <Loader2 className="h-8 w-8 text-white animate-spin" />
         </div>}
       
-      {/* Initial Play button - shown before video loads */}
-      {!shouldLoadVideo && <div className="absolute inset-0 flex items-center justify-center z-30">
-          <Button variant="ghost" size="icon" onClick={handlePlayClick} className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/70 hover:bg-black/80 text-white backdrop-blur-sm active:scale-95 transition-transform">
-            <Play className="h-8 w-8 md:h-10 md:w-10" />
-          </Button>
-        </div>}
-      
       {/* Desktop: Progress bar at bottom, controls unified */}
       {/* Mobile: Centered play button */}
-      {shouldLoadVideo && <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40 touch-auto">
+      <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40">
           {/* Progress bar */}
           <div className="mb-3">
             <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="cursor-pointer touch-auto" />
@@ -392,10 +342,10 @@ export const VideoPlayer = memo(({
           
           {/* Mobile: Centered play button and fullscreen */}
           <div className="flex md:hidden items-center justify-center gap-4">
-            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full touch-auto transition-transform text-white">
+            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full transition-transform text-white">
               {isPlaying ? <Pause className="h-7 w-7" /> : <Play className="h-7 w-7" />}
             </Button>
-            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full touch-auto transition-transform text-white">
+            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full transition-transform text-white">
               <Maximize className="h-7 w-7" />
             </Button>
           </div>
@@ -403,7 +353,7 @@ export const VideoPlayer = memo(({
           {/* Desktop: Full controls row */}
           <div className="hidden md:flex items-center gap-3 text-white">
             {/* Play button */}
-            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full touch-auto transition-transform">
+            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform">
               {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
             </Button>
             
@@ -416,20 +366,20 @@ export const VideoPlayer = memo(({
             <div className="flex-1" />
             
             {/* Volume control */}
-            <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full touch-auto transition-transform">
+            <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform">
               {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
             </Button>
             
             {/* Volume slider - desktop only */}
             <div className="w-20">
-              <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="cursor-pointer touch-auto" />
+              <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="cursor-pointer" />
             </div>
             
             {/* Fullscreen button */}
-            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full touch-auto transition-transform">
+            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform">
               <Maximize className="h-6 w-6" />
             </Button>
           </div>
-        </div>}
+        </div>
     </div>;
 });
