@@ -129,16 +129,16 @@ const Footer = () => {
             <div className="space-y-4 py-0">
               {/* Logo Avatars */}
               <div className="flex gap-3 mb-4">
-                <Avatar className="w-12 h-12 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-110 micro-interaction">
-                  <AvatarImage src={logoBlue} alt="Savannah Dynasty Logo Blue" className="object-cover" />
+                <Avatar className="w-16 h-16 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-105 micro-interaction">
+                  <AvatarImage src={logoBlue} alt="Savannah Dynasty Logo Blue" className="object-contain p-1" />
                   <AvatarFallback className="bg-primary/10 text-primary">SD</AvatarFallback>
                 </Avatar>
-                <Avatar className="w-12 h-12 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-110 micro-interaction">
-                  <AvatarImage src={logoBlack} alt="Savannah Dynasty Logo Black" className="object-cover" />
+                <Avatar className="w-16 h-16 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-105 micro-interaction">
+                  <AvatarImage src={logoBlack} alt="Savannah Dynasty Logo Black" className="object-contain p-1" />
                   <AvatarFallback className="bg-primary/10 text-primary">SD</AvatarFallback>
                 </Avatar>
-                <Avatar className="w-12 h-12 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-110 micro-interaction">
-                  <AvatarImage src={logoWhite} alt="Savannah Dynasty Logo White" className="object-cover" />
+                <Avatar className="w-16 h-16 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-105 micro-interaction">
+                  <AvatarImage src={logoWhite} alt="Savannah Dynasty Logo White" className="object-contain p-1" />
                   <AvatarFallback className="bg-primary/10 text-primary">SD</AvatarFallback>
                 </Avatar>
               </div>
