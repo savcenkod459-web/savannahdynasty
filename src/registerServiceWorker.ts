@@ -6,32 +6,45 @@ export function registerServiceWorker() {
 
     wb.addEventListener('installed', (event) => {
       if (event.isUpdate) {
-        console.log('New content is available; refresh recommended.');
-        // Silent update - auto reload after user finishes current session
-        if (document.visibilityState === 'hidden') {
+        console.log('[SW] New content available; preparing update...');
+        // Показываем уведомление пользователю о новой версии
+        if (confirm('Доступна новая версия приложения. Обновить?')) {
+          wb.messageSkipWaiting();
           window.location.reload();
         }
       } else {
-        console.log('Content is cached for offline use.');
+        console.log('[SW] Content cached for offline use.');
       }
     });
 
     wb.addEventListener('waiting', () => {
-      console.log('A new service worker is waiting to activate.');
+      console.log('[SW] New service worker waiting to activate.');
     });
 
     wb.addEventListener('controlling', () => {
-      console.log('Service worker now controlling the page.');
+      console.log('[SW] Service worker controlling page.');
+      window.location.reload();
     });
 
     wb.addEventListener('activated', (event) => {
       if (!event.isUpdate) {
-        console.log('Service worker activated for the first time!');
+        console.log('[SW] Service worker activated!');
       }
     });
 
-    wb.register().catch((error) => {
-      console.error('Service Worker registration failed:', error);
-    });
+    wb.register()
+      .then((registration) => {
+        console.log('[SW] Registration successful:', registration);
+        
+        // Проверка обновлений каждые 60 минут
+        setInterval(() => {
+          registration.update();
+        }, 60 * 60 * 1000);
+      })
+      .catch((error) => {
+        console.error('[SW] Registration failed:', error);
+      });
+  } else {
+    console.warn('[SW] Service workers not supported');
   }
 }
