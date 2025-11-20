@@ -297,8 +297,10 @@ export const VideoPlayer = memo(({
               controlsList="nodownload"
               disablePictureInPicture={false}
               style={{
-                willChange: 'transform',
+                willChange: 'transform, opacity',
                 transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden',
+                perspective: 1000,
               }}
             >
               <source src={currentVideoUrl} type={getVideoType(currentVideoUrl)} />
@@ -306,8 +308,11 @@ export const VideoPlayer = memo(({
             </video>
 
             {/* Loading spinner */}
-            {isLoading && <div className="absolute inset-0 flex items-center justify-center">
-                <Loader2 className="h-12 w-12 text-white animate-spin" />
+            {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-20">
+                <div className="flex flex-col items-center gap-3">
+                  <Loader2 className="h-12 w-12 text-white animate-spin" />
+                  <p className="text-white text-sm">Загрузка видео...</p>
+                </div>
               </div>}
 
             {/* Video controls */}
@@ -427,15 +432,16 @@ export const VideoPlayer = memo(({
         src={currentVideoUrl}
         className="w-full h-full object-contain rounded-lg" 
         preload={isDataSaverEnabled ? "none" : (isSlowConnection ? "metadata" : "auto")}
-        playsInline
+        playsInline 
         onClick={togglePlay}
         x-webkit-airplay="allow"
         controlsList="nodownload"
         disablePictureInPicture={false}
         style={{
-          willChange: 'transform',
+          willChange: 'transform, opacity',
           transform: 'translateZ(0)',
           backfaceVisibility: 'hidden',
+          perspective: 1000,
         }}
       >
         <source src={currentVideoUrl} type={getVideoType(currentVideoUrl)} />
@@ -443,8 +449,11 @@ export const VideoPlayer = memo(({
       </video>
 
       {/* Loading spinner */}
-      {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30 z-20">
-          <Loader2 className="h-8 w-8 text-white animate-spin" />
+      {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-20">
+          <div className="flex flex-col items-center gap-2">
+            <Loader2 className="h-8 w-8 text-white animate-spin" />
+            <p className="text-white text-xs">Загрузка...</p>
+          </div>
         </div>}
       
       {/* Desktop: Progress bar at bottom, controls unified */}
