@@ -91,15 +91,6 @@ const App = () => {
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>
-          {/* Global blur layer under the navigation bar */}
-          <div
-            className="fixed top-0 left-0 right-0 h-20 md:h-24 z-40 pointer-events-none bg-background/60 backdrop-blur-xl"
-            style={{
-              willChange: 'transform, backdrop-filter',
-              transform: 'translateZ(0)',
-              backfaceVisibility: 'hidden',
-            }}
-          />
           <div 
             className={`transition-opacity duration-500 ease-out ${
               isContentVisible ? 'opacity-100' : 'opacity-0'
