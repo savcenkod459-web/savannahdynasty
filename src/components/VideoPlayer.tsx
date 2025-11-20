@@ -5,6 +5,7 @@ import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square, Settings }
 import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useNetworkSpeed, VideoQuality } from "@/hooks/useNetworkSpeed";
+import { useDataSaver } from "@/hooks/useDataSaver";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 // Generate quality variants for video
@@ -53,6 +54,7 @@ export const VideoPlayer = memo(({
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const { recommendedVideoQuality, quality: networkQuality, downlink, isSlowConnection } = useNetworkSpeed();
+  const { isEnabled: isDataSaverEnabled, toggleDataSaver } = useDataSaver();
   
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -62,16 +64,24 @@ export const VideoPlayer = memo(({
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isInFullscreen, setIsInFullscreen] = useState(false);
-  const [currentQuality, setCurrentQuality] = useState<VideoQuality>(recommendedVideoQuality);
+  const [currentQuality, setCurrentQuality] = useState<VideoQuality>(isDataSaverEnabled ? '360p' : recommendedVideoQuality);
   const [showQualityMenu, setShowQualityMenu] = useState(false);
-  const [isAutoQuality, setIsAutoQuality] = useState(true);
+  const [isAutoQuality, setIsAutoQuality] = useState(!isDataSaverEnabled);
   
   const qualityVariants = generateQualityVariants(videoUrl);
   const currentVideoUrl = qualityVariants[currentQuality] || videoUrl;
   
+  // Data Saver mode enforcement
+  useEffect(() => {
+    if (isDataSaverEnabled) {
+      setCurrentQuality('360p');
+      setIsAutoQuality(false);
+    }
+  }, [isDataSaverEnabled]);
+  
   // Auto-adjust quality based on network speed
   useEffect(() => {
-    if (isAutoQuality && recommendedVideoQuality !== currentQuality) {
+    if (isAutoQuality && !isDataSaverEnabled && recommendedVideoQuality !== currentQuality) {
       const wasPlaying = isPlaying;
       const savedTime = currentTime;
       
@@ -184,6 +194,8 @@ export const VideoPlayer = memo(({
   }, [currentVideoUrl, isOpen, isFullscreen, currentQuality]);
   
   const handleQualityChange = (quality: VideoQuality) => {
+    if (isDataSaverEnabled) return; // Prevent manual changes in data saver mode
+    
     const wasPlaying = isPlaying;
     const savedTime = currentTime;
     
@@ -203,6 +215,8 @@ export const VideoPlayer = memo(({
   };
   
   const toggleAutoQuality = () => {
+    if (isDataSaverEnabled) return; // Prevent auto quality in data saver mode
+    
     setIsAutoQuality(!isAutoQuality);
     if (!isAutoQuality) {
       setCurrentQuality(recommendedVideoQuality);
@@ -305,7 +319,7 @@ export const VideoPlayer = memo(({
               src={currentVideoUrl}
               className="max-w-full max-h-full object-contain"
               onClick={togglePlay}
-              preload={isSlowConnection ? "metadata" : "auto"}
+              preload={isDataSaverEnabled ? "none" : (isSlowConnection ? "metadata" : "auto")}
               playsInline
               x-webkit-airplay="allow"
               controlsList="nodownload"
@@ -326,17 +340,24 @@ export const VideoPlayer = memo(({
 
             {/* Video controls */}
             {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                {/* Network quality indicator */}
-                {isAutoQuality && (
-                  <div className="mb-2 flex items-center gap-2 text-xs text-white/70">
-                    <div className={`w-2 h-2 rounded-full ${
-                      networkQuality === 'high' ? 'bg-green-500' :
-                      networkQuality === 'medium' ? 'bg-yellow-500' :
-                      'bg-red-500'
-                    }`} />
-                    <span>Auto ({currentQuality}) • {downlink.toFixed(1)} Mbps</span>
-                  </div>
-                )}
+                {/* Data Saver / Network quality indicator */}
+                <div className="mb-2 flex items-center gap-2 text-xs text-white/70">
+                  {isDataSaverEnabled ? (
+                    <span className="flex items-center gap-1">
+                      <div className="w-2 h-2 rounded-full bg-blue-500" />
+                      Режим экономии данных (360p)
+                    </span>
+                  ) : isAutoQuality && (
+                    <>
+                      <div className={`w-2 h-2 rounded-full ${
+                        networkQuality === 'high' ? 'bg-green-500' :
+                        networkQuality === 'medium' ? 'bg-yellow-500' :
+                        'bg-red-500'
+                      }`} />
+                      <span>Auto ({currentQuality}) • {downlink.toFixed(1)} Mbps</span>
+                    </>
+                  )}
+                </div>
                 
                 <div className="flex items-center gap-4 text-white">
                   <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20">
@@ -366,12 +387,26 @@ export const VideoPlayer = memo(({
                       </Button>
                       
                       {showQualityMenu && (
-                        <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[140px]">
-                          <div className="text-xs text-white/70 px-2 py-1 mb-1">Quality</div>
+                        <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[160px]">
+                          <div className="text-xs text-white/70 px-2 py-1 mb-1">Настройки</div>
+                          
+                          {/* Data Saver Toggle */}
+                          <button
+                            onClick={toggleDataSaver}
+                            className={`w-full text-left px-2 py-1.5 text-sm rounded mb-1 ${
+                              isDataSaverEnabled ? 'bg-blue-500/20 text-blue-400' : 'text-white hover:bg-white/10'
+                            }`}
+                          >
+                            🔋 Экономия данных
+                          </button>
+                          
+                          <div className="h-px bg-white/10 my-1" />
                           
                           <button
                             onClick={toggleAutoQuality}
+                            disabled={isDataSaverEnabled}
                             className={`w-full text-left px-2 py-1.5 text-sm rounded ${
+                              isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                               isAutoQuality ? 'bg-primary/20 text-primary' : 'text-white hover:bg-white/10'
                             }`}
                           >
@@ -382,7 +417,9 @@ export const VideoPlayer = memo(({
                             <button
                               key={quality}
                               onClick={() => handleQualityChange(quality)}
+                              disabled={isDataSaverEnabled}
                               className={`w-full text-left px-2 py-1.5 text-sm rounded ${
+                                isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                                 currentQuality === quality && !isAutoQuality
                                   ? 'bg-primary/20 text-primary'
                                   : 'text-white hover:bg-white/10'
@@ -417,8 +454,8 @@ export const VideoPlayer = memo(({
         poster={posterImage}
         src={currentVideoUrl}
         className="w-full h-full object-contain rounded-lg" 
-        preload={isSlowConnection ? "metadata" : "auto"}
-        playsInline 
+        preload={isDataSaverEnabled ? "none" : (isSlowConnection ? "metadata" : "auto")}
+        playsInline
         onClick={togglePlay}
         x-webkit-airplay="allow"
         controlsList="nodownload"
@@ -441,18 +478,26 @@ export const VideoPlayer = memo(({
       {/* Desktop: Progress bar at bottom, controls unified */}
       {/* Mobile: Centered play button */}
       <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40">
-          {/* Network quality indicator */}
-          {isAutoQuality && (
-            <div className="mb-2 flex items-center gap-2 text-xs text-white/70">
-              <div className={`w-2 h-2 rounded-full ${
-                networkQuality === 'high' ? 'bg-green-500' :
-                networkQuality === 'medium' ? 'bg-yellow-500' :
-                'bg-red-500'
-              }`} />
-              <span className="hidden md:inline">Auto Quality: {currentQuality} • {downlink.toFixed(1)} Mbps</span>
-              <span className="md:hidden">{currentQuality}</span>
-            </div>
-          )}
+          {/* Data Saver / Network quality indicator */}
+          <div className="mb-2 flex items-center gap-2 text-xs text-white/70">
+            {isDataSaverEnabled ? (
+              <span className="flex items-center gap-1">
+                <div className="w-2 h-2 rounded-full bg-blue-500" />
+                <span className="hidden md:inline">Режим экономии данных (360p)</span>
+                <span className="md:hidden">🔋 360p</span>
+              </span>
+            ) : isAutoQuality && (
+              <>
+                <div className={`w-2 h-2 rounded-full ${
+                  networkQuality === 'high' ? 'bg-green-500' :
+                  networkQuality === 'medium' ? 'bg-yellow-500' :
+                  'bg-red-500'
+                }`} />
+                <span className="hidden md:inline">Auto Quality: {currentQuality} • {downlink.toFixed(1)} Mbps</span>
+                <span className="md:hidden">{currentQuality}</span>
+              </>
+            )}
+          </div>
           
           {/* Progress bar */}
           <div className="mb-3">
@@ -496,12 +541,26 @@ export const VideoPlayer = memo(({
               </Button>
               
               {showQualityMenu && (
-                <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[140px] border border-white/10">
-                  <div className="text-xs text-white/70 px-2 py-1 mb-1">Video Quality</div>
+                <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[160px] border border-white/10">
+                  <div className="text-xs text-white/70 px-2 py-1 mb-1">Настройки</div>
+                  
+                  {/* Data Saver Toggle */}
+                  <button
+                    onClick={toggleDataSaver}
+                    className={`w-full text-left px-2 py-1.5 text-sm rounded mb-1 transition-colors ${
+                      isDataSaverEnabled ? 'bg-blue-500/20 text-blue-400' : 'text-white hover:bg-white/10'
+                    }`}
+                  >
+                    🔋 Экономия данных
+                  </button>
+                  
+                  <div className="h-px bg-white/10 my-1" />
                   
                   <button
                     onClick={toggleAutoQuality}
+                    disabled={isDataSaverEnabled}
                     className={`w-full text-left px-2 py-1.5 text-sm rounded transition-colors ${
+                      isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                       isAutoQuality ? 'bg-primary/20 text-primary' : 'text-white hover:bg-white/10'
                     }`}
                   >
@@ -512,7 +571,9 @@ export const VideoPlayer = memo(({
                     <button
                       key={quality}
                       onClick={() => handleQualityChange(quality)}
+                      disabled={isDataSaverEnabled}
                       className={`w-full text-left px-2 py-1.5 text-sm rounded transition-colors ${
+                        isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                         currentQuality === quality && !isAutoQuality
                           ? 'bg-primary/20 text-primary'
                           : 'text-white hover:bg-white/10'
