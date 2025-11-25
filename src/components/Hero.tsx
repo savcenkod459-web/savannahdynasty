@@ -70,8 +70,9 @@ const Hero = () => {
 
           {/* Hero Image */}
           <div className="relative animate-scale-in group/hero">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl animate-gold-pulse" />
-            <div className="relative rounded-3xl overflow-hidden shadow-deep hover:shadow-glow transition-all duration-700 hover:scale-[1.02] image-blur-edges">
+            <div className="relative rounded-3xl overflow-hidden shadow-deep transition-all duration-700 hover:scale-[1.02] border-2 border-primary/40 hover:border-primary/60" style={{
+              boxShadow: '0 0 30px rgba(217, 179, 112, 0.3), 0 0 60px rgba(217, 179, 112, 0.2)',
+            }}>
               <img 
                 src={displayImage} 
                 alt={heroImages?.alt_text || "Элитная кошка Саванна F1"} 
@@ -81,7 +82,6 @@ const Hero = () => {
                 fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
-              
               
               {/* Gold accent overlay */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/30 to-transparent rounded-bl-full" />

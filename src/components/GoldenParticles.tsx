@@ -15,14 +15,14 @@ const GoldenParticles = () => {
 
   useEffect(() => {
     const newParticles: Particle[] = [];
-    // Reduce particles significantly on mobile, especially low-end devices
-    const particleCount = isLowEnd ? 3 : isMobile ? 6 : 20;
+    // Optimized particle count for better performance
+    const particleCount = isLowEnd ? 2 : isMobile ? 4 : 8;
     for (let i = 0; i < particleCount; i++) {
       newParticles.push({
         id: i,
         x: Math.random() * 100,
-        size: Math.random() * 6 + 2,
-        duration: Math.random() * 10 + 15,
+        size: Math.random() * 4 + 2,
+        duration: Math.random() * 12 + 18,
         delay: Math.random() * 5,
       });
     }

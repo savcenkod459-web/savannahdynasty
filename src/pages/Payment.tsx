@@ -57,8 +57,8 @@ const Payment = () => {
     navigator.clipboard.writeText(address);
     setCopiedAddress(address);
     toast({
-      title: "Скопировано",
-      description: "Адрес скопирован в буфер обмена"
+      title: t('payment.copied'),
+      description: t('payment.copiedDescription')
     });
     setTimeout(() => setCopiedAddress(null), 2000);
   };

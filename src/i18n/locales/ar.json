@@ -404,12 +404,16 @@
     "subtitle": "اختر من بين طرق دفع متعددة لشراء قطتك النخبة",
     "crypto": "العملة المشفرة",
     "cash": "الدفع عند التسليم",
+    "important": "مهم",
+    "crypto_note": "بعد تحويل العملة المشفرة، يرجى الاتصال بنا وتقديم hash المعاملة لتأكيد الدفع.",
     "securityTitle": "الأمان",
     "securityDesc": "تشفير عسكري",
     "verifiedTitle": "تم التحقق",
     "verifiedDesc": "تم التحقق من جميع المعاملات",
     "supportTitle": "دعم 24/7",
-    "supportDesc": "مساعدة على مدار الساعة"
+    "supportDesc": "مساعدة على مدار الساعة",
+    "copied": "تم النسخ",
+    "copiedDescription": "تم نسخ العنوان إلى الحافظة"
   },
   "pedigree": {
     "title": "النسب",

@@ -19,7 +19,7 @@ export const useSmoothScroll = () => {
       const difference = scrollTarget - currentScroll;
       
       if (Math.abs(difference) > 0.1) {
-        currentScroll += difference * 0.1; // Быстрее для лучшей отзывчивости
+        currentScroll += difference * 0.15; // Более плавное и быстрое скроллирование
         window.scrollTo(0, currentScroll);
         requestAnimationFrame(smoothScroll);
       } else {
@@ -37,7 +37,7 @@ export const useSmoothScroll = () => {
         currentScroll = actualScroll;
       }
       
-      scrollTarget += e.deltaY * 0.6; // Увеличили для более естественного скролла
+      scrollTarget += e.deltaY * 0.8; // Более естественная скорость
       scrollTarget = Math.max(0, Math.min(scrollTarget, document.documentElement.scrollHeight - window.innerHeight));
       
       if (!isScrolling) {

@@ -14,7 +14,6 @@ const GoldenParticles = lazy(() => import("./components/GoldenParticles"));
 const InteractiveParticles = lazy(() => import("./components/InteractiveParticles"));
 const SparkEffect = lazy(() => import("./components/SparkEffect"));
 const GoldShimmer = lazy(() => import("./components/GoldShimmer"));
-const PageLoadWave = lazy(() => import("./components/PageLoadWave"));
 const MobileFloatingButtons = lazy(() => import("./components/MobileFloatingButtons"));
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -76,7 +75,6 @@ const App = () => {
         <InteractiveParticles />
         <SparkEffect />
         <GoldShimmer />
-        <PageLoadWave />
         <MobileFloatingButtons />
       </Suspense>
       <BrowserRouter>

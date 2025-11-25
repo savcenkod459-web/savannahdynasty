@@ -16,15 +16,15 @@ const GoldShimmer = () => {
 
   useEffect(() => {
     const newShimmers: Shimmer[] = [];
-    // Reduce shimmers on mobile, especially low-end devices
-    const shimmerCount = isLowEnd ? 2 : isMobile ? 4 : 10;
+    // Optimized shimmer count for better performance
+    const shimmerCount = isLowEnd ? 1 : isMobile ? 2 : 5;
     for (let i = 0; i < shimmerCount; i++) {
       newShimmers.push({
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 150 + 100,
-        duration: Math.random() * 3 + 2,
+        size: Math.random() * 120 + 80,
+        duration: Math.random() * 4 + 3,
         delay: Math.random() * 5,
       });
     }

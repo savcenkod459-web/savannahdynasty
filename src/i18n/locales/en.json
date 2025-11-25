@@ -389,7 +389,9 @@
     "verifiedTitle": "Verified",
     "verifiedDesc": "All transactions verified",
     "supportTitle": "24/7 Support",
-    "supportDesc": "Round-the-clock assistance"
+    "supportDesc": "Round-the-clock assistance",
+    "copied": "Copied",
+    "copiedDescription": "Address copied to clipboard"
   },
   "pedigree": {
     "title": "Pedigree",

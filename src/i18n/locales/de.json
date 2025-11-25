@@ -380,7 +380,9 @@
     "verifiedTitle": "Verifiziert",
     "verifiedDesc": "Alle Transaktionen verifiziert",
     "supportTitle": "24/7 Support",
-    "supportDesc": "Rund-um-die-Uhr-Unterstützung"
+    "supportDesc": "Rund-um-die-Uhr-Unterstützung",
+    "copied": "Kopiert",
+    "copiedDescription": "Adresse in Zwischenablage kopiert"
   },
   "pedigree": {
     "title": "Stammbaum",

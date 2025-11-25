@@ -15,9 +15,9 @@ const ScrollAnimationWrapperComponent = ({
   delay = 0
 }: ScrollAnimationWrapperProps) => {
   const { elementRef, isVisible } = useScrollAnimation({ 
-    threshold: 0.05, // Более низкий порог для раннего запуска
+    threshold: 0.1, // Оптимизированный порог
     triggerOnce: true,
-    rootMargin: '50px' // Предзагрузка анимаций
+    rootMargin: '100px' // Ранняя предзагрузка для плавности
   });
 
   const getAnimationClass = () => {
@@ -42,7 +42,7 @@ const ScrollAnimationWrapperComponent = ({
   return (
     <div 
       ref={elementRef}
-      className={`transition-opacity duration-700 ${getAnimationClass()} ${className}`}
+      className={`transition-all duration-500 ease-out ${getAnimationClass()} ${className}`}
       style={{
         transitionDelay: `${delay}ms`,
         willChange: isVisible ? 'auto' : 'opacity, transform',

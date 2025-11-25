@@ -376,7 +376,9 @@
     "verifiedTitle": "Перевірено",
     "verifiedDesc": "Усі транзакції перевірені",
     "supportTitle": "Підтримка 24/7",
-    "supportDesc": "Цілодобова допомога"
+    "supportDesc": "Цілодобова допомога",
+    "copied": "Скопійовано",
+    "copiedDescription": "Адресу скопійовано до буфера обміну"
   },
   "pedigree": {
     "title": "Родовід",

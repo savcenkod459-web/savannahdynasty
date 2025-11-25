@@ -376,7 +376,9 @@
     "verifiedTitle": "Vérifié",
     "verifiedDesc": "Toutes les transactions vérifiées",
     "supportTitle": "Support 24/7",
-    "supportDesc": "Assistance 24 heures sur 24"
+    "supportDesc": "Assistance 24 heures sur 24",
+    "copied": "Copié",
+    "copiedDescription": "Adresse copiée dans le presse-papiers"
   },
   "pedigree": {
     "title": "Pedigree",

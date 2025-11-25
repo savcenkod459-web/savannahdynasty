@@ -48,7 +48,9 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
 
         {/* Content */}
         <div className="relative">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted border-2 border-primary/40 group-hover:border-primary/60 transition-all duration-500" style={{
+            boxShadow: '0 0 20px rgba(217, 179, 112, 0.25), 0 0 40px rgba(217, 179, 112, 0.15)',
+          }}>
             <OptimizedImage
               src={cat.image}
               alt={cat.name}

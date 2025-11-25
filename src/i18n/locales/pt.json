@@ -412,7 +412,9 @@
     "verifiedTitle": "Verificado",
     "verifiedDesc": "Todas as transações verificadas",
     "supportTitle": "Suporte 24/7",
-    "supportDesc": "Assistência 24 horas"
+    "supportDesc": "Assistência 24 horas",
+    "copied": "Copiado",
+    "copiedDescription": "Endereço copiado para a área de transferência"
   },
   "pedigree": {
     "title": "Pedigree",
