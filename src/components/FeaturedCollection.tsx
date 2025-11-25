@@ -91,7 +91,9 @@ const FeaturedCollection = () => {
         }} className="group animate-scale-in py-6 md:py-[30px]">
               <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
                 {/* Gradient border effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+                <div className="absolute inset-0 rounded-3xl border-2 border-primary/60" style={{
+                  boxShadow: '0 0 20px rgba(217, 179, 112, 0.4), inset 0 0 20px rgba(217, 179, 112, 0.1)'
+                }} />
                 <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
                 
                 {/* Content */}
