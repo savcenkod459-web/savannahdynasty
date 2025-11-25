@@ -10,10 +10,6 @@ import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 
 // Lazy load эффектов для улучшения производительности
-const GoldenParticles = lazy(() => import("./components/GoldenParticles"));
-const InteractiveParticles = lazy(() => import("./components/InteractiveParticles"));
-const SparkEffect = lazy(() => import("./components/SparkEffect"));
-const GoldShimmer = lazy(() => import("./components/GoldShimmer"));
 const MobileFloatingButtons = lazy(() => import("./components/MobileFloatingButtons"));
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -71,10 +67,6 @@ const App = () => {
       <Toaster />
       <Sonner />
       <Suspense fallback={null}>
-        <GoldenParticles />
-        <InteractiveParticles />
-        <SparkEffect />
-        <GoldShimmer />
         <MobileFloatingButtons />
       </Suspense>
       <BrowserRouter>
