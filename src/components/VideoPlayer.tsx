@@ -328,26 +328,38 @@ export const VideoPlayer = memo(({
       
       {/* Desktop: Progress bar at bottom, controls unified */}
       {/* Mobile: Centered play button */}
-      <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40">
+      <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-50 pointer-events-none">
           {/* Progress bar */}
-          <div className="mb-3">
+          <div className="mb-3 pointer-events-auto">
             <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="cursor-pointer touch-auto" />
           </div>
           
           {/* Mobile: Centered play button and fullscreen */}
-          <div className="flex md:hidden items-center justify-center gap-4">
-            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full transition-transform text-white">
+          <div className="flex md:hidden items-center justify-center gap-4 pointer-events-auto">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={togglePlay} 
+              className="hover:bg-white/20 active:scale-95 w-14 h-14 rounded-full transition-transform text-white pointer-events-auto touch-manipulation"
+              style={{ touchAction: 'manipulation' }}
+            >
               {isPlaying ? <Pause className="h-7 w-7" /> : <Play className="h-7 w-7" />}
             </Button>
-            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-12 h-12 rounded-full transition-transform text-white">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={handleFullscreen} 
+              className="hover:bg-white/20 active:scale-95 w-14 h-14 rounded-full transition-transform text-white pointer-events-auto touch-manipulation"
+              style={{ touchAction: 'manipulation' }}
+            >
               <Maximize className="h-7 w-7" />
             </Button>
           </div>
           
           {/* Desktop: Full controls row */}
-          <div className="hidden md:flex items-center gap-3 text-white">
+          <div className="hidden md:flex items-center gap-3 text-white pointer-events-auto">
             {/* Play button */}
-            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform">
+            <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform pointer-events-auto">
               {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
             </Button>
             
@@ -360,17 +372,17 @@ export const VideoPlayer = memo(({
             <div className="flex-1" />
             
             {/* Volume control */}
-            <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform">
+            <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform pointer-events-auto">
               {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
             </Button>
             
             {/* Volume slider - desktop only */}
-            <div className="w-20">
+            <div className="w-20 pointer-events-auto">
               <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="cursor-pointer" />
             </div>
             
             {/* Fullscreen button */}
-            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform">
+            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform pointer-events-auto">
               <Maximize className="h-6 w-6" />
             </Button>
           </div>
