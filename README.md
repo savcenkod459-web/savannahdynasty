@@ -2,13 +2,7 @@
 
 ## Project info
 
-**URL**: https://savannahdynasty.icloud/
-
-**Live Site**: https://savannahdynasty.icloud/
-
-**GitHub Repository**: [github.com/savcenkod459-web/savannahdynasty](https://savannahdynasty.icloud/)
-
-**GitHub Pages**: https://savannahdynasty.icloud/
+**URL**: https://lovable.dev/projects/00eaceba-15af-4d49-8177-4fdc83798826
 
 ## How can I edit this code?
 
@@ -16,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://savannahdynasty.icloud/) and start prompting.
+Simply visit the [Lovable Project](https://preview--savannahdynasty.lovable.app/) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
@@ -68,24 +62,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-### Deploy on Lovable
-
-Simply open [Lovable](https://savannahdynasty.icloud/) and click on Share -> Publish.
-
-### Deploy on GitHub Pages
-
-1. Push your code to GitHub repository
-2. Go to repository Settings → Secrets and variables → Actions
-3. Add the following secrets:
-   - `VITE_SUPABASE_URL` - your Supabase project URL
-   - `VITE_SUPABASE_PUBLISHABLE_KEY` - your Supabase anon key
-   - `VITE_SUPABASE_PROJECT_ID` - your Supabase project ID
-4. Go to repository Settings → Pages
-5. Under "Build and deployment", select "GitHub Actions" as source
-6. The site will automatically deploy on push to main branch
-7. Your site will be available at `https://savannahdynasty.icloud/`
-
-Note: The GitHub Actions workflow is already configured in `.github/workflows/deploy.yml`
+Simply open [Lovable](https://lovable.dev/projects/00eaceba-15af-4d49-8177-4fdc83798826) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
 

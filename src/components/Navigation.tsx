@@ -147,16 +147,7 @@ const Navigation = () => {
   };
 
   const isActive = (path: string) => location.pathname === path;
-   return <nav 
-    className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-3xl border-b border-primary/10"
-    style={{
-      willChange: 'transform, backdrop-filter',
-      transform: 'translateZ(0)',
-      backfaceVisibility: 'hidden',
-      WebkitBackdropFilter: 'saturate(180%) blur(80px)',
-      backdropFilter: 'saturate(180%) blur(80px)',
-    }}
-  >
+  return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-primary/10">
       <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center space-x-2 group micro-interaction ml-1">

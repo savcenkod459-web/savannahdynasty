@@ -178,10 +178,7 @@ export const VideoPlayer = memo(({
   }, [videoUrl, isOpen, isFullscreen]);
   
   const handleQualityChange = (quality: VideoQuality) => {
-    // Turn off data saver when manually changing quality
-    if (isDataSaverEnabled) {
-      toggleDataSaver();
-    }
+    if (isDataSaverEnabled) return; // Prevent manual changes in data saver mode
     
     // Just update the quality setting (video source stays the same)
     setCurrentQuality(quality);
@@ -190,10 +187,7 @@ export const VideoPlayer = memo(({
   };
   
   const toggleAutoQuality = () => {
-    // Turn off data saver when enabling auto quality
-    if (isDataSaverEnabled) {
-      toggleDataSaver();
-    }
+    if (isDataSaverEnabled) return; // Prevent auto quality in data saver mode
     
     setIsAutoQuality(!isAutoQuality);
     if (!isAutoQuality) {
@@ -303,10 +297,8 @@ export const VideoPlayer = memo(({
               controlsList="nodownload"
               disablePictureInPicture={false}
               style={{
-                willChange: 'transform, opacity',
+                willChange: 'transform',
                 transform: 'translateZ(0)',
-                backfaceVisibility: 'hidden',
-                perspective: 1000,
               }}
             >
               <source src={currentVideoUrl} type={getVideoType(currentVideoUrl)} />
@@ -314,11 +306,8 @@ export const VideoPlayer = memo(({
             </video>
 
             {/* Loading spinner */}
-            {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-20">
-                <div className="flex flex-col items-center gap-3">
-                  <Loader2 className="h-12 w-12 text-white animate-spin" />
-                  <p className="text-white text-sm">Загрузка видео...</p>
-                </div>
+            {isLoading && <div className="absolute inset-0 flex items-center justify-center">
+                <Loader2 className="h-12 w-12 text-white animate-spin" />
               </div>}
 
             {/* Video controls */}
@@ -371,10 +360,25 @@ export const VideoPlayer = memo(({
                       
                       {showQualityMenu && (
                         <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[160px]">
+                          <div className="text-xs text-white/70 px-2 py-1 mb-1">Настройки</div>
+                          
+                          {/* Data Saver Toggle */}
+                          <button
+                            onClick={toggleDataSaver}
+                            className={`w-full text-left px-2 py-1.5 text-sm rounded mb-1 ${
+                              isDataSaverEnabled ? 'bg-blue-500/20 text-blue-400' : 'text-white hover:bg-white/10'
+                            }`}
+                          >
+                            🔋 Экономия данных
+                          </button>
+                          
+                          <div className="h-px bg-white/10 my-1" />
                           
                           <button
                             onClick={toggleAutoQuality}
+                            disabled={isDataSaverEnabled}
                             className={`w-full text-left px-2 py-1.5 text-sm rounded ${
+                              isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                               isAutoQuality ? 'bg-primary/20 text-primary' : 'text-white hover:bg-white/10'
                             }`}
                           >
@@ -385,7 +389,9 @@ export const VideoPlayer = memo(({
                             <button
                               key={quality}
                               onClick={() => handleQualityChange(quality)}
+                              disabled={isDataSaverEnabled}
                               className={`w-full text-left px-2 py-1.5 text-sm rounded ${
+                                isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                                 currentQuality === quality && !isAutoQuality
                                   ? 'bg-primary/20 text-primary'
                                   : 'text-white hover:bg-white/10'
@@ -421,16 +427,15 @@ export const VideoPlayer = memo(({
         src={currentVideoUrl}
         className="w-full h-full object-contain rounded-lg" 
         preload={isDataSaverEnabled ? "none" : (isSlowConnection ? "metadata" : "auto")}
-        playsInline 
+        playsInline
         onClick={togglePlay}
         x-webkit-airplay="allow"
         controlsList="nodownload"
         disablePictureInPicture={false}
         style={{
-          willChange: 'transform, opacity',
+          willChange: 'transform',
           transform: 'translateZ(0)',
           backfaceVisibility: 'hidden',
-          perspective: 1000,
         }}
       >
         <source src={currentVideoUrl} type={getVideoType(currentVideoUrl)} />
@@ -438,11 +443,8 @@ export const VideoPlayer = memo(({
       </video>
 
       {/* Loading spinner */}
-      {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-20">
-          <div className="flex flex-col items-center gap-2">
-            <Loader2 className="h-8 w-8 text-white animate-spin" />
-            <p className="text-white text-xs">Загрузка...</p>
-          </div>
+      {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30 z-20">
+          <Loader2 className="h-8 w-8 text-white animate-spin" />
         </div>}
       
       {/* Desktop: Progress bar at bottom, controls unified */}
@@ -512,10 +514,25 @@ export const VideoPlayer = memo(({
               
               {showQualityMenu && (
                 <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[160px] border border-white/10">
+                  <div className="text-xs text-white/70 px-2 py-1 mb-1">Настройки</div>
+                  
+                  {/* Data Saver Toggle */}
+                  <button
+                    onClick={toggleDataSaver}
+                    className={`w-full text-left px-2 py-1.5 text-sm rounded mb-1 transition-colors ${
+                      isDataSaverEnabled ? 'bg-blue-500/20 text-blue-400' : 'text-white hover:bg-white/10'
+                    }`}
+                  >
+                    🔋 Экономия данных
+                  </button>
+                  
+                  <div className="h-px bg-white/10 my-1" />
                   
                   <button
                     onClick={toggleAutoQuality}
+                    disabled={isDataSaverEnabled}
                     className={`w-full text-left px-2 py-1.5 text-sm rounded transition-colors ${
+                      isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                       isAutoQuality ? 'bg-primary/20 text-primary' : 'text-white hover:bg-white/10'
                     }`}
                   >
@@ -526,7 +543,9 @@ export const VideoPlayer = memo(({
                     <button
                       key={quality}
                       onClick={() => handleQualityChange(quality)}
+                      disabled={isDataSaverEnabled}
                       className={`w-full text-left px-2 py-1.5 text-sm rounded transition-colors ${
+                        isDataSaverEnabled ? 'opacity-50 cursor-not-allowed' :
                         currentQuality === quality && !isAutoQuality
                           ? 'bg-primary/20 text-primary'
                           : 'text-white hover:bg-white/10'
