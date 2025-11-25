@@ -96,35 +96,38 @@ const FeaturedCollection = () => {
                 
                 {/* Content */}
                 <div className="relative">
-                  <div className="relative rounded-t-3xl p-[2px] bg-gradient-to-br from-primary via-accent to-primary" style={{
-                    boxShadow: '0 0 30px rgba(217, 179, 112, 0.5), 0 0 50px rgba(217, 179, 112, 0.3)'
-                  }}>
-                    <div 
-                      className="relative aspect-[3/4] overflow-hidden rounded-[1.4rem] cursor-pointer bg-muted transition-all duration-500"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openGallery(cat.image, cat.additional_images);
-                      }}
-                    >
-                      <img 
-                        src={cat.image} 
-                        alt={cat.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      {/* Gradient overlay on hover - softer colors */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      {/* Crown icon with LuxuryCats text */}
-                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 flex items-center gap-3">
-                        <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">SavannahDynasty</span>
-                        <div className="relative">
-                          <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
-                        </div>
+                  <div
+                    className="relative aspect-[3/4] overflow-hidden rounded-t-3xl cursor-pointer bg-muted border-2 border-primary/80 group-hover:border-primary transition-all duration-500"
+                    style={{
+                      boxShadow:
+                        '0 0 30px rgba(217, 179, 112, 0.5), 0 0 50px rgba(217, 179, 112, 0.3)',
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openGallery(cat.image, cat.additional_images);
+                    }}
+                  >
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                    {/* Gradient overlay on hover - softer colors */}
+                    <div className="absolute inset-[2px] bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    {/* Crown icon with LuxuryCats text */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 flex items-center gap-3">
+                      <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">SavannahDynasty</span>
+                      <div className="relative">
+                        <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                       </div>
-                      {/* Bottom gradient fade */}
-                      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
                     </div>
+
+                    {/* Bottom gradient fade */}
+                    <div className="absolute left-[2px] right-[2px] bottom-[2px] h-32 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
                   </div>
                   
                   <div className="p-4 md:p-6 space-y-4 md:space-y-5 py-6 md:py-[30px]">
