@@ -7,7 +7,7 @@ import viteImagemin from 'vite-plugin-imagemin';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/savannahdynasty/',
+  base: '/',
   server: {
     host: "::",
     port: 8080,
