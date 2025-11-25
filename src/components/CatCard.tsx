@@ -59,7 +59,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
             />
 
             {/* Gradient overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-[2px] bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Crown icon with glow */}
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
@@ -76,7 +76,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
             </div>
 
             {/* Bottom gradient fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
+            <div className="absolute left-[2px] right-[2px] bottom-[2px] h-32 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
           </div>
 
           <div className="p-6 space-y-5 py-[30px]">
