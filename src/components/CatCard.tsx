@@ -43,8 +43,12 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
         }}
       >
         {/* Gradient border effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
-        <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
+        <div className="absolute inset-0 rounded-3xl" style={{
+          background: 'linear-gradient(to bottom right, hsl(var(--primary) / 0.6), hsl(var(--accent) / 0.6), hsl(var(--primary) / 0.6))',
+          padding: '2px'
+        }}>
+          <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
+        </div>
 
         {/* Content */}
         <div className="relative">
