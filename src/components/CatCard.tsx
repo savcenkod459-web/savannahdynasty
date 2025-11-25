@@ -48,13 +48,9 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
 
         {/* Content */}
         <div className="relative">
-          <div
-            className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted border-2 border-primary/80 group-hover:border-primary transition-all duration-500"
-            style={{
-              boxShadow:
-                '0 0 30px rgba(217, 179, 112, 0.5), 0 0 50px rgba(217, 179, 112, 0.3)',
-            }}
-          >
+          <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted border-2 border-primary/40 group-hover:border-primary/60 transition-all duration-500" style={{
+            boxShadow: '0 0 20px rgba(217, 179, 112, 0.25), 0 0 40px rgba(217, 179, 112, 0.15)',
+          }}>
             <OptimizedImage
               src={cat.image}
               alt={cat.name}
@@ -63,7 +59,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
             />
 
             {/* Gradient overlay on hover */}
-            <div className="absolute inset-[2px] bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Crown icon with glow */}
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
@@ -80,7 +76,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
             </div>
 
             {/* Bottom gradient fade */}
-            <div className="absolute left-[2px] right-[2px] bottom-[2px] h-32 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
           </div>
 
           <div className="p-6 space-y-5 py-[30px]">
