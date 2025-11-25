@@ -48,35 +48,37 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
 
         {/* Content */}
         <div className="relative">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted border-2 border-primary/60 group-hover:border-primary/80 transition-all duration-500" style={{
-            boxShadow: '0 0 30px rgba(217, 179, 112, 0.5), 0 0 50px rgba(217, 179, 112, 0.3), inset 0 0 20px rgba(217, 179, 112, 0.1)',
+          <div className="relative rounded-t-3xl p-[2px] bg-gradient-to-br from-primary via-accent to-primary" style={{
+            boxShadow: '0 0 30px rgba(217, 179, 112, 0.5), 0 0 50px rgba(217, 179, 112, 0.3)'
           }}>
-            <OptimizedImage
-              src={cat.image}
-              alt={cat.name}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              lowQualitySrc={cat.image}
-            />
+            <div className="relative aspect-[3/4] overflow-hidden rounded-[1.4rem] bg-muted transition-all duration-500">
+              <OptimizedImage
+                src={cat.image}
+                alt={cat.name}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                lowQualitySrc={cat.image}
+              />
 
-            {/* Gradient overlay on hover */}
-            <div className="absolute inset-[2px] bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            {/* Crown icon with glow */}
-            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
-              <div className="relative">
-                <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
+              {/* Crown icon with glow */}
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
+                <div className="relative">
+                  <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
+                </div>
               </div>
-            </div>
 
-            {/* Breed tag with glass effect */}
-            <div className="absolute top-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105">
-              <span className="px-4 py-1.5 bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs rounded-full font-bold uppercase tracking-wider shadow-lg backdrop-blur-sm border border-white/20">
-                {cat.breed}
-              </span>
-            </div>
+              {/* Breed tag with glass effect */}
+              <div className="absolute top-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105">
+                <span className="px-4 py-1.5 bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs rounded-full font-bold uppercase tracking-wider shadow-lg backdrop-blur-sm border border-white/20">
+                  {cat.breed}
+                </span>
+              </div>
 
-            {/* Bottom gradient fade */}
-            <div className="absolute left-[2px] right-[2px] bottom-[2px] h-32 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+              {/* Bottom gradient fade */}
+              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+            </div>
           </div>
 
           <div className="p-6 space-y-5 py-[30px]">
